@@ -1,22 +1,33 @@
 import json
+import numpy as np
 
-# open a json file as input
+# Open json file
 f = open('Study.json')
-# open a test file for output
-file = open('test-0.0.3.txt', 'a')
+# Open text document
+file = open('test-0.0.4.txt', 'a')
 
-# read/load the data from the json file
+# load Data from json
 data = json.load(f)
-# extracting the properties
+# Only properties are needed
 properties = data['properties']
 
-# iterate through the data a write it to the output-file
+# Allowed data types
+allowedTypes = ["boolean", "string"]
+
+# Every property
 for prop in properties:
+    # current property
     property = properties[prop]
+    # Description
     description = property['description']
+    # Type
     type = property['type']
-    file.write(prop+"\n"+"description: "+description+"\n"+"type: "+str(type)+"\n\n")
-        
-# close the files
+    
+    # Checking if property has allowed data types
+    boolean_mask = np.nonzero(np.isin(allowedTypes, type))[0]    
+    if len(boolean_mask):
+        file.write(prop+"\n"+"description: "+description+"\n"+"type: "+str(type[1])+"\n\n")
+
+# close the files  
 file.close()
 f.close()
