@@ -7,16 +7,17 @@ import convertAPI
 #   Main code
 # If not 3 arguments are given throw an error
 if len(sys.argv) != 3:
-    raise Exception("Use: python convert.py [input file] [output folder]")
+    raise Exception("Use: python convert.py [input path] [output path]")
 else:
-    # Load the content of the json file
-    input_file = convertAPI.read_json(sys.argv[1])
-    # Path, were the output file should be stored / placed
-    output_path = sys.argv[2]
-    # Get name of the input file and set it as filename for the output
-    output_filename = sys.argv[1][sys.argv[1].rfind("\\"):]
-
-    # Get properties with Zendro compatible datatype from the input file
-    properties = convertAPI.get_data(input_file)
-    # Write the properties to a json output file
-    convertAPI.write_json(output_path, output_filename, properties)
+    input_files = convertAPI.setup_hierarchy(sys.argv[1], sys.argv[2])
+    for file in input_files:
+        # Load the content of the json file
+        json_file = convertAPI.read_json(file)
+        # Filename of the output file
+        output_filename = file[file.rfind("\\"):]
+        # Generate data for the output file
+        output_file = convertAPI.get_data(json_file)
+        # Set Path for the output file
+        output_path = file.replace(sys.argv[1], sys.argv[2])
+        # Write the output file
+        convertAPI.write_json(output_path, output_file)
