@@ -1,0 +1,74 @@
+{
+    "abbreviation": {
+        "description": "An abbreviation which represents this location",
+        "type": "String"
+    },
+    "coordinateDescription": {
+        "description": "Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)",
+        "type": "String"
+    },
+    "coordinateUncertainty": {
+        "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
+        "type": "String"
+    },
+    "countryCode": {
+        "description": "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec\n<br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'",
+        "type": "String"
+    },
+    "countryName": {
+        "description": "The full name of the country where this location is\n<br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.",
+        "type": "String"
+    },
+    "documentationURL": {
+        "description": "A URL to the human readable documentation of this object",
+        "type": "String"
+    },
+    "environmentType": {
+        "description": "Describes the general type of environment of the location. (ex. forest, field, nursery, etc)",
+        "type": "String"
+    },
+    "exposure": {
+        "description": "Describes the level of protection/exposure for things like sun light and wind.",
+        "type": "String"
+    },
+    "instituteAddress": {
+        "description": "The street address of the institute representing this location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.",
+        "type": "String"
+    },
+    "instituteName": {
+        "description": "Each institute/laboratory can have several experimental field\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.",
+        "type": "String"
+    },
+    "locationDbId": {
+        "description": "The unique identifier for a Location",
+        "type": "String"
+    },
+    "locationName": {
+        "description": "A human readable name for a location\n<br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.",
+        "type": "String"
+    },
+    "locationType": {
+        "description": "The type of location this represents (ex. Field Station, Breeding Location, Storage Location, etc)",
+        "type": "String"
+    },
+    "parentLocationDbId": {
+        "description": "The unique identifier for a Location\n<br/> The Parent Location defines the encompassing location that this location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
+        "type": "String"
+    },
+    "parentLocationName": {
+        "description": "A human readable name for a location\n<br/> The Parent Location defines the encompassing location that this location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
+        "type": "String"
+    },
+    "siteStatus": {
+        "description": "Description of the accessibility of the location (ex. Public, Private)",
+        "type": "String"
+    },
+    "slope": {
+        "description": "Describes the approximate slope (height/distance) of the location.",
+        "type": "String"
+    },
+    "topography": {
+        "description": "Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)",
+        "type": "String"
+    }
+}
