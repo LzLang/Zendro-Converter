@@ -14,7 +14,7 @@ A script to convert data from BrAPI to Zendro-API
 ---
 
 ## 13.06.2023
-Goal: Working on a workaround for `get_data` to consider properties, that have no `description`
+### Goal: Working on a workaround for `get_data` to consider properties, that have no `description`
 
 Reality: Reworked the `Readme.md` for a better readability
 - Splitted the `Readme.md` into different sections
@@ -24,6 +24,8 @@ Reality: Reworked the `Readme.md` for a better readability
 
 ## 12.06.2023
 ### 1. Goal: Automatic walkign through an input path and generating a corresponding hierarchy in the output path
+
+Call: `python convert.py "..\BrAPI_JSON_Schema_2-1\schemas" "..\results"`
 - Implemented `setup_hierarchy(input_path, output_path)` into convertAPI
 	- `input_path`<br />Path to the input hierarchy, that sould be walked through
 	- `output_path`<br />Path to the output hierarchy, where the input hiearchy should be created and where the files should be stored
