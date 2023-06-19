@@ -1,0 +1,30 @@
+{
+    "crossDbId": {
+        "description": "the unique identifier for a cross",
+        "type": "String"
+    },
+    "crossName": {
+        "description": "the human readable name for a cross",
+        "type": "String"
+    },
+    "crossType": {
+        "description": "the type of cross",
+        "type": "String"
+    },
+    "crossingProjectDbId": {
+        "description": "the unique identifier for a crossing project",
+        "type": "String"
+    },
+    "crossingProjectName": {
+        "description": "the human readable name for a crossing project",
+        "type": "String"
+    },
+    "plannedCrossDbId": {
+        "description": "the unique identifier for a planned cross",
+        "type": "String"
+    },
+    "plannedCrossName": {
+        "description": "the human readable name for a planned cross",
+        "type": "String"
+    }
+}

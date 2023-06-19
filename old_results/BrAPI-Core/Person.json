@@ -1,0 +1,38 @@
+{
+    "description": {
+        "description": "description of this person",
+        "type": "String"
+    },
+    "emailAddress": {
+        "description": "email address for this person",
+        "type": "String"
+    },
+    "firstName": {
+        "description": "Persons first name",
+        "type": "String"
+    },
+    "lastName": {
+        "description": "Persons last name",
+        "type": "String"
+    },
+    "mailingAddress": {
+        "description": "physical address of this person",
+        "type": "String"
+    },
+    "middleName": {
+        "description": "Persons middle name",
+        "type": "String"
+    },
+    "personDbId": {
+        "description": "Unique ID for a person",
+        "type": "String"
+    },
+    "phoneNumber": {
+        "description": "phone number of this person",
+        "type": "String"
+    },
+    "userID": {
+        "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.",
+        "type": "String"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "callSetDbId": {
+        "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.",
+        "type": "String"
+    },
+    "callSetName": {
+        "description": "The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.",
+        "type": "String"
+    },
+    "genotypeValue": {
+        "description": "The value of this genotype call",
+        "type": "String"
+    },
+    "phaseSet": {
+        "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
+        "type": "String"
+    },
+    "variantDbId": {
+        "description": "The ID of the variant this call belongs to.",
+        "type": "String"
+    },
+    "variantName": {
+        "description": "The name of the variant this call belongs to.",
+        "type": "String"
+    },
+    "variantSetDbId": {
+        "description": "The unique identifier for a VariantSet",
+        "type": "String"
+    },
+    "variantSetName": {
+        "description": "The human readable name for a VariantSet",
+        "type": "String"
+    }
+}

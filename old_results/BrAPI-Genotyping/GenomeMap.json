@@ -1,0 +1,50 @@
+{
+    "comments": {
+        "description": "Additional comments about a `GenomeMap`",
+        "type": "String"
+    },
+    "commonCropName": {
+        "description": "The common name of the `Crop`",
+        "type": "String"
+    },
+    "documentationURL": {
+        "description": "A URL to the human readable documentation of this object",
+        "type": "String"
+    },
+    "linkageGroupCount": {
+        "description": "The number of linkage groups present in a `GenomeMap`",
+        "type": "Int"
+    },
+    "mapDbId": {
+        "description": "The ID which uniquely identifies a `GenomeMap`",
+        "type": "String"
+    },
+    "mapName": {
+        "description": "A human readable name for a `GenomeMap`",
+        "type": "String"
+    },
+    "mapPUI": {
+        "description": "The DOI or other permanent identifier for a `GenomeMap`",
+        "type": "String"
+    },
+    "markerCount": {
+        "description": "The number of markers present in a `GenomeMap`",
+        "type": "Int"
+    },
+    "publishedDate": {
+        "description": "The date this `GenomeMap` was published",
+        "type": "String"
+    },
+    "scientificName": {
+        "description": "Full scientific binomial format name. This includes Genus, Species, and Sub-species",
+        "type": "String"
+    },
+    "type": {
+        "description": "The type of map this represents, usually \"Genetic\" or \"Physical\"",
+        "type": "String"
+    },
+    "unit": {
+        "description": "The units used to describe the data in a `GenomeMap`",
+        "type": "String"
+    }
+}

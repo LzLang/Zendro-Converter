@@ -1,0 +1,82 @@
+{
+    "column": {
+        "description": "The Column identifier for this `Sample` location in the `Plate`",
+        "type": "Int"
+    },
+    "germplasmDbId": {
+        "description": "The ID which uniquely identifies a `Germplasm`",
+        "type": "String"
+    },
+    "observationUnitDbId": {
+        "description": "The ID which uniquely identifies an `ObservationUnit`",
+        "type": "String"
+    },
+    "plateDbId": {
+        "description": "The ID which uniquely identifies a `Plate` of `Sample`",
+        "type": "String"
+    },
+    "plateName": {
+        "description": "The human readable name of a `Plate`",
+        "type": "String"
+    },
+    "programDbId": {
+        "description": "The ID which uniquely identifies a `Program` within the given database server",
+        "type": "String"
+    },
+    "row": {
+        "description": "The Row identifier for this `Sample` location in the `Plate`",
+        "type": "String"
+    },
+    "sampleBarcode": {
+        "description": "A unique identifier physically attached to the `Sample`",
+        "type": "String"
+    },
+    "sampleDbId": {
+        "description": "The ID which uniquely identifies a `Sample`\n<br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.",
+        "type": "String"
+    },
+    "sampleDescription": {
+        "description": "Description of a `Sample`\n<br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.",
+        "type": "String"
+    },
+    "sampleGroupDbId": {
+        "description": "The ID which uniquely identifies a group of `Samples`",
+        "type": "String"
+    },
+    "sampleName": {
+        "description": "The human readable name of the `Sample`",
+        "type": "String"
+    },
+    "samplePUI": {
+        "description": "A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc)\n<br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. ",
+        "type": "String"
+    },
+    "sampleTimestamp": {
+        "description": "The date and time a `Sample` was collected from the field\n<br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested",
+        "type": "String"
+    },
+    "sampleType": {
+        "description": "The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc",
+        "type": "String"
+    },
+    "studyDbId": {
+        "description": "The ID which uniquely identifies a `Study` within the given database server",
+        "type": "String"
+    },
+    "takenBy": {
+        "description": "The name or identifier of the entity which took the `Sample` from the field",
+        "type": "String"
+    },
+    "tissueType": {
+        "description": "The type of tissue sampled. ex. 'Leaf', 'Root', etc.\n<br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).",
+        "type": "String"
+    },
+    "trialDbId": {
+        "description": "The ID which uniquely identifies a `Trial` within the given database server",
+        "type": "String"
+    },
+    "well": {
+        "description": "The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`.",
+        "type": "String"
+    }
+}
