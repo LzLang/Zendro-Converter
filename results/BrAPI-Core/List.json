@@ -34,5 +34,8 @@
     "listSource": {
         "description": "The description of where a List originated from",
         "type": "String"
+    },
+    "listType": {
+        "type": "String"
     }
 }
