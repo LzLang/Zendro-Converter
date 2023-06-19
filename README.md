@@ -8,8 +8,64 @@ A script to convert data from BrAPI to Zendro-API
 - [ ] Documentation still needed
 - [ ] Further testing
 - [ ] Rework `get_data` to consider properties, that have no `description`
+	- [x] Properties with no `description` are considered
+	- [ ] Nested properties are not skipped, if outer propertie has no compatible type
 - [ ] Rework the Readme.md
 	- [ ] Creating a example of how the code works
+
+---
+
+## 19.06.2023
+### Goal: Reworking `get_data(file_data)` to solve the no description problem
+
+`get_data` now walks recursive through a dictionary and returns the compatible properties.
+```
+def get_data(file_data):
+    """
+    From the passed data the properties are extracted.
+    :param file_data: Data from a json file (a dictionary)
+    :return: Properties with a compatible type to Zendro
+    """
+
+    data = {}
+    # walk through the items of the dictionary
+    for key, value in file_data.items():
+        if key.lower() == 'description':
+            data[key] = value
+        elif key.lower() == 'type':
+            zendro_type = get_type(value)
+            # if the properties has no compatible type it is not needed therefore None is returned
+            # otherwise the zendro type is assigned
+            if zendro_type is None:
+                return None
+            data[key] = zendro_type
+        # if the current item is itself a dictionary than call itself with the dictionary
+        elif type(value) is dict:
+            data[key] = get_data(value)
+    return data
+```
+
+Observation: Even properties that has no description are returned.
+Newe problem: If it is a nested propertie and the outer part has no compatible type, the whole propertie is skipped.
+Example:
+```
+"additionalInfo": {
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Additional arbitrary info",
+            "type": [
+                "null",
+                "object"
+            ]
+        },
+```
+
+`additionalInfo` is currently skipped because itself has no compatible type, but the nested propertie `additionalProperties` has a compatible type.
+
+Solution: Only skip the outer type and still use the inner type or use as type `none` if no compatible type is found.
+
+I have to talk with my superior about this problem and the desired solution.
 
 ---
 
