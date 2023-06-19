@@ -70,23 +70,25 @@ def create_output_hierarchy(output_path, hierarchy):
 def get_data(file_data):
     """
     From the passed data the properties are extracted.
-    :param file_data: Data from a json file
+    :param file_data: Data from a json file (a dictionary)
     :return: Properties with a compatible type to Zendro
     """
 
     data = {}
+    # walk through the items of the dictionary
     for key, value in file_data.items():
         if key.lower() == 'description':
             data[key] = value
         elif key.lower() == 'type':
             zendro_type = get_type(value)
+            # if the properties has no compatible type it is not needed therefore None is returned
+            # otherwise the zendro type is assigned
             if zendro_type is None:
                 return None
             data[key] = zendro_type
+        # if the current item is itself a dictionary than call itself with the dictionary
         elif type(value) is dict:
             data[key] = get_data(value)
-        else:
-            continue
     return data
 
 
