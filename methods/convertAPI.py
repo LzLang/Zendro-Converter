@@ -74,19 +74,20 @@ def get_data(file_data):
     :return: Properties with a compatible type to Zendro
     """
 
-    properties = file_data['properties']
-    properties_data = {}
-    for current_property in properties:
-        property_type = get_type(properties[current_property]['type'])
-        if property_type is None:
+    data = {}
+    for key, value in file_data.items():
+        if key.lower() == 'description':
+            data[key] = value
+        elif key.lower() == 'type':
+            zendro_type = get_type(value)
+            if zendro_type is None:
+                return None
+            data[key] = zendro_type
+        elif type(value) is dict:
+            data[key] = get_data(value)
+        else:
             continue
-        if not 'description' in properties[current_property]:
-            continue
-        properties_data[current_property] = {
-            'description': properties[current_property]['description'],
-            'type': property_type
-        }
-    return properties_data
+    return data
 
 
 def get_type(types):
@@ -113,7 +114,7 @@ def read_json(file):
     try:
         # Open file and load json content
         with open(file, "r") as json_file:
-            data = json.load(json_file)
+            data = json.load(json_file)['properties']
             return data
     except OSError as error:
         log("Couldn't open file: " + file + "\tError: " + str(error))
@@ -147,7 +148,7 @@ def log(msg):
         # Get current date and time and write this with the message to the log file
         with open("Log.txt", "a") as file:
             current_time = datetime.now().strftime("%H:%M:%S")
-            file.write(str(date.today()) + " - " + current_time + ":\t" + msg + "\n")
+            file.write(f"{str(date.today())} - {current_time}:\t{msg}\n")
     except OSError as error:
         # Prints the occurred error
         print(error)
