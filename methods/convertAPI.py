@@ -88,7 +88,9 @@ def get_data(file_data):
             data[key] = zendro_type
         # if the current item is itself a dictionary than call itself with the dictionary
         elif type(value) is dict:
-            data[key] = get_data(value)
+            returned_data = get_data(value)
+            if returned_data:
+                data[key] = returned_data
     return data
 
 
