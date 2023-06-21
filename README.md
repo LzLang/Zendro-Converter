@@ -1,7 +1,7 @@
 # Zendro-Converter
 A script to convert data from BrAPI to Zendro-API
 ## ToDo:
-- [ ] Testing with different/other files
+- [x] Testing with different/other files
 - [ ] Checking if output is correct or if properties are missing
 - [x] Writing a function, that goes through the file system/directories and read the JSON-files automtically
 - [x] Writing a function, that creates a corresponding file system/directories ibn the output folder
@@ -15,6 +15,34 @@ A script to convert data from BrAPI to Zendro-API
 
 ---
 
+## 21.06.2023
+### Goal: Writing a Unit-Test
+
+Created the Unit-Test [Test_Food](BrAPI_JSON_Schema_2-1/Test_Food.json) with an [expected output](results/Test_Food_expected.json) and a [generated output](old_results/Test_Food_old.json).
+
+Observation: The generated output is not the same as the expected one. The property `HotDog` still have the item `toppings` even though it's empty.
+
+Solution: If returned dictionary is empty, than don't include it. Therefore modified `get_data`:
+
+From:
+```
+elif type(value) is dict:
+	data[key] = get_data(value)
+```
+
+To:
+```
+elif type(value) is dict:
+	returned_data = get_data(value)
+	if returned_data:
+		data[key] = returned_data
+```
+
+Observation: [Generated output](results/Test_Food.json) is now identicall to the [expected output](results/Test_Food_expected.json).
+
+Therefor the problem is solved.
+
+---
 ## 19.06.2023
 ### Goal: Reworking `get_data(file_data)` to solve the no description problem
 
