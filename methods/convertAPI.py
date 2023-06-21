@@ -36,7 +36,7 @@ def setup_hierarchy(input_path, output_path):
     for root, dir, files in os.walk(input_path):
         for filename in files:
             # Only json files are needed
-            if '.json' in filename.lower():
+            if os.path.splitext(filename)[1].lower() == '.json':
                 # Append the file
                 input_files.append(os.path.join(root, filename))
                 # Current / relative path to the file fpr output hierarchy
