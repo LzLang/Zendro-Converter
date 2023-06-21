@@ -1,0 +1,44 @@
+{
+	"properties": {
+		"Hamburger": {
+			"description": "Is a food consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll.",
+			"source": "https://en.wikipedia.org/wiki/Hamburger",
+			"type": "string"
+		},
+		"HotDog": {
+			"description": "Is a food consisting of a grilled or steamed sausage served in the slit of a partially sliced bun.",
+			"source": "https://en.wikipedia.org/wiki/Hot_dog",
+			"toppings": {
+				"Mustard": ["yes", "no"],
+				"Ketchup": ["yes", "no"],
+				"Onions": ["yes", "no"],
+				"Chili": ["yes", "no"],
+				"Relish": ["yes", "no"],
+				"Sauerkraut": ["yes", "no"],
+				"Jalapeno": ["yes", "no"]
+			},
+			"type": "string"
+		},
+		"ApplePie": {
+			"description": "Is a fruit pie in which the principal filling ingredient is apples",
+			"source": "https://en.wikipedia.org/wiki/Apple_pie",
+			"type": [
+                "null",
+                "boolean"
+            ]
+		},
+		"Pizza": {
+			"description": "Is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven.",
+			"source": "https://en.wikipedia.org/wiki/Pizza",
+			"type": [
+                "null",
+                "array"
+            ]
+		},
+		"Doughnut": {
+			"description": "Is a type of food made from leavened fried dough.",
+			"source": "https://en.wikipedia.org/wiki/Doughnut",
+			"type": "object"
+		}
+	}
+}
