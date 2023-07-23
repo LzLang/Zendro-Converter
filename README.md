@@ -15,6 +15,36 @@ A script to convert data from BrAPI to Zendro-API
 
 ---
 
+## 15.07.2023
+### Goal: Understanding of command line arguments
+Trying to understand [Issue 5 (Include model name and storage type in Zendro model definitions)](/../../issues/5) and implement it.
+
+Observation: Working with command line arguments is quite easy, but still need to understand how to use e.g. "Help" or give a hint to the user.
+
+Example of [Study](results/BrAPI-Core/Study.json):
+```json
+{
+    "model": "Study",
+    "storageType": "sql",
+    "attributes": {
+        "primary_id": "Int",
+        "active": {
+            "description": "Is this study currently active",
+            "type": "Boolean"
+        },
+        "commonCropName": {
+            "description": "Common name for the crop associated with this study",
+            "type": "String"
+        },
+        "culturalPractices": {
+            "description": "MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.",
+            "type": "String"
+        }
+}
+```
+
+---
+
 ## 21.06.2023
 ### Goal: Writing a Unit-Test
 
@@ -25,13 +55,13 @@ Observation: The generated output is not the same as the expected one. The prope
 Solution: If returned dictionary is empty, than don't include it. Therefore modified `get_data`:
 
 From:
-```
+```python
 elif type(value) is dict:
 	data[key] = get_data(value)
 ```
 
 To:
-```
+```python
 elif type(value) is dict:
 	returned_data = get_data(value)
 	if returned_data:
@@ -47,7 +77,7 @@ Therefor the problem is solved.
 ### Goal: Reworking `get_data(file_data)` to solve the no description problem
 
 `get_data` now walks recursive through a dictionary and returns the compatible properties.
-```
+```python
 def get_data(file_data):
     """
     From the passed data the properties are extracted.
@@ -76,7 +106,7 @@ def get_data(file_data):
 Observation: Even properties that has no description are returned.
 Newe problem: If it is a nested propertie and the outer part has no compatible type, the whole propertie is skipped.
 Example:
-```
+```json
 "additionalInfo": {
             "additionalProperties": {
                 "type": "string"
@@ -129,7 +159,7 @@ Observation: Receiving an error `'description': properties[current_property]['de
 Solution: Noticed that some json files have a different structur.
 
 `documentationURL` from `List.json`
-```
+```json
 "documentationURL": {
 	"description": "A URL to the human readable documentation of this object",
         "format": "uri",
@@ -141,7 +171,7 @@ Solution: Noticed that some json files have a different structur.
 ```
 
 `externalReferences` from `List.json`
-```
+```json
 "externalReferences": {
 	"description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
         "items": {
