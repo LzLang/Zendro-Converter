@@ -1,41 +1,17 @@
 {
-    "dateCreated": {
-        "description": "Timestamp when the entity was first created",
-        "type": "String"
-    },
-    "dateModified": {
-        "description": "Timestamp when the entity was last updated",
-        "type": "String"
-    },
-    "listDbId": {
-        "description": "The unique identifier for a List",
-        "type": "String"
-    },
-    "listDescription": {
-        "description": "Description of a List",
-        "type": "String"
-    },
-    "listName": {
-        "description": "Human readable name of a List",
-        "type": "String"
-    },
-    "listOwnerName": {
-        "description": "Human readable name of a List Owner. (usually a user or person)",
-        "type": "String"
-    },
-    "listOwnerPersonDbId": {
-        "description": "The unique identifier for a List Owner. (usually a user or person)",
-        "type": "String"
-    },
-    "listSize": {
-        "description": "The number of elements in a List",
-        "type": "Int"
-    },
-    "listSource": {
-        "description": "The description of where a List originated from",
-        "type": "String"
-    },
-    "listType": {
-        "type": "String"
+    "model": "List",
+    "storageType": "sql",
+    "attributes": {
+        "List_id": "Int",
+        "dateCreated": "String",
+        "dateModified": "String",
+        "listDbId": "String",
+        "listDescription": "String",
+        "listName": "String",
+        "listOwnerName": "String",
+        "listOwnerPersonDbId": "String",
+        "listSize": "Int",
+        "listSource": "String",
+        "listType": "String"
     }
 }

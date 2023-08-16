@@ -1,34 +1,15 @@
 {
-    "plateBarcode": {
-        "description": "A unique identifier physically attached to a `Plate`",
-        "type": "String"
-    },
-    "plateDbId": {
-        "description": "The ID which uniquely identifies a `Plate`",
-        "type": "String"
-    },
-    "plateFormat": {
-        "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format",
-        "type": "String"
-    },
-    "plateName": {
-        "description": "A human readable name for a `Plate`",
-        "type": "String"
-    },
-    "programDbId": {
-        "description": "The ID which uniquely identifies a `Program` within the given database server",
-        "type": "String"
-    },
-    "sampleType": {
-        "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc",
-        "type": "String"
-    },
-    "studyDbId": {
-        "description": "The ID which uniquely identifies a `Study` within the given database server",
-        "type": "String"
-    },
-    "trialDbId": {
-        "description": "The ID which uniquely identifies a `Trial` within the given database server",
-        "type": "String"
+    "model": "Plate",
+    "storageType": "sql",
+    "attributes": {
+        "Plate_id": "Int",
+        "plateBarcode": "String",
+        "plateDbId": "String",
+        "plateFormat": "String",
+        "plateName": "String",
+        "programDbId": "String",
+        "sampleType": "String",
+        "studyDbId": "String",
+        "trialDbId": "String"
     }
 }

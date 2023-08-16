@@ -1,70 +1,24 @@
 {
-    "crossDbId": {
-        "description": "the unique identifier for a cross",
-        "type": "String"
-    },
-    "crossName": {
-        "description": "the human readable name for a cross",
-        "type": "String"
-    },
-    "germplasmDbId": {
-        "description": "The ID which uniquely identifies a germplasm",
-        "type": "String"
-    },
-    "germplasmName": {
-        "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.",
-        "type": "String"
-    },
-    "locationDbId": {
-        "description": "The ID which uniquely identifies a location, associated with this study",
-        "type": "String"
-    },
-    "locationName": {
-        "description": "The human readable name of a location associated with this study",
-        "type": "String"
-    },
-    "observationUnitDbId": {
-        "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. ",
-        "type": "String"
-    },
-    "observationUnitName": {
-        "description": "A human readable name for an observation unit",
-        "type": "String"
-    },
-    "observationUnitPUI": {
-        "description": "A Permanent Unique Identifier for an observation unit\n\nMIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.",
-        "type": "String"
-    },
-    "programDbId": {
-        "description": "The ID which uniquely identifies a program",
-        "type": "String"
-    },
-    "programName": {
-        "description": "The human readable name of a program",
-        "type": "String"
-    },
-    "seedLotDbId": {
-        "description": "The unique identifier for the originating Seed Lot",
-        "type": "String"
-    },
-    "seedLotName": {
-        "description": "A human readable name for the originating Seed Lot",
-        "type": "String"
-    },
-    "studyDbId": {
-        "description": "The ID which uniquely identifies a study within the given database server",
-        "type": "String"
-    },
-    "studyName": {
-        "description": "The human readable name for a study",
-        "type": "String"
-    },
-    "trialDbId": {
-        "description": "The ID which uniquely identifies a trial",
-        "type": "String"
-    },
-    "trialName": {
-        "description": "The human readable name of a trial",
-        "type": "String"
+    "model": "ObservationUnit",
+    "storageType": "sql",
+    "attributes": {
+        "ObservationUnit_id": "Int",
+        "crossDbId": "String",
+        "crossName": "String",
+        "germplasmDbId": "String",
+        "germplasmName": "String",
+        "locationDbId": "String",
+        "locationName": "String",
+        "observationUnitDbId": "String",
+        "observationUnitName": "String",
+        "observationUnitPUI": "String",
+        "programDbId": "String",
+        "programName": "String",
+        "seedLotDbId": "String",
+        "seedLotName": "String",
+        "studyDbId": "String",
+        "studyName": "String",
+        "trialDbId": "String",
+        "trialName": "String"
     }
 }

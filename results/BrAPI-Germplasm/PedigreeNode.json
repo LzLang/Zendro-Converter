@@ -1,42 +1,17 @@
 {
-    "breedingMethodDbId": {
-        "description": "The unique identifier for the breeding method used to create this germplasm",
-        "type": "String"
-    },
-    "breedingMethodName": {
-        "description": "The human readable name of the breeding method used to create this germplasm",
-        "type": "String"
-    },
-    "crossingProjectDbId": {
-        "description": "The crossing project used to generate this germplasm",
-        "type": "String"
-    },
-    "crossingYear": {
-        "description": "The year the parents were originally crossed",
-        "type": "Int"
-    },
-    "defaultDisplayName": {
-        "description": "Human readable name used for display purposes",
-        "type": "String"
-    },
-    "familyCode": {
-        "description": "The code representing the family of this germplasm",
-        "type": "String"
-    },
-    "germplasmDbId": {
-        "description": "The ID which uniquely identifies a germplasm",
-        "type": "String"
-    },
-    "germplasmName": {
-        "description": "A human readable name for a germplasm",
-        "type": "String"
-    },
-    "germplasmPUI": {
-        "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
-        "type": "String"
-    },
-    "pedigreeString": {
-        "description": "The string representation of the pedigree for this germplasm in PURDY notation",
-        "type": "String"
+    "model": "PedigreeNode",
+    "storageType": "sql",
+    "attributes": {
+        "PedigreeNode_id": "Int",
+        "breedingMethodDbId": "String",
+        "breedingMethodName": "String",
+        "crossingProjectDbId": "String",
+        "crossingYear": "Int",
+        "defaultDisplayName": "String",
+        "familyCode": "String",
+        "germplasmDbId": "String",
+        "germplasmName": "String",
+        "germplasmPUI": "String",
+        "pedigreeString": "String"
     }
 }

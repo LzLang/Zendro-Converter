@@ -1,58 +1,21 @@
 {
-    "attributeCategory": {
-        "description": "General category for the attribute. very similar to Trait class.",
-        "type": "String"
-    },
-    "attributeDbId": {
-        "description": "The ID which uniquely identifies this attribute within the given database server",
-        "type": "String"
-    },
-    "attributeDescription": {
-        "description": "A human readable description of this attribute",
-        "type": "String"
-    },
-    "attributeName": {
-        "description": "A human readable name for this attribute",
-        "type": "String"
-    },
-    "attributePUI": {
-        "description": "The Permanent Unique Identifier of an Attribute, usually in the form of a URI",
-        "type": "String"
-    },
-    "commonCropName": {
-        "description": "Crop name (examples: \"Maize\", \"Wheat\")",
-        "type": "String"
-    },
-    "defaultValue": {
-        "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)",
-        "type": "String"
-    },
-    "documentationURL": {
-        "description": "A URL to the human readable documentation of this object",
-        "type": "String"
-    },
-    "growthStage": {
-        "description": "Growth stage at which measurement is made (examples: \"flowering\")",
-        "type": "String"
-    },
-    "institution": {
-        "description": "Name of institution submitting the variable",
-        "type": "String"
-    },
-    "language": {
-        "description": "2 letter ISO 639-1 code for the language of submission of the variable.",
-        "type": "String"
-    },
-    "scientist": {
-        "description": "Name of scientist submitting the variable.",
-        "type": "String"
-    },
-    "status": {
-        "description": "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)",
-        "type": "String"
-    },
-    "submissionTimestamp": {
-        "description": "Timestamp when the Variable was added (ISO 8601)",
-        "type": "String"
+    "model": "GermplasmAttribute",
+    "storageType": "sql",
+    "attributes": {
+        "GermplasmAttribute_id": "Int",
+        "attributeCategory": "String",
+        "attributeDbId": "String",
+        "attributeDescription": "String",
+        "attributeName": "String",
+        "attributePUI": "String",
+        "commonCropName": "String",
+        "defaultValue": "String",
+        "documentationURL": "String",
+        "growthStage": "String",
+        "institution": "String",
+        "language": "String",
+        "scientist": "String",
+        "status": "String",
+        "submissionTimestamp": "String"
     }
 }

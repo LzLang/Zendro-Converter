@@ -1,26 +1,13 @@
 {
-    "linkageGroupName": {
-        "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.",
-        "type": "String"
-    },
-    "mapDbId": {
-        "description": "The ID which uniquely identifies a `GenomeMap`",
-        "type": "String"
-    },
-    "mapName": {
-        "description": "A human readable name for a `GenomeMap`",
-        "type": "String"
-    },
-    "position": {
-        "description": "The position of a marker or variant within a `LinkageGroup`",
-        "type": "Int"
-    },
-    "variantDbId": {
-        "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker ",
-        "type": "String"
-    },
-    "variantName": {
-        "description": "The human readable name for a `Variant`\n<br> A `Variant` can also represent a Marker ",
-        "type": "String"
+    "model": "MarkerPosition",
+    "storageType": "sql",
+    "attributes": {
+        "MarkerPosition_id": "Int",
+        "linkageGroupName": "String",
+        "mapDbId": "String",
+        "mapName": "String",
+        "position": "Int",
+        "variantDbId": "String",
+        "variantName": "String"
     }
 }

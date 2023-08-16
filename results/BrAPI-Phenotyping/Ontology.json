@@ -1,34 +1,15 @@
 {
-    "authors": {
-        "description": "Ontology's list of authors (no specific format)",
-        "type": "String"
-    },
-    "copyright": {
-        "description": "Ontology copyright",
-        "type": "String"
-    },
-    "description": {
-        "description": "Human readable description of Ontology",
-        "type": "String"
-    },
-    "documentationURL": {
-        "description": "A URL to the human readable documentation of this object",
-        "type": "String"
-    },
-    "licence": {
-        "description": "Ontology licence",
-        "type": "String"
-    },
-    "ontologyDbId": {
-        "description": "Ontology database unique identifier",
-        "type": "String"
-    },
-    "ontologyName": {
-        "description": "Ontology name",
-        "type": "String"
-    },
-    "version": {
-        "description": "Ontology version (no specific format)",
-        "type": "String"
+    "model": "Ontology",
+    "storageType": "sql",
+    "attributes": {
+        "Ontology_id": "Int",
+        "authors": "String",
+        "copyright": "String",
+        "description": "String",
+        "documentationURL": "String",
+        "licence": "String",
+        "ontologyDbId": "String",
+        "ontologyName": "String",
+        "version": "String"
     }
 }

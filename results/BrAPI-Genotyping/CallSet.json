@@ -1,26 +1,13 @@
 {
-    "callSetDbId": {
-        "description": "The ID which uniquely identifies a CallSet within the given database server",
-        "type": "String"
-    },
-    "callSetName": {
-        "description": "The human readable name which identifies a germplasm within the given database server",
-        "type": "String"
-    },
-    "created": {
-        "description": "The date this call set was created",
-        "type": "String"
-    },
-    "sampleDbId": {
-        "description": "The Biosample entity the call set data was generated from.",
-        "type": "String"
-    },
-    "studyDbId": {
-        "description": "The ID which uniquely identifies a study within the given database server",
-        "type": "String"
-    },
-    "updated": {
-        "description": "The time at which this call set was last updated",
-        "type": "String"
+    "model": "CallSet",
+    "storageType": "sql",
+    "attributes": {
+        "CallSet_id": "Int",
+        "callSetDbId": "String",
+        "callSetName": "String",
+        "created": "String",
+        "sampleDbId": "String",
+        "studyDbId": "String",
+        "updated": "String"
     }
 }

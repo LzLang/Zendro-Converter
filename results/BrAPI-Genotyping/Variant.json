@@ -1,58 +1,21 @@
 {
-    "created": {
-        "description": "The timestamp when this variant was created.",
-        "type": "String"
-    },
-    "end": {
-        "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`.",
-        "type": "Int"
-    },
-    "filtersApplied": {
-        "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",
-        "type": "Boolean"
-    },
-    "filtersPassed": {
-        "description": "True if all filters for this variant passed. VCF column 7 \"FILTER\" value PASS.",
-        "type": "Boolean"
-    },
-    "referenceBases": {
-        "description": "The reference bases for this variant. They start at the given start position.",
-        "type": "String"
-    },
-    "referenceDbId": {
-        "description": "The unique identifier for a Reference",
-        "type": "String"
-    },
-    "referenceName": {
-        "description": "The reference on which this variant occurs. (e.g. `chr_20` or `X`)",
-        "type": "String"
-    },
-    "referenceSetDbId": {
-        "description": "The unique identifier for a ReferenceSet",
-        "type": "String"
-    },
-    "referenceSetName": {
-        "description": "The human readable name of the ReferenceSet",
-        "type": "String"
-    },
-    "start": {
-        "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0).",
-        "type": "Int"
-    },
-    "svlen": {
-        "description": "Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2",
-        "type": "Int"
-    },
-    "updated": {
-        "description": "The time at which this variant was last updated.",
-        "type": "String"
-    },
-    "variantDbId": {
-        "description": "The ID which uniquely identifies a `Variant`",
-        "type": "String"
-    },
-    "variantType": {
-        "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\"",
-        "type": "String"
+    "model": "Variant",
+    "storageType": "sql",
+    "attributes": {
+        "Variant_id": "Int",
+        "created": "String",
+        "end": "Int",
+        "filtersApplied": "Boolean",
+        "filtersPassed": "Boolean",
+        "referenceBases": "String",
+        "referenceDbId": "String",
+        "referenceName": "String",
+        "referenceSetDbId": "String",
+        "referenceSetName": "String",
+        "start": "Int",
+        "svlen": "Int",
+        "updated": "String",
+        "variantDbId": "String",
+        "variantType": "String"
     }
 }

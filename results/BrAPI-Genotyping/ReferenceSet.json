@@ -1,34 +1,15 @@
 {
-    "assemblyPUI": {
-        "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
-        "type": "String"
-    },
-    "commonCropName": {
-        "description": "Common name for the crop",
-        "type": "String"
-    },
-    "description": {
-        "description": "Optional free text description of this reference set.",
-        "type": "String"
-    },
-    "isDerived": {
-        "description": "A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).",
-        "type": "Boolean"
-    },
-    "md5checksum": {
-        "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string.",
-        "type": "String"
-    },
-    "referenceSetDbId": {
-        "description": "The unique identifier for a ReferenceSet",
-        "type": "String"
-    },
-    "referenceSetName": {
-        "description": "The human readable name of a ReferenceSet",
-        "type": "String"
-    },
-    "sourceURI": {
-        "description": "Specifies a FASTA format file/string.",
-        "type": "String"
+    "model": "ReferenceSet",
+    "storageType": "sql",
+    "attributes": {
+        "ReferenceSet_id": "Int",
+        "assemblyPUI": "String",
+        "commonCropName": "String",
+        "description": "String",
+        "isDerived": "Boolean",
+        "md5checksum": "String",
+        "referenceSetDbId": "String",
+        "referenceSetName": "String",
+        "sourceURI": "String"
     }
 }

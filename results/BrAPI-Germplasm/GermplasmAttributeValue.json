@@ -1,30 +1,14 @@
 {
-    "attributeDbId": {
-        "description": "The ID which uniquely identifies this attribute within the given database server",
-        "type": "String"
-    },
-    "attributeName": {
-        "description": "A human readable name for this attribute",
-        "type": "String"
-    },
-    "attributeValueDbId": {
-        "description": "The ID which uniquely identifies this attribute value within the given database server",
-        "type": "String"
-    },
-    "determinedDate": {
-        "description": "The date the value of this attribute was determined for a given germplasm",
-        "type": "String"
-    },
-    "germplasmDbId": {
-        "description": "The ID which uniquely identifies a germplasm within the given database server",
-        "type": "String"
-    },
-    "germplasmName": {
-        "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.",
-        "type": "String"
-    },
-    "value": {
-        "description": "The value of this attribute for a given germplasm",
-        "type": "String"
+    "model": "GermplasmAttributeValue",
+    "storageType": "sql",
+    "attributes": {
+        "GermplasmAttributeValue_id": "Int",
+        "attributeDbId": "String",
+        "attributeName": "String",
+        "attributeValueDbId": "String",
+        "determinedDate": "String",
+        "germplasmDbId": "String",
+        "germplasmName": "String",
+        "value": "String"
     }
 }
