@@ -40,7 +40,7 @@ def setup_hierarchy(input_path, output_path):
                 # Append the file
                 input_files.append(os.path.join(root, filename))
                 # Current / relative path to the file fpr output hierarchy
-                current_path = root.replace(input_path+"\\", '')
+                current_path = os.path.basename(root)
                 if not current_path in output_hierarchy:
                     output_hierarchy.append(current_path)
 
@@ -67,44 +67,20 @@ def create_output_hierarchy(output_path, hierarchy):
             log(error)
 
 
-def get_data(file_data):
+def get_type(file_data):
     """
-    From the passed data the properties are extracted.
+    Checks the passed data for a Zendro compatible type and returns it
     :param file_data: Data from a json file (a dictionary)
-    :return: Properties with a compatible type to Zendro
+    :return: Returns Zendro compatible type or none
     """
 
-    data = {}
     # walk through the items of the dictionary
     for key, value in file_data.items():
-        if key.lower() == 'description':
-            data[key] = value
-        elif key.lower() == 'type':
-            zendro_type = get_type(value)
+        if key.lower() == 'type':
             # if the properties has no compatible type it is not needed therefore None is returned
-            # otherwise the zendro type is assigned
-            if zendro_type is None:
-                return None
-            data[key] = zendro_type
-        # if the current item is itself a dictionary than call itself with the dictionary
-        elif type(value) is dict:
-            returned_data = get_data(value)
-            if returned_data:
-                data[key] = returned_data
-    return data
-
-
-def get_type(types):
-    """
-    Checks if the passed type is Zendro compatible.
-
-    :param types: Type of the property
-    :return: Compatible type or none if not compatible
-    """
-
-    boolean_mask = np.nonzero(np.isin(ALLOWED_TYPES, types))[0]
-    if len(boolean_mask):
-        return ZENDRO_TYPES[ALLOWED_TYPES[boolean_mask[0]]]
+            boolean_mask = np.nonzero(np.isin(ALLOWED_TYPES, value))[0]
+            if len(boolean_mask):
+                return ZENDRO_TYPES[ALLOWED_TYPES[boolean_mask[0]]]
     return None
 
 
@@ -124,7 +100,7 @@ def read_json(file):
         log("Couldn't open file: " + file + "\tError: " + str(error))
 
 
-def write_json(path, properties):
+def write_json(path, properties, args):
     """
     Writes the passed data to a json file.
 
@@ -133,7 +109,13 @@ def write_json(path, properties):
     """
 
     try:
-        json_object = json.dumps(properties, indent=4)
+        # Der Plan ist eine neue Variable zu machen, die dann wie auf Github die Sachen macht
+        model = {
+            'model': os.path.splitext(os.path.basename(path))[0],
+            'storageType': args.storage_type,
+            'attributes': properties
+        }
+        json_object = json.dumps(model, indent=4)
         with open(path, "w") as file:
             file.write(json_object)
     except OSError as error:
