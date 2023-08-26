@@ -1,0 +1,29 @@
+{
+    "model": "GermplasmAttributeValue",
+    "storageType": "sql",
+    "attributes": {
+        "attributeValueDbId": "String",
+        "determinedDate": "String",
+        "value": "String"
+    },
+    "associations": {
+        "attribute": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "attributeValues",
+            "target": "GermplasmAttribute",
+            "targetKey": "GermplasmAttribute_id",
+            "keysIn": "GermplasmAttributeValue",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasmAttributeValues",
+            "target": "Germplasm",
+            "targetKey": "Germplasm_id",
+            "keysIn": "GermplasmAttributeValue",
+            "targetStorageType": "sql"
+        }
+    }
+}

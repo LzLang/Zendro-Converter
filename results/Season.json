@@ -1,0 +1,9 @@
+{
+    "model": "Season",
+    "storageType": "sql",
+    "attributes": {
+        "seasonDbId": "String",
+        "seasonName": "String",
+        "year": "Int"
+    }
+}

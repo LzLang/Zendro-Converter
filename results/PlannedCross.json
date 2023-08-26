@@ -1,0 +1,30 @@
+{
+    "model": "PlannedCross",
+    "storageType": "sql",
+    "attributes": {
+        "crossType": "String",
+        "plannedCrossDbId": "String",
+        "plannedCrossName": "String",
+        "status": "String"
+    },
+    "associations": {
+        "crossingProject": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "plannedCrosses",
+            "target": "CrossingProject",
+            "targetKey": "CrossingProject_id",
+            "keysIn": "PlannedCross",
+            "targetStorageType": "sql"
+        },
+        "crosses": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "plannedCross",
+            "target": "Cross",
+            "targetKey": "Cross_id",
+            "keysIn": "PlannedCross",
+            "targetStorageType": "sql"
+        }
+    }
+}

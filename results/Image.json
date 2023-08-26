@@ -1,0 +1,37 @@
+{
+    "model": "Image",
+    "storageType": "sql",
+    "attributes": {
+        "copyright": "String",
+        "description": "String",
+        "imageDbId": "String",
+        "imageFileName": "String",
+        "imageFileSize": "Int",
+        "imageHeight": "Int",
+        "imageName": "String",
+        "imageTimeStamp": "String",
+        "imageURL": "String",
+        "imageWidth": "Int",
+        "mimeType": "String"
+    },
+    "associations": {
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "images",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "images",
+            "target": "Observation",
+            "targetKey": "Observation_id",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        }
+    }
+}

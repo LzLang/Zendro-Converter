@@ -1,0 +1,83 @@
+{
+    "model": "Sample",
+    "storageType": "sql",
+    "attributes": {
+        "column": "Int",
+        "row": "String",
+        "sampleBarcode": "String",
+        "sampleDescription": "String",
+        "sampleGroupId": "String",
+        "sampleName": "String",
+        "samplePUI": "String",
+        "sampleTimestamp": "String",
+        "sampleType": "String",
+        "takenBy": "String",
+        "tissueType": "String",
+        "well": "String"
+    },
+    "associations": {
+        "callSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "sample",
+            "target": "CallSet",
+            "targetKey": "CallSet_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "samples",
+            "target": "Germplasm",
+            "targetKey": "Germplasm_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        },
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "samples",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        },
+        "plate": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "samples",
+            "target": "Plate",
+            "targetKey": "Plate_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        },
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "samples",
+            "target": "Program",
+            "targetKey": "Program_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "samples",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "samples",
+            "target": "Trial",
+            "targetKey": "Trial_id",
+            "keysIn": "Sample",
+            "targetStorageType": "sql"
+        }
+    }
+}

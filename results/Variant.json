@@ -1,0 +1,72 @@
+{
+    "model": "Variant",
+    "storageType": "sql",
+    "attributes": {
+        "created": "String",
+        "end": "Int",
+        "filtersApplied": "Boolean",
+        "filtersPassed": "Boolean",
+        "referenceBases": "String",
+        "start": "Int",
+        "svlen": "Int",
+        "updated": "String",
+        "variantDbId": "String",
+        "variantType": "String"
+    },
+    "associations": {
+        "markerPositions": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variant",
+            "target": "MarkerPosition",
+            "targetKey": "MarkerPosition_id",
+            "keysIn": "Variant",
+            "targetStorageType": "sql"
+        },
+        "alleleMatrices": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variants",
+            "target": "AlleleMatrix",
+            "targetKey": "AlleleMatrix_id",
+            "keysIn": "Variant",
+            "targetStorageType": "sql"
+        },
+        "calls": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variant",
+            "target": "Call",
+            "targetKey": "Call_id",
+            "keysIn": "Variant",
+            "targetStorageType": "sql"
+        },
+        "reference": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variants",
+            "target": "Reference",
+            "targetKey": "Reference_id",
+            "keysIn": "Variant",
+            "targetStorageType": "sql"
+        },
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variants",
+            "target": "ReferenceSet",
+            "targetKey": "ReferenceSet_id",
+            "keysIn": "Variant",
+            "targetStorageType": "sql"
+        },
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variants",
+            "target": "VariantSet",
+            "targetKey": "VariantSet_id",
+            "keysIn": "Variant",
+            "targetStorageType": "sql"
+        }
+    }
+}

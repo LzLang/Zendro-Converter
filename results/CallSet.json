@@ -1,0 +1,57 @@
+{
+    "model": "CallSet",
+    "storageType": "sql",
+    "attributes": {
+        "callSetDbId": "String",
+        "callSetName": "String",
+        "created": "String",
+        "updated": "String"
+    },
+    "associations": {
+        "alleleMatrices": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "callSets",
+            "target": "AlleleMatrix",
+            "targetKey": "AlleleMatrix_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "calls": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "callSet",
+            "target": "Call",
+            "targetKey": "Call_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "sample": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "callSets",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "callSets",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "callSets",
+            "target": "VariantSet",
+            "targetKey": "VariantSet_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        }
+    }
+}

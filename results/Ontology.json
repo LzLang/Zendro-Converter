@@ -1,0 +1,14 @@
+{
+    "model": "Ontology",
+    "storageType": "sql",
+    "attributes": {
+        "authors": "String",
+        "copyright": "String",
+        "description": "String",
+        "documentationURL": "String",
+        "licence": "String",
+        "ontologyDbId": "String",
+        "ontologyName": "String",
+        "version": "String"
+    }
+}

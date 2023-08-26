@@ -1,0 +1,48 @@
+{
+    "model": "Plate",
+    "storageType": "sql",
+    "attributes": {
+        "plateBarcode": "String",
+        "plateFormat": "String",
+        "plateName": "String",
+        "sampleType": "String"
+    },
+    "associations": {
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "plates",
+            "target": "Program",
+            "targetKey": "Program_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "plates",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "plates",
+            "target": "Trial",
+            "targetKey": "Trial_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "plate",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        }
+    }
+}

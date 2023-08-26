@@ -1,0 +1,69 @@
+{
+    "model": "Location",
+    "storageType": "sql",
+    "attributes": {
+        "abbreviation": "String",
+        "coordinateDescription": "String",
+        "coordinateUncertainty": "String",
+        "countryCode": "String",
+        "countryName": "String",
+        "documentationURL": "String",
+        "environmentType": "String",
+        "exposure": "String",
+        "instituteAddress": "String",
+        "instituteName": "String",
+        "locationDbId": "String",
+        "locationName": "String",
+        "locationType": "String",
+        "siteStatus": "String",
+        "slope": "String",
+        "topography": "String"
+    },
+    "associations": {
+        "parentLocation": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "childLocations",
+            "target": "Location",
+            "targetKey": "Location_id",
+            "keysIn": "Location",
+            "targetStorageType": "sql"
+        },
+        "childLocations": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "parentLocation",
+            "target": "Location",
+            "targetKey": "Location_id",
+            "keysIn": "Location",
+            "targetStorageType": "sql"
+        },
+        "studies": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "location",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "Location",
+            "targetStorageType": "sql"
+        },
+        "seedLots": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "location",
+            "target": "SeedLot",
+            "targetKey": "SeedLot_id",
+            "keysIn": "Location",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "location",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Location",
+            "targetStorageType": "sql"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "model": "List",
+    "storageType": "sql",
+    "attributes": {
+        "dateCreated": "String",
+        "dateModified": "String",
+        "listDbId": "String",
+        "listDescription": "String",
+        "listName": "String",
+        "listOwnerName": "String",
+        "listSize": "Int",
+        "listSource": "String",
+        "listType": "String"
+    },
+    "associations": {
+        "listOwnerPerson": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "lists",
+            "target": "Person",
+            "targetKey": "Person_id",
+            "keysIn": "List",
+            "targetStorageType": "sql"
+        }
+    }
+}

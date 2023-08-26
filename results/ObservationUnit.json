@@ -1,0 +1,110 @@
+{
+    "model": "ObservationUnit",
+    "storageType": "sql",
+    "attributes": {
+        "observationUnitDbId": "String",
+        "observationUnitName": "String",
+        "observationUnitPUI": "String"
+    },
+    "associations": {
+        "cross": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Cross",
+            "targetKey": "Cross_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Germplasm",
+            "targetKey": "Germplasm_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Location",
+            "targetKey": "Location_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Program",
+            "targetKey": "Program_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "seedLot": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "SeedLot",
+            "targetKey": "SeedLot_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Trial",
+            "targetKey": "Trial_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnit",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "events": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnits",
+            "target": "Event",
+            "targetKey": "Event_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "images": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnit",
+            "target": "Image",
+            "targetKey": "Image_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationUnit",
+            "target": "Observation",
+            "targetKey": "Observation_id",
+            "keysIn": "ObservationUnit",
+            "targetStorageType": "sql"
+        }
+    }
+}

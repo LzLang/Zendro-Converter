@@ -1,0 +1,13 @@
+{
+    "model": "Method",
+    "storageType": "sql",
+    "attributes": {
+        "bibliographicalReference": "String",
+        "description": "String",
+        "formula": "String",
+        "methodClass": "String",
+        "methodDbId": "String",
+        "methodName": "String",
+        "methodPUI": "String"
+    }
+}

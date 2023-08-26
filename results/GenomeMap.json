@@ -1,0 +1,29 @@
+{
+    "model": "GenomeMap",
+    "storageType": "sql",
+    "attributes": {
+        "comments": "String",
+        "commonCropName": "String",
+        "documentationURL": "String",
+        "linkageGroupCount": "Int",
+        "mapDbId": "String",
+        "mapName": "String",
+        "mapPUI": "String",
+        "markerCount": "Int",
+        "publishedDate": "String",
+        "scientificName": "String",
+        "type": "String",
+        "unit": "String"
+    },
+    "associations": {
+        "markerPositions": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "map",
+            "target": "MarkerPosition",
+            "targetKey": "MarkerPosition_id",
+            "keysIn": "GenomeMap",
+            "targetStorageType": "sql"
+        }
+    }
+}

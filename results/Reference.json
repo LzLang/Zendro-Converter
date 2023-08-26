@@ -1,0 +1,34 @@
+{
+    "model": "Reference",
+    "storageType": "sql",
+    "attributes": {
+        "commonCropName": "String",
+        "isDerived": "Boolean",
+        "length": "Int",
+        "md5checksum": "String",
+        "referenceDbId": "String",
+        "referenceName": "String",
+        "sourceDivergence": "Float",
+        "sourceURI": "String"
+    },
+    "associations": {
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "references",
+            "target": "ReferenceSet",
+            "targetKey": "ReferenceSet_id",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "reference",
+            "target": "Variant",
+            "targetKey": "Variant_id",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        }
+    }
+}

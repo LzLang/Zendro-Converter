@@ -1,0 +1,58 @@
+{
+    "model": "Observation",
+    "storageType": "sql",
+    "attributes": {
+        "collector": "String",
+        "observationDbId": "String",
+        "observationTimeStamp": "String",
+        "uploadedBy": "String",
+        "value": "String"
+    },
+    "associations": {
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observations",
+            "target": "Germplasm",
+            "targetKey": "Germplasm_id",
+            "keysIn": "Observation",
+            "targetStorageType": "sql"
+        },
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observations",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Observation",
+            "targetStorageType": "sql"
+        },
+        "observationVariable": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observations",
+            "target": "ObservationVariable",
+            "targetKey": "ObservationVariable_id",
+            "keysIn": "Observation",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observations",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "Observation",
+            "targetStorageType": "sql"
+        },
+        "images": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observations",
+            "target": "Image",
+            "targetKey": "Image_id",
+            "keysIn": "Observation",
+            "targetStorageType": "sql"
+        }
+    }
+}

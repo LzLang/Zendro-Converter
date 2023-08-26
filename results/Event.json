@@ -1,0 +1,30 @@
+{
+    "model": "Event",
+    "storageType": "sql",
+    "attributes": {
+        "eventDbId": "String",
+        "eventDescription": "String",
+        "eventType": "String",
+        "eventTypeDbId": "String"
+    },
+    "associations": {
+        "observationUnits": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "events",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Event",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "events",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "Event",
+            "targetStorageType": "sql"
+        }
+    }
+}

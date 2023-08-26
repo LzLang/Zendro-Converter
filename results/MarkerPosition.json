@@ -1,0 +1,28 @@
+{
+    "model": "MarkerPosition",
+    "storageType": "sql",
+    "attributes": {
+        "linkageGroupName": "String",
+        "position": "Int"
+    },
+    "associations": {
+        "map": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "markerPositions",
+            "target": "GenomeMap",
+            "targetKey": "GenomeMap_id",
+            "keysIn": "MarkerPosition",
+            "targetStorageType": "sql"
+        },
+        "variant": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "markerPositions",
+            "target": "Variant",
+            "targetKey": "Variant_id",
+            "keysIn": "MarkerPosition",
+            "targetStorageType": "sql"
+        }
+    }
+}

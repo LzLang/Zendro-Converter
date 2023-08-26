@@ -1,0 +1,62 @@
+{
+    "model": "SeedLot",
+    "storageType": "sql",
+    "attributes": {
+        "amount": "Float",
+        "createdDate": "String",
+        "lastUpdated": "String",
+        "seedLotDbId": "String",
+        "seedLotDescription": "String",
+        "seedLotName": "String",
+        "sourceCollection": "String",
+        "storageLocation": "String",
+        "units": "String"
+    },
+    "associations": {
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "seedLots",
+            "target": "Location",
+            "targetKey": "Location_id",
+            "keysIn": "SeedLot",
+            "targetStorageType": "sql"
+        },
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "seedLots",
+            "target": "Program",
+            "targetKey": "Program_id",
+            "keysIn": "SeedLot",
+            "targetStorageType": "sql"
+        },
+        "fromSeedLotTransactions": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "fromSeedLot",
+            "target": "SeedLotTransaction",
+            "targetKey": "SeedLotTransaction_id",
+            "keysIn": "SeedLot",
+            "targetStorageType": "sql"
+        },
+        "toSeedLotTransactions": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "toSeedLot",
+            "target": "SeedLotTransaction",
+            "targetKey": "SeedLotTransaction_id",
+            "keysIn": "SeedLot",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "seedLot",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "SeedLot",
+            "targetStorageType": "sql"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "model": "ReferenceSet",
+    "storageType": "sql",
+    "attributes": {
+        "assemblyPUI": "String",
+        "commonCropName": "String",
+        "description": "String",
+        "isDerived": "Boolean",
+        "md5checksum": "String",
+        "referenceSetDbId": "String",
+        "referenceSetName": "String",
+        "sourceURI": "String"
+    },
+    "associations": {
+        "references": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "referenceSet",
+            "target": "Reference",
+            "targetKey": "Reference_id",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "referenceSet",
+            "target": "Variant",
+            "targetKey": "Variant_id",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "referenceSet",
+            "target": "VariantSet",
+            "targetKey": "VariantSet_id",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        }
+    }
+}

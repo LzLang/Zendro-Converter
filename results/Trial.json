@@ -1,0 +1,62 @@
+{
+    "model": "Trial",
+    "storageType": "sql",
+    "attributes": {
+        "active": "Boolean",
+        "commonCropName": "String",
+        "documentationURL": "String",
+        "endDate": "String",
+        "startDate": "String",
+        "trialDbId": "String",
+        "trialDescription": "String",
+        "trialName": "String",
+        "trialPUI": "String"
+    },
+    "associations": {
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "trials",
+            "target": "Program",
+            "targetKey": "Program_id",
+            "keysIn": "Trial",
+            "targetStorageType": "sql"
+        },
+        "studies": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "trial",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "Trial",
+            "targetStorageType": "sql"
+        },
+        "plates": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "trial",
+            "target": "Plate",
+            "targetKey": "Plate_id",
+            "keysIn": "Trial",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "trial",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "Trial",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "trial",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Trial",
+            "targetStorageType": "sql"
+        }
+    }
+}

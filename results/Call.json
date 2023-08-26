@@ -1,0 +1,37 @@
+{
+    "model": "Call",
+    "storageType": "sql",
+    "attributes": {
+        "genotypeValue": "String",
+        "phaseSet": "String"
+    },
+    "associations": {
+        "callSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "calls",
+            "target": "CallSet",
+            "targetKey": "CallSet_id",
+            "keysIn": "Call",
+            "targetStorageType": "sql"
+        },
+        "variant": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "calls",
+            "target": "Variant",
+            "targetKey": "Variant_id",
+            "keysIn": "Call",
+            "targetStorageType": "sql"
+        },
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "calls",
+            "target": "VariantSet",
+            "targetKey": "VariantSet_id",
+            "keysIn": "Call",
+            "targetStorageType": "sql"
+        }
+    }
+}

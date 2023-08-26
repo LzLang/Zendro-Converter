@@ -1,0 +1,12 @@
+{
+    "model": "Scale",
+    "storageType": "sql",
+    "attributes": {
+        "dataType": "String",
+        "decimalPlaces": "Int",
+        "scaleDbId": "String",
+        "scaleName": "String",
+        "scalePUI": "String",
+        "units": "String"
+    }
+}

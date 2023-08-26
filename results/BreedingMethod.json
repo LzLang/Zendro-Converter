@@ -1,0 +1,30 @@
+{
+    "model": "BreedingMethod",
+    "storageType": "sql",
+    "attributes": {
+        "abbreviation": "String",
+        "breedingMethodDbId": "String",
+        "breedingMethodName": "String",
+        "description": "String"
+    },
+    "associations": {
+        "germplasm": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "breedingMethod",
+            "target": "Germplasm",
+            "targetKey": "Germplasm_id",
+            "keysIn": "BreedingMethod",
+            "targetStorageType": "sql"
+        },
+        "pedigreeNodes": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "PedigreeNode",
+            "targetKey": "PedigreeNode_id",
+            "keysIn": "BreedingMethod",
+            "targetStorageType": "sql"
+        }
+    }
+}

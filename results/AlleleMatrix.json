@@ -1,0 +1,39 @@
+{
+    "model": "AlleleMatrix",
+    "storageType": "sql",
+    "attributes": {
+        "expandHomozygotes": "Boolean",
+        "sepPhased": "String",
+        "sepUnphased": "String",
+        "unknownString": "String"
+    },
+    "associations": {
+        "callSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "alleleMatrices",
+            "target": "CallSet",
+            "targetKey": "CallSet_id",
+            "keysIn": "AlleleMatrix",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "alleleMatrices",
+            "target": "VariantSet",
+            "targetKey": "VariantSet_id",
+            "keysIn": "AlleleMatrix",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "alleleMatrices",
+            "target": "Variant",
+            "targetKey": "Variant_id",
+            "keysIn": "AlleleMatrix",
+            "targetStorageType": "sql"
+        }
+    }
+}

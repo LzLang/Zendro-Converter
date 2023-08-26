@@ -1,0 +1,17 @@
+{
+    "model": "Trait",
+    "storageType": "sql",
+    "attributes": {
+        "attribute": "String",
+        "attributePUI": "String",
+        "entity": "String",
+        "entityPUI": "String",
+        "mainAbbreviation": "String",
+        "status": "String",
+        "traitClass": "String",
+        "traitDbId": "String",
+        "traitDescription": "String",
+        "traitName": "String",
+        "traitPUI": "String"
+    }
+}

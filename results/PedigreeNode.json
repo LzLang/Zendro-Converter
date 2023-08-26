@@ -1,0 +1,40 @@
+{
+    "model": "PedigreeNode",
+    "storageType": "sql",
+    "attributes": {
+        "crossingYear": "Int",
+        "defaultDisplayName": "String",
+        "familyCode": "String",
+        "germplasmPUI": "String",
+        "pedigreeString": "String"
+    },
+    "associations": {
+        "breedingMethod": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "pedigreeNodes",
+            "target": "BreedingMethod",
+            "targetKey": "BreedingMethod_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "crossingProject": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "pedigreeNodes",
+            "target": "CrossingProject",
+            "targetKey": "CrossingProject_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "one_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "pedigreeNode",
+            "target": "Germplasm",
+            "targetKey": "Germplasm_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        }
+    }
+}

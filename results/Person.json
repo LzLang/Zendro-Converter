@@ -1,0 +1,35 @@
+{
+    "model": "Person",
+    "storageType": "sql",
+    "attributes": {
+        "description": "String",
+        "emailAddress": "String",
+        "firstName": "String",
+        "lastName": "String",
+        "mailingAddress": "String",
+        "middleName": "String",
+        "personDbId": "String",
+        "phoneNumber": "String",
+        "userID": "String"
+    },
+    "associations": {
+        "lists": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "listOwnerPerson",
+            "target": "List",
+            "targetKey": "List_id",
+            "keysIn": "Person",
+            "targetStorageType": "sql"
+        },
+        "programs": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "leadPerson",
+            "target": "Program",
+            "targetKey": "Program_id",
+            "keysIn": "Person",
+            "targetStorageType": "sql"
+        }
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "model": "Study",
+    "storageType": "sql",
+    "attributes": {
+        "active": "Boolean",
+        "commonCropName": "String",
+        "culturalPractices": "String",
+        "documentationURL": "String",
+        "endDate": "String",
+        "license": "String",
+        "observationUnitsDescription": "String",
+        "startDate": "String",
+        "studyCode": "String",
+        "studyDbId": "String",
+        "studyDescription": "String",
+        "studyName": "String",
+        "studyPUI": "String",
+        "studyType": "String"
+    },
+    "associations": {
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "studies",
+            "target": "Location",
+            "targetKey": "Location_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observationVariables": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "studies",
+            "target": "ObservationVariable",
+            "targetKey": "ObservationVariable_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "studies",
+            "target": "Trial",
+            "targetKey": "Trial_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "callSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "CallSet",
+            "targetKey": "CallSet_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "plates": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "Plate",
+            "targetKey": "Plate_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "VariantSet",
+            "targetKey": "VariantSet_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "events": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "Event",
+            "targetKey": "Event_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "Observation",
+            "targetKey": "Observation_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "study",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        }
+    }
+}

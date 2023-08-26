@@ -1,0 +1,31 @@
+{
+    "model": "SeedLotTransaction",
+    "storageType": "sql",
+    "attributes": {
+        "amount": "Float",
+        "transactionDbId": "String",
+        "transactionDescription": "String",
+        "transactionTimestamp": "String",
+        "units": "String"
+    },
+    "associations": {
+        "fromSeedLot": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "fromSeedLotTransactions",
+            "target": "SeedLot",
+            "targetKey": "SeedLot_id",
+            "keysIn": "SeedLotTransaction",
+            "targetStorageType": "sql"
+        },
+        "toSeedLot": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "toSeedLotTransactions",
+            "target": "SeedLot",
+            "targetKey": "SeedLot_id",
+            "keysIn": "SeedLotTransaction",
+            "targetStorageType": "sql"
+        }
+    }
+}

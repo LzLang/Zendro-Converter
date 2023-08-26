@@ -1,0 +1,38 @@
+{
+    "model": "ObservationVariable",
+    "storageType": "sql",
+    "attributes": {
+        "commonCropName": "String",
+        "defaultValue": "String",
+        "documentationURL": "String",
+        "growthStage": "String",
+        "institution": "String",
+        "language": "String",
+        "observationVariableDbId": "String",
+        "observationVariableName": "String",
+        "observationVariablePUI": "String",
+        "scientist": "String",
+        "status": "String",
+        "submissionTimestamp": "String"
+    },
+    "associations": {
+        "studies": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationVariables",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "ObservationVariable",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "observationVariable",
+            "target": "Observation",
+            "targetKey": "Observation_id",
+            "keysIn": "ObservationVariable",
+            "targetStorageType": "sql"
+        }
+    }
+}

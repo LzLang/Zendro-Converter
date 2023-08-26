@@ -1,0 +1,66 @@
+{
+    "model": "VariantSet",
+    "storageType": "sql",
+    "attributes": {
+        "callSetCount": "Int",
+        "variantCount": "Int",
+        "variantSetDbId": "String",
+        "variantSetName": "String"
+    },
+    "associations": {
+        "alleleMatrices": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variantSets",
+            "target": "AlleleMatrix",
+            "targetKey": "AlleleMatrix_id",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "calls": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variantSet",
+            "target": "Call",
+            "targetKey": "Call_id",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "callSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variantSets",
+            "target": "CallSet",
+            "targetKey": "CallSet_id",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variantSets",
+            "target": "ReferenceSet",
+            "targetKey": "ReferenceSet_id",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variantSets",
+            "target": "Study",
+            "targetKey": "Study_id",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "variantSet",
+            "target": "Variant",
+            "targetKey": "Variant_id",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        }
+    }
+}

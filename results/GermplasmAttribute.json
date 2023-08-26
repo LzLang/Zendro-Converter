@@ -1,0 +1,31 @@
+{
+    "model": "GermplasmAttribute",
+    "storageType": "sql",
+    "attributes": {
+        "attributeDbId": "String",
+        "attributeName": "String",
+        "attributeCategory": "String",
+        "attributeDescription": "String",
+        "attributePUI": "String",
+        "commonCropName": "String",
+        "defaultValue": "String",
+        "documentationURL": "String",
+        "growthStage": "String",
+        "institution": "String",
+        "language": "String",
+        "scientist": "String",
+        "status": "String",
+        "submissionTimestamp": "String"
+    },
+    "associations": {
+        "attributeValues": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "attribute",
+            "target": "GermplasmAttributeValue",
+            "targetKey": "GermplasmAttributeValue_id",
+            "keysIn": "GermplasmAttribute",
+            "targetStorageType": "sql"
+        }
+    }
+}

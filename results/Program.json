@@ -1,0 +1,79 @@
+{
+    "model": "Program",
+    "storageType": "sql",
+    "attributes": {
+        "abbreviation": "String",
+        "commonCropName": "String",
+        "documentationURL": "String",
+        "fundingInformation": "String",
+        "objective": "String",
+        "programDbId": "String",
+        "programName": "String",
+        "programType": "String"
+    },
+    "associations": {
+        "leadPerson": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "programs",
+            "target": "Person",
+            "targetKey": "Person_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "trials": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "program",
+            "target": "Trial",
+            "targetKey": "Trial_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "plates": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "program",
+            "target": "Plate",
+            "targetKey": "Plate_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "program",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "crossingProjects": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "program",
+            "target": "CrossingProject",
+            "targetKey": "CrossingProject_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "seedLots": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "program",
+            "target": "SeedLot",
+            "targetKey": "SeedLot_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "program",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        }
+    }
+}

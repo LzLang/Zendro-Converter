@@ -1,0 +1,112 @@
+{
+    "model": "Germplasm",
+    "storageType": "sql",
+    "attributes": {
+        "accessionNumber": "String",
+        "acquisitionDate": "String",
+        "biologicalStatusOfAccessionCode": "String",
+        "biologicalStatusOfAccessionDescription": "String",
+        "collection": "String",
+        "commonCropName": "String",
+        "countryOfOriginCode": "String",
+        "defaultDisplayName": "String",
+        "documentationURL": "String",
+        "genus": "String",
+        "germplasmDbId": "String",
+        "germplasmName": "String",
+        "germplasmPUI": "String",
+        "germplasmPreprocessing": "String",
+        "instituteCode": "String",
+        "instituteName": "String",
+        "pedigree": "String",
+        "seedSource": "String",
+        "seedSourceDescription": "String",
+        "species": "String",
+        "speciesAuthority": "String",
+        "subtaxa": "String",
+        "subtaxaAuthority": "String"
+    },
+    "associations": {
+        "breedingMethod": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "BreedingMethod",
+            "targetKey": "BreedingMethod_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "pedigreeNode": {
+            "type": "one_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "PedigreeNode",
+            "targetKey": "PedigreeNode_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "Sample",
+            "targetKey": "Sample_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "attributeValues": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "GermplasmAttributeValue",
+            "targetKey": "GermplasmAttributeValue_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "progenyPedigreeNodes": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "parentGermplasm",
+            "target": "PedigreeNode",
+            "targetKey": "PedigreeNode_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "parentPedigreeNodes": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "progenyGermplasm",
+            "target": "PedigreeNode",
+            "targetKey": "PedigreeNode_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "siblingPedigreeNodes": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "siblingGermplasm",
+            "target": "PedigreeNode",
+            "targetKey": "PedigreeNode_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "Observation",
+            "targetKey": "Observation_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkey",
+            "reverseAssociation": "germplasm",
+            "target": "ObservationUnit",
+            "targetKey": "ObservationUnit_id",
+            "keysIn": "Germplasm",
+            "targetStorageType": "sql"
+        }
+    }
+}
