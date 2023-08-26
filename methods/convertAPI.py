@@ -25,20 +25,17 @@ ZENDRO_STORAGE_TYPES = ['sql', 'generic', 'zendro-server', 'cassandra', 'mongodb
 
 
 #   Functions
-def setup_hierarchy(input_path, output_path):
+def get_files(input_path):
     """
     Walks through the input path and searches for json files.\n
     Also extracts the relative path to the json file for the output path.
 
-    :param input_path: Path to the input hierarchy
-    :param output_path: Path to the output hierarchy
+    :param input_path: Path to the input files/directories
     :return: Returns all found files in the input hierarchy
     """
 
     # All found files
     input_files = []
-    # Relative paths to the files
-    output_hierarchy = []
 
     # Walks through the input path
     for root, directories, files in os.walk(input_path):
@@ -47,32 +44,8 @@ def setup_hierarchy(input_path, output_path):
             if os.path.splitext(filename)[1].lower() == '.json':
                 # Append the file
                 input_files.append(os.path.join(root, filename))
-                # Current / relative path to the file fpr output hierarchy
-                current_path = os.path.basename(root)
-                if current_path not in output_hierarchy:
-                    output_hierarchy.append(current_path)
-
-    # Call function to create output hierarchy
-    create_output_hierarchy(output_path, output_hierarchy)
 
     return input_files
-
-
-def create_output_hierarchy(output_path, hierarchy):
-    """
-    Creates the given hierarchy in the given path.
-
-    :param output_path: Path for the hierarchy output
-    :param hierarchy: Hierarchy that should be created
-    """
-    # For every directory in the hierarchy creates a directory
-    for directory in hierarchy:
-        path = os.path.join(output_path, directory)
-        try:
-            os.makedirs(path, exist_ok=True)
-        # Directory already exists, log this
-        except OSError as file_error:
-            log(f"Error creating directory {path}: {file_error}")
 
 
 def get_items(file_data):

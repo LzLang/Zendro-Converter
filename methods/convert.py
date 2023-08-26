@@ -42,7 +42,7 @@ parser.add_argument('-t', '--primary-key-type',
 args = parser.parse_args()
 
 # Search for json files and write them to a variable
-input_files = convertAPI.setup_hierarchy(args.input_path, args.output_path)
+input_files = convertAPI.get_files(args.input_path)
 
 # Extract from all json files the data
 file_data = convertAPI.read_json(input_files, args.storage_type, args.primary_key_name, args.primary_key_type)
