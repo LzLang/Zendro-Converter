@@ -2,14 +2,46 @@
     "model": "Program",
     "storageType": "sql",
     "attributes": {
-        "abbreviation": "String",
-        "commonCropName": "String",
-        "documentationURL": "String",
-        "fundingInformation": "String",
-        "objective": "String",
-        "programDbId": "String",
-        "programName": "String",
-        "programType": "String"
+        "program_primary_key": "Int",
+        "abbreviation": {
+            "type": "String",
+            "description": "A shortened version of the human readable name for a Program"
+        },
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop which this program is for"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "fundingInformation": {
+            "type": "String",
+            "description": "Information describing the grant or funding source for this program"
+        },
+        "objective": {
+            "type": "String",
+            "description": "The primary objective of the program"
+        },
+        "programDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies the program"
+        },
+        "programName": {
+            "type": "String",
+            "description": "Human readable name of the program"
+        },
+        "programType": {
+            "type": "String",
+            "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   "
+        },
+        "lead_person_id": "Int",
+        "trials_ids": "[ Int ]",
+        "plates_ids": "[ Int ]",
+        "samples_ids": "[ Int ]",
+        "crossing_projects_ids": "[ Int ]",
+        "seed_lots_ids": "[ Int ]",
+        "observation_units_ids": "[ Int ]"
     },
     "associations": {
         "leadPerson": {
@@ -17,7 +49,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "programs",
             "target": "Person",
-            "targetKey": "Person_id",
+            "targetKey": "programs_ids",
+            "sourceKey": "lead_person_id",
             "keysIn": "Program",
             "targetStorageType": "sql"
         },
@@ -26,7 +59,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "program",
             "target": "Trial",
-            "targetKey": "Trial_id",
+            "targetKey": "program_id",
+            "sourceKey": "trials_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
         },
@@ -35,7 +69,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "program",
             "target": "Plate",
-            "targetKey": "Plate_id",
+            "targetKey": "program_id",
+            "sourceKey": "plates_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
         },
@@ -44,7 +79,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "program",
             "target": "Sample",
-            "targetKey": "Sample_id",
+            "targetKey": "program_id",
+            "sourceKey": "samples_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
         },
@@ -53,7 +89,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "program",
             "target": "CrossingProject",
-            "targetKey": "CrossingProject_id",
+            "targetKey": "program_id",
+            "sourceKey": "crossing_projects_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
         },
@@ -62,7 +99,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "program",
             "target": "SeedLot",
-            "targetKey": "SeedLot_id",
+            "targetKey": "program_id",
+            "sourceKey": "seed_lots_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
         },
@@ -71,7 +109,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "program",
             "target": "ObservationUnit",
-            "targetKey": "ObservationUnit_id",
+            "targetKey": "program_id",
+            "sourceKey": "observation_units_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
         }

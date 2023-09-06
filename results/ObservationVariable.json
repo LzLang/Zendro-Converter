@@ -2,18 +2,57 @@
     "model": "ObservationVariable",
     "storageType": "sql",
     "attributes": {
-        "commonCropName": "String",
-        "defaultValue": "String",
-        "documentationURL": "String",
-        "growthStage": "String",
-        "institution": "String",
-        "language": "String",
-        "observationVariableDbId": "String",
-        "observationVariableName": "String",
-        "observationVariablePUI": "String",
-        "scientist": "String",
-        "status": "String",
-        "submissionTimestamp": "String"
+        "observation_variable_primary_key": "Int",
+        "commonCropName": {
+            "type": "String",
+            "description": "Crop name (examples: \"Maize\", \"Wheat\")"
+        },
+        "defaultValue": {
+            "type": "String",
+            "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "growthStage": {
+            "type": "String",
+            "description": "Growth stage at which measurement is made (examples: \"flowering\")"
+        },
+        "institution": {
+            "type": "String",
+            "description": "Name of institution submitting the variable"
+        },
+        "language": {
+            "type": "String",
+            "description": "2 letter ISO 639-1 code for the language of submission of the variable."
+        },
+        "observationVariableDbId": {
+            "type": "String",
+            "description": "Variable unique identifier\n\nMIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation."
+        },
+        "observationVariableName": {
+            "type": "String",
+            "description": "Variable name (usually a short name)\n\nMIAPPE V1.1 (DM-84) Variable name - Name of the variable."
+        },
+        "observationVariablePUI": {
+            "type": "String",
+            "description": "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI"
+        },
+        "scientist": {
+            "type": "String",
+            "description": "Name of scientist submitting the variable."
+        },
+        "status": {
+            "type": "String",
+            "description": "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
+        },
+        "submissionTimestamp": {
+            "type": "String",
+            "description": "Timestamp when the Variable was added (ISO 8601)"
+        },
+        "studies_ids": "[ Int ]",
+        "observations_ids": "[ Int ]"
     },
     "associations": {
         "studies": {
@@ -21,7 +60,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observationVariables",
             "target": "Study",
-            "targetKey": "Study_id",
+            "targetKey": "observation_variables_ids",
+            "sourceKey": "studies_ids",
             "keysIn": "ObservationVariable",
             "targetStorageType": "sql"
         },
@@ -30,7 +70,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observationVariable",
             "target": "Observation",
-            "targetKey": "Observation_id",
+            "targetKey": "observation_variable_id",
+            "sourceKey": "observations_ids",
             "keysIn": "ObservationVariable",
             "targetStorageType": "sql"
         }

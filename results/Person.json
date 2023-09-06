@@ -2,15 +2,45 @@
     "model": "Person",
     "storageType": "sql",
     "attributes": {
-        "description": "String",
-        "emailAddress": "String",
-        "firstName": "String",
-        "lastName": "String",
-        "mailingAddress": "String",
-        "middleName": "String",
-        "personDbId": "String",
-        "phoneNumber": "String",
-        "userID": "String"
+        "person_primary_key": "Int",
+        "description": {
+            "type": "String",
+            "description": "description of this person"
+        },
+        "emailAddress": {
+            "type": "String",
+            "description": "email address for this person"
+        },
+        "firstName": {
+            "type": "String",
+            "description": "Persons first name"
+        },
+        "lastName": {
+            "type": "String",
+            "description": "Persons last name"
+        },
+        "mailingAddress": {
+            "type": "String",
+            "description": "physical address of this person"
+        },
+        "middleName": {
+            "type": "String",
+            "description": "Persons middle name"
+        },
+        "personDbId": {
+            "type": "String",
+            "description": "Unique ID for a person"
+        },
+        "phoneNumber": {
+            "type": "String",
+            "description": "phone number of this person"
+        },
+        "userID": {
+            "type": "String",
+            "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
+        },
+        "lists_ids": "[ Int ]",
+        "programs_ids": "[ Int ]"
     },
     "associations": {
         "lists": {
@@ -18,7 +48,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "listOwnerPerson",
             "target": "List",
-            "targetKey": "List_id",
+            "targetKey": "list_owner_person_id",
+            "sourceKey": "lists_ids",
             "keysIn": "Person",
             "targetStorageType": "sql"
         },
@@ -27,7 +58,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "leadPerson",
             "target": "Program",
-            "targetKey": "Program_id",
+            "targetKey": "lead_person_id",
+            "sourceKey": "programs_ids",
             "keysIn": "Person",
             "targetStorageType": "sql"
         }

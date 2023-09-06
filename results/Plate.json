@@ -2,10 +2,27 @@
     "model": "Plate",
     "storageType": "sql",
     "attributes": {
-        "plateBarcode": "String",
-        "plateFormat": "String",
-        "plateName": "String",
-        "sampleType": "String"
+        "plate_primary_key": "Int",
+        "plateBarcode": {
+            "type": "String",
+            "description": "A unique identifier physically attached to a `Plate`"
+        },
+        "plateFormat": {
+            "type": "String",
+            "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format"
+        },
+        "plateName": {
+            "type": "String",
+            "description": "A human readable name for a `Plate`"
+        },
+        "sampleType": {
+            "type": "String",
+            "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc"
+        },
+        "program_id": "Int",
+        "study_id": "Int",
+        "trial_id": "Int",
+        "samples_ids": "[ Int ]"
     },
     "associations": {
         "program": {
@@ -13,7 +30,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "plates",
             "target": "Program",
-            "targetKey": "Program_id",
+            "targetKey": "plates_ids",
+            "sourceKey": "program_id",
             "keysIn": "Plate",
             "targetStorageType": "sql"
         },
@@ -22,7 +40,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "plates",
             "target": "Study",
-            "targetKey": "Study_id",
+            "targetKey": "plates_ids",
+            "sourceKey": "study_id",
             "keysIn": "Plate",
             "targetStorageType": "sql"
         },
@@ -31,7 +50,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "plates",
             "target": "Trial",
-            "targetKey": "Trial_id",
+            "targetKey": "plates_ids",
+            "sourceKey": "trial_id",
             "keysIn": "Plate",
             "targetStorageType": "sql"
         },
@@ -40,7 +60,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "plate",
             "target": "Sample",
-            "targetKey": "Sample_id",
+            "targetKey": "plate_id",
+            "sourceKey": "samples_ids",
             "keysIn": "Plate",
             "targetStorageType": "sql"
         }

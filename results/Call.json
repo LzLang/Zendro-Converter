@@ -2,8 +2,18 @@
     "model": "Call",
     "storageType": "sql",
     "attributes": {
-        "genotypeValue": "String",
-        "phaseSet": "String"
+        "call_primary_key": "Int",
+        "genotypeValue": {
+            "type": "String",
+            "description": "The value of this genotype call"
+        },
+        "phaseSet": {
+            "type": "String",
+            "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string."
+        },
+        "call_set_id": "Int",
+        "variant_id": "Int",
+        "variant_set_id": "Int"
     },
     "associations": {
         "callSet": {
@@ -11,7 +21,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "calls",
             "target": "CallSet",
-            "targetKey": "CallSet_id",
+            "targetKey": "calls_ids",
+            "sourceKey": "call_set_id",
             "keysIn": "Call",
             "targetStorageType": "sql"
         },
@@ -20,7 +31,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "calls",
             "target": "Variant",
-            "targetKey": "Variant_id",
+            "targetKey": "calls_ids",
+            "sourceKey": "variant_id",
             "keysIn": "Call",
             "targetStorageType": "sql"
         },
@@ -29,7 +41,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "calls",
             "target": "VariantSet",
-            "targetKey": "VariantSet_id",
+            "targetKey": "calls_ids",
+            "sourceKey": "variant_set_id",
             "keysIn": "Call",
             "targetStorageType": "sql"
         }

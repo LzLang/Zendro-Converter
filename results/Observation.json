@@ -2,11 +2,32 @@
     "model": "Observation",
     "storageType": "sql",
     "attributes": {
-        "collector": "String",
-        "observationDbId": "String",
-        "observationTimeStamp": "String",
-        "uploadedBy": "String",
-        "value": "String"
+        "observation_primary_key": "Int",
+        "collector": {
+            "type": "String",
+            "description": "The name or identifier of the entity which collected the observation"
+        },
+        "observationDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies an observation"
+        },
+        "observationTimeStamp": {
+            "type": "String",
+            "description": "The date and time when this observation was made"
+        },
+        "uploadedBy": {
+            "type": "String",
+            "description": "The name or id of the user who uploaded the observation to the database system"
+        },
+        "value": {
+            "type": "String",
+            "description": "The value of the data collected as an observation"
+        },
+        "germplasm_id": "Int",
+        "observation_unit_id": "Int",
+        "observation_variable_id": "Int",
+        "study_id": "Int",
+        "images_ids": "[ Int ]"
     },
     "associations": {
         "germplasm": {
@@ -14,7 +35,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observations",
             "target": "Germplasm",
-            "targetKey": "Germplasm_id",
+            "targetKey": "observations_ids",
+            "sourceKey": "germplasm_id",
             "keysIn": "Observation",
             "targetStorageType": "sql"
         },
@@ -23,7 +45,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observations",
             "target": "ObservationUnit",
-            "targetKey": "ObservationUnit_id",
+            "targetKey": "observations_ids",
+            "sourceKey": "observation_unit_id",
             "keysIn": "Observation",
             "targetStorageType": "sql"
         },
@@ -32,7 +55,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observations",
             "target": "ObservationVariable",
-            "targetKey": "ObservationVariable_id",
+            "targetKey": "observations_ids",
+            "sourceKey": "observation_variable_id",
             "keysIn": "Observation",
             "targetStorageType": "sql"
         },
@@ -41,7 +65,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observations",
             "target": "Study",
-            "targetKey": "Study_id",
+            "targetKey": "observations_ids",
+            "sourceKey": "study_id",
             "keysIn": "Observation",
             "targetStorageType": "sql"
         },
@@ -50,7 +75,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "observations",
             "target": "Image",
-            "targetKey": "Image_id",
+            "targetKey": "observations_ids",
+            "sourceKey": "images_ids",
             "keysIn": "Observation",
             "targetStorageType": "sql"
         }

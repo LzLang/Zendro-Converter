@@ -2,10 +2,29 @@
     "model": "VariantSet",
     "storageType": "sql",
     "attributes": {
-        "callSetCount": "Int",
-        "variantCount": "Int",
-        "variantSetDbId": "String",
-        "variantSetName": "String"
+        "variant_set_primary_key": "Int",
+        "callSetCount": {
+            "type": "Int",
+            "description": "The number of CallSets included in this VariantSet"
+        },
+        "variantCount": {
+            "type": "Int",
+            "description": "The number of Variants included in this VariantSet"
+        },
+        "variantSetDbId": {
+            "type": "String",
+            "description": "The unique identifier for a VariantSet"
+        },
+        "variantSetName": {
+            "type": "String",
+            "description": "The human readable name for a VariantSet"
+        },
+        "allele_matrices_ids": "[ Int ]",
+        "calls_ids": "[ Int ]",
+        "call_sets_ids": "[ Int ]",
+        "reference_set_id": "Int",
+        "study_id": "Int",
+        "variants_ids": "[ Int ]"
     },
     "associations": {
         "alleleMatrices": {
@@ -13,7 +32,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variantSets",
             "target": "AlleleMatrix",
-            "targetKey": "AlleleMatrix_id",
+            "targetKey": "variant_sets_ids",
+            "sourceKey": "allele_matrices_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
         },
@@ -22,7 +42,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variantSet",
             "target": "Call",
-            "targetKey": "Call_id",
+            "targetKey": "variant_set_id",
+            "sourceKey": "calls_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
         },
@@ -31,7 +52,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variantSets",
             "target": "CallSet",
-            "targetKey": "CallSet_id",
+            "targetKey": "variant_sets_ids",
+            "sourceKey": "call_sets_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
         },
@@ -40,7 +62,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variantSets",
             "target": "ReferenceSet",
-            "targetKey": "ReferenceSet_id",
+            "targetKey": "variant_sets_ids",
+            "sourceKey": "reference_set_id",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
         },
@@ -49,7 +72,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variantSets",
             "target": "Study",
-            "targetKey": "Study_id",
+            "targetKey": "variant_sets_ids",
+            "sourceKey": "study_id",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
         },
@@ -58,7 +82,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variantSet",
             "target": "Variant",
-            "targetKey": "Variant_id",
+            "targetKey": "variant_set_id",
+            "sourceKey": "variants_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
         }

@@ -2,17 +2,53 @@
     "model": "Image",
     "storageType": "sql",
     "attributes": {
-        "copyright": "String",
-        "description": "String",
-        "imageDbId": "String",
-        "imageFileName": "String",
-        "imageFileSize": "Int",
-        "imageHeight": "Int",
-        "imageName": "String",
-        "imageTimeStamp": "String",
-        "imageURL": "String",
-        "imageWidth": "Int",
-        "mimeType": "String"
+        "image_primary_key": "Int",
+        "copyright": {
+            "type": "String",
+            "description": "The copyright information of this image. Example 'Copyright 2018 Bob Robertson'"
+        },
+        "description": {
+            "type": "String",
+            "description": "The human readable description of an image."
+        },
+        "imageDbId": {
+            "type": "String",
+            "description": "The unique identifier of an image"
+        },
+        "imageFileName": {
+            "type": "String",
+            "description": "The name of the image file. Might be the same as 'imageName', but could be different."
+        },
+        "imageFileSize": {
+            "type": "Int",
+            "description": "The size of the image in Bytes."
+        },
+        "imageHeight": {
+            "type": "Int",
+            "description": "The height of the image in Pixels."
+        },
+        "imageName": {
+            "type": "String",
+            "description": "The human readable name of an image. Might be the same as 'imageFileName', but could be different."
+        },
+        "imageTimeStamp": {
+            "type": "String",
+            "description": "The date and time the image was taken"
+        },
+        "imageURL": {
+            "type": "String",
+            "description": "The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server."
+        },
+        "imageWidth": {
+            "type": "Int",
+            "description": "The width of the image in Pixels."
+        },
+        "mimeType": {
+            "type": "String",
+            "description": "The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc"
+        },
+        "observation_unit_id": "Int",
+        "observations_ids": "[ Int ]"
     },
     "associations": {
         "observationUnit": {
@@ -20,7 +56,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "images",
             "target": "ObservationUnit",
-            "targetKey": "ObservationUnit_id",
+            "targetKey": "images_ids",
+            "sourceKey": "observation_unit_id",
             "keysIn": "Image",
             "targetStorageType": "sql"
         },
@@ -29,7 +66,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "images",
             "target": "Observation",
-            "targetKey": "Observation_id",
+            "targetKey": "images_ids",
+            "sourceKey": "observations_ids",
             "keysIn": "Image",
             "targetStorageType": "sql"
         }

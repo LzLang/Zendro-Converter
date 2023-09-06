@@ -2,10 +2,27 @@
     "model": "CrossingProject",
     "storageType": "sql",
     "attributes": {
-        "commonCropName": "String",
-        "crossingProjectDbId": "String",
-        "crossingProjectDescription": "String",
-        "crossingProjectName": "String"
+        "crossing_project_primary_key": "Int",
+        "commonCropName": {
+            "type": "String",
+            "description": "the common name of a crop (for multi-crop systems)"
+        },
+        "crossingProjectDbId": {
+            "type": "String",
+            "description": "The unique identifier for a crossing project"
+        },
+        "crossingProjectDescription": {
+            "type": "String",
+            "description": "the description for a crossing project"
+        },
+        "crossingProjectName": {
+            "type": "String",
+            "description": "The human readable name for a crossing project"
+        },
+        "program_id": "Int",
+        "crosses_ids": "[ Int ]",
+        "planned_crosses_ids": "[ Int ]",
+        "pedigree_nodes_ids": "[ Int ]"
     },
     "associations": {
         "program": {
@@ -13,7 +30,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "crossingProjects",
             "target": "Program",
-            "targetKey": "Program_id",
+            "targetKey": "crossing_projects_ids",
+            "sourceKey": "program_id",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
         },
@@ -22,7 +40,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "crossingProject",
             "target": "Cross",
-            "targetKey": "Cross_id",
+            "targetKey": "crossing_project_id",
+            "sourceKey": "crosses_ids",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
         },
@@ -31,7 +50,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "crossingProject",
             "target": "PlannedCross",
-            "targetKey": "PlannedCross_id",
+            "targetKey": "crossing_project_id",
+            "sourceKey": "planned_crosses_ids",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
         },
@@ -40,7 +60,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "crossingProject",
             "target": "PedigreeNode",
-            "targetKey": "PedigreeNode_id",
+            "targetKey": "crossing_project_id",
+            "sourceKey": "pedigree_nodes_ids",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
         }

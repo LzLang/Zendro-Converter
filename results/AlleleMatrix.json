@@ -2,10 +2,26 @@
     "model": "AlleleMatrix",
     "storageType": "sql",
     "attributes": {
-        "expandHomozygotes": "Boolean",
-        "sepPhased": "String",
-        "sepUnphased": "String",
-        "unknownString": "String"
+        "allele_matrix_primary_key": "Int",
+        "expandHomozygotes": {
+            "type": "Boolean",
+            "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
+        },
+        "sepPhased": {
+            "type": "String",
+            "description": "The string used as a separator for phased allele calls."
+        },
+        "sepUnphased": {
+            "type": "String",
+            "description": "The string used as a separator for unphased allele calls."
+        },
+        "unknownString": {
+            "type": "String",
+            "description": "The string used as a representation for missing data."
+        },
+        "call_sets_ids": "[ Int ]",
+        "variant_sets_ids": "[ Int ]",
+        "variants_ids": "[ Int ]"
     },
     "associations": {
         "callSets": {
@@ -13,7 +29,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "alleleMatrices",
             "target": "CallSet",
-            "targetKey": "CallSet_id",
+            "targetKey": "allele_matrices_ids",
+            "sourceKey": "call_sets_ids",
             "keysIn": "AlleleMatrix",
             "targetStorageType": "sql"
         },
@@ -22,7 +39,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "alleleMatrices",
             "target": "VariantSet",
-            "targetKey": "VariantSet_id",
+            "targetKey": "allele_matrices_ids",
+            "sourceKey": "variant_sets_ids",
             "keysIn": "AlleleMatrix",
             "targetStorageType": "sql"
         },
@@ -31,7 +49,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "alleleMatrices",
             "target": "Variant",
-            "targetKey": "Variant_id",
+            "targetKey": "allele_matrices_ids",
+            "sourceKey": "variants_ids",
             "keysIn": "AlleleMatrix",
             "targetStorageType": "sql"
         }

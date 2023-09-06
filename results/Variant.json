@@ -2,16 +2,53 @@
     "model": "Variant",
     "storageType": "sql",
     "attributes": {
-        "created": "String",
-        "end": "Int",
-        "filtersApplied": "Boolean",
-        "filtersPassed": "Boolean",
-        "referenceBases": "String",
-        "start": "Int",
-        "svlen": "Int",
-        "updated": "String",
-        "variantDbId": "String",
-        "variantType": "String"
+        "variant_primary_key": "Int",
+        "created": {
+            "type": "String",
+            "description": "The timestamp when this variant was created."
+        },
+        "end": {
+            "type": "Int",
+            "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`."
+        },
+        "filtersApplied": {
+            "type": "Boolean",
+            "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value."
+        },
+        "filtersPassed": {
+            "type": "Boolean",
+            "description": "True if all filters for this variant passed. VCF column 7 \"FILTER\" value PASS."
+        },
+        "referenceBases": {
+            "type": "String",
+            "description": "The reference bases for this variant. They start at the given start position."
+        },
+        "start": {
+            "type": "Int",
+            "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0)."
+        },
+        "svlen": {
+            "type": "Int",
+            "description": "Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2"
+        },
+        "updated": {
+            "type": "String",
+            "description": "The time at which this variant was last updated."
+        },
+        "variantDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a `Variant`"
+        },
+        "variantType": {
+            "type": "String",
+            "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\""
+        },
+        "marker_positions_ids": "[ Int ]",
+        "allele_matrices_ids": "[ Int ]",
+        "calls_ids": "[ Int ]",
+        "reference_id": "Int",
+        "reference_set_id": "Int",
+        "variant_set_id": "Int"
     },
     "associations": {
         "markerPositions": {
@@ -19,7 +56,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variant",
             "target": "MarkerPosition",
-            "targetKey": "MarkerPosition_id",
+            "targetKey": "variant_id",
+            "sourceKey": "marker_positions_ids",
             "keysIn": "Variant",
             "targetStorageType": "sql"
         },
@@ -28,7 +66,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variants",
             "target": "AlleleMatrix",
-            "targetKey": "AlleleMatrix_id",
+            "targetKey": "variants_ids",
+            "sourceKey": "allele_matrices_ids",
             "keysIn": "Variant",
             "targetStorageType": "sql"
         },
@@ -37,7 +76,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variant",
             "target": "Call",
-            "targetKey": "Call_id",
+            "targetKey": "variant_id",
+            "sourceKey": "calls_ids",
             "keysIn": "Variant",
             "targetStorageType": "sql"
         },
@@ -46,7 +86,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variants",
             "target": "Reference",
-            "targetKey": "Reference_id",
+            "targetKey": "variants_ids",
+            "sourceKey": "reference_id",
             "keysIn": "Variant",
             "targetStorageType": "sql"
         },
@@ -55,7 +96,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variants",
             "target": "ReferenceSet",
-            "targetKey": "ReferenceSet_id",
+            "targetKey": "variants_ids",
+            "sourceKey": "reference_set_id",
             "keysIn": "Variant",
             "targetStorageType": "sql"
         },
@@ -64,7 +106,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "variants",
             "target": "VariantSet",
-            "targetKey": "VariantSet_id",
+            "targetKey": "variants_ids",
+            "sourceKey": "variant_set_id",
             "keysIn": "Variant",
             "targetStorageType": "sql"
         }

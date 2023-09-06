@@ -2,14 +2,42 @@
     "model": "ReferenceSet",
     "storageType": "sql",
     "attributes": {
-        "assemblyPUI": "String",
-        "commonCropName": "String",
-        "description": "String",
-        "isDerived": "Boolean",
-        "md5checksum": "String",
-        "referenceSetDbId": "String",
-        "referenceSetName": "String",
-        "sourceURI": "String"
+        "reference_set_primary_key": "Int",
+        "assemblyPUI": {
+            "type": "String",
+            "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`."
+        },
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop"
+        },
+        "description": {
+            "type": "String",
+            "description": "Optional free text description of this reference set."
+        },
+        "isDerived": {
+            "type": "Boolean",
+            "description": "A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`)."
+        },
+        "md5checksum": {
+            "type": "String",
+            "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string."
+        },
+        "referenceSetDbId": {
+            "type": "String",
+            "description": "The unique identifier for a ReferenceSet"
+        },
+        "referenceSetName": {
+            "type": "String",
+            "description": "The human readable name of a ReferenceSet"
+        },
+        "sourceURI": {
+            "type": "String",
+            "description": "Specifies a FASTA format file/string."
+        },
+        "references_ids": "[ Int ]",
+        "variants_ids": "[ Int ]",
+        "variant_sets_ids": "[ Int ]"
     },
     "associations": {
         "references": {
@@ -17,7 +45,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "referenceSet",
             "target": "Reference",
-            "targetKey": "Reference_id",
+            "targetKey": "reference_set_id",
+            "sourceKey": "references_ids",
             "keysIn": "ReferenceSet",
             "targetStorageType": "sql"
         },
@@ -26,7 +55,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "referenceSet",
             "target": "Variant",
-            "targetKey": "Variant_id",
+            "targetKey": "reference_set_id",
+            "sourceKey": "variants_ids",
             "keysIn": "ReferenceSet",
             "targetStorageType": "sql"
         },
@@ -35,7 +65,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "referenceSet",
             "target": "VariantSet",
-            "targetKey": "VariantSet_id",
+            "targetKey": "reference_set_id",
+            "sourceKey": "variant_sets_ids",
             "keysIn": "ReferenceSet",
             "targetStorageType": "sql"
         }

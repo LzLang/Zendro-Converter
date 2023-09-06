@@ -2,10 +2,28 @@
     "model": "CallSet",
     "storageType": "sql",
     "attributes": {
-        "callSetDbId": "String",
-        "callSetName": "String",
-        "created": "String",
-        "updated": "String"
+        "call_set_primary_key": "Int",
+        "callSetDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a CallSet within the given database server"
+        },
+        "callSetName": {
+            "type": "String",
+            "description": "The human readable name which identifies a germplasm within the given database server"
+        },
+        "created": {
+            "type": "String",
+            "description": "The date this call set was created"
+        },
+        "updated": {
+            "type": "String",
+            "description": "The time at which this call set was last updated"
+        },
+        "allele_matrices_ids": "[ Int ]",
+        "calls_ids": "[ Int ]",
+        "sample_id": "Int",
+        "study_id": "Int",
+        "variant_sets_ids": "[ Int ]"
     },
     "associations": {
         "alleleMatrices": {
@@ -13,7 +31,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "callSets",
             "target": "AlleleMatrix",
-            "targetKey": "AlleleMatrix_id",
+            "targetKey": "call_sets_ids",
+            "sourceKey": "allele_matrices_ids",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
         },
@@ -22,7 +41,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "callSet",
             "target": "Call",
-            "targetKey": "Call_id",
+            "targetKey": "call_set_id",
+            "sourceKey": "calls_ids",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
         },
@@ -31,7 +51,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "callSets",
             "target": "Sample",
-            "targetKey": "Sample_id",
+            "targetKey": "call_sets_ids",
+            "sourceKey": "sample_id",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
         },
@@ -40,7 +61,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "callSets",
             "target": "Study",
-            "targetKey": "Study_id",
+            "targetKey": "call_sets_ids",
+            "sourceKey": "study_id",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
         },
@@ -49,7 +71,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "callSets",
             "target": "VariantSet",
-            "targetKey": "VariantSet_id",
+            "targetKey": "call_sets_ids",
+            "sourceKey": "variant_sets_ids",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
         }

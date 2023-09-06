@@ -2,20 +2,73 @@
     "model": "Study",
     "storageType": "sql",
     "attributes": {
-        "active": "Boolean",
-        "commonCropName": "String",
-        "culturalPractices": "String",
-        "documentationURL": "String",
-        "endDate": "String",
-        "license": "String",
-        "observationUnitsDescription": "String",
-        "startDate": "String",
-        "studyCode": "String",
-        "studyDbId": "String",
-        "studyDescription": "String",
-        "studyName": "String",
-        "studyPUI": "String",
-        "studyType": "String"
+        "study_primary_key": "Int",
+        "active": {
+            "type": "Boolean",
+            "description": "A flag to indicate if a Study is currently active and ongoing"
+        },
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop associated with this study"
+        },
+        "culturalPractices": {
+            "type": "String",
+            "description": "MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study."
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "endDate": {
+            "type": "String",
+            "description": "The date the study ends\n\nMIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended"
+        },
+        "license": {
+            "type": "String",
+            "description": "The usage license associated with the study data"
+        },
+        "observationUnitsDescription": {
+            "type": "String",
+            "description": "MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study."
+        },
+        "startDate": {
+            "type": "String",
+            "description": "The date this study started\n\nMIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started"
+        },
+        "studyCode": {
+            "type": "String",
+            "description": "A short human readable code for a study"
+        },
+        "studyDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
+        },
+        "studyDescription": {
+            "type": "String",
+            "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study"
+        },
+        "studyName": {
+            "type": "String",
+            "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study"
+        },
+        "studyPUI": {
+            "type": "String",
+            "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI"
+        },
+        "studyType": {
+            "type": "String",
+            "description": "The type of study being performed. ex. \"Yield Trial\", etc"
+        },
+        "location_id": "Int",
+        "observation_variables_ids": "[ Int ]",
+        "trial_id": "Int",
+        "call_sets_ids": "[ Int ]",
+        "plates_ids": "[ Int ]",
+        "samples_ids": "[ Int ]",
+        "variant_sets_ids": "[ Int ]",
+        "events_ids": "[ Int ]",
+        "observations_ids": "[ Int ]",
+        "observation_units_ids": "[ Int ]"
     },
     "associations": {
         "location": {
@@ -23,7 +76,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "studies",
             "target": "Location",
-            "targetKey": "Location_id",
+            "targetKey": "studies_ids",
+            "sourceKey": "location_id",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -32,7 +86,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "studies",
             "target": "ObservationVariable",
-            "targetKey": "ObservationVariable_id",
+            "targetKey": "studies_ids",
+            "sourceKey": "observation_variables_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -41,7 +96,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "studies",
             "target": "Trial",
-            "targetKey": "Trial_id",
+            "targetKey": "studies_ids",
+            "sourceKey": "trial_id",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -50,7 +106,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "CallSet",
-            "targetKey": "CallSet_id",
+            "targetKey": "study_id",
+            "sourceKey": "call_sets_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -59,7 +116,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "Plate",
-            "targetKey": "Plate_id",
+            "targetKey": "study_id",
+            "sourceKey": "plates_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -68,7 +126,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "Sample",
-            "targetKey": "Sample_id",
+            "targetKey": "study_id",
+            "sourceKey": "samples_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -77,7 +136,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "VariantSet",
-            "targetKey": "VariantSet_id",
+            "targetKey": "study_id",
+            "sourceKey": "variant_sets_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -86,7 +146,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "Event",
-            "targetKey": "Event_id",
+            "targetKey": "study_ids",
+            "sourceKey": "events_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -95,7 +156,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "Observation",
-            "targetKey": "Observation_id",
+            "targetKey": "study_id",
+            "sourceKey": "observations_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         },
@@ -104,7 +166,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "study",
             "target": "ObservationUnit",
-            "targetKey": "ObservationUnit_id",
+            "targetKey": "study_id",
+            "sourceKey": "observation_units_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
         }

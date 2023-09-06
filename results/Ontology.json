@@ -2,13 +2,39 @@
     "model": "Ontology",
     "storageType": "sql",
     "attributes": {
-        "authors": "String",
-        "copyright": "String",
-        "description": "String",
-        "documentationURL": "String",
-        "licence": "String",
-        "ontologyDbId": "String",
-        "ontologyName": "String",
-        "version": "String"
-    }
+        "ontology_primary_key": "Int",
+        "authors": {
+            "type": "String",
+            "description": "Ontology's list of authors (no specific format)"
+        },
+        "copyright": {
+            "type": "String",
+            "description": "Ontology copyright"
+        },
+        "description": {
+            "type": "String",
+            "description": "Human readable description of Ontology"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "licence": {
+            "type": "String",
+            "description": "Ontology licence"
+        },
+        "ontologyDbId": {
+            "type": "String",
+            "description": "Ontology database unique identifier"
+        },
+        "ontologyName": {
+            "type": "String",
+            "description": "Ontology name"
+        },
+        "version": {
+            "type": "String",
+            "description": "Ontology version (no specific format)"
+        }
+    },
+    "associations": {}
 }

@@ -2,11 +2,30 @@
     "model": "PedigreeNode",
     "storageType": "sql",
     "attributes": {
-        "crossingYear": "Int",
-        "defaultDisplayName": "String",
-        "familyCode": "String",
-        "germplasmPUI": "String",
-        "pedigreeString": "String"
+        "pedigree_node_primary_key": "Int",
+        "crossingYear": {
+            "type": "Int",
+            "description": "The year the parents were originally crossed"
+        },
+        "defaultDisplayName": {
+            "type": "String",
+            "description": "Human readable name used for display purposes"
+        },
+        "familyCode": {
+            "type": "String",
+            "description": "The code representing the family of this germplasm"
+        },
+        "germplasmPUI": {
+            "type": "String",
+            "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties."
+        },
+        "pedigreeString": {
+            "type": "String",
+            "description": "The string representation of the pedigree for this germplasm in PURDY notation"
+        },
+        "breeding_method_id": "Int",
+        "crossing_project_id": "Int",
+        "germplasm_id": "Int"
     },
     "associations": {
         "breedingMethod": {
@@ -14,7 +33,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "pedigreeNodes",
             "target": "BreedingMethod",
-            "targetKey": "BreedingMethod_id",
+            "targetKey": "pedigree_nodes_ids",
+            "sourceKey": "breeding_method_id",
             "keysIn": "PedigreeNode",
             "targetStorageType": "sql"
         },
@@ -23,7 +43,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "pedigreeNodes",
             "target": "CrossingProject",
-            "targetKey": "CrossingProject_id",
+            "targetKey": "pedigree_nodes_ids",
+            "sourceKey": "crossing_project_id",
             "keysIn": "PedigreeNode",
             "targetStorageType": "sql"
         },
@@ -32,7 +53,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "pedigreeNode",
             "target": "Germplasm",
-            "targetKey": "Germplasm_id",
+            "targetKey": "pedigree_node_id",
+            "sourceKey": "germplasm_id",
             "keysIn": "PedigreeNode",
             "targetStorageType": "sql"
         }

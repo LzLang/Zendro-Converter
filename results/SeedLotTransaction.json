@@ -2,11 +2,29 @@
     "model": "SeedLotTransaction",
     "storageType": "sql",
     "attributes": {
-        "amount": "Float",
-        "transactionDbId": "String",
-        "transactionDescription": "String",
-        "transactionTimestamp": "String",
-        "units": "String"
+        "seed_lot_transaction_primary_key": "Int",
+        "amount": {
+            "type": "Float",
+            "description": "The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed)."
+        },
+        "transactionDbId": {
+            "type": "String",
+            "description": "Unique DbId for the Seed Lot Transaction"
+        },
+        "transactionDescription": {
+            "type": "String",
+            "description": "A general description of this Seed Lot Transaction"
+        },
+        "transactionTimestamp": {
+            "type": "String",
+            "description": "The time stamp for when the transaction occurred"
+        },
+        "units": {
+            "type": "String",
+            "description": "A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)"
+        },
+        "from_seed_lot_id": "Int",
+        "to_seed_lot_id": "Int"
     },
     "associations": {
         "fromSeedLot": {
@@ -14,7 +32,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "fromSeedLotTransactions",
             "target": "SeedLot",
-            "targetKey": "SeedLot_id",
+            "targetKey": "from_seed_lot_transactions_ids",
+            "sourceKey": "from_seed_lot_id",
             "keysIn": "SeedLotTransaction",
             "targetStorageType": "sql"
         },
@@ -23,7 +42,8 @@
             "implementation": "foreignkey",
             "reverseAssociation": "toSeedLotTransactions",
             "target": "SeedLot",
-            "targetKey": "SeedLot_id",
+            "targetKey": "to_seed_lot_transactions_ids",
+            "sourceKey": "to_seed_lot_id",
             "keysIn": "SeedLotTransaction",
             "targetStorageType": "sql"
         }
