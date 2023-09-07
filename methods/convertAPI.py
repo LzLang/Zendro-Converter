@@ -64,37 +64,74 @@ def get_items(file_data):
         items[model] = {}
         # Every models needs a primary key, for the database
         items[model]['primary_key'] = file_data[model]['primary_key']
+        items[model]['attributes'] = {}
+        items[model]['associations'] = {}
+        reference_association_ids = {}
+
         # Walk through every property of a data model
         for item_property in file_data[model]['properties']:
             # Current property
             item = file_data[model]['properties'][item_property]
+            # Description
+            description = ""
+            if 'description' in item:
+                description = item['description'].replace("'", "\'")
+                description.replace('"', "\"")
             # Get type of the current property
             item_type = get_type(item)
+
             # Check if property has a Zendro compatible data type
             if item_type:
-                if 'attributes' not in items[model]:
-                    items[model]['attributes'] = {}
                 # Add property to the dictionary
-                items[model]['attributes'].update({item_property: item_type})
+                if description:
+                    items[model]['attributes'].update({
+                        item_property: {
+                            "type": item_type,
+                            "description": description
+                        }
+                    })
+                else:
+                    items[model]['attributes'].update({item_property: item_type})
 
             # Property may be an association, check if it is an association
             reference = get_reference(item)
             if reference:
-                if 'associations' not in items[model]:
-                    items[model]['associations'] = {}
                 # Transform association to a Zendro compatible association
-                target = file_data[reference['target']]
+                target = reference['target']
+                associated_attribute = reference['reverseAssociation']
+                if associated_attribute not in file_data[target]['properties']:
+                    continue
+                target_key = f"{associated_attribute}_id"
+                source_key = f"{item_property}_id"
+                source_key_type = list(file_data[target]['primary_key'].values())[0]
+                match reference['type']:
+                    case 'many_to_one':
+                        target_key = f"{associated_attribute}_ids"
+                    case 'one_to_many':
+                        source_key = f"{item_property}_ids"
+                        source_key_type = f"[ {source_key_type} ]"
+                    case 'many_to_many':
+                        target_key = f"{associated_attribute}_ids"
+                        source_key = f"{item_property}_ids"
+                        source_key_type = f"[ {source_key_type} ]"
+                target_key = ''.join(['_' + c.lower() if c.isupper() else c for c in target_key]).lstrip('_')
+                source_key = ''.join(['_' + c.lower() if c.isupper() else c for c in source_key]).lstrip('_')
+
                 items[model]['associations'].update({
                     item_property: {
                         'type': reference['type'],
                         'implementation': 'foreignkey',
-                        'reverseAssociation': reference['reverseAssociation'],
+                        'reverseAssociation': associated_attribute,
                         'target': reference['target'],
-                        'targetKey': list(target['primary_key'].keys())[0],
+                        'targetKey': target_key,
+                        'sourceKey': source_key,
                         'keysIn': model,
-                        'targetStorageType': target['targetStorageType']
+                        'targetStorageType': file_data[reference['target']]['targetStorageType']
                     }
                 })
+
+                reference_association_ids.update({source_key: source_key_type})
+        items[model]['attributes'].update(reference_association_ids)
     return items if items else None
 
 
@@ -128,16 +165,15 @@ def get_reference(item):
     """
 
     # Checks a given item if it's an association
-    # When it's a association extract all necessary information and return it, otherwise return none
+    # When it's an association extract all necessary information and return it, otherwise return none
     reference = {}
     if 'relationshipType' in item:
         reference['type'] = item['relationshipType'].replace('-', '_')
-    if 'referencedAttribute' in item:
         reference['reverseAssociation'] = item['referencedAttribute']
-    if '$ref' in item:
-        reference['target'] = item['$ref'].split('/')[-1]
-    elif 'items' in item and '$ref' in item['items']:
-        reference['target'] = item['items']['$ref'].split('/')[-1]
+        if '$ref' in item:
+            reference['target'] = item['$ref'].split('/')[-1]
+        else:
+            reference['target'] = item['items']['$ref'].split('/')[-1]
     return reference if reference else None
 
 
@@ -157,18 +193,22 @@ def read_json(files, storage_type, primary_key_name, primary_key_type):
             raise Exception('\'storage_type\' is not compatible to Zendro')
         if primary_key_type not in ['Int', 'String']:
             raise Exception('\'primary_key_type\' must be of type \'Int\' or \'String\'')
+
         # Open file and load json content
         file_data = {}
         for file in files:
             with open(file, "r") as json_file:
                 # Get current model and save all model definitions to a dictionary
                 model = os.path.splitext(os.path.basename(file))[0]
+                model_id = ''.join(['_' + c.lower() if c.isupper() else c for c in model]).lstrip('_')
+                if primary_key_name is (f"{model_id}_id" or f"{model_id}_ids"):
+                    raise Exception("Name of the primary key can't be [model]_id or [model]_ids")
                 file_data[model] = {}
                 file_data[model]['targetStorageType'] = storage_type
                 if primary_key_name:
                     file_data[model]['primary_key'] = {primary_key_name: primary_key_type}
                 else:
-                    file_data[model]['primary_key'] = {f"{model}_id": primary_key_type}
+                    file_data[model]['primary_key'] = {f"{model_id}_primary_key": primary_key_type}
                 file_data[model].update({'properties': json.load(json_file)['$defs'][model]['properties']})
         return file_data if file_data else None
     except OSError as file_error:
@@ -193,8 +233,10 @@ def write_json(file_data, output_path, storage_type):
             json_file = {
                 'model': model,
                 'storageType': storage_type,
-                'attributes': file_data[model]['attributes']
+                'attributes': file_data[model]['primary_key']
             }
+            json_file['attributes'].update(file_data[model]['attributes'])
+
             # If a model has an association it is needed to be included
             if 'associations' in file_data[model]:
                 json_file['associations'] = file_data[model]['associations']
