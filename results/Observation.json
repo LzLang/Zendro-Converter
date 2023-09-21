@@ -79,6 +79,7 @@
             "sourceKey": "images_ids",
             "keysIn": "Observation",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "observation_primary_key"
     }
 }

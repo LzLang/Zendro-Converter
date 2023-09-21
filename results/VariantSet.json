@@ -86,6 +86,7 @@
             "sourceKey": "variants_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "variant_set_primary_key"
     }
 }

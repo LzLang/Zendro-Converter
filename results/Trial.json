@@ -95,6 +95,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Trial",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "trial_primary_key"
     }
 }

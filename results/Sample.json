@@ -129,6 +129,7 @@
             "sourceKey": "trial_id",
             "keysIn": "Sample",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "sample_primary_key"
     }
 }

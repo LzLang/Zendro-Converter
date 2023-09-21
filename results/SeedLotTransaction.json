@@ -46,6 +46,7 @@
             "sourceKey": "to_seed_lot_id",
             "keysIn": "SeedLotTransaction",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "seed_lot_transaction_primary_key"
     }
 }

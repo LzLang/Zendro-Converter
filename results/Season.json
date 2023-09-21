@@ -16,5 +16,7 @@
             "description": "The 4 digit year of the season."
         }
     },
-    "associations": {}
+    "associations": {
+        "internalId": "season_primary_key"
+    }
 }

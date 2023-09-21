@@ -110,6 +110,7 @@
             "sourceKey": "variant_set_id",
             "keysIn": "Variant",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "variant_primary_key"
     }
 }

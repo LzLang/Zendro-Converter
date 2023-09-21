@@ -53,6 +53,7 @@
             "sourceKey": "variants_ids",
             "keysIn": "AlleleMatrix",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "allele_matrix_primary_key"
     }
 }

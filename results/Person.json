@@ -62,6 +62,7 @@
             "sourceKey": "programs_ids",
             "keysIn": "Person",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "person_primary_key"
     }
 }

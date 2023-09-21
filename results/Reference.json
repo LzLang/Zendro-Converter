@@ -58,6 +58,7 @@
             "sourceKey": "variants_ids",
             "keysIn": "Reference",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "reference_primary_key"
     }
 }

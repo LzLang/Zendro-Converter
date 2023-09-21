@@ -51,6 +51,7 @@
             "sourceKey": "list_owner_person_id",
             "keysIn": "List",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "list_primary_key"
     }
 }

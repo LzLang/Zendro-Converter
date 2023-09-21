@@ -95,6 +95,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "SeedLot",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "seed_lot_primary_key"
     }
 }

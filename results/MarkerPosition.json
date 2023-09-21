@@ -34,6 +34,7 @@
             "sourceKey": "variant_id",
             "keysIn": "MarkerPosition",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "marker_position_primary_key"
     }
 }

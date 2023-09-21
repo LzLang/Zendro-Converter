@@ -48,5 +48,7 @@
             "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI"
         }
     },
-    "associations": {}
+    "associations": {
+        "internalId": "trait_primary_key"
+    }
 }

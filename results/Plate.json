@@ -64,6 +64,7 @@
             "sourceKey": "samples_ids",
             "keysIn": "Plate",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "plate_primary_key"
     }
 }
