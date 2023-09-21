@@ -1,6 +1,7 @@
 {
     "model": "Location",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "location_primary_key": "Int",
         "abbreviation": {
@@ -123,7 +124,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Location",
             "targetStorageType": "sql"
-        },
-        "internalId": "location_primary_key"
-    }
+        }
+    },
+    "internalId": "location_primary_key"
 }

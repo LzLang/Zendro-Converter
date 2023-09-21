@@ -1,6 +1,7 @@
 {
     "model": "Sample",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "sample_primary_key": "Int",
         "column": {
@@ -129,7 +130,7 @@
             "sourceKey": "trial_id",
             "keysIn": "Sample",
             "targetStorageType": "sql"
-        },
-        "internalId": "sample_primary_key"
-    }
+        }
+    },
+    "internalId": "sample_primary_key"
 }

@@ -1,6 +1,7 @@
 {
     "model": "Reference",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "reference_primary_key": "Int",
         "commonCropName": {
@@ -58,7 +59,7 @@
             "sourceKey": "variants_ids",
             "keysIn": "Reference",
             "targetStorageType": "sql"
-        },
-        "internalId": "reference_primary_key"
-    }
+        }
+    },
+    "internalId": "reference_primary_key"
 }

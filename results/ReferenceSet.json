@@ -1,6 +1,7 @@
 {
     "model": "ReferenceSet",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "reference_set_primary_key": "Int",
         "assemblyPUI": {
@@ -69,7 +70,7 @@
             "sourceKey": "variant_sets_ids",
             "keysIn": "ReferenceSet",
             "targetStorageType": "sql"
-        },
-        "internalId": "reference_set_primary_key"
-    }
+        }
+    },
+    "internalId": "reference_set_primary_key"
 }

@@ -1,6 +1,7 @@
 {
     "model": "GenomeMap",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "genome_map_primary_key": "Int",
         "comments": {
@@ -63,7 +64,7 @@
             "sourceKey": "marker_positions_ids",
             "keysIn": "GenomeMap",
             "targetStorageType": "sql"
-        },
-        "internalId": "genome_map_primary_key"
-    }
+        }
+    },
+    "internalId": "genome_map_primary_key"
 }

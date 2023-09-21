@@ -1,6 +1,7 @@
 {
     "model": "Cross",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "cross_primary_key": "Int",
         "crossDbId": {
@@ -49,7 +50,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Cross",
             "targetStorageType": "sql"
-        },
-        "internalId": "cross_primary_key"
-    }
+        }
+    },
+    "internalId": "cross_primary_key"
 }

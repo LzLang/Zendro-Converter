@@ -1,6 +1,7 @@
 {
     "model": "MarkerPosition",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "marker_position_primary_key": "Int",
         "linkageGroupName": {
@@ -34,7 +35,7 @@
             "sourceKey": "variant_id",
             "keysIn": "MarkerPosition",
             "targetStorageType": "sql"
-        },
-        "internalId": "marker_position_primary_key"
-    }
+        }
+    },
+    "internalId": "marker_position_primary_key"
 }

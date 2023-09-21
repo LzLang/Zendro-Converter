@@ -1,6 +1,7 @@
 {
     "model": "PlannedCross",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "planned_cross_primary_key": "Int",
         "crossType": {
@@ -42,7 +43,7 @@
             "sourceKey": "crosses_ids",
             "keysIn": "PlannedCross",
             "targetStorageType": "sql"
-        },
-        "internalId": "planned_cross_primary_key"
-    }
+        }
+    },
+    "internalId": "planned_cross_primary_key"
 }

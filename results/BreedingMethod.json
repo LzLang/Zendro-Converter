@@ -1,6 +1,7 @@
 {
     "model": "BreedingMethod",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "breeding_method_primary_key": "Int",
         "abbreviation": {
@@ -42,7 +43,7 @@
             "sourceKey": "pedigree_nodes_ids",
             "keysIn": "BreedingMethod",
             "targetStorageType": "sql"
-        },
-        "internalId": "breeding_method_primary_key"
-    }
+        }
+    },
+    "internalId": "breeding_method_primary_key"
 }

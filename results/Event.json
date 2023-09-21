@@ -1,6 +1,7 @@
 {
     "model": "Event",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "event_primary_key": "Int",
         "eventDbId": {
@@ -42,7 +43,7 @@
             "sourceKey": "study_id",
             "keysIn": "Event",
             "targetStorageType": "sql"
-        },
-        "internalId": "event_primary_key"
-    }
+        }
+    },
+    "internalId": "event_primary_key"
 }

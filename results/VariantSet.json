@@ -1,6 +1,7 @@
 {
     "model": "VariantSet",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "variant_set_primary_key": "Int",
         "callSetCount": {
@@ -86,7 +87,7 @@
             "sourceKey": "variants_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
-        },
-        "internalId": "variant_set_primary_key"
-    }
+        }
+    },
+    "internalId": "variant_set_primary_key"
 }

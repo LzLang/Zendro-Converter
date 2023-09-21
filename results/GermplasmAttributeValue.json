@@ -1,6 +1,7 @@
 {
     "model": "GermplasmAttributeValue",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "germplasm_attribute_value_primary_key": "Int",
         "attributeValueDbId": {
@@ -38,7 +39,7 @@
             "sourceKey": "germplasm_id",
             "keysIn": "GermplasmAttributeValue",
             "targetStorageType": "sql"
-        },
-        "internalId": "germplasm_attribute_value_primary_key"
-    }
+        }
+    },
+    "internalId": "germplasm_attribute_value_primary_key"
 }

@@ -1,6 +1,7 @@
 {
     "model": "AlleleMatrix",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "allele_matrix_primary_key": "Int",
         "expandHomozygotes": {
@@ -53,7 +54,7 @@
             "sourceKey": "variants_ids",
             "keysIn": "AlleleMatrix",
             "targetStorageType": "sql"
-        },
-        "internalId": "allele_matrix_primary_key"
-    }
+        }
+    },
+    "internalId": "allele_matrix_primary_key"
 }

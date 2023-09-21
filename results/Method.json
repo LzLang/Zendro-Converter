@@ -1,6 +1,7 @@
 {
     "model": "Method",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "method_primary_key": "Int",
         "bibliographicalReference": {
@@ -32,7 +33,6 @@
             "description": "The Permanent Unique Identifier of a Method, usually in the form of a URI"
         }
     },
-    "associations": {
-        "internalId": "method_primary_key"
-    }
+    "associations": {},
+    "internalId": "method_primary_key"
 }

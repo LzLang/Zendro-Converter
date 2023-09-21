@@ -1,6 +1,7 @@
 {
     "model": "CrossingProject",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "crossing_project_primary_key": "Int",
         "commonCropName": {
@@ -64,7 +65,7 @@
             "sourceKey": "pedigree_nodes_ids",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
-        },
-        "internalId": "crossing_project_primary_key"
-    }
+        }
+    },
+    "internalId": "crossing_project_primary_key"
 }

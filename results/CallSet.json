@@ -1,6 +1,7 @@
 {
     "model": "CallSet",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "call_set_primary_key": "Int",
         "callSetDbId": {
@@ -75,7 +76,7 @@
             "sourceKey": "variant_sets_ids",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
-        },
-        "internalId": "call_set_primary_key"
-    }
+        }
+    },
+    "internalId": "call_set_primary_key"
 }

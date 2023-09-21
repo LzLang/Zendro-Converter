@@ -1,6 +1,7 @@
 {
     "model": "Image",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "image_primary_key": "Int",
         "copyright": {
@@ -70,7 +71,7 @@
             "sourceKey": "observations_ids",
             "keysIn": "Image",
             "targetStorageType": "sql"
-        },
-        "internalId": "image_primary_key"
-    }
+        }
+    },
+    "internalId": "image_primary_key"
 }

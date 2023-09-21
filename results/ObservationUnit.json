@@ -1,6 +1,7 @@
 {
     "model": "ObservationUnit",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "observation_unit_primary_key": "Int",
         "observationUnitDbId": {
@@ -137,7 +138,7 @@
             "sourceKey": "observations_ids",
             "keysIn": "ObservationUnit",
             "targetStorageType": "sql"
-        },
-        "internalId": "observation_unit_primary_key"
-    }
+        }
+    },
+    "internalId": "observation_unit_primary_key"
 }

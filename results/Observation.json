@@ -1,6 +1,7 @@
 {
     "model": "Observation",
     "storageType": "sql",
+    "database": "default-sql",
     "attributes": {
         "observation_primary_key": "Int",
         "collector": {
@@ -79,7 +80,7 @@
             "sourceKey": "images_ids",
             "keysIn": "Observation",
             "targetStorageType": "sql"
-        },
-        "internalId": "observation_primary_key"
-    }
+        }
+    },
+    "internalId": "observation_primary_key"
 }
