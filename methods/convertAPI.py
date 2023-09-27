@@ -64,7 +64,6 @@ def get_items(file_data):
         items[model] = {}
         # Every models needs a primary key, for the database
         items[model]['primary_key'] = file_data[model]['primary_key']
-        items[model]['internalId'] = {"internalId": list(file_data[model]['primary_key'])[0]}
         items[model]['attributes'] = {}
         items[model]['associations'] = {}
         reference_association_ids = {}
@@ -99,12 +98,8 @@ def get_items(file_data):
             if reference:
                 # Transform association to a Zendro compatible association
                 target = reference['target']
-                if target not in file_data:
-                    log(f"{target} from {model} don't exist")
-                    continue
                 associated_attribute = reference['reverseAssociation']
                 if associated_attribute not in file_data[target]['properties']:
-                    log(f"{associated_attribute} in {target} from {model} don't exist")
                     continue
                 target_key = f"{associated_attribute}_id"
                 source_key = f"{item_property}_id"
@@ -136,7 +131,6 @@ def get_items(file_data):
                 })
 
                 reference_association_ids.update({source_key: source_key_type})
-        
         items[model]['attributes'].update(reference_association_ids)
     return items if items else None
 
@@ -239,7 +233,6 @@ def write_json(file_data, output_path, storage_type):
             json_file = {
                 'model': model,
                 'storageType': storage_type,
-                'database': 'default-sql',
                 'attributes': file_data[model]['primary_key']
             }
             json_file['attributes'].update(file_data[model]['attributes'])
@@ -247,7 +240,6 @@ def write_json(file_data, output_path, storage_type):
             # If a model has an association it is needed to be included
             if 'associations' in file_data[model]:
                 json_file['associations'] = file_data[model]['associations']
-            json_file.update(file_data[model]['internalId'])
             # Correct json format needed
             json_object = json.dumps(json_file, indent=4)
             # Write file
