@@ -1,7 +1,6 @@
 {
     "model": "PedigreeNode",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "pedigree_node_primary_key": "Int",
         "crossingYear": {
@@ -59,6 +58,5 @@
             "keysIn": "PedigreeNode",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "pedigree_node_primary_key"
+    }
 }

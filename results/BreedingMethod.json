@@ -1,7 +1,6 @@
 {
     "model": "BreedingMethod",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "breeding_method_primary_key": "Int",
         "abbreviation": {
@@ -44,6 +43,5 @@
             "keysIn": "BreedingMethod",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "breeding_method_primary_key"
+    }
 }

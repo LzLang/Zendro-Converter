@@ -1,7 +1,6 @@
 {
     "model": "Program",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "program_primary_key": "Int",
         "abbreviation": {
@@ -115,6 +114,5 @@
             "keysIn": "Program",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "program_primary_key"
+    }
 }

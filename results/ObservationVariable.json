@@ -1,7 +1,6 @@
 {
     "model": "ObservationVariable",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "observation_variable_primary_key": "Int",
         "commonCropName": {
@@ -76,6 +75,5 @@
             "keysIn": "ObservationVariable",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "observation_variable_primary_key"
+    }
 }

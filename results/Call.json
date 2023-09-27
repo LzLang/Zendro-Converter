@@ -1,7 +1,6 @@
 {
     "model": "Call",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "call_primary_key": "Int",
         "genotypeValue": {
@@ -47,6 +46,5 @@
             "keysIn": "Call",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "call_primary_key"
+    }
 }

@@ -1,7 +1,6 @@
 {
     "model": "Trial",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "trial_primary_key": "Int",
         "active": {
@@ -97,6 +96,5 @@
             "keysIn": "Trial",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "trial_primary_key"
+    }
 }

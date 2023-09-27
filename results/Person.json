@@ -1,7 +1,6 @@
 {
     "model": "Person",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "person_primary_key": "Int",
         "description": {
@@ -64,6 +63,5 @@
             "keysIn": "Person",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "person_primary_key"
+    }
 }

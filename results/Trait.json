@@ -1,7 +1,6 @@
 {
     "model": "Trait",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "trait_primary_key": "Int",
         "attribute": {
@@ -49,6 +48,5 @@
             "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI"
         }
     },
-    "associations": {},
-    "internalId": "trait_primary_key"
+    "associations": {}
 }

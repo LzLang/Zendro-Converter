@@ -1,7 +1,6 @@
 {
     "model": "GermplasmAttributeValue",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "germplasm_attribute_value_primary_key": "Int",
         "attributeValueDbId": {
@@ -16,8 +15,7 @@
             "type": "String",
             "description": "The value of this attribute for a given germplasm"
         },
-        "attribute_id": "Int",
-        "germplasm_id": "Int"
+        "attribute_id": "Int"
     },
     "associations": {
         "attribute": {
@@ -29,17 +27,6 @@
             "sourceKey": "attribute_id",
             "keysIn": "GermplasmAttributeValue",
             "targetStorageType": "sql"
-        },
-        "germplasm": {
-            "type": "many_to_one",
-            "implementation": "foreignkey",
-            "reverseAssociation": "attributeValues",
-            "target": "Germplasm",
-            "targetKey": "attribute_values_ids",
-            "sourceKey": "germplasm_id",
-            "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "sql"
         }
-    },
-    "internalId": "germplasm_attribute_value_primary_key"
+    }
 }

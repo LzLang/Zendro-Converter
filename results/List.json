@@ -1,7 +1,6 @@
 {
     "model": "List",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "list_primary_key": "Int",
         "dateCreated": {
@@ -53,6 +52,5 @@
             "keysIn": "List",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "list_primary_key"
+    }
 }

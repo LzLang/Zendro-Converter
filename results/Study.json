@@ -1,7 +1,6 @@
 {
     "model": "Study",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "study_primary_key": "Int",
         "active": {
@@ -172,6 +171,5 @@
             "keysIn": "Study",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "study_primary_key"
+    }
 }

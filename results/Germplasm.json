@@ -1,7 +1,6 @@
 {
     "model": "Germplasm",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "germplasm_primary_key": "Int",
         "accessionNumber": {
@@ -164,6 +163,5 @@
             "keysIn": "Germplasm",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "germplasm_primary_key"
+    }
 }

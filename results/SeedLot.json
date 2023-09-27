@@ -1,7 +1,6 @@
 {
     "model": "SeedLot",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "seed_lot_primary_key": "Int",
         "amount": {
@@ -97,6 +96,5 @@
             "keysIn": "SeedLot",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "seed_lot_primary_key"
+    }
 }

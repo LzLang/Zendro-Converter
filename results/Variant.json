@@ -1,7 +1,6 @@
 {
     "model": "Variant",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "variant_primary_key": "Int",
         "created": {
@@ -112,6 +111,5 @@
             "keysIn": "Variant",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "variant_primary_key"
+    }
 }

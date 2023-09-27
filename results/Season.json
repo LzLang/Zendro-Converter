@@ -1,7 +1,6 @@
 {
     "model": "Season",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "season_primary_key": "Int",
         "seasonDbId": {
@@ -17,6 +16,5 @@
             "description": "The 4 digit year of the season."
         }
     },
-    "associations": {},
-    "internalId": "season_primary_key"
+    "associations": {}
 }

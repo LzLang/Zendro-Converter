@@ -1,7 +1,6 @@
 {
     "model": "Plate",
     "storageType": "sql",
-    "database": "default-sql",
     "attributes": {
         "plate_primary_key": "Int",
         "plateBarcode": {
@@ -66,6 +65,5 @@
             "keysIn": "Plate",
             "targetStorageType": "sql"
         }
-    },
-    "internalId": "plate_primary_key"
+    }
 }
