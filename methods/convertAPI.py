@@ -98,8 +98,12 @@ def get_items(file_data):
             if reference:
                 # Transform association to a Zendro compatible association
                 target = reference['target']
+                if target not in file_data:
+                    log(f"{target} from {model} don't exist")
+                    continue
                 associated_attribute = reference['reverseAssociation']
                 if associated_attribute not in file_data[target]['properties']:
+                    log(f"{associated_attribute} in {target} from {model} don't exist")
                     continue
                 target_key = f"{associated_attribute}_id"
                 source_key = f"{item_property}_id"
@@ -131,6 +135,7 @@ def get_items(file_data):
                 })
 
                 reference_association_ids.update({source_key: source_key_type})
+        items[model]['associations'].update({"internalId": list(file_data[model]['primary_key'])[0]})
         items[model]['attributes'].update(reference_association_ids)
     return items if items else None
 
