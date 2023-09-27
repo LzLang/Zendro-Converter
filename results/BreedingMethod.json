@@ -42,6 +42,7 @@
             "sourceKey": "pedigree_nodes_ids",
             "keysIn": "BreedingMethod",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "breeding_method_primary_key"
     }
 }

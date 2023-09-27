@@ -71,6 +71,7 @@
             "sourceKey": "attribute_values_ids",
             "keysIn": "GermplasmAttribute",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "germplasm_attribute_primary_key"
     }
 }

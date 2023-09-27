@@ -36,5 +36,7 @@
             "description": "Ontology version (no specific format)"
         }
     },
-    "associations": {}
+    "associations": {
+        "internalId": "ontology_primary_key"
+    }
 }

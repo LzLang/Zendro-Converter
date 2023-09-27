@@ -57,6 +57,7 @@
             "sourceKey": "germplasm_id",
             "keysIn": "PedigreeNode",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "pedigree_node_primary_key"
     }
 }

@@ -42,6 +42,7 @@
             "sourceKey": "crosses_ids",
             "keysIn": "PlannedCross",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "planned_cross_primary_key"
     }
 }

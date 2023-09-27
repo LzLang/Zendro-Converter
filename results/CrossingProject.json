@@ -64,6 +64,7 @@
             "sourceKey": "pedigree_nodes_ids",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "crossing_project_primary_key"
     }
 }

@@ -162,6 +162,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Germplasm",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "germplasm_primary_key"
     }
 }

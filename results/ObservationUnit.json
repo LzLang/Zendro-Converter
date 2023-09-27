@@ -137,6 +137,7 @@
             "sourceKey": "observations_ids",
             "keysIn": "ObservationUnit",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "observation_unit_primary_key"
     }
 }

@@ -16,6 +16,7 @@
             "description": "the type of cross"
         },
         "crossing_project_id": "Int",
+        "planned_cross_id": "Int",
         "observation_units_ids": "[ Int ]"
     },
     "associations": {
@@ -29,6 +30,16 @@
             "keysIn": "Cross",
             "targetStorageType": "sql"
         },
+        "plannedCross": {
+            "type": "many_to_one",
+            "implementation": "foreignkey",
+            "reverseAssociation": "crosses",
+            "target": "PlannedCross",
+            "targetKey": "crosses_ids",
+            "sourceKey": "planned_cross_id",
+            "keysIn": "Cross",
+            "targetStorageType": "sql"
+        },
         "observationUnits": {
             "type": "one_to_many",
             "implementation": "foreignkey",
@@ -38,6 +49,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Cross",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "cross_primary_key"
     }
 }

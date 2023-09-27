@@ -28,5 +28,7 @@
             "description": "This field can be used to describe the units used for this scale. This should be the abbreviated \nform of the units, intended to be displayed with every value using this scale. Usually this only \napplies when `dataType` is Numeric, but could also be included for other dataTypes when applicable."
         }
     },
-    "associations": {}
+    "associations": {
+        "internalId": "scale_primary_key"
+    }
 }

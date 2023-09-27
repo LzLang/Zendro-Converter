@@ -113,6 +113,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Program",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "program_primary_key"
     }
 }

@@ -45,6 +45,7 @@
             "sourceKey": "variant_set_id",
             "keysIn": "Call",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "call_primary_key"
     }
 }

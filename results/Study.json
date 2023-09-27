@@ -170,6 +170,7 @@
             "sourceKey": "observation_units_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "study_primary_key"
     }
 }

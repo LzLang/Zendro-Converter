@@ -32,5 +32,7 @@
             "description": "The Permanent Unique Identifier of a Method, usually in the form of a URI"
         }
     },
-    "associations": {}
+    "associations": {
+        "internalId": "method_primary_key"
+    }
 }

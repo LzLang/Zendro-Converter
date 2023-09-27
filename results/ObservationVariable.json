@@ -74,6 +74,7 @@
             "sourceKey": "observations_ids",
             "keysIn": "ObservationVariable",
             "targetStorageType": "sql"
-        }
+        },
+        "internalId": "observation_variable_primary_key"
     }
 }
