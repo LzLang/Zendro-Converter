@@ -107,7 +107,7 @@ def get_items(file_data):
                     continue
                 target_key = f"{associated_attribute}_id"
                 source_key = f"{item_property}_id"
-                source_key_type = list(file_data[target]['primary_key'].values())[0]
+                source_key_type = file_data[model]['association_type']#list(file_data[target]['primary_key'].values())[0]
                 match reference['type']:
                     case 'many_to_one':
                         target_key = f"{associated_attribute}_ids"
@@ -124,7 +124,7 @@ def get_items(file_data):
                 items[model]['associations'].update({
                     item_property: {
                         'type': reference['type'],
-                        'implementation': 'foreignkey',
+                        'implementation': 'foreignkeys',
                         'reverseAssociation': associated_attribute,
                         'target': reference['target'],
                         'targetKey': target_key,
@@ -135,7 +135,8 @@ def get_items(file_data):
                 })
 
                 reference_association_ids.update({source_key: source_key_type})
-        items[model]['associations'].update({"internalId": list(file_data[model]['primary_key'])[0]})
+        #items[model].update({"internalId": list(file_data[model]['primary_key'])[0]})
+        items[model]["internalId"] = "id"
         items[model]['attributes'].update(reference_association_ids)
     return items if items else None
 
@@ -182,7 +183,7 @@ def get_reference(item):
     return reference if reference else None
 
 
-def read_json(files, storage_type, primary_key_name, primary_key_type):
+def read_json(files, storage_type, primary_key_name, primary_key_type, association_type):
     """
     Reads in a json file and returns its content.
 
@@ -196,8 +197,8 @@ def read_json(files, storage_type, primary_key_name, primary_key_type):
         # Raise an exception if storage_type or primary_key_type is not compatible
         if storage_type not in ZENDRO_STORAGE_TYPES:
             raise Exception('\'storage_type\' is not compatible to Zendro')
-        if primary_key_type not in ['Int', 'String']:
-            raise Exception('\'primary_key_type\' must be of type \'Int\' or \'String\'')
+        if (primary_key_type or association_type) not in ['Int', 'String']:
+            raise Exception('\'primary_key_type\' and \'association_type\'must be of type \'Int\' or \'String\'')
 
         # Open file and load json content
         file_data = {}
@@ -214,7 +215,9 @@ def read_json(files, storage_type, primary_key_name, primary_key_type):
                     file_data[model]['primary_key'] = {primary_key_name: primary_key_type}
                 else:
                     file_data[model]['primary_key'] = {f"{model_id}_primary_key": primary_key_type}
-                file_data[model].update({'properties': json.load(json_file)['$defs'][model]['properties']})
+                file_data[model]['association_type'] = association_type
+                file_data[model]['properties'] = json.load(json_file)['$defs'][model]['properties']
+                #file_data[model].update({'properties': json.load(json_file)['$defs'][model]['properties']})
         return file_data if file_data else None
     except OSError as file_error:
         log(f"Couldn't open files: {file_error}")
@@ -240,11 +243,14 @@ def write_json(file_data, output_path, storage_type):
                 'storageType': storage_type,
                 'attributes': file_data[model]['primary_key']
             }
+            json_file['attributes'].update({'id': 'String'})
             json_file['attributes'].update(file_data[model]['attributes'])
-
+            
             # If a model has an association it is needed to be included
             if 'associations' in file_data[model]:
                 json_file['associations'] = file_data[model]['associations']
+            
+            json_file['internalId'] = file_data[model]['internalId']
             # Correct json format needed
             json_object = json.dumps(json_file, indent=4)
             # Write file

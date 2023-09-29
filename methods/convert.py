@@ -33,7 +33,12 @@ parser.add_argument('-p', '--primary-key-name',
 parser.add_argument('-t', '--primary-key-type',
                     help='Type of the primary key.',
                     choices=['Int', 'String'],
-                    default='Int')
+                    default='String')
+
+parser.add_argument('-a', '--association-type',
+                    help='Type of associations.',
+                    choices=['Int', 'String'],
+                    default='String')
 
 ##############################
 
@@ -45,7 +50,7 @@ args = parser.parse_args()
 input_files = convertAPI.get_files(args.input_path)
 
 # Extract from all json files the data
-file_data = convertAPI.read_json(input_files, args.storage_type, args.primary_key_name, args.primary_key_type)
+file_data = convertAPI.read_json(input_files, args.storage_type, args.primary_key_name, args.primary_key_type, args.association_type)
 
 # Get all Zendro compatible attributes and references
 items = convertAPI.get_items(file_data)
