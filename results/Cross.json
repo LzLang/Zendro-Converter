@@ -2,7 +2,8 @@
     "model": "Cross",
     "storageType": "sql",
     "attributes": {
-        "cross_primary_key": "Int",
+        "cross_primary_key": "String",
+        "id": "String",
         "crossDbId": {
             "type": "String",
             "description": "the unique identifier for a cross"
@@ -15,14 +16,14 @@
             "type": "String",
             "description": "the type of cross"
         },
-        "crossing_project_id": "Int",
-        "planned_cross_id": "Int",
-        "observation_units_ids": "[ Int ]"
+        "crossing_project_id": "String",
+        "planned_cross_id": "String",
+        "observation_units_ids": "[ String ]"
     },
     "associations": {
         "crossingProject": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "crosses",
             "target": "CrossingProject",
             "targetKey": "crosses_ids",
@@ -32,7 +33,7 @@
         },
         "plannedCross": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "crosses",
             "target": "PlannedCross",
             "targetKey": "crosses_ids",
@@ -42,14 +43,14 @@
         },
         "observationUnits": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "cross",
             "target": "ObservationUnit",
             "targetKey": "cross_id",
             "sourceKey": "observation_units_ids",
             "keysIn": "Cross",
             "targetStorageType": "sql"
-        },
-        "internalId": "cross_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

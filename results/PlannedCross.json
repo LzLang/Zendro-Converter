@@ -2,7 +2,8 @@
     "model": "PlannedCross",
     "storageType": "sql",
     "attributes": {
-        "planned_cross_primary_key": "Int",
+        "planned_cross_primary_key": "String",
+        "id": "String",
         "crossType": {
             "type": "String",
             "description": "the type of cross"
@@ -19,13 +20,13 @@
             "type": "String",
             "description": "The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED')."
         },
-        "crossing_project_id": "Int",
-        "crosses_ids": "[ Int ]"
+        "crossing_project_id": "String",
+        "crosses_ids": "[ String ]"
     },
     "associations": {
         "crossingProject": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "plannedCrosses",
             "target": "CrossingProject",
             "targetKey": "planned_crosses_ids",
@@ -35,14 +36,14 @@
         },
         "crosses": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "plannedCross",
             "target": "Cross",
             "targetKey": "planned_cross_id",
             "sourceKey": "crosses_ids",
             "keysIn": "PlannedCross",
             "targetStorageType": "sql"
-        },
-        "internalId": "planned_cross_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

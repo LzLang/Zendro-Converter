@@ -2,7 +2,8 @@
     "model": "GenomeMap",
     "storageType": "sql",
     "attributes": {
-        "genome_map_primary_key": "Int",
+        "genome_map_primary_key": "String",
+        "id": "String",
         "comments": {
             "type": "String",
             "description": "Additional comments about a `GenomeMap`"
@@ -51,19 +52,19 @@
             "type": "String",
             "description": "The units used to describe the data in a `GenomeMap`"
         },
-        "marker_positions_ids": "[ Int ]"
+        "marker_positions_ids": "[ String ]"
     },
     "associations": {
         "markerPositions": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "map",
             "target": "MarkerPosition",
             "targetKey": "map_id",
             "sourceKey": "marker_positions_ids",
             "keysIn": "GenomeMap",
             "targetStorageType": "sql"
-        },
-        "internalId": "genome_map_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

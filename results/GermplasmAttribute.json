@@ -2,7 +2,8 @@
     "model": "GermplasmAttribute",
     "storageType": "sql",
     "attributes": {
-        "germplasm_attribute_primary_key": "Int",
+        "germplasm_attribute_primary_key": "String",
+        "id": "String",
         "attributeDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies this attribute within the given database server"
@@ -59,19 +60,19 @@
             "type": "String",
             "description": "Timestamp when the Variable was added (ISO 8601)"
         },
-        "attribute_values_ids": "[ Int ]"
+        "attribute_values_ids": "[ String ]"
     },
     "associations": {
         "attributeValues": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "attribute",
             "target": "GermplasmAttributeValue",
             "targetKey": "attribute_id",
             "sourceKey": "attribute_values_ids",
             "keysIn": "GermplasmAttribute",
             "targetStorageType": "sql"
-        },
-        "internalId": "germplasm_attribute_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

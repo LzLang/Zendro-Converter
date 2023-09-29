@@ -2,7 +2,8 @@
     "model": "ReferenceSet",
     "storageType": "sql",
     "attributes": {
-        "reference_set_primary_key": "Int",
+        "reference_set_primary_key": "String",
+        "id": "String",
         "assemblyPUI": {
             "type": "String",
             "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`."
@@ -35,14 +36,14 @@
             "type": "String",
             "description": "Specifies a FASTA format file/string."
         },
-        "references_ids": "[ Int ]",
-        "variants_ids": "[ Int ]",
-        "variant_sets_ids": "[ Int ]"
+        "references_ids": "[ String ]",
+        "variants_ids": "[ String ]",
+        "variant_sets_ids": "[ String ]"
     },
     "associations": {
         "references": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "Reference",
             "targetKey": "reference_set_id",
@@ -52,7 +53,7 @@
         },
         "variants": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "Variant",
             "targetKey": "reference_set_id",
@@ -62,14 +63,14 @@
         },
         "variantSets": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "VariantSet",
             "targetKey": "reference_set_id",
             "sourceKey": "variant_sets_ids",
             "keysIn": "ReferenceSet",
             "targetStorageType": "sql"
-        },
-        "internalId": "reference_set_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

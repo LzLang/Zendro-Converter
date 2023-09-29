@@ -2,7 +2,8 @@
     "model": "ObservationUnit",
     "storageType": "sql",
     "attributes": {
-        "observation_unit_primary_key": "Int",
+        "observation_unit_primary_key": "String",
+        "id": "String",
         "observationUnitDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. "
@@ -15,22 +16,22 @@
             "type": "String",
             "description": "A Permanent Unique Identifier for an observation unit\n\nMIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible."
         },
-        "cross_id": "Int",
-        "germplasm_id": "Int",
-        "location_id": "Int",
-        "program_id": "Int",
-        "seed_lot_id": "Int",
-        "study_id": "Int",
-        "trial_id": "Int",
-        "samples_ids": "[ Int ]",
-        "events_ids": "[ Int ]",
-        "images_ids": "[ Int ]",
-        "observations_ids": "[ Int ]"
+        "cross_id": "String",
+        "germplasm_id": "String",
+        "location_id": "String",
+        "program_id": "String",
+        "seed_lot_id": "String",
+        "study_id": "String",
+        "trial_id": "String",
+        "samples_ids": "[ String ]",
+        "events_ids": "[ String ]",
+        "images_ids": "[ String ]",
+        "observations_ids": "[ String ]"
     },
     "associations": {
         "cross": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Cross",
             "targetKey": "observation_units_ids",
@@ -40,7 +41,7 @@
         },
         "germplasm": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Germplasm",
             "targetKey": "observation_units_ids",
@@ -50,7 +51,7 @@
         },
         "location": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Location",
             "targetKey": "observation_units_ids",
@@ -60,7 +61,7 @@
         },
         "program": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Program",
             "targetKey": "observation_units_ids",
@@ -70,7 +71,7 @@
         },
         "seedLot": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "SeedLot",
             "targetKey": "observation_units_ids",
@@ -80,7 +81,7 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Study",
             "targetKey": "observation_units_ids",
@@ -90,7 +91,7 @@
         },
         "trial": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Trial",
             "targetKey": "observation_units_ids",
@@ -100,7 +101,7 @@
         },
         "samples": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnit",
             "target": "Sample",
             "targetKey": "observation_unit_id",
@@ -110,7 +111,7 @@
         },
         "events": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Event",
             "targetKey": "observation_units_ids",
@@ -120,7 +121,7 @@
         },
         "images": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnit",
             "target": "Image",
             "targetKey": "observation_unit_id",
@@ -130,14 +131,14 @@
         },
         "observations": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationUnit",
             "target": "Observation",
             "targetKey": "observation_unit_id",
             "sourceKey": "observations_ids",
             "keysIn": "ObservationUnit",
             "targetStorageType": "sql"
-        },
-        "internalId": "observation_unit_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

@@ -2,7 +2,8 @@
     "model": "Study",
     "storageType": "sql",
     "attributes": {
-        "study_primary_key": "Int",
+        "study_primary_key": "String",
+        "id": "String",
         "active": {
             "type": "Boolean",
             "description": "A flag to indicate if a Study is currently active and ongoing"
@@ -59,21 +60,21 @@
             "type": "String",
             "description": "The type of study being performed. ex. \"Yield Trial\", etc"
         },
-        "location_id": "Int",
-        "observation_variables_ids": "[ Int ]",
-        "trial_id": "Int",
-        "call_sets_ids": "[ Int ]",
-        "plates_ids": "[ Int ]",
-        "samples_ids": "[ Int ]",
-        "variant_sets_ids": "[ Int ]",
-        "events_ids": "[ Int ]",
-        "observations_ids": "[ Int ]",
-        "observation_units_ids": "[ Int ]"
+        "location_id": "String",
+        "observation_variables_ids": "[ String ]",
+        "trial_id": "String",
+        "call_sets_ids": "[ String ]",
+        "plates_ids": "[ String ]",
+        "samples_ids": "[ String ]",
+        "variant_sets_ids": "[ String ]",
+        "events_ids": "[ String ]",
+        "observations_ids": "[ String ]",
+        "observation_units_ids": "[ String ]"
     },
     "associations": {
         "location": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "studies",
             "target": "Location",
             "targetKey": "studies_ids",
@@ -83,7 +84,7 @@
         },
         "observationVariables": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "studies",
             "target": "ObservationVariable",
             "targetKey": "studies_ids",
@@ -93,7 +94,7 @@
         },
         "trial": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "studies",
             "target": "Trial",
             "targetKey": "studies_ids",
@@ -103,7 +104,7 @@
         },
         "callSets": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "CallSet",
             "targetKey": "study_id",
@@ -113,7 +114,7 @@
         },
         "plates": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "Plate",
             "targetKey": "study_id",
@@ -123,7 +124,7 @@
         },
         "samples": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "Sample",
             "targetKey": "study_id",
@@ -133,7 +134,7 @@
         },
         "variantSets": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "VariantSet",
             "targetKey": "study_id",
@@ -143,7 +144,7 @@
         },
         "events": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "Event",
             "targetKey": "study_ids",
@@ -153,7 +154,7 @@
         },
         "observations": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "Observation",
             "targetKey": "study_id",
@@ -163,14 +164,14 @@
         },
         "observationUnits": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "ObservationUnit",
             "targetKey": "study_id",
             "sourceKey": "observation_units_ids",
             "keysIn": "Study",
             "targetStorageType": "sql"
-        },
-        "internalId": "study_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

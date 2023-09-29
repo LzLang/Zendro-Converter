@@ -2,7 +2,8 @@
     "model": "List",
     "storageType": "sql",
     "attributes": {
-        "list_primary_key": "Int",
+        "list_primary_key": "String",
+        "id": "String",
         "dateCreated": {
             "type": "String",
             "description": "Timestamp when the entity was first created"
@@ -39,19 +40,19 @@
             "type": "String",
             "description": "A flag to indicate the type of objects that are referenced in a List"
         },
-        "list_owner_person_id": "Int"
+        "list_owner_person_id": "String"
     },
     "associations": {
         "listOwnerPerson": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "lists",
             "target": "Person",
             "targetKey": "lists_ids",
             "sourceKey": "list_owner_person_id",
             "keysIn": "List",
             "targetStorageType": "sql"
-        },
-        "internalId": "list_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

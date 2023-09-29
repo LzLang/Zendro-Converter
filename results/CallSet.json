@@ -2,7 +2,8 @@
     "model": "CallSet",
     "storageType": "sql",
     "attributes": {
-        "call_set_primary_key": "Int",
+        "call_set_primary_key": "String",
+        "id": "String",
         "callSetDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies a CallSet within the given database server"
@@ -19,16 +20,16 @@
             "type": "String",
             "description": "The time at which this call set was last updated"
         },
-        "allele_matrices_ids": "[ Int ]",
-        "calls_ids": "[ Int ]",
-        "sample_id": "Int",
-        "study_id": "Int",
-        "variant_sets_ids": "[ Int ]"
+        "allele_matrices_ids": "[ String ]",
+        "calls_ids": "[ String ]",
+        "sample_id": "String",
+        "study_id": "String",
+        "variant_sets_ids": "[ String ]"
     },
     "associations": {
         "alleleMatrices": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "callSets",
             "target": "AlleleMatrix",
             "targetKey": "call_sets_ids",
@@ -38,7 +39,7 @@
         },
         "calls": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "callSet",
             "target": "Call",
             "targetKey": "call_set_id",
@@ -48,7 +49,7 @@
         },
         "sample": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "callSets",
             "target": "Sample",
             "targetKey": "call_sets_ids",
@@ -58,7 +59,7 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "callSets",
             "target": "Study",
             "targetKey": "call_sets_ids",
@@ -68,14 +69,14 @@
         },
         "variantSets": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "callSets",
             "target": "VariantSet",
             "targetKey": "call_sets_ids",
             "sourceKey": "variant_sets_ids",
             "keysIn": "CallSet",
             "targetStorageType": "sql"
-        },
-        "internalId": "call_set_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

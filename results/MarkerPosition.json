@@ -2,7 +2,8 @@
     "model": "MarkerPosition",
     "storageType": "sql",
     "attributes": {
-        "marker_position_primary_key": "Int",
+        "marker_position_primary_key": "String",
+        "id": "String",
         "linkageGroupName": {
             "type": "String",
             "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable."
@@ -11,13 +12,13 @@
             "type": "Int",
             "description": "The position of a marker or variant within a `LinkageGroup`"
         },
-        "map_id": "Int",
-        "variant_id": "Int"
+        "map_id": "String",
+        "variant_id": "String"
     },
     "associations": {
         "map": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "markerPositions",
             "target": "GenomeMap",
             "targetKey": "marker_positions_ids",
@@ -27,14 +28,14 @@
         },
         "variant": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "markerPositions",
             "target": "Variant",
             "targetKey": "marker_positions_ids",
             "sourceKey": "variant_id",
             "keysIn": "MarkerPosition",
             "targetStorageType": "sql"
-        },
-        "internalId": "marker_position_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

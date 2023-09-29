@@ -2,7 +2,8 @@
     "model": "ObservationVariable",
     "storageType": "sql",
     "attributes": {
-        "observation_variable_primary_key": "Int",
+        "observation_variable_primary_key": "String",
+        "id": "String",
         "commonCropName": {
             "type": "String",
             "description": "Crop name (examples: \"Maize\", \"Wheat\")"
@@ -51,13 +52,13 @@
             "type": "String",
             "description": "Timestamp when the Variable was added (ISO 8601)"
         },
-        "studies_ids": "[ Int ]",
-        "observations_ids": "[ Int ]"
+        "studies_ids": "[ String ]",
+        "observations_ids": "[ String ]"
     },
     "associations": {
         "studies": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationVariables",
             "target": "Study",
             "targetKey": "observation_variables_ids",
@@ -67,14 +68,14 @@
         },
         "observations": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observationVariable",
             "target": "Observation",
             "targetKey": "observation_variable_id",
             "sourceKey": "observations_ids",
             "keysIn": "ObservationVariable",
             "targetStorageType": "sql"
-        },
-        "internalId": "observation_variable_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

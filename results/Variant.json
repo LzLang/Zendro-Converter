@@ -2,7 +2,8 @@
     "model": "Variant",
     "storageType": "sql",
     "attributes": {
-        "variant_primary_key": "Int",
+        "variant_primary_key": "String",
+        "id": "String",
         "created": {
             "type": "String",
             "description": "The timestamp when this variant was created."
@@ -43,17 +44,17 @@
             "type": "String",
             "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\""
         },
-        "marker_positions_ids": "[ Int ]",
-        "allele_matrices_ids": "[ Int ]",
-        "calls_ids": "[ Int ]",
-        "reference_id": "Int",
-        "reference_set_id": "Int",
-        "variant_set_id": "Int"
+        "marker_positions_ids": "[ String ]",
+        "allele_matrices_ids": "[ String ]",
+        "calls_ids": "[ String ]",
+        "reference_id": "String",
+        "reference_set_id": "String",
+        "variant_set_id": "String"
     },
     "associations": {
         "markerPositions": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variant",
             "target": "MarkerPosition",
             "targetKey": "variant_id",
@@ -63,7 +64,7 @@
         },
         "alleleMatrices": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variants",
             "target": "AlleleMatrix",
             "targetKey": "variants_ids",
@@ -73,7 +74,7 @@
         },
         "calls": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variant",
             "target": "Call",
             "targetKey": "variant_id",
@@ -83,7 +84,7 @@
         },
         "reference": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variants",
             "target": "Reference",
             "targetKey": "variants_ids",
@@ -93,7 +94,7 @@
         },
         "referenceSet": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variants",
             "target": "ReferenceSet",
             "targetKey": "variants_ids",
@@ -103,14 +104,14 @@
         },
         "variantSet": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variants",
             "target": "VariantSet",
             "targetKey": "variants_ids",
             "sourceKey": "variant_set_id",
             "keysIn": "Variant",
             "targetStorageType": "sql"
-        },
-        "internalId": "variant_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

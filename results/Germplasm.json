@@ -2,7 +2,8 @@
     "model": "Germplasm",
     "storageType": "sql",
     "attributes": {
-        "germplasm_primary_key": "Int",
+        "germplasm_primary_key": "String",
+        "id": "String",
         "accessionNumber": {
             "type": "String",
             "description": "The unique identifier for a material or germplasm within a genebank\n\nMCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. \"PI 113869\")."
@@ -95,17 +96,17 @@
             "type": "String",
             "description": "The authority organization responsible for tracking and maintaining the subtaxon information\n\nMCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level."
         },
-        "breeding_method_id": "Int",
-        "pedigree_node_id": "Int",
-        "samples_ids": "[ Int ]",
-        "attribute_values_ids": "[ Int ]",
-        "observations_ids": "[ Int ]",
-        "observation_units_ids": "[ Int ]"
+        "breeding_method_id": "String",
+        "pedigree_node_id": "String",
+        "samples_ids": "[ String ]",
+        "attribute_values_ids": "[ String ]",
+        "observations_ids": "[ String ]",
+        "observation_units_ids": "[ String ]"
     },
     "associations": {
         "breedingMethod": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "BreedingMethod",
             "targetKey": "germplasm_ids",
@@ -115,7 +116,7 @@
         },
         "pedigreeNode": {
             "type": "one_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "PedigreeNode",
             "targetKey": "germplasm_id",
@@ -125,7 +126,7 @@
         },
         "samples": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "Sample",
             "targetKey": "germplasm_id",
@@ -135,7 +136,7 @@
         },
         "attributeValues": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "GermplasmAttributeValue",
             "targetKey": "germplasm_id",
@@ -145,7 +146,7 @@
         },
         "observations": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "Observation",
             "targetKey": "germplasm_id",
@@ -155,14 +156,14 @@
         },
         "observationUnits": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "ObservationUnit",
             "targetKey": "germplasm_id",
             "sourceKey": "observation_units_ids",
             "keysIn": "Germplasm",
             "targetStorageType": "sql"
-        },
-        "internalId": "germplasm_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

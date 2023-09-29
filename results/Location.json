@@ -2,7 +2,8 @@
     "model": "Location",
     "storageType": "sql",
     "attributes": {
-        "location_primary_key": "Int",
+        "location_primary_key": "String",
+        "id": "String",
         "abbreviation": {
             "type": "String",
             "description": "A shortened version of the human readable name for a Location"
@@ -67,16 +68,16 @@
             "type": "String",
             "description": "Describes the topography of the land at a Location. (ex. Plateau, Cirque, Hill, Valley, etc)"
         },
-        "parent_location_id": "Int",
-        "child_locations_ids": "[ Int ]",
-        "studies_ids": "[ Int ]",
-        "seed_lots_ids": "[ Int ]",
-        "observation_units_ids": "[ Int ]"
+        "parent_location_id": "String",
+        "child_locations_ids": "[ String ]",
+        "studies_ids": "[ String ]",
+        "seed_lots_ids": "[ String ]",
+        "observation_units_ids": "[ String ]"
     },
     "associations": {
         "parentLocation": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "childLocations",
             "target": "Location",
             "targetKey": "child_locations_ids",
@@ -86,7 +87,7 @@
         },
         "childLocations": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "parentLocation",
             "target": "Location",
             "targetKey": "parent_location_id",
@@ -96,7 +97,7 @@
         },
         "studies": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "Study",
             "targetKey": "location_id",
@@ -106,7 +107,7 @@
         },
         "seedLots": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "SeedLot",
             "targetKey": "location_id",
@@ -116,14 +117,14 @@
         },
         "observationUnits": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "ObservationUnit",
             "targetKey": "location_id",
             "sourceKey": "observation_units_ids",
             "keysIn": "Location",
             "targetStorageType": "sql"
-        },
-        "internalId": "location_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

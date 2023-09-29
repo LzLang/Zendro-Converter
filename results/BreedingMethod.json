@@ -2,7 +2,8 @@
     "model": "BreedingMethod",
     "storageType": "sql",
     "attributes": {
-        "breeding_method_primary_key": "Int",
+        "breeding_method_primary_key": "String",
+        "id": "String",
         "abbreviation": {
             "type": "String",
             "description": "A shortened version of the human readable name for a Breeding Method"
@@ -19,13 +20,13 @@
             "type": "String",
             "description": "human readable description of the breeding method"
         },
-        "germplasm_ids": "[ Int ]",
-        "pedigree_nodes_ids": "[ Int ]"
+        "germplasm_ids": "[ String ]",
+        "pedigree_nodes_ids": "[ String ]"
     },
     "associations": {
         "germplasm": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "breedingMethod",
             "target": "Germplasm",
             "targetKey": "breeding_method_id",
@@ -35,14 +36,14 @@
         },
         "pedigreeNodes": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "PedigreeNode",
             "targetKey": "germplasm_id",
             "sourceKey": "pedigree_nodes_ids",
             "keysIn": "BreedingMethod",
             "targetStorageType": "sql"
-        },
-        "internalId": "breeding_method_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

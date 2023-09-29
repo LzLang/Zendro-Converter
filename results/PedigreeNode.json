@@ -2,7 +2,8 @@
     "model": "PedigreeNode",
     "storageType": "sql",
     "attributes": {
-        "pedigree_node_primary_key": "Int",
+        "pedigree_node_primary_key": "String",
+        "id": "String",
         "crossingYear": {
             "type": "Int",
             "description": "The year the parents were originally crossed"
@@ -23,14 +24,14 @@
             "type": "String",
             "description": "The string representation of the pedigree for this germplasm in PURDY notation"
         },
-        "breeding_method_id": "Int",
-        "crossing_project_id": "Int",
-        "germplasm_id": "Int"
+        "breeding_method_id": "String",
+        "crossing_project_id": "String",
+        "germplasm_id": "String"
     },
     "associations": {
         "breedingMethod": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "pedigreeNodes",
             "target": "BreedingMethod",
             "targetKey": "pedigree_nodes_ids",
@@ -40,7 +41,7 @@
         },
         "crossingProject": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "pedigreeNodes",
             "target": "CrossingProject",
             "targetKey": "pedigree_nodes_ids",
@@ -50,14 +51,14 @@
         },
         "germplasm": {
             "type": "one_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "pedigreeNode",
             "target": "Germplasm",
             "targetKey": "pedigree_node_id",
             "sourceKey": "germplasm_id",
             "keysIn": "PedigreeNode",
             "targetStorageType": "sql"
-        },
-        "internalId": "pedigree_node_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

@@ -2,7 +2,8 @@
     "model": "Image",
     "storageType": "sql",
     "attributes": {
-        "image_primary_key": "Int",
+        "image_primary_key": "String",
+        "id": "String",
         "copyright": {
             "type": "String",
             "description": "The copyright information of this image. Example 'Copyright 2018 Bob Robertson'"
@@ -47,13 +48,13 @@
             "type": "String",
             "description": "The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc"
         },
-        "observation_unit_id": "Int",
-        "observations_ids": "[ Int ]"
+        "observation_unit_id": "String",
+        "observations_ids": "[ String ]"
     },
     "associations": {
         "observationUnit": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "images",
             "target": "ObservationUnit",
             "targetKey": "images_ids",
@@ -63,14 +64,14 @@
         },
         "observations": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "images",
             "target": "Observation",
             "targetKey": "images_ids",
             "sourceKey": "observations_ids",
             "keysIn": "Image",
             "targetStorageType": "sql"
-        },
-        "internalId": "image_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

@@ -2,7 +2,8 @@
     "model": "Observation",
     "storageType": "sql",
     "attributes": {
-        "observation_primary_key": "Int",
+        "observation_primary_key": "String",
+        "id": "String",
         "collector": {
             "type": "String",
             "description": "The name or identifier of the entity which collected the observation"
@@ -23,16 +24,16 @@
             "type": "String",
             "description": "The value of the data collected as an observation"
         },
-        "germplasm_id": "Int",
-        "observation_unit_id": "Int",
-        "observation_variable_id": "Int",
-        "study_id": "Int",
-        "images_ids": "[ Int ]"
+        "germplasm_id": "String",
+        "observation_unit_id": "String",
+        "observation_variable_id": "String",
+        "study_id": "String",
+        "images_ids": "[ String ]"
     },
     "associations": {
         "germplasm": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Germplasm",
             "targetKey": "observations_ids",
@@ -42,7 +43,7 @@
         },
         "observationUnit": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "ObservationUnit",
             "targetKey": "observations_ids",
@@ -52,7 +53,7 @@
         },
         "observationVariable": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "ObservationVariable",
             "targetKey": "observations_ids",
@@ -62,7 +63,7 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Study",
             "targetKey": "observations_ids",
@@ -72,14 +73,14 @@
         },
         "images": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Image",
             "targetKey": "observations_ids",
             "sourceKey": "images_ids",
             "keysIn": "Observation",
             "targetStorageType": "sql"
-        },
-        "internalId": "observation_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

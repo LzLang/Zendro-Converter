@@ -2,7 +2,8 @@
     "model": "Trial",
     "storageType": "sql",
     "attributes": {
-        "trial_primary_key": "Int",
+        "trial_primary_key": "String",
+        "id": "String",
         "active": {
             "type": "Boolean",
             "description": "A flag to indicate if a Trial is currently active and ongoing"
@@ -39,16 +40,16 @@
             "type": "String",
             "description": "A permanent identifier for a trial. Could be DOI or other URI formatted identifier."
         },
-        "program_id": "Int",
-        "studies_ids": "[ Int ]",
-        "plates_ids": "[ Int ]",
-        "samples_ids": "[ Int ]",
-        "observation_units_ids": "[ Int ]"
+        "program_id": "String",
+        "studies_ids": "[ String ]",
+        "plates_ids": "[ String ]",
+        "samples_ids": "[ String ]",
+        "observation_units_ids": "[ String ]"
     },
     "associations": {
         "program": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "trials",
             "target": "Program",
             "targetKey": "trials_ids",
@@ -58,7 +59,7 @@
         },
         "studies": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Study",
             "targetKey": "trial_id",
@@ -68,7 +69,7 @@
         },
         "plates": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Plate",
             "targetKey": "trial_id",
@@ -78,7 +79,7 @@
         },
         "samples": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Sample",
             "targetKey": "trial_id",
@@ -88,14 +89,14 @@
         },
         "observationUnits": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "ObservationUnit",
             "targetKey": "trial_id",
             "sourceKey": "observation_units_ids",
             "keysIn": "Trial",
             "targetStorageType": "sql"
-        },
-        "internalId": "trial_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

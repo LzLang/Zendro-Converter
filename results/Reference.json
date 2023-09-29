@@ -2,7 +2,8 @@
     "model": "Reference",
     "storageType": "sql",
     "attributes": {
-        "reference_primary_key": "Int",
+        "reference_primary_key": "String",
+        "id": "String",
         "commonCropName": {
             "type": "String",
             "description": "Common name for the crop"
@@ -35,13 +36,13 @@
             "type": "String",
             "description": "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI."
         },
-        "reference_set_id": "Int",
-        "variants_ids": "[ Int ]"
+        "reference_set_id": "String",
+        "variants_ids": "[ String ]"
     },
     "associations": {
         "referenceSet": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "references",
             "target": "ReferenceSet",
             "targetKey": "references_ids",
@@ -51,14 +52,14 @@
         },
         "variants": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "reference",
             "target": "Variant",
             "targetKey": "reference_id",
             "sourceKey": "variants_ids",
             "keysIn": "Reference",
             "targetStorageType": "sql"
-        },
-        "internalId": "reference_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

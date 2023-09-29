@@ -2,7 +2,8 @@
     "model": "AlleleMatrix",
     "storageType": "sql",
     "attributes": {
-        "allele_matrix_primary_key": "Int",
+        "allele_matrix_primary_key": "String",
+        "id": "String",
         "expandHomozygotes": {
             "type": "Boolean",
             "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
@@ -19,14 +20,14 @@
             "type": "String",
             "description": "The string used as a representation for missing data."
         },
-        "call_sets_ids": "[ Int ]",
-        "variant_sets_ids": "[ Int ]",
-        "variants_ids": "[ Int ]"
+        "call_sets_ids": "[ String ]",
+        "variant_sets_ids": "[ String ]",
+        "variants_ids": "[ String ]"
     },
     "associations": {
         "callSets": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "alleleMatrices",
             "target": "CallSet",
             "targetKey": "allele_matrices_ids",
@@ -36,7 +37,7 @@
         },
         "variantSets": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "alleleMatrices",
             "target": "VariantSet",
             "targetKey": "allele_matrices_ids",
@@ -46,14 +47,14 @@
         },
         "variants": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "alleleMatrices",
             "target": "Variant",
             "targetKey": "allele_matrices_ids",
             "sourceKey": "variants_ids",
             "keysIn": "AlleleMatrix",
             "targetStorageType": "sql"
-        },
-        "internalId": "allele_matrix_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

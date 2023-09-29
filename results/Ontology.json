@@ -2,7 +2,8 @@
     "model": "Ontology",
     "storageType": "sql",
     "attributes": {
-        "ontology_primary_key": "Int",
+        "ontology_primary_key": "String",
+        "id": "String",
         "authors": {
             "type": "String",
             "description": "Ontology's list of authors (no specific format)"
@@ -36,7 +37,6 @@
             "description": "Ontology version (no specific format)"
         }
     },
-    "associations": {
-        "internalId": "ontology_primary_key"
-    }
+    "associations": {},
+    "internalId": "id"
 }

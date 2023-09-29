@@ -2,7 +2,8 @@
     "model": "Person",
     "storageType": "sql",
     "attributes": {
-        "person_primary_key": "Int",
+        "person_primary_key": "String",
+        "id": "String",
         "description": {
             "type": "String",
             "description": "description of this person"
@@ -39,13 +40,13 @@
             "type": "String",
             "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
         },
-        "lists_ids": "[ Int ]",
-        "programs_ids": "[ Int ]"
+        "lists_ids": "[ String ]",
+        "programs_ids": "[ String ]"
     },
     "associations": {
         "lists": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "listOwnerPerson",
             "target": "List",
             "targetKey": "list_owner_person_id",
@@ -55,14 +56,14 @@
         },
         "programs": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "leadPerson",
             "target": "Program",
             "targetKey": "lead_person_id",
             "sourceKey": "programs_ids",
             "keysIn": "Person",
             "targetStorageType": "sql"
-        },
-        "internalId": "person_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

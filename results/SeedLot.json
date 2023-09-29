@@ -2,7 +2,8 @@
     "model": "SeedLot",
     "storageType": "sql",
     "attributes": {
-        "seed_lot_primary_key": "Int",
+        "seed_lot_primary_key": "String",
+        "id": "String",
         "amount": {
             "type": "Float",
             "description": "The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed)."
@@ -39,16 +40,16 @@
             "type": "String",
             "description": "A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)"
         },
-        "location_id": "Int",
-        "program_id": "Int",
-        "from_seed_lot_transactions_ids": "[ Int ]",
-        "to_seed_lot_transactions_ids": "[ Int ]",
-        "observation_units_ids": "[ Int ]"
+        "location_id": "String",
+        "program_id": "String",
+        "from_seed_lot_transactions_ids": "[ String ]",
+        "to_seed_lot_transactions_ids": "[ String ]",
+        "observation_units_ids": "[ String ]"
     },
     "associations": {
         "location": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "seedLots",
             "target": "Location",
             "targetKey": "seed_lots_ids",
@@ -58,7 +59,7 @@
         },
         "program": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "seedLots",
             "target": "Program",
             "targetKey": "seed_lots_ids",
@@ -68,7 +69,7 @@
         },
         "fromSeedLotTransactions": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "fromSeedLot",
             "target": "SeedLotTransaction",
             "targetKey": "from_seed_lot_id",
@@ -78,7 +79,7 @@
         },
         "toSeedLotTransactions": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "toSeedLot",
             "target": "SeedLotTransaction",
             "targetKey": "to_seed_lot_id",
@@ -88,14 +89,14 @@
         },
         "observationUnits": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "seedLot",
             "target": "ObservationUnit",
             "targetKey": "seed_lot_id",
             "sourceKey": "observation_units_ids",
             "keysIn": "SeedLot",
             "targetStorageType": "sql"
-        },
-        "internalId": "seed_lot_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

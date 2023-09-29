@@ -2,7 +2,8 @@
     "model": "Plate",
     "storageType": "sql",
     "attributes": {
-        "plate_primary_key": "Int",
+        "plate_primary_key": "String",
+        "id": "String",
         "plateBarcode": {
             "type": "String",
             "description": "A unique identifier physically attached to a `Plate`"
@@ -19,15 +20,15 @@
             "type": "String",
             "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc"
         },
-        "program_id": "Int",
-        "study_id": "Int",
-        "trial_id": "Int",
-        "samples_ids": "[ Int ]"
+        "program_id": "String",
+        "study_id": "String",
+        "trial_id": "String",
+        "samples_ids": "[ String ]"
     },
     "associations": {
         "program": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "plates",
             "target": "Program",
             "targetKey": "plates_ids",
@@ -37,7 +38,7 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "plates",
             "target": "Study",
             "targetKey": "plates_ids",
@@ -47,7 +48,7 @@
         },
         "trial": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "plates",
             "target": "Trial",
             "targetKey": "plates_ids",
@@ -57,14 +58,14 @@
         },
         "samples": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "plate",
             "target": "Sample",
             "targetKey": "plate_id",
             "sourceKey": "samples_ids",
             "keysIn": "Plate",
             "targetStorageType": "sql"
-        },
-        "internalId": "plate_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

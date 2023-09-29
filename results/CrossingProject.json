@@ -2,7 +2,8 @@
     "model": "CrossingProject",
     "storageType": "sql",
     "attributes": {
-        "crossing_project_primary_key": "Int",
+        "crossing_project_primary_key": "String",
+        "id": "String",
         "commonCropName": {
             "type": "String",
             "description": "the common name of a crop (for multi-crop systems)"
@@ -19,15 +20,15 @@
             "type": "String",
             "description": "The human readable name for a crossing project"
         },
-        "program_id": "Int",
-        "crosses_ids": "[ Int ]",
-        "planned_crosses_ids": "[ Int ]",
-        "pedigree_nodes_ids": "[ Int ]"
+        "program_id": "String",
+        "crosses_ids": "[ String ]",
+        "planned_crosses_ids": "[ String ]",
+        "pedigree_nodes_ids": "[ String ]"
     },
     "associations": {
         "program": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "crossingProjects",
             "target": "Program",
             "targetKey": "crossing_projects_ids",
@@ -37,7 +38,7 @@
         },
         "crosses": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "Cross",
             "targetKey": "crossing_project_id",
@@ -47,7 +48,7 @@
         },
         "plannedCrosses": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "PlannedCross",
             "targetKey": "crossing_project_id",
@@ -57,14 +58,14 @@
         },
         "pedigreeNodes": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "PedigreeNode",
             "targetKey": "crossing_project_id",
             "sourceKey": "pedigree_nodes_ids",
             "keysIn": "CrossingProject",
             "targetStorageType": "sql"
-        },
-        "internalId": "crossing_project_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

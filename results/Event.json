@@ -2,7 +2,8 @@
     "model": "Event",
     "storageType": "sql",
     "attributes": {
-        "event_primary_key": "Int",
+        "event_primary_key": "String",
+        "id": "String",
         "eventDbId": {
             "type": "String",
             "description": "Internal database identifier"
@@ -19,13 +20,13 @@
             "type": "String",
             "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
         },
-        "observation_units_ids": "[ Int ]",
-        "study_id": "Int"
+        "observation_units_ids": "[ String ]",
+        "study_id": "String"
     },
     "associations": {
         "observationUnits": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "events",
             "target": "ObservationUnit",
             "targetKey": "events_ids",
@@ -35,14 +36,14 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "events",
             "target": "Study",
             "targetKey": "events_ids",
             "sourceKey": "study_id",
             "keysIn": "Event",
             "targetStorageType": "sql"
-        },
-        "internalId": "event_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

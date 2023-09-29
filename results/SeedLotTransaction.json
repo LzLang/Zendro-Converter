@@ -2,7 +2,8 @@
     "model": "SeedLotTransaction",
     "storageType": "sql",
     "attributes": {
-        "seed_lot_transaction_primary_key": "Int",
+        "seed_lot_transaction_primary_key": "String",
+        "id": "String",
         "amount": {
             "type": "Float",
             "description": "The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed)."
@@ -23,13 +24,13 @@
             "type": "String",
             "description": "A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)"
         },
-        "from_seed_lot_id": "Int",
-        "to_seed_lot_id": "Int"
+        "from_seed_lot_id": "String",
+        "to_seed_lot_id": "String"
     },
     "associations": {
         "fromSeedLot": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "fromSeedLotTransactions",
             "target": "SeedLot",
             "targetKey": "from_seed_lot_transactions_ids",
@@ -39,14 +40,14 @@
         },
         "toSeedLot": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "toSeedLotTransactions",
             "target": "SeedLot",
             "targetKey": "to_seed_lot_transactions_ids",
             "sourceKey": "to_seed_lot_id",
             "keysIn": "SeedLotTransaction",
             "targetStorageType": "sql"
-        },
-        "internalId": "seed_lot_transaction_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

@@ -2,7 +2,8 @@
     "model": "Sample",
     "storageType": "sql",
     "attributes": {
-        "sample_primary_key": "Int",
+        "sample_primary_key": "String",
+        "id": "String",
         "column": {
             "type": "Int",
             "description": "The Column identifier for this `Sample` location in the `Plate`"
@@ -51,18 +52,18 @@
             "type": "String",
             "description": "The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`."
         },
-        "call_sets_ids": "[ Int ]",
-        "germplasm_id": "Int",
-        "observation_unit_id": "Int",
-        "plate_id": "Int",
-        "program_id": "Int",
-        "study_id": "Int",
-        "trial_id": "Int"
+        "call_sets_ids": "[ String ]",
+        "germplasm_id": "String",
+        "observation_unit_id": "String",
+        "plate_id": "String",
+        "program_id": "String",
+        "study_id": "String",
+        "trial_id": "String"
     },
     "associations": {
         "callSets": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "sample",
             "target": "CallSet",
             "targetKey": "sample_id",
@@ -72,7 +73,7 @@
         },
         "germplasm": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "samples",
             "target": "Germplasm",
             "targetKey": "samples_ids",
@@ -82,7 +83,7 @@
         },
         "observationUnit": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "samples",
             "target": "ObservationUnit",
             "targetKey": "samples_ids",
@@ -92,7 +93,7 @@
         },
         "plate": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "samples",
             "target": "Plate",
             "targetKey": "samples_ids",
@@ -102,7 +103,7 @@
         },
         "program": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "samples",
             "target": "Program",
             "targetKey": "samples_ids",
@@ -112,7 +113,7 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "samples",
             "target": "Study",
             "targetKey": "samples_ids",
@@ -122,14 +123,14 @@
         },
         "trial": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "samples",
             "target": "Trial",
             "targetKey": "samples_ids",
             "sourceKey": "trial_id",
             "keysIn": "Sample",
             "targetStorageType": "sql"
-        },
-        "internalId": "sample_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }

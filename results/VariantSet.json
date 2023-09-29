@@ -2,7 +2,8 @@
     "model": "VariantSet",
     "storageType": "sql",
     "attributes": {
-        "variant_set_primary_key": "Int",
+        "variant_set_primary_key": "String",
+        "id": "String",
         "callSetCount": {
             "type": "Int",
             "description": "The number of CallSets included in this VariantSet"
@@ -19,17 +20,17 @@
             "type": "String",
             "description": "The human readable name for a VariantSet"
         },
-        "allele_matrices_ids": "[ Int ]",
-        "calls_ids": "[ Int ]",
-        "call_sets_ids": "[ Int ]",
-        "reference_set_id": "Int",
-        "study_id": "Int",
-        "variants_ids": "[ Int ]"
+        "allele_matrices_ids": "[ String ]",
+        "calls_ids": "[ String ]",
+        "call_sets_ids": "[ String ]",
+        "reference_set_id": "String",
+        "study_id": "String",
+        "variants_ids": "[ String ]"
     },
     "associations": {
         "alleleMatrices": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variantSets",
             "target": "AlleleMatrix",
             "targetKey": "variant_sets_ids",
@@ -39,7 +40,7 @@
         },
         "calls": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variantSet",
             "target": "Call",
             "targetKey": "variant_set_id",
@@ -49,7 +50,7 @@
         },
         "callSets": {
             "type": "many_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variantSets",
             "target": "CallSet",
             "targetKey": "variant_sets_ids",
@@ -59,7 +60,7 @@
         },
         "referenceSet": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variantSets",
             "target": "ReferenceSet",
             "targetKey": "variant_sets_ids",
@@ -69,7 +70,7 @@
         },
         "study": {
             "type": "many_to_one",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variantSets",
             "target": "Study",
             "targetKey": "variant_sets_ids",
@@ -79,14 +80,14 @@
         },
         "variants": {
             "type": "one_to_many",
-            "implementation": "foreignkey",
+            "implementation": "foreignkeys",
             "reverseAssociation": "variantSet",
             "target": "Variant",
             "targetKey": "variant_set_id",
             "sourceKey": "variants_ids",
             "keysIn": "VariantSet",
             "targetStorageType": "sql"
-        },
-        "internalId": "variant_set_primary_key"
-    }
+        }
+    },
+    "internalId": "id"
 }
