@@ -15,6 +15,73 @@ A script to convert data from BrAPI to Zendro-API
 
 ---
 
+## 05.08.2023
+Due a error with Keycloak I had to set up a new Zendro project.
+
+
+
+---
+
+## 27.07.2023
+Worked again on commando line arguments.
+
+Started getting more familiar with Zendro.
+
+Attended the meeting on XX-XX-XX and represented our team. I was informed that work was underway to work on associations
+
+Start of the exam phase, therefore less time in August.
+
+---
+
+## 25.07.2023
+## Goal: Getting Zendro to run
+Observation: After correcting my typo I was able to start Zendro but I received an other error.
+
+Solution: Problem was that I started Zendro without sudo privilege (-> Zendro couldn't start a docker container) after correcting this I was able to run Zendro.
+
+
+---
+
+## 24.07.2023
+### Goal: Getting Zendro to run
+Talked with a fellow student who draw my attention to the fact that teh environmental files are "hidden".
+
+Observation: Due a typo I couldn't find the files therefore I couldn't edit them.
+
+Side note: I forgot the ```.``` before the path (e.g. ```./single-page-app/.env.development```)
+
+---
+
+## 23.07.2023
+### Goal: Understanding Zendro
+Started working with Zendro and trying to setup a data warehouse with my generated models.
+
+Observation: Couldn't open the environmental files and on starting up Zendro with ```zendro dockerize -u -p``` I received an error therefore I could'nt start Zendro.
+
+---
+
+## 16.07.2023
+### Goal: Implementing command line arguments
+The following arguments were implemented:
+- input-path
+	- Path to the BrAPI-Schema
+ 	- Argument is required
+- output-path
+  	- Path where the generated date models should be stored
+   	- Argument is required
+- storage-type
+	- Type of storage (database) where model is stored (Zendro options)
+ 	- Default: sql
+- Primary-key-name
+	- Name of the primary-key
+ 	- If not used a default primary key name will be used (```[model]-ID```)
+  - Primary-key-type
+  	- Type of the primary key
+   	- Option between Int and String
+    	- Default: String    
+
+---
+
 ## 15.07.2023
 ### Goal: Understanding of command line arguments
 Trying to understand [Issue 5 (Include model name and storage type in Zendro model definitions)](/../../issues/5) and implement it.
