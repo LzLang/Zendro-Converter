@@ -12,6 +12,149 @@ A script to convert data from BrAPI to Zendro-API
 	- [ ] Nested properties are not skipped, if outer propertie has no compatible type
 - [ ] Rework the Readme.md
 	- [ ] Creating a example of how the code works
+→
+---
+
+## 30.09.2023
+Generating the data models through Zendro and initial testing
+
+→ Zendro sometimes stops when entering data
+
+→ Errors already observed in previous versions
+
+→ Testing with data sets not really possible
+
+→ But on generally it seems to work
+
+---
+
+## 29.09.2023
+Mistakes in thinking about the types of association
+
+→ Command line command removed again
+
+→ Association types are again determined by the type of primary key of the target model.
+
+---
+
+## 28.09.2023
+Zendro currently doesn't work if the internalid/primary key is a different type than string.
+
+Another problem: currently Internalid must be the automatically generated ID.
+
+→ Internal ID changed to automatic generated ID and temporarily changed the code to the automatic generated ID.
+
+
+Implementation of a command line command with which you can set the type of the association
+
+---
+
+## 27.09.2023
+It was pointed out by my fellow students that I should set the default type of the key to "String" to efficiently guarantee uniqueness.
+
+→ The primary key is now a string by default, but can be changed via command line argument
+
+---
+
+## 22.09.2023
+Trying to implement the implementation via single-end
+
+→ Very complicated
+
+→ No advantage identified
+
+→ Idea discarded
+
+---
+
+## 21.09.2023
+Goal: Getting descriptions to work
+
+Updated Zendro to the newest version, which should support descriptions
+
+While generating the datamodels in Zendro (command: ```zendro generate -m```) I receive an error:
+```ERROR: unallowed association implementation type foreignkey```
+
+→ Re-checking the documentation and implementation but can't find the problem that's causing this issue.
+
+→ Solution: Documentation is wrong/faulty it should be ```foreignkeys``` instead of ```foreignkey```
+
+Corrected this and tried to compile my models again. Didn't receive an error only warnings:
+```WARNING: Association program is a many_to_one associations with the foreignKey in Program. Be sure to validate uniqueness.```
+
+---
+
+## 06.09.2023
+Try to read in the BrAPI schema
+
+→ Error that associations do not exist
+
+→ Solution: manual correction of the BrAPI schema and ignoring 3 associations, because they are nested and the surrounding attribute is ignored anyway.
+
+---
+
+## 05.09.2023
+Change in associations.
+
+→ Misunderstanding of one-to-many data type, error has been corrected.
+
+
+```sourceKey``` should be named after the ```targetModel```
+
+→ Could lead to errors if different models reference the same model
+
+→ Solution: Naming Analogous to the Zendro example
+
+---
+
+## 01.09.2023
+I had a misconception about arrays in Zendro, but my fellow student explained it to me.
+
+→ Thought that arrays are not supported in Zendro, but I just misunderstood them.
+
+→ Integrated arrays to my code for associations
+
+→ The data type of the association is determined by the data type of the primary key of the target model
+
+---
+
+## 26.08.2023
+- Started to deal with associations.
+- Integrated support for floats
+	- All scalar data types are now supported
+- Added comments to the code
+- Uploaded updates to github
+	- BrAPI Schema updated to the newest version
+ 	- deleted ```old_results```
+  - renamed ```setup_hierarchy```
+  - removed ```create_output_hierarchy```  
+
+---
+
+## 23.08.2023
+Goal: Implementing descriptions again.
+
+Updated Zendro and descriptions should be supported now.
+
+→ Implemented descriptions again.
+
+→ Care was taken to ensure that ' and ' are handled and do not result in errors.
+
+
+Reworked [convertAPI.py](methods/convertAPI.py) completly
+
+---
+
+## 18.08.2023
+Unit tests were still in the result directory, which caused errors.
+
+→ Moved unit tests to a different directory
+
+---
+
+## 11.08.2023
+### Goal: Implement the manually modified models
+Observation: Models are now automatically generated in the form of the pre-built models.
 
 ---
 
@@ -19,6 +162,15 @@ A script to convert data from BrAPI to Zendro-API
 Due a error with Keycloak I had to set up a new Zendro project.
 
 
+While testing my models, I noticed that my models were very different from the pre-built models therefore my own models didn't work.
+
+→ Changed my models manually
+
+→ Worked therfore changes will be implemented
+
+Problem was the description (didn't consider that a description could contain " or ')
+
+→ This led to errors, which is why I initially removed the description
 
 ---
 
