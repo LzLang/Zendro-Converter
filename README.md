@@ -1,18 +1,49 @@
 # Zendro-Converter
 A script to convert data from BrAPI to Zendro-API
-## ToDo:
-- [x] Testing with different/other files
-- [ ] Checking if output is correct or if properties are missing
-- [x] Writing a function, that goes through the file system/directories and read the JSON-files automtically
-- [x] Writing a function, that creates a corresponding file system/directories ibn the output folder
-- [ ] Documentation still needed
-- [ ] Further testing
-- [ ] Rework `get_data` to consider properties, that have no `description`
-	- [x] Properties with no `description` are considered
-	- [ ] Nested properties are not skipped, if outer propertie has no compatible type
-- [ ] Rework the Readme.md
-	- [ ] Creating a example of how the code works
-→
+
+---
+
+## Usage
+
+To use the converter you have to run the command ```python convert.py [command line arguments]```.
+
+The following command line arguments are available:
+- ```-i``` or ```-input-path```
+	- Path to the BrAPI-Schema (in json-format)
+ 	- Argument is required
+- ```-o``` or ```--output-path```
+	- Path where the generated data models for Zendro should be safed/stored
+ 	- Argument is required
+- ```-s``` or ```--storage-type```
+	- The type of storage/database used for the projekt
+ 	- Default: sql
+  	- [List of compatible types](https://zendro-dev.github.io/setup_root/data_models#json-specs)
+-  ```-p``` or ```--primary-key-name```
+	- Name for the primary key name
+ 	- Default: ```[model]_ID```
+  	- If used: ```[model]_[primary key name]_ID```
+- ```-t``` or ```-primary-key-type```
+	- Type of the primary key
+ 	- Options: ```Int```  and ```String```
+ 	- Default: ```String```
+
+
+## Example
+This should work with the architecture of the github repository:
+```python convert.py -i "../BrAPI-Schema" -o "../results"```
+
+This command should use the Schema from the [BrAPI-Schema](/BrAPI-Schema) directory and saves the result in the [results](/results) directory.
+
+---
+
+## 26.11.2023
+Added a usage section
+
+---
+
+## 23. & 24.11.2023
+Started to update the github Readme 
+
 ---
 
 ## 30.09.2023
