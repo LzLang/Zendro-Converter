@@ -2,8 +2,7 @@
     "model": "Study",
     "storageType": "sql",
     "attributes": {
-        "study_primary_key": "String",
-        "id": "String",
+        "study_test_id_test_ID": "String",
         "active": {
             "type": "Boolean",
             "description": "A flag to indicate if a Study is currently active and ongoing"
@@ -173,5 +172,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "study_test_id_test_ID"
 }

@@ -2,8 +2,7 @@
     "model": "SeedLotTransaction",
     "storageType": "sql",
     "attributes": {
-        "seed_lot_transaction_primary_key": "String",
-        "id": "String",
+        "seed_lot_transaction_test_id_test_ID": "String",
         "amount": {
             "type": "Float",
             "description": "The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed)."
@@ -49,5 +48,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "seed_lot_transaction_test_id_test_ID"
 }

@@ -2,8 +2,7 @@
     "model": "Method",
     "storageType": "sql",
     "attributes": {
-        "method_primary_key": "String",
-        "id": "String",
+        "method_test_id_test_ID": "String",
         "bibliographicalReference": {
             "type": "String",
             "description": "Bibliographical reference describing the method.\n<br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method."
@@ -34,5 +33,5 @@
         }
     },
     "associations": {},
-    "internalId": "id"
+    "internalId": "method_test_id_test_ID"
 }

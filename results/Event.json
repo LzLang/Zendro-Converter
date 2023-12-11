@@ -2,8 +2,7 @@
     "model": "Event",
     "storageType": "sql",
     "attributes": {
-        "event_primary_key": "String",
-        "id": "String",
+        "event_test_id_test_ID": "String",
         "eventDbId": {
             "type": "String",
             "description": "Internal database identifier"
@@ -45,5 +44,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "event_test_id_test_ID"
 }

@@ -2,8 +2,7 @@
     "model": "GermplasmAttribute",
     "storageType": "sql",
     "attributes": {
-        "germplasm_attribute_primary_key": "String",
-        "id": "String",
+        "germplasm_attribute_test_id_test_ID": "String",
         "attributeDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies this attribute within the given database server"
@@ -74,5 +73,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "germplasm_attribute_test_id_test_ID"
 }

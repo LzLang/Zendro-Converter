@@ -2,8 +2,7 @@
     "model": "AlleleMatrix",
     "storageType": "sql",
     "attributes": {
-        "allele_matrix_primary_key": "String",
-        "id": "String",
+        "allele_matrix_test_id_test_ID": "String",
         "expandHomozygotes": {
             "type": "Boolean",
             "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
@@ -56,5 +55,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "allele_matrix_test_id_test_ID"
 }

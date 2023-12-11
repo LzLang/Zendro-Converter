@@ -2,8 +2,7 @@
     "model": "CrossingProject",
     "storageType": "sql",
     "attributes": {
-        "crossing_project_primary_key": "String",
-        "id": "String",
+        "crossing_project_test_id_test_ID": "String",
         "commonCropName": {
             "type": "String",
             "description": "the common name of a crop (for multi-crop systems)"
@@ -67,5 +66,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "crossing_project_test_id_test_ID"
 }

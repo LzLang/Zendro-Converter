@@ -2,8 +2,7 @@
     "model": "Cross",
     "storageType": "sql",
     "attributes": {
-        "cross_primary_key": "String",
-        "id": "String",
+        "cross_test_id_test_ID": "String",
         "crossDbId": {
             "type": "String",
             "description": "the unique identifier for a cross"
@@ -52,5 +51,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "cross_test_id_test_ID"
 }

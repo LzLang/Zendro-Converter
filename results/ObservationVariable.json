@@ -2,8 +2,7 @@
     "model": "ObservationVariable",
     "storageType": "sql",
     "attributes": {
-        "observation_variable_primary_key": "String",
-        "id": "String",
+        "observation_variable_test_id_test_ID": "String",
         "commonCropName": {
             "type": "String",
             "description": "Crop name (examples: \"Maize\", \"Wheat\")"
@@ -77,5 +76,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "observation_variable_test_id_test_ID"
 }

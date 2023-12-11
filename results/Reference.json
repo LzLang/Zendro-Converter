@@ -2,8 +2,7 @@
     "model": "Reference",
     "storageType": "sql",
     "attributes": {
-        "reference_primary_key": "String",
-        "id": "String",
+        "reference_test_id_test_ID": "String",
         "commonCropName": {
             "type": "String",
             "description": "Common name for the crop"
@@ -61,5 +60,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "reference_test_id_test_ID"
 }

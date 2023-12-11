@@ -2,8 +2,7 @@
     "model": "Plate",
     "storageType": "sql",
     "attributes": {
-        "plate_primary_key": "String",
-        "id": "String",
+        "plate_test_id_test_ID": "String",
         "plateBarcode": {
             "type": "String",
             "description": "A unique identifier physically attached to a `Plate`"
@@ -67,5 +66,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "plate_test_id_test_ID"
 }

@@ -2,8 +2,7 @@
     "model": "Trait",
     "storageType": "sql",
     "attributes": {
-        "trait_primary_key": "String",
-        "id": "String",
+        "trait_test_id_test_ID": "String",
         "attribute": {
             "type": "String",
             "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\""
@@ -50,5 +49,5 @@
         }
     },
     "associations": {},
-    "internalId": "id"
+    "internalId": "trait_test_id_test_ID"
 }

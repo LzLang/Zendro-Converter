@@ -2,8 +2,7 @@
     "model": "PedigreeNode",
     "storageType": "sql",
     "attributes": {
-        "pedigree_node_primary_key": "String",
-        "id": "String",
+        "pedigree_node_test_id_test_ID": "String",
         "crossingYear": {
             "type": "Int",
             "description": "The year the parents were originally crossed"
@@ -60,5 +59,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "pedigree_node_test_id_test_ID"
 }

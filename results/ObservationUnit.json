@@ -2,8 +2,7 @@
     "model": "ObservationUnit",
     "storageType": "sql",
     "attributes": {
-        "observation_unit_primary_key": "String",
-        "id": "String",
+        "observation_unit_test_id_test_ID": "String",
         "observationUnitDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. "
@@ -140,5 +139,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "observation_unit_test_id_test_ID"
 }

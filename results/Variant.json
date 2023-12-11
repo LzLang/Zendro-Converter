@@ -2,8 +2,7 @@
     "model": "Variant",
     "storageType": "sql",
     "attributes": {
-        "variant_primary_key": "String",
-        "id": "String",
+        "variant_test_id_test_ID": "String",
         "created": {
             "type": "String",
             "description": "The timestamp when this variant was created."
@@ -113,5 +112,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "variant_test_id_test_ID"
 }

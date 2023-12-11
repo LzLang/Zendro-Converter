@@ -2,8 +2,7 @@
     "model": "BreedingMethod",
     "storageType": "sql",
     "attributes": {
-        "breeding_method_primary_key": "String",
-        "id": "String",
+        "breeding_method_test_id_test_ID": "String",
         "abbreviation": {
             "type": "String",
             "description": "A shortened version of the human readable name for a Breeding Method"
@@ -45,5 +44,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "breeding_method_test_id_test_ID"
 }

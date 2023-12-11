@@ -2,8 +2,7 @@
     "model": "Trial",
     "storageType": "sql",
     "attributes": {
-        "trial_primary_key": "String",
-        "id": "String",
+        "trial_test_id_test_ID": "String",
         "active": {
             "type": "Boolean",
             "description": "A flag to indicate if a Trial is currently active and ongoing"
@@ -98,5 +97,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "trial_test_id_test_ID"
 }

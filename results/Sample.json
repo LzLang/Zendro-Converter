@@ -2,8 +2,7 @@
     "model": "Sample",
     "storageType": "sql",
     "attributes": {
-        "sample_primary_key": "String",
-        "id": "String",
+        "sample_test_id_test_ID": "String",
         "column": {
             "type": "Int",
             "description": "The Column identifier for this `Sample` location in the `Plate`"
@@ -132,5 +131,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "sample_test_id_test_ID"
 }

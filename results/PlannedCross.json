@@ -2,8 +2,7 @@
     "model": "PlannedCross",
     "storageType": "sql",
     "attributes": {
-        "planned_cross_primary_key": "String",
-        "id": "String",
+        "planned_cross_test_id_test_ID": "String",
         "crossType": {
             "type": "String",
             "description": "the type of cross"
@@ -45,5 +44,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "planned_cross_test_id_test_ID"
 }

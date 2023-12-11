@@ -2,8 +2,7 @@
     "model": "List",
     "storageType": "sql",
     "attributes": {
-        "list_primary_key": "String",
-        "id": "String",
+        "list_test_id_test_ID": "String",
         "dateCreated": {
             "type": "String",
             "description": "Timestamp when the entity was first created"
@@ -54,5 +53,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "list_test_id_test_ID"
 }

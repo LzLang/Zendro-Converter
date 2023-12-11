@@ -2,8 +2,7 @@
     "model": "Image",
     "storageType": "sql",
     "attributes": {
-        "image_primary_key": "String",
-        "id": "String",
+        "image_test_id_test_ID": "String",
         "copyright": {
             "type": "String",
             "description": "The copyright information of this image. Example 'Copyright 2018 Bob Robertson'"
@@ -73,5 +72,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "image_test_id_test_ID"
 }

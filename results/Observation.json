@@ -2,8 +2,7 @@
     "model": "Observation",
     "storageType": "sql",
     "attributes": {
-        "observation_primary_key": "String",
-        "id": "String",
+        "observation_test_id_test_ID": "String",
         "collector": {
             "type": "String",
             "description": "The name or identifier of the entity which collected the observation"
@@ -82,5 +81,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "observation_test_id_test_ID"
 }

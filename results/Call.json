@@ -2,8 +2,7 @@
     "model": "Call",
     "storageType": "sql",
     "attributes": {
-        "call_primary_key": "String",
-        "id": "String",
+        "call_test_id_test_ID": "String",
         "genotypeValue": {
             "type": "String",
             "description": "The value of this genotype call"
@@ -48,5 +47,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "call_test_id_test_ID"
 }

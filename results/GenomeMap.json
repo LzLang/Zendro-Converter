@@ -2,8 +2,7 @@
     "model": "GenomeMap",
     "storageType": "sql",
     "attributes": {
-        "genome_map_primary_key": "String",
-        "id": "String",
+        "genome_map_test_id_test_ID": "String",
         "comments": {
             "type": "String",
             "description": "Additional comments about a `GenomeMap`"
@@ -66,5 +65,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "genome_map_test_id_test_ID"
 }

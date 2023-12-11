@@ -2,8 +2,7 @@
     "model": "Person",
     "storageType": "sql",
     "attributes": {
-        "person_primary_key": "String",
-        "id": "String",
+        "person_test_id_test_ID": "String",
         "description": {
             "type": "String",
             "description": "description of this person"
@@ -65,5 +64,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "person_test_id_test_ID"
 }

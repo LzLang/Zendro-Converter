@@ -2,8 +2,7 @@
     "model": "ReferenceSet",
     "storageType": "sql",
     "attributes": {
-        "reference_set_primary_key": "String",
-        "id": "String",
+        "reference_set_test_id_test_ID": "String",
         "assemblyPUI": {
             "type": "String",
             "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`."
@@ -72,5 +71,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "reference_set_test_id_test_ID"
 }

@@ -2,8 +2,7 @@
     "model": "VariantSet",
     "storageType": "sql",
     "attributes": {
-        "variant_set_primary_key": "String",
-        "id": "String",
+        "variant_set_test_id_test_ID": "String",
         "callSetCount": {
             "type": "Int",
             "description": "The number of CallSets included in this VariantSet"
@@ -89,5 +88,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "variant_set_test_id_test_ID"
 }

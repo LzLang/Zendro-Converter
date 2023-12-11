@@ -2,8 +2,7 @@
     "model": "CallSet",
     "storageType": "sql",
     "attributes": {
-        "call_set_primary_key": "String",
-        "id": "String",
+        "call_set_test_id_test_ID": "String",
         "callSetDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies a CallSet within the given database server"
@@ -78,5 +77,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "call_set_test_id_test_ID"
 }

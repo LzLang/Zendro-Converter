@@ -2,8 +2,7 @@
     "model": "Season",
     "storageType": "sql",
     "attributes": {
-        "season_primary_key": "String",
-        "id": "String",
+        "season_test_id_test_ID": "String",
         "seasonDbId": {
             "type": "String",
             "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'"
@@ -18,5 +17,5 @@
         }
     },
     "associations": {},
-    "internalId": "id"
+    "internalId": "season_test_id_test_ID"
 }

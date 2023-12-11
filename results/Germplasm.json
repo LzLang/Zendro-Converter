@@ -2,8 +2,7 @@
     "model": "Germplasm",
     "storageType": "sql",
     "attributes": {
-        "germplasm_primary_key": "String",
-        "id": "String",
+        "germplasm_test_id_test_ID": "String",
         "accessionNumber": {
             "type": "String",
             "description": "The unique identifier for a material or germplasm within a genebank\n\nMCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. \"PI 113869\")."
@@ -165,5 +164,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "germplasm_test_id_test_ID"
 }

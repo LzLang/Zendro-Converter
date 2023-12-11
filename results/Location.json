@@ -2,8 +2,7 @@
     "model": "Location",
     "storageType": "sql",
     "attributes": {
-        "location_primary_key": "String",
-        "id": "String",
+        "location_test_id_test_ID": "String",
         "abbreviation": {
             "type": "String",
             "description": "A shortened version of the human readable name for a Location"
@@ -126,5 +125,5 @@
             "targetStorageType": "sql"
         }
     },
-    "internalId": "id"
+    "internalId": "location_test_id_test_ID"
 }
