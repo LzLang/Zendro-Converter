@@ -1,6 +1,8 @@
 #   Imports
 import os
+import re
 import json
+import sys
 from datetime import datetime, date
 
 
@@ -43,7 +45,8 @@ def get_files(input_path):
             # Only json files are needed
             if os.path.splitext(filename)[1].lower() == '.json':
                 # Append the file
-                input_files.append(os.path.join(root, filename))
+                file_path = os.path.join(root, filename)
+                input_files.append(file_path)
 
     return input_files
 
@@ -63,9 +66,11 @@ def get_items(file_data):
         # Create for every model a separate dictionary
         items[model] = {}
         # Every models needs a primary key, for the database
-        items[model]['primary_key'] = file_data[model]['primary_key']
+        primary_key = file_data[model]['primary_key']
+        items[model]['primary_key'] = primary_key
         items[model]['attributes'] = {}
         items[model]['associations'] = {}
+        items[model]["internalId"] = list(primary_key)[0]
         reference_association_ids = {}
 
         # Walk through every property of a data model
@@ -105,18 +110,19 @@ def get_items(file_data):
                 if associated_attribute not in file_data[target]['properties']:
                     log(f"{associated_attribute} in {target} from {model} don't exist")
                     continue
+
                 target_key = f"{associated_attribute}_id"
                 source_key = f"{item_property}_id"
-                source_key_type = file_data[model]['association_type']#list(file_data[target]['primary_key'].values())[0]
+                source_key_type = list(file_data[target]['primary_key'].values())[0]
                 match reference['type']:
                     case 'many_to_one':
-                        target_key = f"{associated_attribute}_ids"
+                        target_key = f"{target_key}s"
                     case 'one_to_many':
-                        source_key = f"{item_property}_ids"
+                        source_key = f"{source_key}s"
                         source_key_type = f"[ {source_key_type} ]"
                     case 'many_to_many':
-                        target_key = f"{associated_attribute}_ids"
-                        source_key = f"{item_property}_ids"
+                        target_key = f"{target_key}s"
+                        source_key = f"{source_key}s"
                         source_key_type = f"[ {source_key_type} ]"
                 target_key = ''.join(['_' + c.lower() if c.isupper() else c for c in target_key]).lstrip('_')
                 source_key = ''.join(['_' + c.lower() if c.isupper() else c for c in source_key]).lstrip('_')
@@ -135,8 +141,7 @@ def get_items(file_data):
                 })
 
                 reference_association_ids.update({source_key: source_key_type})
-        #items[model].update({"internalId": list(file_data[model]['primary_key'])[0]})
-        items[model]["internalId"] = "id"
+
         items[model]['attributes'].update(reference_association_ids)
     return items if items else None
 
@@ -183,7 +188,7 @@ def get_reference(item):
     return reference if reference else None
 
 
-def read_json(files, storage_type, primary_key_name, primary_key_type, association_type):
+def read_json(files, storage_type, primary_key_name, primary_key_type):
     """
     Reads in a json file and returns its content.
 
@@ -197,8 +202,8 @@ def read_json(files, storage_type, primary_key_name, primary_key_type, associati
         # Raise an exception if storage_type or primary_key_type is not compatible
         if storage_type not in ZENDRO_STORAGE_TYPES:
             raise Exception('\'storage_type\' is not compatible to Zendro')
-        if (primary_key_type or association_type) not in ['Int', 'String']:
-            raise Exception('\'primary_key_type\' and \'association_type\'must be of type \'Int\' or \'String\'')
+        if primary_key_type not in ['Int', 'String']:
+            raise Exception('\'primary_key_type\' must be of type \'Int\' or \'String\'')
 
         # Open file and load json content
         file_data = {}
@@ -207,20 +212,28 @@ def read_json(files, storage_type, primary_key_name, primary_key_type, associati
                 # Get current model and save all model definitions to a dictionary
                 model = os.path.splitext(os.path.basename(file))[0]
                 model_id = ''.join(['_' + c.lower() if c.isupper() else c for c in model]).lstrip('_')
-                if primary_key_name is (f"{model_id}_id" or f"{model_id}_ids"):
-                    raise Exception("Name of the primary key can't be [model]_id or [model]_ids")
                 file_data[model] = {}
                 file_data[model]['targetStorageType'] = storage_type
-                if primary_key_name:
-                    file_data[model]['primary_key'] = {primary_key_name: primary_key_type}
-                else:
-                    file_data[model]['primary_key'] = {f"{model_id}_primary_key": primary_key_type}
-                file_data[model]['association_type'] = association_type
                 file_data[model]['properties'] = json.load(json_file)['$defs'][model]['properties']
-                #file_data[model].update({'properties': json.load(json_file)['$defs'][model]['properties']})
+
+                # Test if a custom primary key name is defined
+                # Also search if a custom defined primary key contains the word id at the end and throw an error if so
+                if primary_key_name:
+                    primary_key_name = re.sub(r'[^a-zA-Z0-9]', '_', primary_key_name.lower())
+                    primary_key_name = primary_key_name.rstrip('_')
+                    if re.search(r'_id\b', primary_key_name, flags=re.IGNORECASE):
+                        raise Exception("Name of the primary key can't contain \'id\' as last word")
+                    file_data[model]['primary_key'] = {f"{model_id}_{primary_key_name}_ID": primary_key_type}
+                else:
+                    file_data[model]['primary_key'] = {f"{model_id}_ID": primary_key_type}
+
         return file_data if file_data else None
     except OSError as file_error:
         log(f"Couldn't open files: {file_error}")
+    except Exception as model_exception:
+        print(model_exception)
+        log(f"An error occurred: {model_exception}")
+        sys.exit(1)
 
 
 def write_json(file_data, output_path, storage_type):
@@ -243,7 +256,6 @@ def write_json(file_data, output_path, storage_type):
                 'storageType': storage_type,
                 'attributes': file_data[model]['primary_key']
             }
-            json_file['attributes'].update({'id': 'String'})
             json_file['attributes'].update(file_data[model]['attributes'])
             
             # If a model has an association it is needed to be included
@@ -258,6 +270,10 @@ def write_json(file_data, output_path, storage_type):
                 file.write(json_object)
     except OSError as file_error:
         log(f"Couldn't write to file {output_path}: {file_error}")
+    except Exception as model_exception:
+        print(model_exception)
+        log(f"An error occurred: {model_exception}")
+        sys.exit(1)
 
 
 def log(msg):
