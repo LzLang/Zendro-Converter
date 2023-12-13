@@ -5,7 +5,7 @@ The aim of the project is to develop a converter that reads BrAPI JSON model sch
 
 ## Installation
 
-Install my-project with git
+Install the project with git
 
 ```bash
   [Follows]
