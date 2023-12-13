@@ -3,6 +3,26 @@
 This project was developed by a student at the Technical University of Bingen.
 The aim of the project is to develop a converter that reads BrAPI JSON model schemas and translates them into a Zendro-compliant model schema.
 
+Chapters:
+- [Installation](#installation)
+- [Usage/Examples](#usageexamples)
+  - [General Usage](#general-usage)
+  - [Regular example](#regular-example)
+  - [Custom primary key and type](#custom-primary-key-and-type)
+  - [Associations](#associations)
+- [API Reference](#api-reference)
+  - [Packages used](#packages-used)
+  - [get_files](#get_files)
+  - [get_items](#get_items)
+  - [get_type](#get_type)
+  - [get_references](#get_references)
+  - [read_json](#read_json)
+  - [write_json](#write_json)
+  - [log](#log)
+- [Support](#support)
+
+---
+
 ## Installation
 
 Install the project with git
@@ -10,7 +30,10 @@ Install the project with git
 ```bash
   [Follows]
 ```
-    
+
+---
+
+ 
 ## Usage/Examples
 
 #### General Usage:
@@ -171,6 +194,7 @@ Each generated data model contains the custom primary key name and is of the spe
 
 All associations/relationships are defined after Zendro's [paired-end foreign keys](https://zendro-dev.github.io/setup_root/data_models#paired-end-foreign-keys).
 
+---
 
 ## API Reference
 
@@ -290,6 +314,7 @@ Writes the message to a log-file. and logs the date and time automatically.
 
 This function doesn't return anything but will give out a text to your console.
 
+---
 
 ## Support
 
