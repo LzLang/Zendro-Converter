@@ -8,6 +8,11 @@ First version of a proper readme written.
 
 ---
 
+## 11.12.2023
+Uploaded currenct projekt version to github
+
+---
+
 ## 26.11.2023
 Added a usage section
 
