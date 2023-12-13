@@ -3,36 +3,8 @@ A script to convert data from BrAPI to Zendro-API
 
 ---
 
-## Usage
-
-To use the converter you have to run the command ```python convert.py [command line arguments]```.
-
-The following command line arguments are available:
-- ```-i``` or ```-input-path```
-	- Path to the BrAPI-Schema (in json-format)
- 	- Argument is required
-- ```-o``` or ```--output-path```
-	- Path where the generated data models for Zendro should be safed/stored
- 	- Argument is required
-- ```-s``` or ```--storage-type```
-	- The type of storage/database used for the projekt
- 	- Default: sql
-  	- [List of compatible types](https://zendro-dev.github.io/setup_root/data_models#json-specs)
--  ```-p``` or ```--primary-key-name```
-	- Name for the primary key name
- 	- Default: ```[model]_ID```
-  	- If used: ```[model]_[primary key name]_ID```
-- ```-t``` or ```-primary-key-type```
-	- Type of the primary key
- 	- Options: ```Int```  and ```String```
- 	- Default: ```String```
-
-
-## Example
-This should work with the architecture of the github repository:
-```python convert.py -i "../BrAPI-Schema" -o "../results"```
-
-This command should use the Schema from the [BrAPI-Schema](/BrAPI-Schema) directory and saves the result in the [results](/results) directory.
+## 13.12.2023
+First version of a proper readme written.
 
 ---
 
