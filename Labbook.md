@@ -3,6 +3,11 @@ A script to convert data from BrAPI to Zendro-API
 
 ---
 
+## 19.12.2023
+Finalized the project.
+
+---
+
 ## 13.12.2023
 First version of a proper readme written.
 
