@@ -28,8 +28,9 @@ Chapters:
 Install the project with git
 
 ```bash
-  [Follows]
+  git clone https://github.com/LzLang/Zendro-Converter.git
 ```
+The Python scripts are located in the `methods` subfolder.
 
 ---
 
