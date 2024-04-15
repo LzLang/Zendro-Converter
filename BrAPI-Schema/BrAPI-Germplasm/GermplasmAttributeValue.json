@@ -60,7 +60,7 @@
                 "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm within the given database server",
-                    "referencedAttribute": "germplasmAttributeValues",
+                    "referencedAttribute": "attributeValues",
                     "relationshipType": "many-to-one"
                 },
                 "value": {
