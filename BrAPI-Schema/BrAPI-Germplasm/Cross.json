@@ -203,7 +203,7 @@
                 "plannedCross": {
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
                     "description": "the unique identifier for a planned cross",
-                    "referencedAttribute": "crosss",
+                    "referencedAttribute": "crosses",
                     "relationshipType": "many-to-one"
                 },
                 "pollinationEvents": {
