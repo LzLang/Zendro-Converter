@@ -2,48 +2,11 @@
     "$defs": {
         "SeedLotTransaction": {
             "properties": {
-                "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
-                },
                 "amount": {
                     "description": "The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).",
                     "type": [
                         "null",
                         "number"
-                    ]
-                },
-                "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
                     ]
                 },
                 "fromSeedLot": {
@@ -90,6 +53,43 @@
             ],
             "title": "SeedLotTransaction",
             "type": "object"
+        },
+        "AdditionalInfo": {
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+            "type": [
+                "null",
+                "object"
+            ]
+        },
+        "ExternalReference": {
+            "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+            "items": {
+                "properties": {
+                    "referenceId": {
+                        "description": "The external reference ID. Could be a simple string or a URI.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "referenceSource": {
+                        "description": "An identifier for the source system or database of this reference",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "title": "ExternalReferences",
+            "type": [
+                "null",
+                "array"
+            ]
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/SeedLotTransaction.json",
