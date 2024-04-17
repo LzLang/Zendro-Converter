@@ -40,7 +40,7 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "List.json#/$defs/ExternalReferences",
+                    "$ref": "List.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "list",
                     "relationshipType": "one-to-many"
@@ -112,9 +112,9 @@
             "title": "List",
             "type": "object"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -144,7 +144,7 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"

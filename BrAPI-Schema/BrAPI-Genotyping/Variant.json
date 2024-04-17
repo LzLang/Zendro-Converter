@@ -100,7 +100,7 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Variant.json#/$defs/ExternalReferences",
+                    "$ref": "Variant.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "reference",
                     "relationshipType": "one-to-many"
@@ -204,9 +204,9 @@
             "title": "Variant",
             "type": "object"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -236,7 +236,7 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"

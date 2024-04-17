@@ -40,7 +40,7 @@
                     ]
                 },
                 "dataLinks": {
-                    "$ref": "Study.json#/$defs/DataLinks",
+                    "$ref": "Study.json#/$defs/DataLink",
                     "description": "",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many"
@@ -62,7 +62,7 @@
                     ]
                 },
                 "environmentParameters": {
-                    "$ref": "Study.json#/$defs/EnvironmentParameters",
+                    "$ref": "Study.json#/$defs/EnvironmentParameter",
                     "description": "",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many"
@@ -74,7 +74,7 @@
                     "relationshipType": "one-to-one"
                 },
                 "externalReferences": {
-                    "$ref": "Study.json#/$defs/ExternalReferences",
+                    "$ref": "Study.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many"
@@ -106,7 +106,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "observationLevels": {
-                    "$ref": "Study.json#/$defs/ObservationLevels",
+                    "$ref": "Study.json#/$defs/ObservationLevel",
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). ",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many"
@@ -295,7 +295,7 @@
         },
         "Contact": {
             "properties": {
-                "contact_ID": {
+                "contactDbId": {
                     "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
                     "type": "string"
                 },
@@ -350,14 +350,14 @@
                 }
             },
             "required": [
-                "contact_ID"
+                "contactDbId"
             ],
             "title": "Contacts",
             "type": "object"
         },
-        "DataLinks": {
+        "DataLink": {
             "properties": {
-                "dataLink_ID": {
+                "dataLinkDbId": {
                     "description": "The ID which uniquely identifies this datalink",
                     "type": "string"
                 },
@@ -434,14 +434,14 @@
                 }
             },
             "required": [
-                "dataLink_ID"
+                "dataLinkDbId"
             ],
-            "title": "DataLinks",
+            "title": "DataLink",
             "type": "object"
         },
-        "EnvironmentParameters": {
+        "EnvironmentParameter": {
             "properties": {
-                "parameter_ID": {
+                "parameterDbId": {
                     "description": "The ID which uniquely identifies this parameter",
                     "type": "string"
                 },
@@ -504,7 +504,7 @@
                 }
             },
             "required": [
-                "parameter_ID",
+                "parameterDbId",
                 "parameterName",
                 "description"
             ],
@@ -513,7 +513,7 @@
         },
         "ExperimentalDesign": {
             "properties": {
-                "design_ID": {
+                "designDbId": {
                     "description": "The ID which uniquely identifies this experimental design",
                     "type": "string"
                 },
@@ -540,13 +540,13 @@
                 }
             },
             "required": [
-                "design_ID"
+                "designDbId"
             ],
             "title": "experimentalDesign"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -576,14 +576,14 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"
         },
         "GrowthFacility": {
             "properties": {
-                "facility_ID": {
+                "facilityDbId": {
                     "description": "The ID which uniquely identifies this growth facility",
                     "type": "string"
                 },
@@ -610,13 +610,13 @@
                 }
             },
             "required": [
-                "facility_ID"
+                "facilityDbId"
             ],
             "title": "growthFacility"
         },
         "LastUpdate": {
             "properties": {
-                "date_ID": {
+                "dateDbId": {
                     "description": "The ID which uniquely identifies this update",
                     "type": "string"
                 },
@@ -642,13 +642,13 @@
                 }
             },
             "required": [
-                "date_ID"
+                "dateDbId"
             ],
             "title": "LastUpdate"
         },
-        "ObservationLevels": {
+        "ObservationLevel": {
             "properties": {
-                "observation_ID": {
+                "observationDbId": {
                     "description": "The ID which uniquely identifies this observation",
                     "type": "string"
                 },
@@ -682,9 +682,9 @@
                 }
             },
             "required": [
-                "observation_ID"
+                "observationDbId"
             ],
-            "title": "ObservationLevels",
+            "title": "ObservationLevel",
             "type": "object"
         }
     },

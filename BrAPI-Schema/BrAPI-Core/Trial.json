@@ -33,7 +33,7 @@
                     "relationshipType": "one-to-many"
                 },
                 "datasetAuthorships": {
-                    "$ref": "Trial.json#/$defs/DatasetAuthorships",
+                    "$ref": "Trial.json#/$defs/DatasetAuthorship",
                     "description": "",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many"
@@ -54,7 +54,7 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Trial.json#/$defs/ExternalReferences",
+                    "$ref": "Trial.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many"
@@ -166,7 +166,7 @@
         },
         "Contact": {
             "properties": {
-                "contact_ID": {
+                "contactDbId": {
                     "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
                     "type": "string"
                 },
@@ -221,14 +221,14 @@
                 }
             },
             "required": [
-                "contact_ID"
+                "contactDbId"
             ],
             "title": "Contacts",
             "type": "object"
         },
-        "DatasetAuthorships": {
+        "DatasetAuthorship": {
             "properties": {
-                "datasetPUI_ID": {
+                "datasetPUIDbId": {
                     "description": "The DOI or other permanent unique identifier for this published dataset",
                     "type": [
                         "null",
@@ -272,14 +272,14 @@
                 }
             },
             "required": [
-                "datasetPUI_ID"
+                "datasetPUIDbId"
             ],
             "title": "Authorships",
             "type": "object"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -309,14 +309,14 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"
         },
         "Publication": {
             "properties": {
-                "publicationPUI_ID": {
+                "publicationPUIDbId": {
                     "type": [
                         "null",
                         "string"
@@ -344,7 +344,7 @@
                 }
             },
             "required": [
-                "publicationPUI_ID"
+                "publicationPUIDbId"
             ],
             "title": "Publications",
             "type": "object"

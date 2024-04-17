@@ -61,7 +61,7 @@
         },
         "GenotypeMetadata": {
             "properties": {
-                "metadata_ID": {
+                "metadataDbId": {
                     "description": "The ID which uniquely identifies this metafield",
                     "type": [
                         "null",
@@ -119,7 +119,7 @@
                 }
             },
             "required": [
-                "metadata_ID"
+                "metadataDbId"
             ],
             "title": "Call",
             "type": "object"

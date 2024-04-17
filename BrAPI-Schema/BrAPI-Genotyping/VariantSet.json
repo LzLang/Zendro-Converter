@@ -61,7 +61,7 @@
                     "relationshipType": "one-to-many"
                 },
                 "availableFormats": {
-                    "$ref": "VariantSet.json#/$defs/AvailableFormats",
+                    "$ref": "VariantSet.json#/$defs/AvailableFormat",
                     "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
                     "referencedAttribute": "variantset",
                     "relationshipType": "one-to-many"
@@ -74,13 +74,13 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "VariantSet.json#/$defs/ExternalReferences",
+                    "$ref": "VariantSet.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "reference",
                     "relationshipType": "one-to-many"
                 },
                 "metadataFields": {
-                    "$ref": "VariantSet.json#/$defs/MetadataFields",
+                    "$ref": "VariantSet.json#/$defs/MetadataField",
                     "description": "The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard",
                     "referencedAttribute": "variantset",
                     "relationshipType": "one-to-many"
@@ -138,7 +138,7 @@
         },
         "Analysis": {
             "properties": {
-                "analysisDb_ID": {
+                "analysisDbDbId": {
                     "description": "Unique identifier for this analysis description",
                     "type": [
                         "null",
@@ -208,14 +208,14 @@
                 }
             },
             "required": [
-                "analysisDb_ID"
+                "analysisDbDbId"
             ],
             "title": "References",
             "type": "object"
         },
-        "AvailableFormats": {
+        "AvailableFormat": {
             "properties": {
-                "format_ID": {
+                "formatDbId": {
                     "description": "The ID which uniquely identifies this format",
                     "type": [
                         "null",
@@ -304,14 +304,14 @@
                 }
             },
             "required": [
-                "format_ID"
+                "formatDbId"
             ],
             "title": "VariantSet",
             "type": "object"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -341,14 +341,14 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"
         },
-        "MetadataFields": {
+        "MetadataField": {
             "properties": {
-                "metafield_ID": {
+                "metafieldDbId": {
                     "description": "The ID which uniquely identifies this metafield",
                     "type": [
                         "null",
@@ -399,7 +399,7 @@
                 }
             },
             "required": [
-                "metafield_ID"
+                "metafieldDbId"
             ],
             "title": "VariantSet",
             "type": "object"

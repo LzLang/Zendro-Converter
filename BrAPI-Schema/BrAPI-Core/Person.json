@@ -27,7 +27,7 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Person.json#/$defs/ExternalReferences",
+                    "$ref": "Person.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "person",
                     "relationshipType": "one-to-many"
@@ -113,9 +113,9 @@
             "title": "Person",
             "type": "object"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -145,7 +145,7 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"

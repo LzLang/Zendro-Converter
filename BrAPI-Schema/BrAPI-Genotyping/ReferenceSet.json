@@ -34,7 +34,7 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "ReferenceSet.json#/$defs/ExternalReferences",
+                    "$ref": "ReferenceSet.json#/$defs/ExternalReference",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "reference",
                     "relationshipType": "one-to-many"
@@ -141,9 +141,9 @@
             "title": "ReferenceSet",
             "type": "object"
         },
-        "ExternalReferences": {
+        "ExternalReference": {
             "properties": {
-                "reference_ID": {
+                "referenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
@@ -173,14 +173,14 @@
                 }
             },
             "required": [
-                "reference_ID"
+                "referenceDbId"
             ],
             "title": "References",
             "type": "object"
         },
         "SourceGermplasm": {
             "properties": {
-                "germplasmDb_ID": {
+                "germplasmDbDbId": {
                     "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
                     "type": [
                         "null",
@@ -210,15 +210,15 @@
                 }
             },
             "required": [
-                "germplasmDb_ID"
+                "germplasmDbDbId"
             ],
             "title": "sourceGermplasm",
             "type": "object"
         },
         "Species": {
             "properties": {
-                "specie_ID": {
-                    "description": "The ID which uniquely identifies this specie",
+                "specieDbId": {
+                    "description": "The ID which uniquely identifies this species",
                     "type": "string"
                 },
                 "term": {
@@ -244,7 +244,7 @@
                 }
             },
             "required": [
-                "specie_ID"
+                "specieDbId"
             ]
         }
     },
