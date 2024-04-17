@@ -40,31 +40,10 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "List.json#/$defs/ExternalReferences",
+                    "description": "",
+                    "referencedAttribute": "list",
+                    "relationshipType": "one-to-many"
                 },
                 "listDbId": {
                     "description": "The unique identifier for a List",
@@ -131,6 +110,43 @@
                 "listDbId"
             ],
             "title": "List",
+            "type": "object"
+        },
+        "ExternalReferences": {
+            "properties": {
+                "reference_ID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "list": {
+                    "title": "References",
+                    "description": "",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "List.json#/$defs/List",
+                        "description": "List"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "reference_ID"
+            ],
+            "title": "References",
             "type": "object"
         }
     },

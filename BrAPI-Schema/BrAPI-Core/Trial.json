@@ -27,98 +27,16 @@
                     ]
                 },
                 "contacts": {
-                    "description": "List of contact entities associated with this trial",
-                    "items": {
-                        "properties": {
-                            "contactDbId": {
-                                "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                                "type": "string"
-                            },
-                            "email": {
-                                "description": "The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "instituteName": {
-                                "description": "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "name": {
-                                "description": "The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "orcid": {
-                                "description": "The Open Researcher and Contributor ID for this contact person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "type": {
-                                "description": "The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "contactDbId"
-                        ],
-                        "type": "object"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Trial.json#/$defs/Contact",
+                    "description": "",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many"
                 },
                 "datasetAuthorships": {
-                    "description": "License and citation information for the data in this trial",
-                    "items": {
-                        "properties": {
-                            "datasetPUI": {
-                                "description": "The DOI or other permanent unique identifier for this published dataset",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "license": {
-                                "description": "MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "publicReleaseDate": {
-                                "description": "MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "submissionDate": {
-                                "description": "MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Trial.json#/$defs/DatasetAuthorships",
+                    "description": "",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many"
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -136,31 +54,10 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Trial.json#/$defs/ExternalReferences",
+                    "description": "",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many"
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
@@ -183,28 +80,10 @@
                     ]
                 },
                 "publications": {
-                    "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
-                    "items": {
-                        "properties": {
-                            "publicationPUI": {
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "publicationReference": {
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Trial.json#/$defs/Publication",
+                    "description": "",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many"
                 },
                 "startDate": {
                     "description": "The date this trial started",
@@ -283,6 +162,191 @@
                 "trialDbId"
             ],
             "title": "Trial",
+            "type": "object"
+        },
+        "Contact": {
+            "properties": {
+                "contact_ID": {
+                    "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "instituteName": {
+                    "description": "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "description": "The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "orcid": {
+                    "description": "The Open Researcher and Contributor ID for this contact person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "description": "The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trial": {
+                    "title": "Trials",
+                    "description": "",
+                    "referencedAttribute": "contacts",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Trial",
+                        "description": "Trials"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "contact_ID"
+            ],
+            "title": "Contacts",
+            "type": "object"
+        },
+        "DatasetAuthorships": {
+            "properties": {
+                "datasetPUI_ID": {
+                    "description": "The DOI or other permanent unique identifier for this published dataset",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "license": {
+                    "description": "MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "publicReleaseDate": {
+                    "description": "MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "submissionDate": {
+                    "description": "MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trial": {
+                    "title": "Trials",
+                    "description": "",
+                    "referencedAttribute": "datasetAuthorships",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Trial",
+                        "description": "Trials"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "datasetPUI_ID"
+            ],
+            "title": "Authorships",
+            "type": "object"
+        },
+        "ExternalReferences": {
+            "properties": {
+                "reference_ID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trial": {
+                    "title": "References",
+                    "description": "",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Trial",
+                        "description": "Trial"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "reference_ID"
+            ],
+            "title": "References",
+            "type": "object"
+        },
+        "Publication": {
+            "properties": {
+                "publicationPUI_ID": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "publicationReference": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trial": {
+                    "title": "Trials",
+                    "description": "",
+                    "referencedAttribute": "publications",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Trial",
+                        "description": "Trials"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "publicationPUI_ID"
+            ],
+            "title": "Publications",
             "type": "object"
         }
     },

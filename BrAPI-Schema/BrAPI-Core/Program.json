@@ -35,31 +35,10 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Program.json#/$defs/ExternalReferences",
+                    "description": "",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many"
                 },
                 "fundingInformation": {
                     "description": "Information describing the grant or funding source for this program",
@@ -107,7 +86,7 @@
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Trial.json#/$defs/Trial",
+                        "$ref": "Trials.json#/$defs/Trials",
                         "description": "Trials"
                     },
                     "type": [
@@ -191,6 +170,43 @@
                 "programName"
             ],
             "title": "Program",
+            "type": "object"
+        },
+        "ExternalReferences": {
+            "properties": {
+                "reference_ID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "program": {
+                    "title": "References",
+                    "description": "",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Program.json#/$defs/Program",
+                        "description": "Program"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "reference_ID"
+            ],
+            "title": "References",
             "type": "object"
         }
     },
