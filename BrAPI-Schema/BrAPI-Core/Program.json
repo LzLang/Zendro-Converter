@@ -36,7 +36,7 @@
                 },
                 "externalReferences": {
                     "$ref": "Program.json#/$defs/ExternalReferences",
-                    "description": "",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many"
                 },

@@ -100,31 +100,10 @@
                     ]
                 },
                 "externalReferences": {
+                    "$ref": "Variant.json#/$defs/ExternalReferences",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many"
                 },
                 "filtersApplied": {
                     "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",
@@ -223,6 +202,43 @@
                 "variantDbId"
             ],
             "title": "Variant",
+            "type": "object"
+        },
+        "ExternalReferences": {
+            "properties": {
+                "reference_ID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "reference": {
+                    "title": "References",
+                    "description": "",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Variant.json#/$defs/Variant",
+                        "description": "Reference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "reference_ID"
+            ],
+            "title": "References",
             "type": "object"
         }
     },

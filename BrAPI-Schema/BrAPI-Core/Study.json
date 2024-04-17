@@ -357,6 +357,10 @@
         },
         "DataLinks": {
             "properties": {
+                "dataLink_ID": {
+                    "description": "The ID which uniquely identifies this datalink",
+                    "type": "string"
+                },
                 "dataFormat": {
                     "description": "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
                     "type": [
@@ -429,11 +433,18 @@
                     ]
                 }
             },
+            "required": [
+                "dataLink_ID"
+            ],
             "title": "DataLinks",
             "type": "object"
         },
         "EnvironmentParameters": {
             "properties": {
+                "parameter_ID": {
+                    "description": "The ID which uniquely identifies this parameter",
+                    "type": "string"
+                },
                 "description": {
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
                     "type": "string"
@@ -493,6 +504,7 @@
                 }
             },
             "required": [
+                "parameter_ID",
                 "parameterName",
                 "description"
             ],
@@ -501,6 +513,10 @@
         },
         "ExperimentalDesign": {
             "properties": {
+                "design_ID": {
+                    "description": "The ID which uniquely identifies this experimental design",
+                    "type": "string"
+                },
                 "PUI": {
                     "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
                     "type": [
@@ -523,6 +539,9 @@
                     
                 }
             },
+            "required": [
+                "design_ID"
+            ],
             "title": "experimentalDesign"
         },
         "ExternalReferences": {
@@ -564,6 +583,10 @@
         },
         "GrowthFacility": {
             "properties": {
+                "facility_ID": {
+                    "description": "The ID which uniquely identifies this growth facility",
+                    "type": "string"
+                },
                 "PUI": {
                     "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
                     "type": [
@@ -586,10 +609,17 @@
                     
                 }
             },
+            "required": [
+                "facility_ID"
+            ],
             "title": "growthFacility"
         },
         "LastUpdate": {
             "properties": {
+                "date_ID": {
+                    "description": "The ID which uniquely identifies this update",
+                    "type": "string"
+                },
                 "timestamp": {
                     "format": "date-time",
                     "type": [
@@ -611,10 +641,17 @@
                     
                 }
             },
+            "required": [
+                "date_ID"
+            ],
             "title": "LastUpdate"
         },
         "ObservationLevels": {
             "properties": {
+                "observation_ID": {
+                    "description": "The ID which uniquely identifies this observation",
+                    "type": "string"
+                },
                 "levelName": {
                     "description": "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
                     "type": [
@@ -644,6 +681,9 @@
                     ]
                 }
             },
+            "required": [
+                "observation_ID"
+            ],
             "title": "ObservationLevels",
             "type": "object"
         }

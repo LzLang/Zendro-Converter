@@ -41,7 +41,7 @@
                 },
                 "externalReferences": {
                     "$ref": "List.json#/$defs/ExternalReferences",
-                    "description": "",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "referencedAttribute": "list",
                     "relationshipType": "one-to-many"
                 },

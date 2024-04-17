@@ -20,32 +20,12 @@
                     ]
                 },
                 "externalReferences": {
+                    "$ref": "Reference.json#/$defs/ExternalReferences",
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many"
                 },
+                
                 "isDerived": {
                     "description": "A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.",
                     "type": [
@@ -99,31 +79,12 @@
                     ]
                 },
                 "sourceGermplasm": {
-                    "description": "All known corresponding Germplasm",
-                    "items": {
-                        "properties": {
-                            "germplasmDbId": {
-                                "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmName": {
-                                "description": "The human readable name of a `Germplasm`",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Reference.json#/$defs/SourceGermplasm",
+                    "description": "",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many"
                 },
+                
                 "sourceURI": {
                     "description": "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.",
                     "type": [
@@ -132,27 +93,10 @@
                     ]
                 },
                 "species": {
+                    "$ref": "Reference.json#/$defs/Species",
                     "description": "An ontology term describing an attribute.",
-                    "properties": {
-                        "term": {
-                            "description": "Ontology term - the label of the ontology term the termId is pointing to.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "termURI": {
-                            "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-one"
                 },
                 "variants": {
                     "title": "variants",
@@ -175,6 +119,111 @@
             ],
             "title": "Reference",
             "type": "object"
+        },
+        "ExternalReferences": {
+            "properties": {
+                "reference_ID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "reference": {
+                    "title": "References",
+                    "description": "",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Reference.json#/$defs/Reference",
+                        "description": "Reference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "reference_ID"
+            ],
+            "title": "References",
+            "type": "object"
+        },
+        "SourceGermplasm": {
+            "properties": {
+                "germplasmDb_ID": {
+                    "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmName": {
+                    "description": "The human readable name of a `Germplasm`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "reference": {
+                    "title": "SourceGermplasm",
+                    "description": "",
+                    "referencedAttribute": "sourceGermplasm",
+                    "relationshipType": "many-to-one",
+                    "items": {
+                        "$ref": "Reference.json#/$defs/Reference",
+                        "description": "Reference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "germplasmDb_ID"
+            ],
+            "title": "sourceGermplasm",
+            "type": "object"
+        },
+        "Species": {
+            "properties": {
+                "specie_ID": {
+                    "description": "The ID which uniquely identifies this specie",
+                    "type": "string"
+                },
+                "term": {
+                    "description": "Ontology term - the label of the ontology term the termId is pointing to.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "termURI": {
+                    "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "reference": {
+                    "description": "",
+                    "referencedAttribute": "species",
+                    "relationshipType": "one-to-one",
+                    "$ref": "Reference.json#/$defs/Reference"
+                }
+            },
+            "required": [
+                "specie_ID"
+            ]
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Reference.json",
