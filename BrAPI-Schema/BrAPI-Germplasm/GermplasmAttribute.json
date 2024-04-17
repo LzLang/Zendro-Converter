@@ -132,6 +132,58 @@
                         "null",
                         "array"
                     ]
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "germplasmAttribute",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "germplasmAttribute",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/externalReference",
+                        "description": "externalReference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "method": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Method",
+                    "description": "A description of the way an Observation should be collected. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Method \"estimation\" or \"drone image processing\". ",
+                    "referencedAttribute": "germplasmAttributes",
+                    "relationshipType": "many-to-one"
+                },
+                "ontologyReference": {
+                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
+                    "description": "the unique identifier of an ontology reference",
+                    "referencedAttribute": "germplasmAttribute",
+                    "relationshipType": "one-to-one"
+                },
+                "scale": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
+                    "description": "A Scale describes the units and acceptable values for an ObservationVariable. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Scale \"inches\" or \"pixels\".",
+                    "referencedAttribute": "germplasmAttribute",
+                    "relationshipType": "one-to-one"
+                },
+                "trait": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Trait",
+                    "description": "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". ",
+                    "referencedAttribute": "germplasmAttribute",
+                    "relationshipType": "one-to-one"
                 }
             },
             "required": [
@@ -144,55 +196,100 @@
             "title": "GermplasmAttribute",
             "type": "object"
         },
-        "GermplasmAttributeAdditionalInfo": {
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-            "type": [
-                "null",
-                "object"
-            ]
-        },
-        "GermplasmAttributeExternalReference": {
-            "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-            "items": {
-                "properties": {
-                    "referenceId": {
-                        "description": "The external reference ID. Could be a simple string or a URI.",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "referenceSource": {
-                        "description": "An identifier for the source system or database of this reference",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
-                },
-                "type": "object"
-            },
-            "title": "ExternalReferences",
-            "type": [
-                "null",
-                "array"
-            ]
-        },
-        "Method": {
-            "description": "A description of the way an Observation should be collected. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Method \"estimation\" or \"drone image processing\". ",
+        "AdditionalInfo": {
             "properties": {
-                "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                "additionalInfoDbId": {
+                    "description": "the unique identifier for an additional info",
+                    "type": "string"
+                },
+                "additionalProperties": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "type": [
                         "null",
-                        "object"
+                        "string"
                     ]
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier for a germplasm attribute",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "scale": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
+                    "description": "the unique identifier of a scale",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "trait": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Trait",
+                    "description": "the unique identifier for a germplasm attribute",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "additionalInfoDbId"
+            ],
+            "title": "AdditionalInfo",
+            "type": "object"
+        },
+        "ExternalReference": {
+            "properties": {
+                "referenceDbId": {
+                    "description": "the unique identifier for a reference",
+                    "type": "string"
+                },
+                "externalID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "method": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Method",
+                    "description": "the unique identifier of a method",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "scale": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
+                    "description": "the unique identifier of a scale",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "trait": {
+                    "$ref": "GermplasmAttribute.json#/$defs/ExternalReference",
+                    "description": "the unique identifier of a trait",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "referenceDbId"
+            ],
+            "title": "ExternalReference",
+            "type": "object"
+        },
+        "Method": {
+            "properties": {
+                "methodDbId": {
+                    "description": "Method unique identifier",
+                    "type": "string"
                 },
                 "bibliographicalReference": {
                     "description": "Bibliographical reference describing the method.\n<br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.",
@@ -206,33 +303,6 @@
                     "type": [
                         "null",
                         "string"
-                    ]
-                },
-                "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
                     ]
                 },
                 "formula": {
@@ -249,13 +319,6 @@
                         "string"
                     ]
                 },
-                "methodDbId": {
-                    "description": "Method unique identifier",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "methodName": {
                     "description": "Human readable name for the method\n<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation",
                     "type": "string"
@@ -267,105 +330,49 @@
                         "string"
                     ]
                 },
-                "ontologyReference": {
-                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-                    "properties": {
-                        "documentationLinks": {
-                            "description": "links to various ontology documentation",
-                            "items": {
-                                "properties": {
-                                    "URL": {
-                                        "format": "uri",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "type": {
-                                        "enum": [
-                                            "OBO",
-                                            "RDF",
-                                            "WEBPAGE",
-                                            null
-                                        ],
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "type": "object"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "ontologyDbId": {
-                            "description": "Ontology database unique identifier",
-                            "type": "string"
-                        },
-                        "ontologyName": {
-                            "description": "Ontology name",
-                            "type": "string"
-                        },
-                        "version": {
-                            "description": "Ontology version (no specific format)",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "ontologyName",
-                        "ontologyDbId"
-                    ],
-                    "type": [
-                        "null",
-                        "object"
-                    ]
-                }
-            },
-            "required": [
-                "methodName"
-            ],
-            "type": "object"
-        },
-        "OntologyReference": {
-            "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-            "properties": {
-                "documentationLinks": {
-                    "description": "links to various ontology documentation",
+                "germplasmAttributes": {
+                    "title": "germplasmAttributes",
+                    "description": "List of germplasm attributes using this specific method",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "URL": {
-                                "format": "uri",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "type": {
-                                "enum": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                        "description": "Germplasm attributes"
                     },
                     "type": [
                         "null",
                         "array"
                     ]
                 },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "ontologyReference": {
+                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
+                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-one"
+                }
+            },
+            "required": [
+                "methodDbId",
+                "methodName"
+            ],
+            "type": "object"
+        },
+        "OntologyReference": {
+            "properties": {
                 "ontologyDbId": {
                     "description": "Ontology database unique identifier",
                     "type": "string"
@@ -380,29 +387,96 @@
                         "null",
                         "string"
                     ]
+                },
+                "method": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Method",
+                    "description": "the unique identifier of the method",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "documentationLinks": {
+                    "title": "documentationLinks",
+                    "description": "links to various ontology documentation",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/DocumentationLink",
+                        "description": "DocumentationLinks"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "scale": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
+                    "description": "the unique identifier of a scale",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "trait": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Trait",
+                    "description": "the unique identifier of a trait",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
                 }
             },
             "required": [
                 "ontologyName",
                 "ontologyDbId"
             ],
-            "type": [
-                "null",
-                "object"
-            ]
+            "title": "OntologyReference",
+            "type": "object"
         },
-        "Scale": {
-            "description": "A Scale describes the units and acceptable values for an ObservationVariable. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Scale \"inches\" or \"pixels\".",
+        "DocumentationLink": {
             "properties": {
-                "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "documentationLinkDbID": {
+                    "description": "the unique identifier for a documentation link",
+                    "type": "string"
+                },
+                "URL": {
+                    "format": "uri",
                     "type": [
                         "null",
-                        "object"
+                        "string"
                     ]
+                },
+                "type": {
+                    "enum": [
+                        "OBO",
+                        "RDF",
+                        "WEBPAGE",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "ontologyReference": {
+                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
+                    "description": "the unique identifier of an ontology reference",
+                    "referencedAttribute": "documentationLinks",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "documentationLinkDbID"
+            ],
+            "title": "DocumentationLink",
+            "type": "object"
+        },
+        "Scale": {
+            "properties": {
+                "scaleDbId": {
+                    "description": "Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.",
+                    "type": "string"
                 },
                 "dataType": {
                     "description": "<p>Class of the scale, entries can be</p>\n<p>\"Code\" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. \"75VD\" means \"75 %\" of the plant is infected and the plant is very delayed.</p>\n<p>\"Date\" - The date class is for events expressed in a time format, See ISO 8601</p>\n<p>\"Duration\" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>\n<p>\"Nominal\" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>\n<p>\"Numerical\" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>\n<p>\"Ordinal\" - Ordinal scales are scales composed of ordered categories</p>\n<p>\"Text\" - A free text is used to express the trait.</p>",
@@ -428,96 +502,6 @@
                         "integer"
                     ]
                 },
-                "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "ontologyReference": {
-                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-                    "properties": {
-                        "documentationLinks": {
-                            "description": "links to various ontology documentation",
-                            "items": {
-                                "properties": {
-                                    "URL": {
-                                        "format": "uri",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "type": {
-                                        "enum": [
-                                            "OBO",
-                                            "RDF",
-                                            "WEBPAGE",
-                                            null
-                                        ],
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "type": "object"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "ontologyDbId": {
-                            "description": "Ontology database unique identifier",
-                            "type": "string"
-                        },
-                        "ontologyName": {
-                            "description": "Ontology name",
-                            "type": "string"
-                        },
-                        "version": {
-                            "description": "Ontology version (no specific format)",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "ontologyName",
-                        "ontologyDbId"
-                    ],
-                    "type": [
-                        "null",
-                        "object"
-                    ]
-                },
-                "scaleDbId": {
-                    "description": "Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.",
-                    "type": "string"
-                },
                 "scaleName": {
                     "description": "Name of the scale\n<br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable",
                     "type": "string"
@@ -536,73 +520,153 @@
                         "string"
                     ]
                 },
-                "validValues": {
-                    "properties": {
-                        "categories": {
-                            "description": "List of possible values with optional labels",
-                            "items": {
-                                "properties": {
-                                    "label": {
-                                        "description": "A text label for a category",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "value": {
-                                        "description": "The actual value for a category",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "type": "object"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "maximumValue": {
-                            "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "minimumValue": {
-                            "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-one"
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
                     },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/ExternalReference",
+                        "description": "ExternalReference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "ontologyReference": {
+                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
+                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-one"
+                },
+                "validValues": {
+                    "$ref": "GermplasmAttribute.json#/$defs/ValidValue",
+                    "description": "Valid values for a scale",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-one"
                 }
             },
             "required": [
                 "scaleDbId",
                 "scaleName"
             ],
+            "title": "Scale",
+            "type": "object"
+
+        },
+        "ValidValue": {
+            "properties": {
+                "validValueDbId": {
+                    "description": "the unique identifier for a valid value",
+                    "type": "string"
+                },
+                "maximumValue": {
+                    "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "minimumValue": {
+                    "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "scale": {
+                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
+                    "description": "the unique identifier of a scale",
+                    "referencedAttribute": "validValues",
+                    "relationshipType": "one-to-one"
+                },
+                "categories": {
+                    "title": "categories",
+                    "description": "List of possible categories",
+                    "referencedAttribute": "validValues",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/Category",
+                        "description": "Categories"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "validValueDbId"
+            ],
+            "title": "ValidValue",
+            "type": "object"
+        },
+        "Category": {
+            "properties": {
+                "categorieDbId": {
+                    "description": "the unique identifier for a category"
+                },
+                "label": {
+                    "description": "A text label for a category",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "value": {
+                    "description": "The actual value for a category",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "validValues": {
+                    "title": "validValues",
+                    "description": "List of possible validValues",
+                    "referencedAttribute": "categories",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/ValidValue",
+                        "description": "ValidValue"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "categorieDbId"
+            ],
+            "title": "Category",
             "type": "object"
         },
         "Trait": {
-            "description": "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". ",
             "properties": {
-                "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                "traitDbId": {
+                    "description": "the unique identifier for a trait",
+                    "type": "string"
                 },
                 "alternativeAbbreviations": {
                     "description": "A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.",
@@ -642,97 +706,11 @@
                         "string"
                     ]
                 },
-                "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
                 "mainAbbreviation": {
                     "description": "A shortened version of the human readable name for a Trait",
                     "type": [
                         "null",
                         "string"
-                    ]
-                },
-                "ontologyReference": {
-                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-                    "properties": {
-                        "documentationLinks": {
-                            "description": "links to various ontology documentation",
-                            "items": {
-                                "properties": {
-                                    "URL": {
-                                        "format": "uri",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "type": {
-                                        "enum": [
-                                            "OBO",
-                                            "RDF",
-                                            "WEBPAGE",
-                                            null
-                                        ],
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "type": "object"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "ontologyDbId": {
-                            "description": "Ontology database unique identifier",
-                            "type": "string"
-                        },
-                        "ontologyName": {
-                            "description": "Ontology name",
-                            "type": "string"
-                        },
-                        "version": {
-                            "description": "Ontology version (no specific format)",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "ontologyName",
-                        "ontologyDbId"
-                    ],
-                    "type": [
-                        "null",
-                        "object"
                     ]
                 },
                 "status": {
@@ -759,13 +737,6 @@
                         "string"
                     ]
                 },
-                "traitDbId": {
-                    "description": "The ID which uniquely identifies a trait",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "traitDescription": {
                     "description": "The description of a trait",
                     "type": [
@@ -783,11 +754,53 @@
                         "null",
                         "string"
                     ]
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "trait",
+                    "relationshipType": "one-to-one"
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "trait",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "trait",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/ExternalReference",
+                        "description": "externalReference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "ontologyReference": {
+                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
+                    "description": "the unique identifier of a ontology reference",
+                    "referencedAttribute": "trait",
+                    "relationshipType": "one-to-one"
                 }
             },
             "required": [
+                "traitDbId",
                 "traitName"
             ],
+            "title": "Trait",
             "type": "object"
         }
     },
