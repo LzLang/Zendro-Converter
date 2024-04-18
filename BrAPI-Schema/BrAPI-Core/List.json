@@ -45,7 +45,7 @@
                     "referencedAttribute": "list",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "List.json#/$defs/ExternalReference",
+                        "$ref": "AdditionalInfo.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
@@ -118,35 +118,6 @@
                 "listDbId"
             ],
             "title": "List",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "list": {
-                    "$ref": "List.json#/$defs/List",
-                    "description": "The ID which uniquely identifies a `List` within the given database server",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "References",
             "type": "object"
         }
     },

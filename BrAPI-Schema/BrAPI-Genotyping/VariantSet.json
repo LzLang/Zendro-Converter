@@ -92,10 +92,10 @@
                 "externalReferences": {
                     "title": "externalReferences",
                     "description": "The ID which uniquely identifies this external reference field",
-                    "referencedAttribute": "reference",
+                    "referencedAttribute": "variantset",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "VariantSet.json#/$defs/ExternalReference",
+                        "$ref": "AdditionalInfo.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
@@ -325,35 +325,7 @@
             "title": "VariantSet",
             "type": "object"
         },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "reference": {
-                    "$ref": "VariantSet.json#/$defs/VariantSet",
-                    "description": "The unique identifier for a VariantSet.",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "References",
-            "type": "object"
-        },
+        
         "MetadataField": {
             "properties": {
                 "metadataFieldDbId": {
