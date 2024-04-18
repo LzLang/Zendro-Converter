@@ -34,10 +34,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "ReferenceSet.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ReferenceSet.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 
                 "isDerived": {
@@ -73,10 +81,18 @@
                     ]
                 },
                 "sourceGermplasm": {
-                    "$ref": "ReferenceSet.json#/$defs/SourceGermplasm",
-                    "description": "All known corresponding Germplasm",
+                    "title": "sourceGermplasm",
+                    "description": "The ID which uniquely identifies this source germplasm field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ReferenceSet.json#/$defs/SourceGermplasm",
+                        "description": "sourceGermplasm"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "sourceURI": {
                     "description": "Specifies a FASTA format file/string.",
@@ -93,7 +109,7 @@
                 },
                 "references": {
                     "title": "references",
-                    "description": "references",
+                    "description": "The ID which uniquely identifies this reference field",
                     "referencedAttribute": "referenceSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -107,7 +123,7 @@
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "The ID which uniquely identifies this variant field",
                     "referencedAttribute": "referenceSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -121,7 +137,7 @@
                 },
                 "variantSets": {
                     "title": "variantSets",
-                    "description": "variantSets",
+                    "description": "The ID which uniquely identifies this variantSet field",
                     "referencedAttribute": "referenceSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -158,19 +174,12 @@
                     ]
                 },
                 "reference": {
-                    "title": "ReferenceSet",
-                    "description": "",
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "The unique identifier for a ReferenceSet.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
-                        "description": "ReferenceSet"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
+                
             },
             "required": [
                 "referenceDbId"
@@ -180,7 +189,7 @@
         },
         "SourceGermplasm": {
             "properties": {
-                "germplasmDbDbId": {
+                "germplasmDbId": {
                     "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
                     "type": [
                         "null",
@@ -195,29 +204,21 @@
                     ]
                 },
                 "reference": {
-                    "title": "SourceGermplasm",
-                    "description": "",
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "The unique identifier for a ReferenceSet.",
                     "referencedAttribute": "sourceGermplasm",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Reference.json#/$defs/Reference",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
-                "germplasmDbDbId"
+                "germplasmDbId"
             ],
             "title": "sourceGermplasm",
             "type": "object"
         },
         "Species": {
             "properties": {
-                "specieDbId": {
+                "speciesDbId": {
                     "description": "The ID which uniquely identifies this species",
                     "type": "string"
                 },
@@ -244,7 +245,7 @@
                 }
             },
             "required": [
-                "specieDbId"
+                "speciesDbId"
             ]
         }
     },

@@ -13,10 +13,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Plate.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Plate.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "plateBarcode": {
                     "description": "A unique identifier physically attached to a `Plate`",
@@ -75,7 +83,7 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "The ID which uniquely identifies this sample field",
                     "referencedAttribute": "plate",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -111,18 +119,10 @@
                     ]
                 },
                 "reference": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "The unique identifier for a Plate.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Plate.json#/$defs/Plate",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

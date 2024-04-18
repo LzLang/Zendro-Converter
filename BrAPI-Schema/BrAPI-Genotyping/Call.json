@@ -19,10 +19,18 @@
                     "relationshipType": "many-to-one"
                 },
                 "genotypeMetadata": {
-                    "$ref": "Call.json#/$defs/GenotypeMetadata",
-                    "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
+                    "title": "genotypeMetadata",
+                    "description": "The ID which uniquely identifies this metadata field",
                     "referencedAttribute": "call",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Call.json#/$defs/GenotypeMetadata",
+                        "description": "genotypeMetadata"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "genotypeValue": {
                     "description": "The value of this genotype call",
@@ -104,18 +112,10 @@
                     ]
                 },
                 "call": {
-                    "title": "Call",
-                    "description": "",
+                    "$ref": "Call.json#/$defs/Call",
+                    "description": "The unique identifier for a Call.",
                     "referencedAttribute": "genotypeMetadata",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Call.json#/$defs/Call",
-                        "description": "Call"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

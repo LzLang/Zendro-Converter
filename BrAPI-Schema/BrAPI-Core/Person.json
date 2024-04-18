@@ -28,7 +28,7 @@
                 },
                 "externalReferences": {
                     "title": "externalReferences",
-                    "description": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference  field",
                     "referencedAttribute": "person",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -88,7 +88,7 @@
                 },
                 "lists": {
                     "title": "Lists",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this list field",
                     "referencedAttribute": "listOwnerPerson",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -102,7 +102,7 @@
                 },
                 "programs": {
                     "title": "Programs",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this program field",
                     "referencedAttribute": "leadPerson",
                     "relationshipType": "one-to-many",
                     "items": {

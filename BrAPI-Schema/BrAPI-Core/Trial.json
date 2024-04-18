@@ -28,7 +28,7 @@
                 },
                 "contacts": {
                     "title": "contacts",
-                    "description": "contacts",
+                    "description": "The ID which uniquely identifies this contact field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -42,7 +42,7 @@
                 },
                 "datasetAuthorships": {
                     "title": "datasetAuthorships",
-                    "description": "datasetAuthorships",
+                    "description": "The ID which uniquely identifies this dataset authorship field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -71,7 +71,7 @@
                 },
                 "externalReferences": {
                     "title": "externalReferences",
-                    "description": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -91,7 +91,7 @@
                 },
                 "studies": {
                     "title": "Studies",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this study field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -105,7 +105,7 @@
                 },
                 "publications": {
                     "title": "publications",
-                    "description": "publications",
+                    "description": "The ID which uniquely identifies this publication field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -148,7 +148,7 @@
                 },
                 "plates": {
                     "title": "plates",
-                    "description": "plates",
+                    "description": "The ID which uniquely identifies this plate field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -162,7 +162,7 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "The ID which uniquely identifies this sample field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -176,7 +176,7 @@
                 },
                 "observationUnits": {
                     "title": "observationUnits",
-                    "description": "observationUnits",
+                    "description": "The ID which uniquely identifies this observation unit field",
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {

@@ -28,7 +28,7 @@
                 },
                 "contacts": {
                     "title": "contacts",
-                    "description": "contacts",
+                    "description": "The ID which uniquely identifies this contact field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -49,7 +49,7 @@
                 },
                 "dataLinks": {
                     "title": "dataLinks",
-                    "description": "dataLinks",
+                    "description": "The ID which uniquely identifies this data link field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -79,7 +79,7 @@
                 },
                 "environmentParameters": {
                     "title": "environmentParameters",
-                    "description": "environmentParameters",
+                    "description": "The ID which uniquely identifies this environment parameter field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -99,7 +99,7 @@
                 },
                 "externalReferences": {
                     "title": "externalReferences",
-                    "description": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -139,7 +139,7 @@
                 },
                 "observationLevels": {
                     "title": "observationLevels",
-                    "description": "observationLevels",
+                    "description": "The ID which uniquely identifies this observation level field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -229,7 +229,7 @@
                 },
                 "callSets": {
                     "title": "CallSets",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this callset field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -243,7 +243,7 @@
                 },
                 "plates": {
                     "title": "plates",
-                    "description": "plates",
+                    "description": "The ID which uniquely identifies this plate field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -257,7 +257,7 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "The ID which uniquely identifies this sample field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -271,7 +271,7 @@
                 },
                 "variantSets": {
                     "title": "variantSets",
-                    "description": "variantSets",
+                    "description": "The ID which uniquely identifies this variantSet field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -299,7 +299,7 @@
                 },
                 "observations": {
                     "title": "observations",
-                    "description": "observations",
+                    "description": "The ID which uniquely identifies this observation field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -313,7 +313,7 @@
                 },
                 "observationUnits": {
                     "title": "observationUnits",
-                    "description": "observationUnits",
+                    "description": "The ID which uniquely identifies this observation unit field",
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {

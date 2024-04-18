@@ -41,7 +41,7 @@
                 },
                 "externalReferences": {
                     "title": "externalReferences",
-                    "description": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference  field",
                     "referencedAttribute": "list",
                     "relationshipType": "one-to-many",
                     "items": {

@@ -29,7 +29,7 @@
                 "calls": {
                     "title": "Calls",
                     "description": "",
-                    "referencedAttribute": "callSet",
+                    "referencedAttribute": "The ID which uniquely identifies this callSet field",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "Call.json#/$defs/Call",
@@ -60,10 +60,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "CallSet.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "CallSet.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "sample": {
                     "$ref": "Sample.json#/$defs/Sample",
@@ -118,18 +126,10 @@
                     ]
                 },
                 "reference": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "CallSet.json#/$defs/CallSet",
+                    "description": "The unique identifier for a Callset.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "CallSet.json#/$defs/CallSet",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

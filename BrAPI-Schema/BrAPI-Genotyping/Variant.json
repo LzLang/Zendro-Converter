@@ -14,7 +14,7 @@
                 },
                 "markerPositions": {
                     "title": "markerPositions",
-                    "description": "markerPositions",
+                    "description": "The ID which uniquely identifies this marker position field",
                     "referencedAttribute": "variant",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -42,7 +42,7 @@
                 },
                 "calls": {
                     "title": "Calls",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this call field",
                     "referencedAttribute": "variant",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -100,10 +100,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Variant.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Variant.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "filtersApplied": {
                     "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",
@@ -221,18 +229,11 @@
                     ]
                 },
                 "reference": {
-                    "title": "References",
-                    "description": "",
+                    "description": "The unique identifier for a reference.",
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Variant.json#/$defs/Variant",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Variant.json#/$defs/Variant"
+                        
                 }
             },
             "required": [

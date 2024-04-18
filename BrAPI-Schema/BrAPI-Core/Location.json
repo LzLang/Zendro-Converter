@@ -35,7 +35,7 @@
                 },
                 "coordinates": {
                     "title": "coordinates",
-                    "description": "coordinates",
+                    "description": "The ID which uniquely identifies this coordinate field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -86,7 +86,7 @@
                 },
                 "externalReferences": {
                     "title": "externalReferences",
-                    "description": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -136,7 +136,7 @@
                 },
                 "childLocations": {
                     "title": "ChildLocations",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this child location field",
                     "referencedAttribute": "parentLocation",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -150,7 +150,7 @@
                 },
                 "studies": {
                     "title": "Studies",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this study field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -185,7 +185,7 @@
                 },
                 "seedLots": {
                     "title": "seedLots",
-                    "description": "seedLots",
+                    "description": "The ID which uniquely identifies this seed lot field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -199,7 +199,7 @@
                 },
                 "observationUnits": {
                     "title": "observationUnits",
-                    "description": "observationUnits",
+                    "description": "The ID which uniquely identifies this observation Unit field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -266,7 +266,7 @@
             "properties": {
                 "geometry": {
                     "title": "geometry",
-                    "description": "geometry",
+                    "description": "The ID which uniquely identifies this coordinate field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {

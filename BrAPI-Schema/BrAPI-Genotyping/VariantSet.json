@@ -28,7 +28,7 @@
                 },
                 "calls": {
                     "title": "Calls",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this call field",
                     "referencedAttribute": "variantSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -55,16 +55,32 @@
                     ]
                 },
                 "analysis": {
-                    "$ref": "VariantSet.json#/$defs/Analysis",
-                    "description": "Set of Analysis descriptors for this VariantSet",
+                    "title": "analysis",
+                    "description": "The ID which uniquely identifies this analysis field",
                     "referencedAttribute": "variantset",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/Analysis",
+                        "description": "analysis"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "availableFormats": {
-                    "$ref": "VariantSet.json#/$defs/AvailableFormat",
-                    "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
+                    "title": "availableFormats",
+                    "description": "The ID which uniquely identifies this available format field",
                     "referencedAttribute": "variantset",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/AvailableFormat",
+                        "description": "availableFormats"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "callSetCount": {
                     "description": "The number of CallSets included in this VariantSet",
@@ -74,16 +90,32 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "VariantSet.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "metadataFields": {
-                    "$ref": "VariantSet.json#/$defs/MetadataField",
-                    "description": "The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard",
+                    "title": "metadataFields",
+                    "description": "The ID which uniquely identifies this metadata field",
                     "referencedAttribute": "variantset",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/MetadataField",
+                        "description": "metadataFields"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "referenceSet": {
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
@@ -117,7 +149,7 @@
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "The ID which uniquely identifies this variant field",
                     "referencedAttribute": "variantSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -138,7 +170,7 @@
         },
         "Analysis": {
             "properties": {
-                "analysisDbDbId": {
+                "analysisDbId": {
                     "description": "Unique identifier for this analysis description",
                     "type": [
                         "null",
@@ -193,22 +225,14 @@
                     ]
                 },
                 "variantset": {
-                    "title": "Analysis",
-                    "description": "",
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
                     "referencedAttribute": "analysis",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "VariantSet.json#/$defs/VariantSet",
-                        "description": "Analysis"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
-                "analysisDbDbId"
+                "analysisDbId"
             ],
             "title": "References",
             "type": "object"
@@ -289,18 +313,10 @@
                     ]
                 },
                 "variantset": {
-                    "title": "VariantSet",
-                    "description": "",
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
                     "referencedAttribute": "availableFormats",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "VariantSet.json#/$defs/VariantSet",
-                        "description": "VariantSet"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -326,18 +342,10 @@
                     ]
                 },
                 "reference": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "VariantSet.json#/$defs/VariantSet",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -348,7 +356,7 @@
         },
         "MetadataField": {
             "properties": {
-                "metafieldDbId": {
+                "metadataFieldDbId": {
                     "description": "The ID which uniquely identifies this metafield",
                     "type": [
                         "null",
@@ -384,22 +392,14 @@
                     ]
                 },
                 "variantset": {
-                    "title": "VariantSet",
-                    "description": "",
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
                     "referencedAttribute": "metadataFields",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "VariantSet.json#/$defs/VariantSet",
-                        "description": "VariantSet"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
-                "metafieldDbId"
+                "metadataFieldDbId"
             ],
             "title": "VariantSet",
             "type": "object"

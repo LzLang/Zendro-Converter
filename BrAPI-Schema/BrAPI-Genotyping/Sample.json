@@ -14,7 +14,7 @@
                 },
                 "callSets": {
                     "title": "CallSets",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this callset field",
                     "referencedAttribute": "sample",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -36,10 +36,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Sample.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "sample",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
@@ -176,18 +184,11 @@
                     ]
                 },
                 "sample": {
-                    "title": "References",
-                    "description": "",
+                    "description": "The unique identifier for a Sample.",
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Sample.json#/$defs/Sample",
-                        "description": "Sample"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "Sample.json#/$defs/Sample"
+                    
                 }
             },
             "required": [

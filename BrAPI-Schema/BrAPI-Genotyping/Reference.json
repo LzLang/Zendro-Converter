@@ -20,10 +20,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Reference.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Reference.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 
                 "isDerived": {
@@ -79,10 +87,18 @@
                     ]
                 },
                 "sourceGermplasm": {
-                    "$ref": "Reference.json#/$defs/SourceGermplasm",
-                    "description": "",
+                    "title": "sourceGermplasm",
+                    "description": "The ID which uniquely identifies this source germplasm field",
                     "referencedAttribute": "reference",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Reference.json#/$defs/SourceGermplasm",
+                        "description": "sourceGermplasm"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 
                 "sourceURI": {
@@ -100,7 +116,7 @@
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "The ID which uniquely identifies this variant field",
                     "referencedAttribute": "reference",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -137,18 +153,10 @@
                     ]
                 },
                 "reference": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "The unique identifier for a Reference.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Reference.json#/$defs/Reference",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -159,7 +167,7 @@
         },
         "SourceGermplasm": {
             "properties": {
-                "germplasmDbDbId": {
+                "germplasmDbId": {
                     "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
                     "type": [
                         "null",
@@ -174,29 +182,21 @@
                     ]
                 },
                 "reference": {
-                    "title": "SourceGermplasm",
-                    "description": "",
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "The unique identifier for a Reference.",
                     "referencedAttribute": "sourceGermplasm",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Reference.json#/$defs/Reference",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
-                "germplasmDbDbId"
+                "germplasmDbId"
             ],
             "title": "sourceGermplasm",
             "type": "object"
         },
         "Species": {
             "properties": {
-                "specieDbId": {
+                "speciesDbId": {
                     "description": "The ID which uniquely identifies this species",
                     "type": "string"
                 },
@@ -222,7 +222,7 @@
                 }
             },
             "required": [
-                "specieDbId"
+                "speciesDbId"
             ]
         }
     },
