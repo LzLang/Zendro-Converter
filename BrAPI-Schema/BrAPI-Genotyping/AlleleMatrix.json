@@ -12,55 +12,13 @@
                     "type": "array"
                 },
                 "dataMatrices": {
-                    "description": "The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
+                    "title": "dataMatrices",
+                    "description": "The ID which uniquely identifies this data matrix field",
+                    "referencedAttribute": "alleleMatrices",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "description": "This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.",
-                        "properties": {
-                            "dataMatrix": {
-                                "description": "The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
-                                "items": {
-                                    "description": "An array of rows in the data matrix",
-                                    "items": {
-                                        "description": "All the values per row (columns) in the data matrix",
-                                        "type": "string"
-                                    },
-                                    "type": "array"
-                                },
-                                "type": [
-                                    "null",
-                                    "array"
-                                ]
-                            },
-                            "dataMatrixAbbreviation": {
-                                "description": "The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word \"GT\" is reserved for the allele matrix. Examples of other metadata matrices include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "dataMatrixName": {
-                                "description": "The name of the field represented in this data matrix. The key word \"Genotype\" is reserved for the allele matrix. Examples of other metadata matrices include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "dataType": {
-                                "description": "The type of field represented in this data matrix. This is intended to help parse the data out of JSON.",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "float",
-                                    "boolean",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "AlleleMatrix.json#/$defs/DataMatrix",
+                        "description": "dataMatrices"
                     },
                     "type": [
                         "null",
@@ -75,51 +33,13 @@
                     ]
                 },
                 "pagination": {
-                    "description": "Pagination for the matrix",
+                    "title": "pagination",
+                    "description": "The ID which uniquely identifies this pagination field",
+                    "referencedAttribute": "alleleMatrices",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "dimension": {
-                                "description": "The dimension of the matrix being paginated",
-                                "enum": [
-                                    "CALLSETS",
-                                    "VARIANTS",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "page": {
-                                "description": "the requested page number (zero indexed)",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            },
-                            "pageSize": {
-                                "description": "the maximum number of elements per page in this dimension of the matrix",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            },
-                            "totalCount": {
-                                "description": "The total number of elements that are available on the server and match the requested query parameters.",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            },
-                            "totalPages": {
-                                "description": "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br/>totalPages = CEILING( totalCount / requested_page_size)",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "AlleleMatrix.json#/$defs/Pagination",
+                        "description": "pagination"
                     },
                     "type": [
                         "null",
@@ -171,6 +91,133 @@
                 "variantSetDbIds"
             ],
             "title": "AlleleMatrix",
+            "type": "object"
+        },
+        "DataMatrix": {
+            "properties": {
+                "dataMatrixDbId": {
+                    "description": "The ID which uniquely identifies this data matrix",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataMatrix": {
+                    "description": "The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
+                    "items": {
+                        "description": "An array of rows in the data matrix",
+                        "items": {
+                            "description": "All the values per row (columns) in the data matrix",
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "dataMatrixAbbreviation": {
+                    "description": "The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word \"GT\" is reserved for the allele matrix. Examples of other metadata matrices include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataMatrixName": {
+                    "description": "The name of the field represented in this data matrix. The key word \"Genotype\" is reserved for the allele matrix. Examples of other metadata matrices include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataType": {
+                    "description": "The type of field represented in this data matrix. This is intended to help parse the data out of JSON.",
+                    "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "alleleMatrices": {
+                    "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
+                    "description": "The unique identifier for a Person.",
+                    "referencedAttribute": "dataMatrices",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "dataMatrixDbId"
+            ],
+            "title": "DataMatrix",
+            "type": "object"
+        },
+        "Pagination": {
+            "properties": {
+                "paginationDbId": {
+                    "description": "The ID which uniquely identifies this pagination",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dimension": {
+                    "description": "The dimension of the matrix being paginated",
+                    "enum": [
+                        "CALLSETS",
+                        "VARIANTS",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "page": {
+                    "description": "the requested page number (zero indexed)",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "pageSize": {
+                    "description": "the maximum number of elements per page in this dimension of the matrix",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "totalCount": {
+                    "description": "The total number of elements that are available on the server and match the requested query parameters.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "totalPages": {
+                    "description": "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br/>totalPages = CEILING( totalCount / requested_page_size)",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "alleleMatrices": {
+                    "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
+                    "description": "The unique identifier for an allele matrix.",
+                    "referencedAttribute": "pagination",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "paginationDbId"
+            ],
+            "title": "Pagination",
             "type": "object"
         }
     },
