@@ -34,88 +34,20 @@
                     ]
                 },
                 "coordinates": {
-                    "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                    "properties": {
-                        "geometry": {
-                            "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                            "oneOf": [
-                                {
-                                    "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                    "properties": {
-                                        "coordinates": {
-                                            "description": "A single position",
-                                            "items": {
-                                                "type": "number"
-                                            },
-                                            "minItems": 2,
-                                            "type": "array"
-                                        },
-                                        "type": {
-                                            "default": "Point",
-                                            "description": "The literal string \"Point\"",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "type",
-                                        "coordinates"
-                                    ],
-                                    "type": "object"
-                                },
-                                {
-                                    "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                    "properties": {
-                                        "coordinates": {
-                                            "description": "An array of linear rings",
-                                            "items": {
-                                                "description": "An array of at least four positions where the first equals the last",
-                                                "items": {
-                                                    "description": "A single position",
-                                                    "items": {
-                                                        "type": "number"
-                                                    },
-                                                    "minItems": 2,
-                                                    "type": "array"
-                                                },
-                                                "minItems": 4,
-                                                "type": "array"
-                                            },
-                                            "type": "array"
-                                        },
-                                        "type": {
-                                            "default": "Polygon",
-                                            "description": "The literal string \"Polygon\"",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "type",
-                                        "coordinates"
-                                    ],
-                                    "type": "object"
-                                }
-                            ],
-                            "title": "GeoJSON Geometry",
-                            "type": [
-                                "null",
-                                "object"
-                            ]
-                        },
-                        "type": {
-                            "default": "Feature",
-                            "description": "The literal string \"Feature\"",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                    "title": "coordinates",
+                    "description": "The ID which uniquely identifies this coordinate field",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Location.json#/$defs/Coordinate",
+                        "description": "coordinates"
                     },
-                    "title": "GeoJSON",
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
+                
                 "countryCode": {
                     "description": "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec\n<br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'",
                     "type": [
@@ -153,32 +85,20 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "Location.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
                     },
-                    "title": "ExternalReferences",
                     "type": [
                         "null",
                         "array"
                     ]
                 },
+                
                 "instituteAddress": {
                     "description": "The street address of the institute at a particular Location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.",
                     "type": [
@@ -216,7 +136,7 @@
                 },
                 "childLocations": {
                     "title": "ChildLocations",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this child location field",
                     "referencedAttribute": "parentLocation",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -230,7 +150,7 @@
                 },
                 "studies": {
                     "title": "Studies",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this study field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -265,7 +185,7 @@
                 },
                 "seedLots": {
                     "title": "seedLots",
-                    "description": "seedLots",
+                    "description": "The ID which uniquely identifies this seed lot field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -279,7 +199,7 @@
                 },
                 "observationUnits": {
                     "title": "observationUnits",
-                    "description": "observationUnits",
+                    "description": "The ID which uniquely identifies this observation Unit field",
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -297,6 +217,116 @@
                 "locationName"
             ],
             "title": "Location",
+            "type": "object"
+        },
+        
+        "LinearRing":{
+            "properties": {
+                "coordinateDbId": {
+                    "description": "The ID which uniquely identifies this linear ring",
+                    "type": "string"
+                },
+                "coordinates": {
+                    "description": "An array of linear rings",
+                    "items": {
+                        "description": "An array of at least four positions where the first equals the last",
+                        "items": {
+                            "description": "A single position",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 2,
+                            "type": "array"
+                        },
+                        "minItems": 4,
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "default": "Polygon",
+                    "description": "The literal string \"Polygon\"",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Coordinate",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "geometry",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "coordinateDbId",
+                "type",
+                "coordinates"
+            ],
+            "type": "object"
+        },
+        "Coordinate": {
+            "properties": {
+                "geometry": {
+                    "title": "geometry",
+                    "description": "The ID which uniquely identifies this coordinate field",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Location.json#/$defs/LinearRing",
+                        "description": "geometry"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "type": {
+                    "default": "Feature",
+                    "description": "The literal string \"Feature\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "coordinates",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "title": "LinearRing",
+            "type": [
+                "null",
+                "object"
+            ]
+        },
+        "ExternalReference": {
+            "properties": {
+                "referenceDbId": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }
+                
+            },
+            "required": [
+                "referenceDbId"
+            ],
+            "title": "References",
             "type": "object"
         }
     },

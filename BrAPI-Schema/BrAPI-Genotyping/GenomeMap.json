@@ -14,7 +14,7 @@
                 },
                 "markerPositions": {
                     "title": "markerPositions",
-                    "description": "markerPositions",
+                    "description": "The ID which uniquely identifies this marker position field",
                     "referencedAttribute": "map",
                     "relationshipType": "one-to-many",
                     "items": {

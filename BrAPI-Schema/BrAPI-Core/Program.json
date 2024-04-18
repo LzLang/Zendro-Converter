@@ -35,27 +35,14 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "Program.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
                     },
-                    "title": "ExternalReferences",
                     "type": [
                         "null",
                         "array"
@@ -103,7 +90,7 @@
                 },
                 "trials": {
                     "title": "Trials",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this trial field",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -117,7 +104,7 @@
                 },
                 "plates": {
                     "title": "plates",
-                    "description": "plates",
+                    "description": "The ID which uniquely identifies this plate field",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -131,7 +118,7 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "The ID which uniquely identifies this sample field",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -145,7 +132,7 @@
                 },
                 "crossingProjects": {
                     "title": "crossingProjects",
-                    "description": "crossingProjects",
+                    "description": "The ID which uniquely identifies this crossing project field",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -159,7 +146,7 @@
                 },
                 "seedLots": {
                     "title": "seedLots",
-                    "description": "seedLots",
+                    "description": "The ID which uniquely identifies this seed lot field",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -173,7 +160,7 @@
                 },
                 "observationUnits": {
                     "title": "observationUnits",
-                    "description": "observationUnits",
+                    "description": "The ID which uniquely identifies this observation unit field",
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -191,6 +178,35 @@
                 "programName"
             ],
             "title": "Program",
+            "type": "object"
+        },
+        "ExternalReference": {
+            "properties": {
+                "referenceDbId": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "program": {
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "The unique identifier of the program leader",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "referenceDbId"
+            ],
+            "title": "References",
             "type": "object"
         }
     },

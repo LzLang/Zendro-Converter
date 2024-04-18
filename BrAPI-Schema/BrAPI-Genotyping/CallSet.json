@@ -29,7 +29,7 @@
                 "calls": {
                     "title": "Calls",
                     "description": "",
-                    "referencedAttribute": "callSet",
+                    "referencedAttribute": "The ID which uniquely identifies this callSet field",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "Call.json#/$defs/Call",
@@ -60,27 +60,14 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "CallSet.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
                     },
-                    "title": "ExternalReferences",
                     "type": [
                         "null",
                         "array"
@@ -120,6 +107,35 @@
                 "callSetDbId"
             ],
             "title": "CallSet",
+            "type": "object"
+        },
+        "ExternalReference": {
+            "properties": {
+                "referenceDbId": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "reference": {
+                    "$ref": "CallSet.json#/$defs/CallSet",
+                    "description": "The unique identifier for a Callset.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "referenceDbId"
+            ],
+            "title": "References",
             "type": "object"
         }
     },

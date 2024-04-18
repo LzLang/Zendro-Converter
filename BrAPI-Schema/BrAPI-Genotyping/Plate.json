@@ -13,27 +13,14 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "Plate.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
                     },
-                    "title": "ExternalReferences",
                     "type": [
                         "null",
                         "array"
@@ -96,7 +83,7 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "The ID which uniquely identifies this sample field",
                     "referencedAttribute": "plate",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -113,6 +100,35 @@
                 "plateName"
             ],
             "title": "Plate",
+            "type": "object"
+        },
+        "ExternalReference": {
+            "properties": {
+                "referenceDbId": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "reference": {
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "The unique identifier for a Plate.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "referenceDbId"
+            ],
+            "title": "References",
             "type": "object"
         }
     },
