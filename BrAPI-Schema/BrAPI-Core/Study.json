@@ -27,10 +27,18 @@
                     ]
                 },
                 "contacts": {
-                    "$ref": "Study.json#/$defs/Contact",
-                    "description": "List of contact entities associated with this study",
+                    "title": "contacts",
+                    "description": "contacts",
                     "referencedAttribute": "study",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Study.json#/$defs/Contact",
+                        "description": "contacts"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "culturalPractices": {
                     "description": "MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.",
@@ -40,10 +48,18 @@
                     ]
                 },
                 "dataLinks": {
-                    "$ref": "Study.json#/$defs/DataLink",
-                    "description": "",
+                    "title": "dataLinks",
+                    "description": "dataLinks",
                     "referencedAttribute": "study",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Study.json#/$defs/DataLink",
+                        "description": "dataLinks"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -62,10 +78,18 @@
                     ]
                 },
                 "environmentParameters": {
-                    "$ref": "Study.json#/$defs/EnvironmentParameter",
-                    "description": "",
+                    "title": "environmentParameters",
+                    "description": "environmentParameters",
                     "referencedAttribute": "study",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Study.json#/$defs/EnvironmentParameter",
+                        "description": "environmentParameters"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "experimentalDesign": {
                     "$ref": "Study.json#/$defs/ExperimentalDesign",
@@ -74,10 +98,18 @@
                     "relationshipType": "one-to-one"
                 },
                 "externalReferences": {
-                    "$ref": "Study.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "externalReferences",
                     "referencedAttribute": "study",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Study.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "growthFacility": {
                     "$ref": "Study.json#/$defs/GrowthFacility",
@@ -106,10 +138,18 @@
                     "relationshipType": "many-to-one"
                 },
                 "observationLevels": {
-                    "$ref": "Study.json#/$defs/ObservationLevel",
-                    "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). ",
+                    "title": "observationLevels",
+                    "description": "observationLevels",
                     "referencedAttribute": "study",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Study.json#/$defs/ObservationLevel",
+                        "description": "observationLevels"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "observationUnitsDescription": {
                     "description": "MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.",
@@ -335,18 +375,10 @@
                     ]
                 },
                 "study": {
-                    "title": "Study",
-                    "description": "",
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "contacts",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Study.json#/$defs/Study",
-                        "description": "Study"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -419,18 +451,10 @@
                     ]
                 },
                 "study": {
-                    "title": "Study",
-                    "description": "",
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "dataLinks",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Study.json#/$defs/Study",
-                        "description": "Study"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -489,18 +513,10 @@
                     ]
                 },
                 "study": {
-                    "title": "Study",
-                    "description": "",
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "environmentParameters",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Study.json#/$defs/Study",
-                        "description": "Study"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -561,18 +577,10 @@
                     ]
                 },
                 "study": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Study.json#/$defs/Study",
-                        "description": "Study"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -667,18 +675,10 @@
                     ]
                 },
                 "study": {
-                    "title": "Study",
-                    "description": "",
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "observationLevels",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Study.json#/$defs/Study",
-                        "description": "Study"
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

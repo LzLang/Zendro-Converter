@@ -27,16 +27,32 @@
                     ]
                 },
                 "contacts": {
-                    "$ref": "Trial.json#/$defs/Contact",
-                    "description": "",
+                    "title": "contacts",
+                    "description": "contacts",
                     "referencedAttribute": "trial",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Contact",
+                        "description": "contacts"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "datasetAuthorships": {
-                    "$ref": "Trial.json#/$defs/DatasetAuthorship",
-                    "description": "",
+                    "title": "datasetAuthorships",
+                    "description": "datasetAuthorships",
                     "referencedAttribute": "trial",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/DatasetAuthorship",
+                        "description": "datasetAuthorships"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -54,10 +70,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Trial.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "externalReferences",
                     "referencedAttribute": "trial",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
@@ -80,10 +104,18 @@
                     ]
                 },
                 "publications": {
-                    "$ref": "Trial.json#/$defs/Publication",
-                    "description": "",
+                    "title": "publications",
+                    "description": "publications",
                     "referencedAttribute": "trial",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Publication",
+                        "description": "publications"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "startDate": {
                     "description": "The date this trial started",
@@ -206,18 +238,10 @@
                     ]
                 },
                 "trial": {
-                    "title": "Trials",
-                    "description": "",
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The unique identifier for a Trial.",
                     "referencedAttribute": "contacts",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Trial.json#/$defs/Trial",
-                        "description": "Trials"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -257,18 +281,10 @@
                     ]
                 },
                 "trial": {
-                    "title": "Trials",
-                    "description": "",
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The unique identifier for a Trial.",
                     "referencedAttribute": "datasetAuthorships",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Trial.json#/$defs/Trial",
-                        "description": "Trials"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -294,18 +310,10 @@
                     ]
                 },
                 "trial": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The unique identifier for a Trial.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Trial.json#/$defs/Trial",
-                        "description": "Trial"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -329,18 +337,10 @@
                     ]
                 },
                 "trial": {
-                    "title": "Trials",
-                    "description": "",
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The unique identifier for a Trial.",
                     "referencedAttribute": "publications",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Trial.json#/$defs/Trial",
-                        "description": "Trials"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

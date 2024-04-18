@@ -40,10 +40,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "List.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "externalReferences",
                     "referencedAttribute": "list",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "List.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "listDbId": {
                     "description": "The unique identifier for a List",
@@ -129,18 +137,10 @@
                     ]
                 },
                 "list": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "List.json#/$defs/List",
+                    "description": "The ID which uniquely identifies a `List` within the given database server",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "List.json#/$defs/List",
-                        "description": "List"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

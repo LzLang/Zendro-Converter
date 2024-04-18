@@ -27,10 +27,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Person.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "externalReferences",
                     "referencedAttribute": "person",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Person.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "firstName": {
                     "description": "Persons first name",
@@ -130,18 +138,10 @@
                     ]
                 },
                 "person": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "Person.json#/$defs/Person",
+                    "description": "The unique identifier for a Person.",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Person.json#/$defs/Person",
-                        "description": "Person"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

@@ -35,10 +35,18 @@
                     ]
                 },
                 "externalReferences": {
-                    "$ref": "Program.json#/$defs/ExternalReference",
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "externalReferences",
                     "referencedAttribute": "program",
-                    "relationshipType": "one-to-many"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Program.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "fundingInformation": {
                     "description": "Information describing the grant or funding source for this program",
@@ -86,7 +94,7 @@
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Trials.json#/$defs/Trials",
+                        "$ref": "Trial.json#/$defs/Trial",
                         "description": "Trials"
                     },
                     "type": [
@@ -189,18 +197,10 @@
                     ]
                 },
                 "program": {
-                    "title": "References",
-                    "description": "",
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "The unique identifier of the program leader",
                     "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "items": {
-                        "$ref": "Program.json#/$defs/Program",
-                        "description": "Program"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
