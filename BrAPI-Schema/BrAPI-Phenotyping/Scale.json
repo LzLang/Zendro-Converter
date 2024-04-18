@@ -68,7 +68,7 @@
                     "referencedAttribute": "scale",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Scale.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "ExternalReference"
                     },
                     "type": [
@@ -94,60 +94,6 @@
                 "scaleName"
             ],
             "title": "Scale",
-            "type": "object"
-        },
-        "AdditionalInfo": {
-            "properties": {
-                "additionalInfoDbId": {
-                    "description": "the unique identifier for an additional info",
-                    "type": "string"
-                },
-                "additionalProperties": {
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "scale": {
-                    "$ref": "Scale.json#/$defs/Scale",
-                    "description": "the unique identifier for a scale",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                }
-
-            },
-            "required": [
-                "additionalInfoDbId"
-            ],
-            "title": "AdditionalInfo",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "the unique identifier for a reference",
-                    "type": "string"
-                },
-                "externalID": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "ExternalReference",
             "type": "object"
         },
         "OntologyReference": {

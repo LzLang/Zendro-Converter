@@ -59,7 +59,7 @@
                     "referencedAttribute": "ontology",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Ontology.json#/$defs/AdditionalInfo",
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
                         "description": "AdditionalInfo"
                     },
                     "type": [
@@ -73,33 +73,6 @@
                 "ontologyDbId"
             ],
             "title": "Ontology",
-            "type": "object"
-        },
-        "AdditionalInfo": {
-            "properties": {
-                "additionalInfoDbId": {
-                    "description": "the unique identifier for an additional info",
-                    "type": "string"
-                },
-                "additionalProperties": {
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "ontology": {
-                    "$ref": "Ontology.json#/$defs/Ontology",
-                    "description": "the unique identifier of an ontology",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                }
-
-            },
-            "required": [
-                "additionalInfoDbId"
-            ],
-            "title": "AdditionalInfo",
             "type": "object"
         }
     },

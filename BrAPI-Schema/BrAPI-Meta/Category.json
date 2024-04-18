@@ -1,0 +1,11 @@
+{
+    "$defs": {
+        "Category": {
+            "properties": {
+
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/Category.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

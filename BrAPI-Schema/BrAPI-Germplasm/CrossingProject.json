@@ -78,7 +78,7 @@
                     "referencedAttribute": "crossingProject",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "CrossingProject.json#/$defs/AdditionalInfo",
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
                         "description": "AdditionalInfo"
                     },
                     "type": [
@@ -92,7 +92,7 @@
                     "referencedAttribute": "crossingProject",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "CrossingProject.json#/$defs&ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs&ExternalReference",
                         "description": "ExternalReference"
                     },
                     "type": [
@@ -120,65 +120,6 @@
                 "crossingProjectName"
             ],
             "title": "CrossingProject",
-            "type": "object"
-        },
-        "AdditionalInfo": {
-            "properties": {
-                "additionalInfoDbId": {
-                    "description": "the unique identifier for an additional info",
-                    "type": "string"
-                },
-                "additionalProperties": {
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "crossingProject": {
-                    "$ref": "CrossingProject.json#/$defs/CrossingProject",
-                    "description": "the unique identifier for a crossingProject",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "additionalInfoDbId"
-            ],
-            "title": "AdditionalInfo",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "the unique identifier for a reference",
-                    "type": "string"
-                },
-                "externalID": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "crossingProject": {
-                    "$ref": "CrossingProject.json'/$defs/CrossingProject",
-                    "description": "the unique identifier for a crossing project",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "ExternalReference",
             "type": "object"
         },
         "PotentialParent": {

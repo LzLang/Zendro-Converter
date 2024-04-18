@@ -79,7 +79,7 @@
                     "referencedAttribute": "observation",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Observation.json#/$defs/AdditionalInfo",
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
                         "description": "AdditionalInfo"
                     },
                     "type": [
@@ -93,7 +93,7 @@
                     "referencedAttribute": "observation",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Observation.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "ExternalReference"
                     },
                     "type": [
@@ -118,66 +118,6 @@
                 "observationDbId"
             ],
             "title": "Observation",
-            "type": "object"
-        },
-        "AdditionalInfo": {
-            "properties": {
-                "additionalInfoDbId": {
-                    "description": "the unique identifier for an additional info",
-                    "type": "string"
-                },
-                "additionalProperties": {
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observation": {
-                    "$ref": "Observation.json#/$defs/Observation",
-                    "description": "the unique identifier of an observation",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                }
-
-            },
-            "required": [
-                "additionalInfoDbId"
-            ],
-            "title": "AdditionalInfo",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "the unique identifier for a reference",
-                    "type": "string"
-                },
-                "externalID": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observation": {
-                    "$ref": "Observation.json#/$defs/Observation",
-                    "description": "the unique identifier of an observation",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "ExternalReference",
             "type": "object"
         },
         "Coordinate": {

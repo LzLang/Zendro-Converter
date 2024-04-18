@@ -48,7 +48,7 @@
                     "referencedAttribute": "event",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Event.json#/$defs/AdditionalInfo",
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
                         "description": "additionalInfo"
                     },
                     "type": [
@@ -82,33 +82,6 @@
                 "eventType"
             ],
             "title": "Event",
-            "type": "object"
-        },
-        "AdditionalInfo": {
-            "properties": {
-                "additionalInfoDbId": {
-                    "description": "the unique identifier for an additional info",
-                    "type": "string"
-                },
-                "additionalProperties": {
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "event": {
-                    "$ref": "Event.json#/$defs/Event",
-                    "description": "the unique identifier of an event",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                }
-
-            },
-            "required": [
-                "additionalInfoDbId"
-            ],
-            "title": "AdditionalInfo",
             "type": "object"
         },
         "EventDateRange": {

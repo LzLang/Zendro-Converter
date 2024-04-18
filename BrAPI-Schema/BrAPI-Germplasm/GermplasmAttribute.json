@@ -139,7 +139,7 @@
                     "referencedAttribute": "germplasmAttribute",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "GermplasmAttribute.json#/$defs/AdditionalInfo",
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
                         "description": "AdditionalInfo"
                     },
                     "type": [
@@ -153,7 +153,7 @@
                     "referencedAttribute": "germplasmAttribute",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "GermplasmAttribute.json#/$defs/externalReference",
+                        "$ref": "ExternalReference.json#/$defs/externalReference",
                         "description": "externalReference"
                     },
                     "type": [
@@ -168,7 +168,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "ontologyReference": {
-                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
+                    "$ref": "OntologyReference.json#/$defs/OntologyReference",
                     "description": "the unique identifier of an ontology reference",
                     "referencedAttribute": "germplasmAttribute",
                     "relationshipType": "one-to-one"
@@ -194,95 +194,6 @@
                 "attributeDbId"
             ],
             "title": "GermplasmAttribute",
-            "type": "object"
-        },
-        "AdditionalInfo": {
-            "properties": {
-                "additionalInfoDbId": {
-                    "description": "the unique identifier for an additional info",
-                    "type": "string"
-                },
-                "additionalProperties": {
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "germplasmAttribute": {
-                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
-                    "description": "the unique identifier for a germplasm attribute",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                },
-                "scale": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
-                    "description": "the unique identifier of a scale",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                },
-                "trait": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Trait",
-                    "description": "the unique identifier for a germplasm attribute",
-                    "referencedAttribute": "additionalInfo",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "additionalInfoDbId"
-            ],
-            "title": "AdditionalInfo",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "the unique identifier for a reference",
-                    "type": "string"
-                },
-                "externalID": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "germplasmAttribute": {
-                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
-                    "description": "the unique identifier of a germplasm attribute",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                },
-                "method": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Method",
-                    "description": "the unique identifier of a method",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                },
-                "scale": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
-                    "description": "the unique identifier of a scale",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                },
-                "trait": {
-                    "$ref": "GermplasmAttribute.json#/$defs/ExternalReference",
-                    "description": "the unique identifier of a trait",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "ExternalReference",
             "type": "object"
         },
         "Method": {
@@ -369,107 +280,6 @@
                 "methodDbId",
                 "methodName"
             ],
-            "type": "object"
-        },
-        "OntologyReference": {
-            "properties": {
-                "ontologyDbId": {
-                    "description": "Ontology database unique identifier",
-                    "type": "string"
-                },
-                "ontologyName": {
-                    "description": "Ontology name",
-                    "type": "string"
-                },
-                "version": {
-                    "description": "Ontology version (no specific format)",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "method": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Method",
-                    "description": "the unique identifier of the method",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"
-                },
-                "documentationLinks": {
-                    "title": "documentationLinks",
-                    "description": "links to various ontology documentation",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "GermplasmAttribute.json#/$defs/DocumentationLink",
-                        "description": "DocumentationLinks"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "germplasmAttribute": {
-                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
-                    "description": "the unique identifier of a germplasm attribute",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"
-                },
-                "scale": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Scale",
-                    "description": "the unique identifier of a scale",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"
-                },
-                "trait": {
-                    "$ref": "GermplasmAttribute.json#/$defs/Trait",
-                    "description": "the unique identifier of a trait",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"
-                }
-            },
-            "required": [
-                "ontologyName",
-                "ontologyDbId"
-            ],
-            "title": "OntologyReference",
-            "type": "object"
-        },
-        "DocumentationLink": {
-            "properties": {
-                "documentationLinkDbID": {
-                    "description": "the unique identifier for a documentation link",
-                    "type": "string"
-                },
-                "URL": {
-                    "format": "uri",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "type": {
-                    "enum": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "ontologyReference": {
-                    "$ref": "GermplasmAttribute.json#/$defs/OntologyReference",
-                    "description": "the unique identifier of an ontology reference",
-                    "referencedAttribute": "documentationLinks",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "documentationLinkDbID"
-            ],
-            "title": "DocumentationLink",
             "type": "object"
         },
         "Scale": {
