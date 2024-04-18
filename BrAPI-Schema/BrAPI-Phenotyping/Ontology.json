@@ -2,6 +2,10 @@
     "$defs": {
         "Ontology": {
             "properties": {
+                "ontologyDbId": {
+                    "description": "Ontology database unique identifier",
+                    "type": "string"
+                },
                 "authors": {
                     "description": "Ontology's list of authors (no specific format)",
                     "type": [
@@ -38,10 +42,6 @@
                         "string"
                     ]
                 },
-                "ontologyDbId": {
-                    "description": "Ontology database unique identifier",
-                    "type": "string"
-                },
                 "ontologyName": {
                     "description": "Ontology name",
                     "type": "string"
@@ -51,6 +51,20 @@
                     "type": [
                         "null",
                         "string"
+                    ]
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "ontology",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Ontology.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },
@@ -62,14 +76,31 @@
             "type": "object"
         },
         "AdditionalInfo": {
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "additionalInfoDbId": {
+                    "description": "the unique identifier for an additional info",
+                    "type": "string"
+                },
+                "additionalProperties": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "ontology": {
+                    "$ref": "Ontology.json#/$defs/Ontology",
+                    "description": "the unique identifier of an ontology",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                }
+
             },
-            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-            "type": [
-                "null",
-                "object"
-            ]
+            "required": [
+                "additionalInfoDbId"
+            ],
+            "title": "AdditionalInfo",
+            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Ontology.json",
