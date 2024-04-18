@@ -32,7 +32,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "AdditionalInfo.json#/$defs/Contact",
+                        "$ref": "Contact.json#/$defs/Contact",
                         "description": "contacts"
                     },
                     "type": [
@@ -103,7 +103,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "AdditionalInfo.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [

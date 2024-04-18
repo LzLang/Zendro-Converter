@@ -39,7 +39,7 @@
                     "referencedAttribute": "referenceset",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "AdditionalInfo.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
@@ -86,7 +86,7 @@
                     "referencedAttribute": "referenceset",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "AdditionalInfo.json#/$defs/SourceGermplasm",
+                        "$ref": "SourceGermplasm.json#/$defs/SourceGermplasm",
                         "description": "sourceGermplasm"
                     },
                     "type": [
@@ -102,7 +102,7 @@
                     ]
                 },
                 "species": {
-                    "$ref": "AdditionalInfo.json#/$defs/Species",
+                    "$ref": "Species.json#/$defs/Species",
                     "description": "An ontology term describing an attribute.",
                     "referencedAttribute": "referenceset",
                     "relationshipType": "one-to-one"

@@ -105,7 +105,7 @@
                     "referencedAttribute": "variant",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "AdditionalInfo.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
