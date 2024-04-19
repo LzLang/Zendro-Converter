@@ -2,8 +2,177 @@
     "$defs": {
         "Coordinate": {
             "properties": {
-
-            }
+                "coordinateDbId": {
+                    "description": "the unique identifier for a coordinate",
+                    "type": "string"
+                },
+                "geometry": {
+                    "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
+                    "oneOf": [
+                        {
+                            "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                            "properties": {
+                                "coordinates": {
+                                    "description": "A single position",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "minItems": 2,
+                                    "type": "array"
+                                },
+                                "type": {
+                                    "default": "Point",
+                                    "description": "The literal string \"Point\"",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "type",
+                                "coordinates"
+                            ],
+                            "type": "object"
+                        },
+                        {
+                            "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                            "properties": {
+                                "coordinates": {
+                                    "description": "An array of linear rings",
+                                    "items": {
+                                        "description": "An array of at least four positions where the first equals the last",
+                                        "items": {
+                                            "description": "A single position",
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "minItems": 2,
+                                            "type": "array"
+                                        },
+                                        "minItems": 4,
+                                        "type": "array"
+                                    },
+                                    "type": "array"
+                                },
+                                "type": {
+                                    "default": "Polygon",
+                                    "description": "The literal string \"Polygon\"",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "type",
+                                "coordinates"
+                            ],
+                            "type": "object"
+                        }
+                    ],
+                    "title": "GeoJSON Geometry",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
+                },
+                "type": {
+                    "default": "Feature",
+                    "description": "The literal string \"Feature\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmOrigin": {
+                    "title": "germplasmOrigin",
+                    "description": "Germplasm origins associated",
+                    "referencedAttribute": "coordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Germplasm.json#/$defs/GermplasmOrigin",
+                        "description": "Germplasm"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "coordinates",
+                    "relationshipType": "one-to-one"
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "List of observations associated to this coordinates",
+                    "referencedAttribute": "geoCoordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observations"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnitPosition": {
+                    "title": "observationUnitPosition",
+                    "description": "the unique identifier of the observation unit positions",
+                    "referencedAttribute": "geoCoordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnitPosition",
+                        "description": "observationUnitPosition"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "coordinateDbId"
+            ],
+            "title": "Coordinate",
+            "type": [
+                "null",
+                "object"
+            ]
+        },
+        "Coordinate2": {
+            "properties": {
+                "geometry": {
+                    "title": "geometry",
+                    "description": "The ID which uniquely identifies this coordinate field",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Location.json#/$defs/LinearRing",
+                        "description": "geometry"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "type": {
+                    "default": "Feature",
+                    "description": "The literal string \"Feature\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "coordinates",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "title": "LinearRing",
+            "type": [
+                "null",
+                "object"
+            ]
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/Coordinate.json",

@@ -13,6 +13,18 @@
                         "string"
                     ]
                 },
+                "call": {
+                    "$ref": "Call.json#/$defs/Call",
+                    "description": "the unique identifier of a call",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "callSet": {
+                    "$ref": "CallSet.json#/$defs/CallSet",
+                    "description": "the unique identifier of a call set",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
                 "cross": {
                     "$ref": "Cross.json#/$defs/Cross",
                     "description": "the unique identifier for a cross",
@@ -28,6 +40,12 @@
                 "event": {
                     "$ref": "Event.json#/$defs/Event",
                     "description": "the unique identifier of an event",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "genomeMap": {
+                    "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "description": "the unique identifier of a genome map",
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
                 },
@@ -52,6 +70,24 @@
                 "image": {
                     "$ref": "Image.json#/$defs/Image",
                     "description": "the unique identifier of an image",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "list": {
+                    "$ref": "List.json#/$defs/List",
+                    "description": "the unique identifier of a list",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "the unique identifier of a location",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "markerPosition": {
+                    "$ref": "MarkerPosition.json#/$defs/MarkerPosition",
+                    "description": "the unique identifier of a marker position",
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
                 },
@@ -97,6 +133,36 @@
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
                 },
+                "plate": {
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "the unique identifier of a plate",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "program": {
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "the unique identifier of a program",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "the unique identifier of a reference",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "referenceSet": {
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "the unique identifier of a reference set",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "sample": {
+                    "$ref": "Sample.json#/$defs/Sample",
+                    "description": "the unique identifier of a sample",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
                 "scale": {
                     "$ref": "Scale.json#/$defs/Scale",
                     "description": "the unique identifier of a scale",
@@ -115,13 +181,36 @@
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
                 },
+                "study": {
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "the unique identifier of a study",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
                 "trait": {
                     "$ref": "Trait.json#/$defs/Trait",
                     "description": "the unique identifier for a germplasm attribute",
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
+                },
+                "trial": {
+                    "$ref": "Trail.json#/$defs/Trail",
+                    "description": "the unique identifier of a trial",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "variant": {
+                    "$ref": "Variant.json#/$defs/Variant",
+                    "description": "the unique identifier of a variant",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "variantSet": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "the unique identifier of a variant set",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
                 }
-
             },
             "required": [
                 "additionalInfoDbId"

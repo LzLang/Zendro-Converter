@@ -250,16 +250,24 @@
                     "relationshipType": "one-to-one"
                 },
                 "geoCoordinates": {
-                    "$ref": "ObservationUnit.json#/$defs/Coordinate",
+                    "$ref": "Coordinate.json#/$defs/Coordinate",
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
                     "referencedAttribute": "observationUnitPosition",
-                    "relationshipType": "one-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "observationLevel": {
-                    "$ref": "ObservationUnit.json#/$defs/ObservationLevel",
+                    "title": "observationLevel",
                     "description": "The exact level and level code of an observation unit. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. \nThe observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). \nAlternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead.\" ",
                     "referencedAttribute": "observationUnitPosition",
-                    "relationshipType": "one-to-one"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationLevel",
+                        "description": "ObservationLevel"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "observationLevelRelationships": {
                     "title": "observationLevelRelationships",
@@ -281,101 +289,6 @@
             ],
             "title": "ObservationUnitPosition",
             "type": "object"
-        },
-        "Coordinate": {
-            "properties": {
-                "coordinateDbId": {
-                    "description": "the unique identifier for a coordinate",
-                    "type": "string"
-                },
-                "geometry": {
-                    "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                    "oneOf": [
-                        {
-                            "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                            "properties": {
-                                "coordinates": {
-                                    "description": "A single position",
-                                    "items": {
-                                        "type": "number"
-                                    },
-                                    "minItems": 2,
-                                    "type": "array"
-                                },
-                                "type": {
-                                    "default": "Point",
-                                    "description": "The literal string \"Point\"",
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "type",
-                                "coordinates"
-                            ],
-                            "type": "object"
-                        },
-                        {
-                            "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                            "properties": {
-                                "coordinates": {
-                                    "description": "An array of linear rings",
-                                    "items": {
-                                        "description": "An array of at least four positions where the first equals the last",
-                                        "items": {
-                                            "description": "A single position",
-                                            "items": {
-                                                "type": "number"
-                                            },
-                                            "minItems": 2,
-                                            "type": "array"
-                                        },
-                                        "minItems": 4,
-                                        "type": "array"
-                                    },
-                                    "type": "array"
-                                },
-                                "type": {
-                                    "default": "Polygon",
-                                    "description": "The literal string \"Polygon\"",
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "type",
-                                "coordinates"
-                            ],
-                            "type": "object"
-                        }
-                    ],
-                    "title": "GeoJSON Geometry",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
-                },
-                "type": {
-                    "default": "Feature",
-                    "description": "The literal string \"Feature\"",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnitPosition": {
-                    "$ref": "ObservationUnit.json#/$defs/ObservationUnitPosition",
-                    "description": "the unique identifier of the observation unit position",
-                    "referencedAttribute": "geoCoordinates",
-                    "relationshipType": "one-to-one"
-                }
-            },
-            "required": [
-                "coordinateDbId"
-            ],
-            "title": "Coordinate",
-            "type": [
-                "null",
-                "object"
-            ]
         },
         "ObservationLevel": {
             "properties": {
@@ -408,7 +321,13 @@
                     "$ref": "ObservationUnit.json#/$defs/ObservationUnitPosition",
                     "description": "the unique identifier of a observation unit position",
                     "referencedAttribute": "observationLevel",
-                    "relationshipType": "one-to-one"
+                    "relationshipType": "many-to-one"
+                },
+                "study": {
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
+                    "referencedAttribute": "observationLevels",
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

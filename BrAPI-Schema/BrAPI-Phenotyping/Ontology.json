@@ -74,6 +74,113 @@
             ],
             "title": "Ontology",
             "type": "object"
+        },
+        "OntologyReference": {
+            "properties": {
+                "ontologyDbId": {
+                    "description": "Ontology database unique identifier",
+                    "type": "string"
+                },
+                "ontologyName": {
+                    "description": "Ontology name",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Ontology version (no specific format)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "method": {
+                    "$ref": "Method.json#/$defs/Method",
+                    "description": "the unique identifier of a method",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "observationVariable": {
+                    "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                    "description": "the unique identifier of an observation variable",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "scale": {
+                    "$ref": "Scale.json#/$defs/Scale",
+                    "description": "the unique identifier of a scale",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"
+                },
+                "trait": {
+                    "$ref": "Trait.json#/$defs/Trait",
+                    "description": "the unique identifier of a trait",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-one"  
+                },
+                "documentationLinks": {
+                    "title": "documentationLinks",
+                    "description": "links to various ontology documentation",
+                    "referencedAttribute": "ontologyReference",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Ontology.json#/$defs/DocumentationLink",
+                        "description": "DocumentationLinks"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "ontologyName",
+                "ontologyDbId"
+            ],
+            "title": "OntologyReference",
+            "type": "object"
+        },
+        "DocumentationLink": {
+            "properties": {
+                "documentationLinkDbID": {
+                    "description": "the unique identifier for a documentation link",
+                    "type": "string"
+                },
+                "URL": {
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "OBO",
+                        "RDF",
+                        "WEBPAGE",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "ontologyReference": {
+                    "$ref": "Ontology.json#/$defs/OntologyReference",
+                    "description": "the unique identifier of an ontology reference",
+                    "referencedAttribute": "documentationLinks",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "documentationLinkDbID"
+            ],
+            "title": "DocumentationLink",
+            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Ontology.json",

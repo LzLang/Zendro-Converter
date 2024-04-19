@@ -10,13 +10,17 @@
                     ]
                 },
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "coordinateDescription": {
@@ -34,18 +38,10 @@
                     ]
                 },
                 "coordinates": {
-                    "title": "coordinates",
+                    "$ref": "Coordinate.json#/$defs/Coordinate",
                     "description": "The ID which uniquely identifies this coordinate field",
                     "referencedAttribute": "location",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "Location.json#/$defs/Coordinate",
-                        "description": "coordinates"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "one-to-one"
                 },
                 
                 "countryCode": {
@@ -219,7 +215,6 @@
             "title": "Location",
             "type": "object"
         },
-        
         "LinearRing":{
             "properties": {
                 "coordinateDbId": {
@@ -261,44 +256,8 @@
                 "coordinates"
             ],
             "type": "object"
-        },
-        "Coordinate": {
-            "properties": {
-                "geometry": {
-                    "title": "geometry",
-                    "description": "The ID which uniquely identifies this coordinate field",
-                    "referencedAttribute": "location",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "Location.json#/$defs/LinearRing",
-                        "description": "geometry"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "type": {
-                    "default": "Feature",
-                    "description": "The literal string \"Feature\"",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "location": {
-                    "$ref": "Location.json#/$defs/Location",
-                    "description": "The unique identifier for a Location.",
-                    "referencedAttribute": "coordinates",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "title": "LinearRing",
-            "type": [
-                "null",
-                "object"
-            ]
         }
+        
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Location.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

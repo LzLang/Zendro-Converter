@@ -97,7 +97,7 @@
                     "referencedAttribute": "plannedCrosses",
                     "relationshipType": "many-to-many",
                     "items": {
-                        "$ref": "PlannedCross.json#/$defs/Parent",
+                        "$ref": "Parent.json#/$defs/Parent",
                         "description": "Parents"
                     },
                     "type": [
@@ -110,75 +110,6 @@
                 "plannedCrossDbId"
             ],
             "title": "PlannedCross",
-            "type": "object"
-        },
-        "Parent": {
-            "properties": {
-                "parentDbId": {
-                    "description": "the unique identifier for a parent",
-                    "type": "string"
-                },
-                "germplasmDbId": {
-                    "description": "the unique identifier for a germplasm",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "germplasmName": {
-                    "description": "the human readable name for a germplasm",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnitDbId": {
-                    "description": "the unique identifier for an observation unit",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnitName": {
-                    "description": "the human readable name for an observation unit",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "parentType": {
-                    "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                    "enum": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "plannedCrosses": {
-                    "title": "plannedCrosses",
-                    "description": "A list of planned crosses",
-                    "referencedAttribute": "parents",
-                    "relationshipType": "many-to-many",
-                    "items": {
-                        "$ref": "PlannedCross.json#/$defs/PlannedCross",
-                        "description": "PlannedCrosses"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                }
-            },
-            "required": [
-                "parentDbId"
-            ],
-            "title": "Parent",
             "type": "object"
         }
     },

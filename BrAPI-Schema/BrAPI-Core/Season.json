@@ -19,6 +19,20 @@
                         "null",
                         "integer"
                     ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "Observations associated to this season",
+                    "referencedAttribute": "season",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

@@ -10,13 +10,17 @@
                     ]
                 },
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "commonCropName": {

@@ -222,8 +222,8 @@
                     "referencedAttribute": "parentGermplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
-                        "description": "PedigreeNode"
+                        "$ref": "Parent.json#/$defs/Parent",
+                        "description": "Parent"
                     },
                     "type": [
                         "null",
@@ -236,7 +236,7 @@
                     "referencedAttribute": "progenyGermplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "$ref": "PedigreeNode.json#/$defs/Progeny",
                         "description": "PedigreeNode"
                     },
                     "type": [
@@ -433,10 +433,10 @@
                     ]
                 },
                 "coordinates": {
-                    "$ref": "Germplasm.json#/$defs/Coordinates",
+                    "$ref": "Coordinate.json#/$defs/Coordinate",
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
                     "referencedAttribute": "germplasmOrigin",
-                    "relationshipType": "one-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "germplasms": {
                     "title": "Germplasms",
@@ -458,101 +458,6 @@
             ],
             "title": "GermplasmOrigin",
             "type": "object"
-        },
-        "Coordinates": {
-            "properties": {
-                "coordinateDbId": {
-                    "description": "the unique identifier for a coordinate",
-                    "type": "string"
-                },
-                "geometry": {
-                    "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                    "oneOf": [
-                        {
-                            "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                            "properties": {
-                                "coordinates": {
-                                    "description": "A single position",
-                                    "items": {
-                                        "type": "number"
-                                    },
-                                    "minItems": 2,
-                                    "type": "array"
-                                },
-                                "type": {
-                                    "default": "Point",
-                                    "description": "The literal string \"Point\"",
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "type",
-                                "coordinates"
-                            ],
-                            "type": "object"
-                        },
-                        {
-                            "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                            "properties": {
-                                "coordinates": {
-                                    "description": "An array of linear rings",
-                                    "items": {
-                                        "description": "An array of at least four positions where the first equals the last",
-                                        "items": {
-                                            "description": "A single position",
-                                            "items": {
-                                                "type": "number"
-                                            },
-                                            "minItems": 2,
-                                            "type": "array"
-                                        },
-                                        "minItems": 4,
-                                        "type": "array"
-                                    },
-                                    "type": "array"
-                                },
-                                "type": {
-                                    "default": "Polygon",
-                                    "description": "The literal string \"Polygon\"",
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "type",
-                                "coordinates"
-                            ],
-                            "type": "object"
-                        }
-                    ],
-                    "title": "GeoJSON Geometry",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
-                },
-                "type": {
-                    "default": "Feature",
-                    "description": "The literal string \"Feature\"",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "germplasmOrigin": {
-                    "$ref": "Germplasm.json#/$defs/GermplasmOrigin",
-                    "description": "Germplasm origin associated",
-                    "referencedAttribute": "coordinates",
-                    "relationshipType": "one-to-one"
-                }
-            },
-            "required": [
-                "coordinateDbId"
-            ],
-            "title": "Coordinate",
-            "type": [
-                "null",
-                "object"
-            ]
         },
         "StorageType": {
             "properties": {

@@ -143,7 +143,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Study.json#/$defs/ObservationLevel",
+                        "$ref": "ObservationUnit.json#/$defs/ObservationLevel",
                         "description": "observationLevels"
                     },
                     "type": [
@@ -333,7 +333,6 @@
             "title": "Study",
             "type": "object"
         },
-        
         "DataLink": {
             "properties": {
                 "dataLinkDbId": {
@@ -571,39 +570,6 @@
                 "dateDbId"
             ],
             "title": "LastUpdate"
-        },
-        "ObservationLevel": {
-            "properties": {
-                "observationDbId": {
-                    "description": "The ID which uniquely identifies this observation",
-                    "type": "string"
-                },
-                "levelName": {
-                    "description": "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "levelOrder": {
-                    "description": "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-                    "type": [
-                        "null",
-                        "integer"
-                    ]
-                },
-                "study": {
-                    "$ref": "Study.json#/$defs/Study",
-                    "description": "The ID which uniquely identifies a `Study` within the given database server",
-                    "referencedAttribute": "observationLevels",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "observationDbId"
-            ],
-            "title": "ObservationLevel",
-            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Study.json",
