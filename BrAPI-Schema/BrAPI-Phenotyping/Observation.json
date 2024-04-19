@@ -2,6 +2,10 @@
     "$defs": {
         "Observation": {
             "properties": {
+                "observationDbId": {
+                    "description": "The ID which uniquely identifies an observation",
+                    "type": "string"
+                },
                 "collector": {
                     "description": "The name or identifier of the entity which collected the observation",
                     "type": [
@@ -14,10 +18,6 @@
                     "description": "The ID which uniquely identifies a germplasm",
                     "referencedAttribute": "observations",
                     "relationshipType": "many-to-one"
-                },
-                "observationDbId": {
-                    "description": "The ID which uniquely identifies an observation",
-                    "type": "string"
                 },
                 "observationTimeStamp": {
                     "description": "The date and time when this observation was made",
@@ -72,6 +72,46 @@
                         "null",
                         "array"
                     ]
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "observation",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "observation",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "geoCoordinates": {
+                    "$ref": "Observation.json#/$defs/Coordinate",
+                    "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one"
+                },
+                "season": {
+                    "$ref": "Observation.json#/$defs/Season",
+                    "description": "Season associated to the observation",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
@@ -80,46 +120,12 @@
             "title": "Observation",
             "type": "object"
         },
-        "AdditionalInfo": {
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-            "type": [
-                "null",
-                "object"
-            ]
-        },
-        "ExternalReference": {
-            "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-            "items": {
-                "properties": {
-                    "referenceId": {
-                        "description": "The external reference ID. Could be a simple string or a URI.",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "referenceSource": {
-                        "description": "An identifier for the source system or database of this reference",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
-                },
-                "type": "object"
-            },
-            "title": "ExternalReferences",
-            "type": [
-                "null",
-                "array"
-            ]
-        },
-        "GeoCoordinate": {
-            "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+        "Coordinate": {
             "properties": {
+                "coordinateDbId": {
+                    "description": "the unique identifier for a coordinate",
+                    "type": "string"
+                },
                 "geometry": {
                     "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
                     "oneOf": [
@@ -192,9 +198,26 @@
                         "null",
                         "string"
                     ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "List of observation associated to this coordinates",
+                    "referencedAttribute": "geoCoordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation-json#/$defs/Observation",
+                        "description": "Observations"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
-            "title": "GeoJSON",
+            "required": [
+                "coordinateDbId"
+            ],
+            "title": "Coordinate",
             "type": [
                 "null",
                 "object"
@@ -219,15 +242,27 @@
                         "null",
                         "integer"
                     ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "Observations associated to this season",
+                    "referencedAttribute": "season",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [
                 "seasonDbId"
             ],
-            "type": [
-                "null",
-                "object"
-            ]
+            "title": "Season",
+            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Observation.json",

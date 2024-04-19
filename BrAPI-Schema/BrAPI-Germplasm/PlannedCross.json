@@ -2,6 +2,10 @@
     "$defs": {
         "PlannedCross": {
             "properties": {
+                "plannedCrossDbId": {
+                    "description": "the unique identifier for a planned cross",
+                    "type": "string"
+                },
                 "crossType": {
                     "description": "the type of cross",
                     "enum": [
@@ -24,10 +28,6 @@
                     "description": "the unique identifier for a crossing project",
                     "referencedAttribute": "plannedCrosses",
                     "relationshipType": "many-to-one"
-                },
-                "plannedCrossDbId": {
-                    "description": "the unique identifier for a planned cross",
-                    "type": "string"
                 },
                 "plannedCrossName": {
                     "description": "the human readable name for a planned cross",
@@ -62,6 +62,48 @@
                         "null",
                         "array"
                     ]
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "plannedCross",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "plannedCross",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ExternalReference.json#/$defs/externalReferences",
+                        "description": "ExternalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "parents": {
+                    "title": "parents",
+                    "description": "The parents of a planned cross",
+                    "referencedAttribute": "plannedCrosses",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "PlannedCross.json#/$defs/Parent",
+                        "description": "Parents"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [
@@ -70,45 +112,12 @@
             "title": "PlannedCross",
             "type": "object"
         },
-        "AdditionalInfo": {
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-            "type": [
-                "null",
-                "object"
-            ]
-        },
-        "ExternalReference": {
-            "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-            "items": {
-                "properties": {
-                    "referenceId": {
-                        "description": "The external reference ID. Could be a simple string or a URI.",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "referenceSource": {
-                        "description": "An identifier for the source system or database of this reference",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
-                },
-                "type": "object"
-            },
-            "title": "ExternalReferences",
-            "type": [
-                "null",
-                "array"
-            ]
-        },
         "Parent": {
             "properties": {
+                "parentDbId": {
+                    "description": "the unique identifier for a parent",
+                    "type": "string"
+                },
                 "germplasmDbId": {
                     "description": "the unique identifier for a germplasm",
                     "type": [
@@ -150,12 +159,27 @@
                         "null",
                         "string"
                     ]
+                },
+                "plannedCrosses": {
+                    "title": "plannedCrosses",
+                    "description": "A list of planned crosses",
+                    "referencedAttribute": "parents",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "PlannedCross.json#/$defs/PlannedCross",
+                        "description": "PlannedCrosses"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
-            "type": [
-                "null",
-                "object"
-            ]
+            "required": [
+                "parentDbId"
+            ],
+            "title": "Parent",
+            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/PlannedCross.json",

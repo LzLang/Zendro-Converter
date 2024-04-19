@@ -1,0 +1,11 @@
+{
+    "$defs": {
+        "ValidValue": {
+            "properties": {
+
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/ValidValue.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,11 @@
+{
+    "$defs": {
+        "Coordinate": {
+            "properties": {
+
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/Coordinate.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

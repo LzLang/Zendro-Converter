@@ -2,6 +2,10 @@
     "$defs": {
         "Ontology": {
             "properties": {
+                "ontologyDbId": {
+                    "description": "Ontology database unique identifier",
+                    "type": "string"
+                },
                 "authors": {
                     "description": "Ontology's list of authors (no specific format)",
                     "type": [
@@ -38,10 +42,6 @@
                         "string"
                     ]
                 },
-                "ontologyDbId": {
-                    "description": "Ontology database unique identifier",
-                    "type": "string"
-                },
                 "ontologyName": {
                     "description": "Ontology name",
                     "type": "string"
@@ -52,6 +52,20 @@
                         "null",
                         "string"
                     ]
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "ontology",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [
@@ -60,16 +74,6 @@
             ],
             "title": "Ontology",
             "type": "object"
-        },
-        "AdditionalInfo": {
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-            "type": [
-                "null",
-                "object"
-            ]
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Ontology.json",
