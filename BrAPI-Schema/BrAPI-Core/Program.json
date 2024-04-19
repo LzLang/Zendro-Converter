@@ -40,7 +40,7 @@
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Program.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
@@ -178,35 +178,6 @@
                 "programName"
             ],
             "title": "Program",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "program": {
-                    "$ref": "Program.json#/$defs/Program",
-                    "description": "The unique identifier of the program leader",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "References",
             "type": "object"
         }
     },

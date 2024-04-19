@@ -90,7 +90,7 @@
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Location.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
@@ -298,36 +298,6 @@
                 "null",
                 "object"
             ]
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "location": {
-                    "$ref": "Location.json#/$defs/Location",
-                    "description": "The unique identifier for a Location.",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one"
-                }
-                
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "References",
-            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Location.json",

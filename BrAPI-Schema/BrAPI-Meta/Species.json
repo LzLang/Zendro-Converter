@@ -1,0 +1,42 @@
+{
+    "$defs": {
+        "Species": {
+            "properties": {
+                "speciesDbId": {
+                    "description": "The ID which uniquely identifies this species",
+                    "type": "string"
+                },
+                "term": {
+                    "description": "Ontology term - the label of the ontology term the termId is pointing to.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "termURI": {
+                    "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceset": {
+                    "description": "",
+                    "referencedAttribute": "species",
+                    "relationshipType": "one-to-one",
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet"
+                    
+                },
+                "reference": {
+                    "description": "",
+                    "referencedAttribute": "species",
+                    "relationshipType": "one-to-one",
+                    "$ref": "Reference.json#/$defs/Reference"
+                }
+            },
+            "required": [
+                "speciesDbId"
+            ]
+        }
+    }
+}

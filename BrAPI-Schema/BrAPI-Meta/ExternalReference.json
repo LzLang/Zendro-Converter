@@ -1,7 +1,6 @@
 {
     "$defs": {
-
-        "ExternalReference": {
+      "ExternalReference": {
             "properties": {
                 "referenceDbId": {
                     "description": "the unique identifier for a reference",
@@ -21,6 +20,86 @@
                         "string"
                     ]
                 },
+                "variantset": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "variant": {
+                    "description": "The unique identifier for a reference.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "$ref": "Variant.json#/$defs/Variant"
+                        
+                },
+                "sample": {
+                    "description": "The unique identifier for a Sample.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one",
+                    "$ref": "Sample.json#/$defs/Sample"
+                    
+                },
+                "referenceset": {
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "The unique identifier for a ReferenceSet.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "The unique identifier for a Reference.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "plate": {
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "The unique identifier for a Plate.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "callset": {
+                    "$ref": "CallSet.json#/$defs/CallSet",
+                    "description": "The unique identifier for a Callset.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "trial": {
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The unique identifier for a Trial.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "study": {
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "program": {
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "The unique identifier of the program leader",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "person": {
+                    "$ref": "Person.json#/$defs/Person",
+                    "description": "The unique identifier for a Person.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "list": {
+                    "$ref": "List.json#/$defs/List",
+                    "description": "The ID which uniquely identifies a `List` within the given database server",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },                  
                 "cross": {
                     "$ref": "Cross.json#/$defs/Cross",
                     "description": "the unique identifier for a cross",

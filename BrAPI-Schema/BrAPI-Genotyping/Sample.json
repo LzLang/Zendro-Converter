@@ -41,7 +41,7 @@
                     "referencedAttribute": "sample",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Sample.json#/$defs/ExternalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReferences"
                     },
                     "type": [
@@ -165,36 +165,6 @@
                 "sampleName"
             ],
             "title": "Sample",
-            "type": "object"
-        },
-        "ExternalReference": {
-            "properties": {
-                "referenceDbId": {
-                    "description": "The external reference ID. Could be a simple string or a URI.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "referenceSource": {
-                    "description": "An identifier for the source system or database of this reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "sample": {
-                    "description": "The unique identifier for a Sample.",
-                    "referencedAttribute": "externalReferences",
-                    "relationshipType": "many-to-one",
-                    "$ref": "Sample.json#/$defs/Sample"
-                    
-                }
-            },
-            "required": [
-                "referenceDbId"
-            ],
-            "title": "References",
             "type": "object"
         }
     },
