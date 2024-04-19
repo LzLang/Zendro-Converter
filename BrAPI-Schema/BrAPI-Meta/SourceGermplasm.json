@@ -1,0 +1,39 @@
+{
+    "$defs": {
+        "SourceGermplasm": {
+            "properties": {
+                "germplasmDbId": {
+                    "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmName": {
+                    "description": "The human readable name of a `Germplasm`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceset": {
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "The unique identifier for a ReferenceSet.",
+                    "referencedAttribute": "sourceGermplasm",
+                    "relationshipType": "many-to-one"
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "The unique identifier for a Reference.",
+                    "referencedAttribute": "sourceGermplasm",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "germplasmDbId"
+            ],
+            "title": "sourceGermplasm",
+            "type": "object"
+        }
+    }
+}

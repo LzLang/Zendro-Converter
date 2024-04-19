@@ -1,80 +1,5 @@
 {
     "$defs": {
-        "Ontology": {
-            "properties": {
-                "ontologyDbId": {
-                    "description": "Ontology database unique identifier",
-                    "type": "string"
-                },
-                "authors": {
-                    "description": "Ontology's list of authors (no specific format)",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "copyright": {
-                    "description": "Ontology copyright",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "description": {
-                    "description": "Human readable description of Ontology",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "documentationURL": {
-                    "description": "A URL to the human readable documentation of an object",
-                    "format": "uri",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "licence": {
-                    "description": "Ontology licence",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "ontologyName": {
-                    "description": "Ontology name",
-                    "type": "string"
-                },
-                "version": {
-                    "description": "Ontology version (no specific format)",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "additionalInfo": {
-                    "title": "additionalInfo",
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "referencedAttribute": "ontology",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                }
-            },
-            "required": [
-                "ontologyName",
-                "ontologyDbId"
-            ],
-            "title": "Ontology",
-            "type": "object"
-        },
         "OntologyReference": {
             "properties": {
                 "ontologyDbId": {
@@ -110,25 +35,13 @@
                     "referencedAttribute": "ontologyReference",
                     "relationshipType": "one-to-one"
                 },
-                "scale": {
-                    "$ref": "Scale.json#/$defs/Scale",
-                    "description": "the unique identifier of a scale",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"
-                },
-                "trait": {
-                    "$ref": "Trait.json#/$defs/Trait",
-                    "description": "the unique identifier of a trait",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"  
-                },
                 "documentationLinks": {
                     "title": "documentationLinks",
                     "description": "links to various ontology documentation",
                     "referencedAttribute": "ontologyReference",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Ontology.json#/$defs/DocumentationLink",
+                        "$ref": "OntologyReference.json#/$defs/DocumentationLink",
                         "description": "DocumentationLinks"
                     },
                     "type": [
@@ -170,7 +83,7 @@
                     ]
                 },
                 "ontologyReference": {
-                    "$ref": "Ontology.json#/$defs/OntologyReference",
+                    "$ref": "OntologyReference.json#/$defs/OntologyReference",
                     "description": "the unique identifier of an ontology reference",
                     "referencedAttribute": "documentationLinks",
                     "relationshipType": "many-to-one"
@@ -183,6 +96,6 @@
             "type": "object"
         }
     },
-    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Ontology.json",
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/OntologyReference.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
 }

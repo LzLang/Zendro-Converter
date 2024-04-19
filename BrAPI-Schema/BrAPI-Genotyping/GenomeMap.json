@@ -3,18 +3,22 @@
         "GenomeMap": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "genomeMap",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "markerPositions": {
                     "title": "markerPositions",
-                    "description": "markerPositions",
+                    "description": "The ID which uniquely identifies this marker position field",
                     "referencedAttribute": "map",
                     "relationshipType": "one-to-many",
                     "items": {

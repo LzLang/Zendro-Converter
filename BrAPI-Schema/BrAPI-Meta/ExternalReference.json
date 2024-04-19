@@ -1,0 +1,130 @@
+{
+    "$defs": {
+
+        "ExternalReference": {
+            "properties": {
+                "referenceDbId": {
+                    "description": "the unique identifier for a reference",
+                    "type": "string"
+                },
+                "externalID": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "cross": {
+                    "$ref": "Cross.json#/$defs/Cross",
+                    "description": "the unique identifier for a cross",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "crossingProject": {
+                    "$ref": "CrossingProject.json'/$defs/CrossingProject",
+                    "description": "the unique identifier for a crossing project",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "the unique identifier for a germplasm",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasmAttributeValue": {
+                    "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
+                    "description": "the unique identifier of a germplasm attribute value",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "image": {
+                    "$ref": "Image.json#/$defs/Image",
+                    "description": "the unique identifier of an image",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "method": {
+                    "$ref": "Method.json#/$defs/Method",
+                    "description": "the unique identifier of a method",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "observation": {
+                    "$ref": "Observation.json#/$defs/Observation",
+                    "description": "the unique identifier of an observation",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "observationUnit": {
+                    "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                    "description": "the unique identifier of an observation unit",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "observationVariable": {
+                    "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                    "description": "the unique identifier of an observation variable",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "pedigreeNode": {
+                    "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                    "description": "the unique identifier of a pedigree node",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "plannedCross": {
+                    "$ref": "PlannedCross.json#/$defs/PlannedCross",
+                    "description": "the unique identifier of a planned cross",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }, 
+                "scale": {
+                    "$ref": "Scale.json#/$defs/Scale",
+                    "description": "the unique identifier of a seed lot transaction",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "seedLot": {
+                    "$ref": "SeedLot.json#/$defs/seedLot",
+                    "description": "the unique identifier for a seed lot",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "seedLotTransaction": {
+                    "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
+                    "description": "the unique identifier of a seed lot transaction",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "trait": {
+                    "$ref": "Trait.json#/$defs/Trait",
+                    "description": "the unique identifier of a seed lot transaction",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "referenceDbId"
+            ],
+            "title": "ExternalReference",
+            "type": "object"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/ExternalReference.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

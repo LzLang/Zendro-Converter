@@ -2,16 +2,16 @@
     "$defs": {
         "BreedingMethod": {
             "properties": {
+                "breedingMethodDbId": {
+                    "description": "the unique identifier for this breeding method",
+                    "type": "string"
+                },
                 "abbreviation": {
                     "description": "A shortened version of the human readable name for a Breeding Method",
                     "type": [
                         "null",
                         "string"
                     ]
-                },
-                "breedingMethodDbId": {
-                    "description": "the unique identifier for this breeding method",
-                    "type": "string"
                 },
                 "breedingMethodName": {
                     "description": "the human readable identifier for this breeding method",

@@ -1,16 +1,10 @@
 {
     "$defs": {
         "CrossingProject": {
-            "properties": {
-                "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+            "properties": { 
+                "crossingProjectDbId": {
+                    "description": "The unique identifier for a crossing project",
+                    "type": "string"
                 },
                 "commonCropName": {
                     "description": "the common name of a crop (for multi-crop systems)",
@@ -18,10 +12,6 @@
                         "null",
                         "string"
                     ]
-                },
-                "crossingProjectDbId": {
-                    "description": "The unique identifier for a crossing project",
-                    "type": "string"
                 },
                 "crossingProjectDescription": {
                     "description": "the description for a crossing project",
@@ -33,87 +23,6 @@
                 "crossingProjectName": {
                     "description": "The human readable name for a crossing project",
                     "type": "string"
-                },
-                "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "potentialParents": {
-                    "description": "A list of all the potential parents in the crossing block, available in the crossing project\n<br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.",
-                    "items": {
-                        "properties": {
-                            "germplasmDbId": {
-                                "description": "the unique identifier for a germplasm",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmName": {
-                                "description": "the human readable name for a germplasm",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationUnitDbId": {
-                                "description": "the unique identifier for an observation unit",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationUnitName": {
-                                "description": "the human readable name for an observation unit",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "parentType": {
-                                "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                                "enum": [
-                                    "MALE",
-                                    "FEMALE",
-                                    "SELF",
-                                    "POPULATION",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
@@ -157,6 +66,48 @@
                     "items": {
                         "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
                         "description": "PedigreeNode"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "crossingProject",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "crossingProject",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ExternalReference.json#/$defs&ExternalReference",
+                        "description": "ExternalReference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "potentialParents": {
+                    "title": "potentialParents",
+                    "description": "A list of all the potential parents in the crossing block, available in the crossing project\n<br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.",
+                    "referencedAttribute": "crossingProjects",
+                    "relationshipType": "many-to-many",
+                    "iterms": {
+                        "$ref": "Parent.json#/$defs/Parent",
+                        "description": "Potential parents for a crossing project"
                     },
                     "type": [
                         "null",

@@ -1,0 +1,117 @@
+{
+    "$defs": {
+        
+        "Parent": {
+            "properties": {
+                "parentDbId" : {
+                    "description": "the unique identifier for a parent",
+                    "type": "string"
+                },
+                "parentGermplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a parent germplasm",
+                    "referencedAttribute": "progenyPedigreeNodes",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasmName": {
+                    "description": "the human readable name for a germplasm",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "observationUnitID": {
+                    "description": "the unique identifier for an observation unit",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "observationUnitName": {
+                    "description": "the human readable name for an observation unit",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "parentType": {
+                    "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                    "enum": [
+                        "MALE",
+                        "FEMALE",
+                        "SELF",
+                        "POPULATION",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "crosses": {
+                    "title": "crosses",
+                    "description": "Crosses associated with the parent",
+                    "referencedAttribute": "parents",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Cross.json#/$defs/Cross",
+                        "description": "Crosses associated with the parent"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "crossingProjects": {
+                    "title": "crossingProjects",
+                    "description": "Crossing projects associated to the potential Parent",
+                    "referencedAttribute": "potentialParents",
+                    "relationshipType": "many-to-many",
+                    "iterms": {
+                        "$ref": "CrossingProject.json#/$defs/crossingProjects",
+                        "description": "Crossing projects associated to the potential parent"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "pedigreeNode": {
+                    "title": "pedigreeNode",
+                    "description": "A list of pedigree nodes",
+                    "referencedAttribute": "parents",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "description": "PedigreeNodes"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "plannedCrosses": {
+                    "title": "plannedCrosses",
+                    "description": "A list of planned crosses",
+                    "referencedAttribute": "parents",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "PlannedCross.json#/$defs/PlannedCross",
+                        "description": "PlannedCrosses"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "parentDbId"
+            ],
+            "title": "Parent",
+            "type": "object"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/Parent.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

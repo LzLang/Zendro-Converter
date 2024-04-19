@@ -3,13 +3,17 @@
         "VariantSet": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "variantSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "alleleMatrices": {
@@ -28,7 +32,7 @@
                 },
                 "calls": {
                     "title": "Calls",
-                    "description": "",
+                    "description": "The ID which uniquely identifies this call field",
                     "referencedAttribute": "variantSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -55,66 +59,13 @@
                     ]
                 },
                 "analysis": {
-                    "description": "Set of Analysis descriptors for this VariantSet",
+                    "title": "analysis",
+                    "description": "The ID which uniquely identifies this analysis field",
+                    "referencedAttribute": "variantset",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "description": "An analysis contains an interpretation of one or several experiments. (e.g. SNVs, copy number variations, methylation status) together with information about the methodology used.",
-                        "properties": {
-                            "analysisDbId": {
-                                "description": "Unique identifier for this analysis description",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "analysisName": {
-                                "description": "A human readable name for this analysis",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "created": {
-                                "description": "The time at which this record was created, in ISO 8601 format.",
-                                "format": "date-time",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "description": {
-                                "description": "A human readable description of the analysis",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "software": {
-                                "description": "The software run to generate this analysis.",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "type": [
-                                    "null",
-                                    "array"
-                                ]
-                            },
-                            "type": {
-                                "description": "The type of analysis.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "updated": {
-                                "description": "The time at which this record was last updated, in ISO 8601 format.",
-                                "format": "date-time",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "VariantSet.json#/$defs/Analysis",
+                        "description": "analysis"
                     },
                     "type": [
                         "null",
@@ -122,78 +73,13 @@
                     ]
                 },
                 "availableFormats": {
-                    "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
+                    "title": "availableFormats",
+                    "description": "The ID which uniquely identifies this available format field",
+                    "referencedAttribute": "variantset",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "description": "Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independant parameters and sometimes one influences the other.",
-                        "properties": {
-                            "dataFormat": {
-                                "description": "dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)",
-                                "enum": [
-                                    "DartSeq",
-                                    "VCF",
-                                    "Hapmap",
-                                    "tabular",
-                                    "JSON",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "expandHomozygotes": {
-                                "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
-                                "type": [
-                                    "null",
-                                    "boolean"
-                                ]
-                            },
-                            "fileFormat": {
-                                "description": "fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
-                                "enum": [
-                                    "text/csv",
-                                    "text/tsv",
-                                    "application/excel",
-                                    "application/zip",
-                                    "application/json",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fileURL": {
-                                "description": "A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.",
-                                "format": "uri",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "sepPhased": {
-                                "description": "The string used as a separator for phased allele calls.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "sepUnphased": {
-                                "description": "The string used as a separator for unphased allele calls.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "unknownString": {
-                                "description": "The string used as a representation for missing data.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "VariantSet.json#/$defs/AvailableFormat",
+                        "description": "availableFormats"
                     },
                     "type": [
                         "null",
@@ -208,67 +94,27 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
+                    "referencedAttribute": "variantset",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
                     },
-                    "title": "ExternalReferences",
                     "type": [
                         "null",
                         "array"
                     ]
                 },
                 "metadataFields": {
-                    "description": "The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",
+                    "title": "metadataFields",
+                    "description": "The ID which uniquely identifies this metadata field",
+                    "referencedAttribute": "variantset",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "description": "This represents a type of genotyping data or metadata available in this VariantSet",
-                        "properties": {
-                            "dataType": {
-                                "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "float",
-                                    "boolean",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldAbbreviation": {
-                                "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldName": {
-                                "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "VariantSet.json#/$defs/MetadataField",
+                        "description": "metadataFields"
                     },
                     "type": [
                         "null",
@@ -307,7 +153,7 @@
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "The ID which uniquely identifies this variant field",
                     "referencedAttribute": "variantSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -322,6 +168,213 @@
             },
             "required": [
                 "variantSetDbId"
+            ],
+            "title": "VariantSet",
+            "type": "object"
+        },
+        "Analysis": {
+            "properties": {
+                "analysisDbId": {
+                    "description": "Unique identifier for this analysis description",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "analysisName": {
+                    "description": "A human readable name for this analysis",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "created": {
+                    "description": "The time at which this record was created, in ISO 8601 format.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "A human readable description of the analysis",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "software": {
+                    "description": "The software run to generate this analysis.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "type": {
+                    "description": "The type of analysis.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "updated": {
+                    "description": "The time at which this record was last updated, in ISO 8601 format.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "variantset": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
+                    "referencedAttribute": "analysis",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "analysisDbId"
+            ],
+            "title": "References",
+            "type": "object"
+        },
+        "AvailableFormat": {
+            "properties": {
+                "formatDbId": {
+                    "description": "The ID which uniquely identifies this format",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataFormat": {
+                    "description": "dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)",
+                    "enum": [
+                        "DartSeq",
+                        "VCF",
+                        "Hapmap",
+                        "tabular",
+                        "JSON",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "expandHomozygotes": {
+                    "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "fileFormat": {
+                    "description": "fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
+                    "enum": [
+                        "text/csv",
+                        "text/tsv",
+                        "application/excel",
+                        "application/zip",
+                        "application/json",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fileURL": {
+                    "description": "A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sepPhased": {
+                    "description": "The string used as a separator for phased allele calls.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sepUnphased": {
+                    "description": "The string used as a separator for unphased allele calls.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "unknownString": {
+                    "description": "The string used as a representation for missing data.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "variantset": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
+                    "referencedAttribute": "availableFormats",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "formatDbId"
+            ],
+            "title": "VariantSet",
+            "type": "object"
+        },
+        "MetadataField": {
+            "properties": {
+                "metadataFieldDbId": {
+                    "description": "The ID which uniquely identifies this metafield",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataType": {
+                    "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
+                    "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldAbbreviation": {
+                    "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldName": {
+                    "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "variantset": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet.",
+                    "referencedAttribute": "metadataFields",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "metadataFieldDbId"
             ],
             "title": "VariantSet",
             "type": "object"

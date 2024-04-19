@@ -3,13 +3,17 @@
         "Call": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "call",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "callSet": {
@@ -19,46 +23,13 @@
                     "relationshipType": "many-to-one"
                 },
                 "genotypeMetadata": {
-                    "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
+                    "title": "genotypeMetadata",
+                    "description": "The ID which uniquely identifies this metadata field",
+                    "referencedAttribute": "call",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "dataType": {
-                                "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "float",
-                                    "boolean",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldAbbreviation": {
-                                "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldName": {
-                                "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldValue": {
-                                "description": "The additional metadata value associated with this genotype call",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "Call.json#/$defs/GenotypeMetadata",
+                        "description": "genotypeMetadata"
                     },
                     "type": [
                         "null",
@@ -96,6 +67,63 @@
                 "callSetDbId",
                 "variantDbId",
                 "variantSetDbId"
+            ],
+            "title": "Call",
+            "type": "object"
+        },
+        "GenotypeMetadata": {
+            "properties": {
+                "metadataDbId": {
+                    "description": "The ID which uniquely identifies this metafield",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataType": {
+                    "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
+                    "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldAbbreviation": {
+                    "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldName": {
+                    "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldValue": {
+                    "description": "The additional metadata value associated with this genotype call",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "call": {
+                    "$ref": "Call.json#/$defs/Call",
+                    "description": "The unique identifier for a Call.",
+                    "referencedAttribute": "genotypeMetadata",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "metadataDbId"
             ],
             "title": "Call",
             "type": "object"
