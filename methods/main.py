@@ -164,7 +164,7 @@ def write_json(input_models):
 
             json_object = json.dumps(json_file, indent=4)
 
-            with open(os.path.join(".", f"{model}blub.json"), "w") as file:
+            with open(os.path.join(".", f"{model}_output.json"), "w") as file:
                 file.write(json_object)
     except OSError as file_error:
         log(f"Couldn't write to file test: {file_error}")
