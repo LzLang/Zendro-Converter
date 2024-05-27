@@ -74,10 +74,38 @@
                     ]
                 },
                 "ontologyReference": {
-                    "$ref": "OntologyReference.json#/$defs/OntologyReference",
+                    "$ref": "Ontology.json#/$defs/OntologyReference",
                     "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
                     "referencedAttribute": "method",
                     "relationshipType": "one-to-one"
+                },
+                "germplasmAttributes": {
+                    "title": "germplasmAttributes",
+                    "description": "List of germplasm attributes using this specific method",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                        "description": "Germplasm attributes"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationVariables": {
+                    "title": "observationVariables",
+                    "description": "List of observation variables unsing this method",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                        "description": "ObservationVariable"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

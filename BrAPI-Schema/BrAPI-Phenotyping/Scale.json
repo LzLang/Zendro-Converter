@@ -77,10 +77,30 @@
                     ]
                 },
                 "ontologyReference": {
-                    "$ref": "Scale.json#/$defs/OntologyReference",
+                    "$ref": "Ontology.json#/$defs/OntologyReference",
                     "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
                     "referencedAttribute": "scale",
                     "relationshipType": "one-to-one"
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier of a germplasm attribute",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-one"
+                },
+                "observationVariable": {
+                    "title": "observationVariable",
+                    "description": "List of observation variables using this scale",
+                    "referencedAttribute": "scale",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                        "description": "ObservationVariable"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "validValues": {
                     "$ref": "Scale.json#/$defs/ValidValue",
@@ -94,89 +114,6 @@
                 "scaleName"
             ],
             "title": "Scale",
-            "type": "object"
-        },
-        "OntologyReference": {
-            "properties": {
-                "ontologyDbId": {
-                    "description": "Ontology database unique identifier",
-                    "type": "string"
-                },
-                "ontologyName": {
-                    "description": "Ontology name",
-                    "type": "string"
-                },
-                "version": {
-                    "description": "Ontology version (no specific format)",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "scale": {
-                    "$ref": "Scale.json#/$defs/Scale",
-                    "description": "the unique identifier of a scale",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-one"
-                },
-                "documentationLinks": {
-                    "title": "documentationLinks",
-                    "description": "links to various ontology documentation",
-                    "referencedAttribute": "ontologyReference",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "Scale.json#/$defs/DocumentationLink",
-                        "description": "DocumentationLinks"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                }
-            },
-            "required": [
-                "ontologyName",
-                "ontologyDbId"
-            ],
-            "title": "OntologyReference",
-            "type": "object"
-        },
-        "DocumentationLink": {
-            "properties": {
-                "documentationLinkDbID": {
-                    "description": "the unique identifier for a documentation link",
-                    "type": "string"
-                },
-                "URL": {
-                    "format": "uri",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "type": {
-                    "enum": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "ontologyReference": {
-                    "$ref": "Scale.json#/$defs/OntologyReference",
-                    "description": "the unique identifier of an ontology reference",
-                    "referencedAttribute": "documentationLinks",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "documentationLinkDbID"
-            ],
-            "title": "DocumentationLink",
             "type": "object"
         },
         "ValidValue": {

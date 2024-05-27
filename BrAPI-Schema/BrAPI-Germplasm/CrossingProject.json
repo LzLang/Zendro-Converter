@@ -106,7 +106,7 @@
                     "referencedAttribute": "crossingProjects",
                     "relationshipType": "many-to-many",
                     "iterms": {
-                        "$ref": "CrossingProject.json#/$defs/PotentialParent",
+                        "$ref": "Parent.json#/$defs/Parent",
                         "description": "Potential parents for a crossing project"
                     },
                     "type": [
@@ -120,75 +120,6 @@
                 "crossingProjectName"
             ],
             "title": "CrossingProject",
-            "type": "object"
-        },
-        "PotentialParent": {
-            "properties": {
-                "parentDbId": {
-                    "description": "the unique identifier for a potential parent",
-                    "type": "string"
-                },
-                "germplasmDbId": {
-                    "description": "the unique identifier for a germplasm",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "germplasmName": {
-                    "description": "the human readable name for a germplasm",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnitDbId": {
-                    "description": "the unique identifier for an observation unit",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnitName": {
-                    "description": "the human readable name for an observation unit",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "parentType": {
-                    "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                    "enum": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "crossingProjects": {
-                    "title": "crossingProjects",
-                    "description": "Crossing projects associated to the potential Parent",
-                    "referencedAttribute": "potentialParents",
-                    "relationshipType": "many-to-many",
-                    "iterms": {
-                        "$ref": "CrossingProject.json#/$defs/crossingProjects",
-                        "description": "Crossing projects associated to the potential parent"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                }
-            },
-            "required": [
-                "parentDbId"
-            ],
-            "title": "PotentialParent",
             "type": "object"
         }
     },
