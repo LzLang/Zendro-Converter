@@ -214,48 +214,6 @@
             ],
             "title": "Location",
             "type": "object"
-        },
-        "LinearRing":{
-            "properties": {
-                "coordinateDbId": {
-                    "description": "The ID which uniquely identifies this linear ring",
-                    "type": "string"
-                },
-                "coordinates": {
-                    "description": "An array of linear rings",
-                    "items": {
-                        "description": "An array of at least four positions where the first equals the last",
-                        "items": {
-                            "description": "A single position",
-                            "items": {
-                                "type": "number"
-                            },
-                            "minItems": 2,
-                            "type": "array"
-                        },
-                        "minItems": 4,
-                        "type": "array"
-                    },
-                    "type": "array"
-                },
-                "type": {
-                    "default": "Polygon",
-                    "description": "The literal string \"Polygon\"",
-                    "type": "string"
-                },
-                "location": {
-                    "$ref": "Location.json#/$defs/Coordinate",
-                    "description": "The unique identifier for a Location.",
-                    "referencedAttribute": "geometry",
-                    "relationshipType": "many-to-one"
-                }
-            },
-            "required": [
-                "coordinateDbId",
-                "type",
-                "coordinates"
-            ],
-            "type": "object"
         }
         
     },
