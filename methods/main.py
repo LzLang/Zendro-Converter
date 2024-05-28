@@ -66,7 +66,7 @@ def get_properties(input_model_properties, current_model):
     for model_property in input_model_properties:
         current_property = input_model_properties[model_property]
         if "relationshipType" not in current_property:
-            property_type = get_property_type(current_property)
+            property_type = get_property_type(current_property, current_model, model_property)
             if property_type:
                 description = ""
                 if "description" in current_property:
@@ -119,12 +119,17 @@ def get_properties(input_model_properties, current_model):
         model_properties["attributes"].update(foreign_keys)
     return model_properties
 
-def get_property_type(input_property):
+def get_property_type(input_property, current_model, model_property):
     property_type = None
     if 'type' in input_property:
         # if the properties has no compatible type it is not needed therefore None is returned
         if isinstance(input_property['type'], list):
             for item_type in input_property['type']:
+                if item_type == "array":
+                    if input_property["items"]["type"] == "array":
+                        property_type = f"[ {ZENDRO_TYPES[input_property["items"]["items"]["type"]]} ]"
+                    else:
+                        property_type = f"[ {ZENDRO_TYPES[input_property["items"]["type"]]} ]"
                 if item_type in BrAPI_TYPES:
                     property_type = ZENDRO_TYPES[item_type]
         else:
@@ -159,12 +164,13 @@ def write_json(input_models):
                 "model": model,
                 "storageType": "sql",
                 "attributes": input_models[model]["attributes"],
-                "associations": input_models[model]["associations"]
+                "associations": input_models[model]["associations"],
+                "internalId": f"{model[0].lower()+model[1:]}DbId"
             }
 
             json_object = json.dumps(json_file, indent=4)
 
-            with open(os.path.join(".", f"{model}_output.json"), "w") as file:
+            with open(os.path.join("./results", f"{model}.json"), "w") as file:
                 file.write(json_object)
     except OSError as file_error:
         log(f"Couldn't write to file test: {file_error}")
@@ -173,7 +179,7 @@ def write_json(input_models):
         log(f"An error occurred: {model_exception}")
         sys.exit(1)
 
-input_models = get_models(get_files("."))
+input_models = get_models(get_files("./schema/"))
 output_models = {}
 for model in input_models:
     output_models[model] = get_properties(input_models[model]["properties"], model)
