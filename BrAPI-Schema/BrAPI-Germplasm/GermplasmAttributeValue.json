@@ -2,7 +2,7 @@
     "$defs": {
         "GermplasmAttributeValue": {
             "properties": {
-                "attributeValueDbId": {
+                "germplasmAttributeValueDbId": {
                     "description": "The ID which uniquely identifies this attribute value within the given database server",
                     "type": "string"
                 },
@@ -63,7 +63,7 @@
                 }
             },
             "required": [
-                "attributeValueDbId",
+                "germplasmAttributeValueDbId",
                 "attributeName"
             ],
             "title": "GermplasmAttributeValue",

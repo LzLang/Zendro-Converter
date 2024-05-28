@@ -2,7 +2,7 @@
     "$defs": {
         "OntologyReference": {
             "properties": {
-                "ontologyDbId": {
+                "ontologyReferenceDbId": {
                     "description": "Ontology database unique identifier",
                     "type": "string"
                 },
@@ -52,14 +52,14 @@
             },
             "required": [
                 "ontologyName",
-                "ontologyDbId"
+                "ontologyReferenceDbId"
             ],
             "title": "OntologyReference",
             "type": "object"
         },
         "DocumentationLink": {
             "properties": {
-                "documentationLinkDbID": {
+                "documentationLinkDbId": {
                     "description": "the unique identifier for a documentation link",
                     "type": "string"
                 },
@@ -90,7 +90,7 @@
                 }
             },
             "required": [
-                "documentationLinkDbID"
+                "documentationLinkDbId"
             ],
             "title": "DocumentationLink",
             "type": "object"

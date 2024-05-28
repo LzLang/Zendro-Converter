@@ -173,8 +173,9 @@
         },
         "Category": {
             "properties": {
-                "categorieDbId": {
-                    "description": "the unique identifier for a category"
+                "categoryDbId": {
+                    "description": "the unique identifier for a category",
+                    "type": "string"
                 },
                 "label": {
                     "description": "A text label for a category",
@@ -206,7 +207,7 @@
                 }
             },
             "required": [
-                "categorieDbId"
+                "categoryDbId"
             ],
             "title": "Category",
             "type": "object"

@@ -10,13 +10,17 @@
                     ]
                 },
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "commonCropName": {
@@ -132,7 +136,7 @@
                     ]
                 },
                 "location": {
-                    "$ref": "Location.json#/$defs/Location",
+                    "$ref": "../../../../../Laszl/Downloads/Zendro-Converter-model_separation/BrAPI-Schema/BrAPI-Core/Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location",
                     "referencedAttribute": "studies",
                     "relationshipType": "many-to-one"
@@ -222,7 +226,7 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "Trial.json#/$defs/Trial",
+                    "$ref": "../../../../../Laszl/Downloads/Zendro-Converter-model_separation/BrAPI-Schema/BrAPI-Core/Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a trial",
                     "referencedAttribute": "studies",
                     "relationshipType": "many-to-one"
@@ -411,7 +415,7 @@
         },
         "EnvironmentParameter": {
             "properties": {
-                "parameterDbId": {
+                "environmentParameterDbId": {
                     "description": "The ID which uniquely identifies this parameter",
                     "type": "string"
                 },
@@ -466,7 +470,7 @@
                 }
             },
             "required": [
-                "parameterDbId",
+                "environmentParameterDbId",
                 "parameterName",
                 "description"
             ],
@@ -475,7 +479,7 @@
         },
         "ExperimentalDesign": {
             "properties": {
-                "designDbId": {
+                "experimentalDesignDbId": {
                     "description": "The ID which uniquely identifies this experimental design",
                     "type": "string"
                 },
@@ -502,13 +506,13 @@
                 }
             },
             "required": [
-                "designDbId"
+                "experimentalDesignDbId"
             ],
             "title": "experimentalDesign"
         },
         "GrowthFacility": {
             "properties": {
-                "facilityDbId": {
+                "growthFacilityDbId": {
                     "description": "The ID which uniquely identifies this growth facility",
                     "type": "string"
                 },
@@ -535,13 +539,13 @@
                 }
             },
             "required": [
-                "facilityDbId"
+                "growthFacilityDbId"
             ],
             "title": "growthFacility"
         },
         "LastUpdate": {
             "properties": {
-                "dateDbId": {
+                "lastUpdateDbId": {
                     "description": "The ID which uniquely identifies this update",
                     "type": "string"
                 },
@@ -567,7 +571,7 @@
                 }
             },
             "required": [
-                "dateDbId"
+                "lastUpdateDbId"
             ],
             "title": "LastUpdate"
         }

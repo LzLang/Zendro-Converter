@@ -3,7 +3,7 @@
 
         "ExternalReference": {
             "properties": {
-                "referenceDbId": {
+                "externalReferenceDbId": {
                     "description": "the unique identifier for a reference",
                     "type": "string"
                 },
@@ -119,7 +119,7 @@
                 }
             },
             "required": [
-                "referenceDbId"
+                "externalReferenceDbId"
             ],
             "title": "ExternalReference",
             "type": "object"

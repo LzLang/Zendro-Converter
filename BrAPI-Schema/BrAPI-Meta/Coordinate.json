@@ -2,7 +2,7 @@
     "$defs": {
         "Coordinate": {
             "properties": {
-                "coordinatesDbId": {
+                "coordinateDbId": {
                     "description": "the unique identifier for an additional info",
                     "type": "string"
                 },
@@ -71,7 +71,7 @@
                 }
             },
             "required": [
-                "coordinatesDbId"
+                "coordinateDbId"
             ],
             "title": "Coordinate",
             "type": "object"

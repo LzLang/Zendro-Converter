@@ -16,6 +16,10 @@
                         "array"
                     ]
                 },
+                "callDbId": {
+                    "description": "The ID which uniquely identifies a call within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                    "type": "string"
+                },
                 "callSet": {
                     "$ref": "CallSet.json#/$defs/CallSet",
                     "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.",
@@ -64,16 +68,17 @@
                 }
             },
             "required": [
-                "callSetDbId",
-                "variantDbId",
-                "variantSetDbId"
+                "callDbId",
+                "callSet",
+                "variant",
+                "variantSet"
             ],
             "title": "Call",
             "type": "object"
         },
         "GenotypeMetadata": {
             "properties": {
-                "metadataDbId": {
+                "genotypeMetadataDbId": {
                     "description": "The ID which uniquely identifies this metafield",
                     "type": [
                         "null",
@@ -123,7 +128,7 @@
                 }
             },
             "required": [
-                "metadataDbId"
+                "genotypeMetadataDbId"
             ],
             "title": "Call",
             "type": "object"

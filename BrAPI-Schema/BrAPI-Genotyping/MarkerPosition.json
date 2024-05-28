@@ -29,6 +29,10 @@
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"
                 },
+                "markerPositionDbId": {
+                    "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                    "type": "string"
+                },
                 "position": {
                     "description": "The position of a marker or variant within a `LinkageGroup`",
                     "type": [
@@ -43,6 +47,9 @@
                     "relationshipType": "many-to-one"
                 }
             },
+            "required": [
+                "markerPositionDbId"
+            ],
             "title": "MarkerPosition",
             "type": "object"
         }

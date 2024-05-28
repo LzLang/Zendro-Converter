@@ -553,7 +553,7 @@
             "title": "Synonym",
             "type": "object"
         },
-        "TaxonId": {
+        "Taxon": {
             "properties": {
                 "taxonDbId": {
                     "description": "the unique identifier for a taxon",
@@ -579,7 +579,7 @@
                 "sourceName",
                 "taxonId"
             ],
-            "title": "TaxonId",
+            "title": "Taxon",
             "type": "object"
         }
     },

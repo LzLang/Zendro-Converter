@@ -2,7 +2,7 @@
     "$defs": {
         "SeedLotTransaction": {
             "properties": {
-                "transactionDbId": {
+                "seedLotTransactionDbId": {
                     "description": "Unique DbId for the Seed Lot Transaction",
                     "type": "string"
                 },
@@ -77,7 +77,7 @@
                 }
             },
             "required": [
-                "transactionDbId"
+                "seedLotTransactionDbId"
             ],
             "title": "SeedLotTransaction",
             "type": "object"

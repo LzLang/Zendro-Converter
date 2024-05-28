@@ -56,7 +56,7 @@
                         "integer"
                     ]
                 },
-                "mapDbId": {
+                "genomeMapDbId": {
                     "description": "The unique identifier for a `GenomeMap`",
                     "type": [
                         "null",
@@ -112,7 +112,7 @@
                 }
             },
             "required": [
-                "mapDbId",
+                "genomeMapDbId",
                 "commonCropName",
                 "type"
             ],

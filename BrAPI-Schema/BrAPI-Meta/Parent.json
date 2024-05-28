@@ -67,7 +67,7 @@
                     "description": "Crossing projects associated to the potential Parent",
                     "referencedAttribute": "potentialParents",
                     "relationshipType": "many-to-many",
-                    "iterms": {
+                    "items": {
                         "$ref": "CrossingProject.json#/$defs/crossingProjects",
                         "description": "Crossing projects associated to the potential parent"
                     },

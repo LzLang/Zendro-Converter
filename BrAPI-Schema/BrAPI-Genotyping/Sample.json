@@ -98,6 +98,10 @@
                         "string"
                     ]
                 },
+                "sampleDbId": {
+                    "description": "The ID which uniquely identifies a sample within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                    "type": "string"
+                },
                 "sampleGroupId": {
                     "description": "The ID which uniquely identifies a group of `Samples`",
                     "type": [
@@ -166,6 +170,7 @@
                 }
             },
             "required": [
+                "sampleDbId",
                 "sampleName"
             ],
             "title": "Sample",

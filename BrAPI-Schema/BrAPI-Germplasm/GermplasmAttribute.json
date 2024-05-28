@@ -2,7 +2,7 @@
     "$defs": {
         "GermplasmAttribute": {
             "properties": {
-                "attributeDbId": {
+                "germplasmAttributeDbId": {
                     "description": "The ID which uniquely identifies this attribute within the given database server",
                     "type": "string"
                 },
@@ -191,7 +191,7 @@
                 "trait",
                 "attributeName",
                 "scale",
-                "attributeDbId"
+                "germplasmAttributeDbId"
             ],
             "title": "GermplasmAttribute",
             "type": "object"

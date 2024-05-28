@@ -202,7 +202,7 @@
         },
         "DatasetAuthorship": {
             "properties": {
-                "datasetPUIDbId": {
+                "datasetAuthorshipDbId": {
                     "description": "The DOI or other permanent unique identifier for this published dataset",
                     "type": [
                         "null",
@@ -238,14 +238,14 @@
                 }
             },
             "required": [
-                "datasetPUIDbId"
+                "datasetAuthorshipDbId"
             ],
             "title": "Authorships",
             "type": "object"
         },
         "Publication": {
             "properties": {
-                "publicationPUIDbId": {
+                "publicationDbId": {
                     "type": [
                         "null",
                         "string"
@@ -265,7 +265,7 @@
                 }
             },
             "required": [
-                "publicationPUIDbId"
+                "publicationDbId"
             ],
             "title": "Publications",
             "type": "object"

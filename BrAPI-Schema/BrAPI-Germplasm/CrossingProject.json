@@ -105,7 +105,7 @@
                     "description": "A list of all the potential parents in the crossing block, available in the crossing project\n<br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.",
                     "referencedAttribute": "crossingProjects",
                     "relationshipType": "many-to-many",
-                    "iterms": {
+                    "items": {
                         "$ref": "Parent.json#/$defs/Parent",
                         "description": "Potential parents for a crossing project"
                     },

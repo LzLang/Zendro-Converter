@@ -228,7 +228,7 @@
                         "string"
                     ]
                 },
-                "variantset": {
+                "variantSet": {
                     "$ref": "VariantSet.json#/$defs/VariantSet",
                     "description": "The unique identifier for a VariantSet.",
                     "referencedAttribute": "analysis",
@@ -243,7 +243,7 @@
         },
         "AvailableFormat": {
             "properties": {
-                "formatDbId": {
+                "availableFormatDbId": {
                     "description": "The ID which uniquely identifies this format",
                     "type": [
                         "null",
@@ -324,7 +324,7 @@
                 }
             },
             "required": [
-                "formatDbId"
+                "availableFormatDbId"
             ],
             "title": "VariantSet",
             "type": "object"

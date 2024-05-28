@@ -162,7 +162,7 @@
         },
         "PollinationEvent": {
             "properties": {
-                "pollinationDbId": {
+                "pollinationEventDbId": {
                     "description": "The unique identifier for this pollination event",
                     "type": [
                         "null",
@@ -192,7 +192,7 @@
                 }
             },
             "required": [
-                "pollinationDbId"
+                "pollinationEventDbId"
             ],
             "title": "PollinationEvent",
             "type": "object"

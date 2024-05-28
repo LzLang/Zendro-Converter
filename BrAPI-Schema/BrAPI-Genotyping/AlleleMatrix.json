@@ -2,6 +2,10 @@
     "$defs": {
         "AlleleMatrix": {
             "properties": {
+                "alleleMatrixDbId": {
+                    "description": "The ID which uniquely identifies a allele matrix within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                    "type": "string"
+                },
                 "callSets": {
                     "description": "A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.",
                     "items": {
@@ -87,8 +91,9 @@
                 }
             },
             "required": [
-                "callSetDbIds",
-                "variantSetDbIds"
+                "alleleMatrixDbId",
+                "callSets",
+                "variantSets"
             ],
             "title": "AlleleMatrix",
             "type": "object"
