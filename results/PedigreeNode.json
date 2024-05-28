@@ -1,0 +1,121 @@
+{
+    "model": "PedigreeNode",
+    "storageType": "sql",
+    "attributes": {
+        "pedigreeNodeDbId": {
+            "type": "String",
+            "description": "the unique identifier for a pedigree node"
+        },
+        "breedingMethod_id": "String",
+        "crossingProject_id": "String",
+        "crossingYear": {
+            "type": "Int",
+            "description": "The year the parents were originally crossed"
+        },
+        "defaultDisplayName": {
+            "type": "String",
+            "description": "Human readable name used for display purposes"
+        },
+        "familyCode": {
+            "type": "String",
+            "description": "The code representing the family of this germplasm"
+        },
+        "germplasm_id": "String",
+        "germplasmPUI": {
+            "type": "String",
+            "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties."
+        },
+        "pedigreeString": {
+            "type": "String",
+            "description": "The string representation of the pedigree for this germplasm in PURDY notation"
+        },
+        "additionalInfo_ids": "[ String ]",
+        "externalReferences_ids": "[ String ]",
+        "parents_id": "String",
+        "progeny_ids": "[ String ]",
+        "siblings_id": "String"
+    },
+    "associations": {
+        "breedingMethod": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNodes",
+            "target": "BreedingMethod",
+            "targetKey": "pedigreeNodes_ids",
+            "sourceKey": "breedingMethod_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "crossingProject": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNodes",
+            "target": "CrossingProject",
+            "targetKey": "pedigreeNodes_ids",
+            "sourceKey": "crossingProject_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "Germplasm",
+            "targetKey": "pedigreeNode_id",
+            "sourceKey": "germplasm_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "AdditionalInfo",
+            "targetKey": "pedigreeNode_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "ExternalReference",
+            "targetKey": "pedigreeNode_id",
+            "sourceKey": "externalReferences_ids",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "parents": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "Parent",
+            "targetKey": "pedigreeNode_id",
+            "sourceKey": "parents_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "progeny": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "Progeny",
+            "targetKey": "pedigreeNode_id",
+            "sourceKey": "progeny_ids",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        },
+        "siblings": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "Sibling",
+            "targetKey": "pedigreeNode_id",
+            "sourceKey": "siblings_id",
+            "keysIn": "PedigreeNode",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "pedigreeNodeDbId"
+}

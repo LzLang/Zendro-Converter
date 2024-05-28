@@ -1,0 +1,140 @@
+{
+    "model": "Program",
+    "storageType": "sql",
+    "attributes": {
+        "abbreviation": {
+            "type": "String",
+            "description": "A shortened version of the human readable name for a Program"
+        },
+        "additionalInfo_ids": "[ String ]",
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop which this program is for"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "externalReferences_ids": "[ String ]",
+        "fundingInformation": {
+            "type": "String",
+            "description": "Information describing the grant or funding source for this program"
+        },
+        "leadPerson_id": "String",
+        "objective": {
+            "type": "String",
+            "description": "The primary objective of the program"
+        },
+        "programDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies the program"
+        },
+        "programName": {
+            "type": "String",
+            "description": "Human readable name of the program"
+        },
+        "programType": {
+            "type": "String",
+            "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   "
+        },
+        "trials_ids": "[ String ]",
+        "plates_ids": "[ String ]",
+        "samples_ids": "[ String ]",
+        "crossingProjects_ids": "[ String ]",
+        "seedLots_ids": "[ String ]",
+        "observationUnits_ids": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "AdditionalInfo",
+            "targetKey": "program_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "ExternalReference",
+            "targetKey": "program_id",
+            "sourceKey": "externalReferences_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "leadPerson": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "programs",
+            "target": "Person",
+            "targetKey": "programs_ids",
+            "sourceKey": "leadPerson_id",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "trials": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "Trial",
+            "targetKey": "program_id",
+            "sourceKey": "trials_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "plates": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "Plate",
+            "targetKey": "program_id",
+            "sourceKey": "plates_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "Sample",
+            "targetKey": "program_id",
+            "sourceKey": "samples_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "crossingProjects": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "CrossingProject",
+            "targetKey": "program_id",
+            "sourceKey": "crossingProjects_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "seedLots": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "SeedLot",
+            "targetKey": "program_id",
+            "sourceKey": "seedLots_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "program",
+            "target": "ObservationUnit",
+            "targetKey": "program_id",
+            "sourceKey": "observationUnits_ids",
+            "keysIn": "Program",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "programDbId"
+}

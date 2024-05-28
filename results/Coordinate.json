@@ -1,0 +1,65 @@
+{
+    "model": "Coordinate",
+    "storageType": "sql",
+    "attributes": {
+        "coordinateDbId": {
+            "type": "String",
+            "description": "the unique identifier for an additional info"
+        },
+        "geometry": {
+            "type": "String",
+            "description": "A free space containing any additional information related to a coordinate."
+        },
+        "type": {
+            "type": "String",
+            "description": "The literal string \"Feature\""
+        },
+        "germplasmOrigin_ids": "[ String ]",
+        "location_id": "String",
+        "observations_ids": "[ String ]",
+        "observationUnitPosition_ids": "[ String ]"
+    },
+    "associations": {
+        "germplasmOrigin": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "coordinates",
+            "target": "GermplasmOrigin",
+            "targetKey": "coordinates_id",
+            "sourceKey": "germplasmOrigin_ids",
+            "keysIn": "Coordinate",
+            "targetStorageType": "sql"
+        },
+        "location": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "coordinates",
+            "target": "Location",
+            "targetKey": "coordinates_id",
+            "sourceKey": "location_id",
+            "keysIn": "Coordinate",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "geoCoordinates",
+            "target": "Observation",
+            "targetKey": "geoCoordinates_id",
+            "sourceKey": "observations_ids",
+            "keysIn": "Coordinate",
+            "targetStorageType": "sql"
+        },
+        "observationUnitPosition": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "geoCoordinates",
+            "target": "ObservationUnitPosition",
+            "targetKey": "geoCoordinates_id",
+            "sourceKey": "observationUnitPosition_ids",
+            "keysIn": "Coordinate",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "coordinateDbId"
+}

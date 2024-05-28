@@ -1,0 +1,48 @@
+{
+    "model": "Analysis",
+    "storageType": "sql",
+    "attributes": {
+        "analysisDbId": {
+            "type": "String",
+            "description": "Unique identifier for this analysis description"
+        },
+        "analysisName": {
+            "type": "String",
+            "description": "A human readable name for this analysis"
+        },
+        "created": {
+            "type": "String",
+            "description": "The time at which this record was created, in ISO 8601 format."
+        },
+        "description": {
+            "type": "String",
+            "description": "A human readable description of the analysis"
+        },
+        "software": {
+            "type": "[ String ]",
+            "description": "The software run to generate this analysis."
+        },
+        "type": {
+            "type": "String",
+            "description": "The type of analysis."
+        },
+        "updated": {
+            "type": "String",
+            "description": "The time at which this record was last updated, in ISO 8601 format."
+        },
+        "variantSet_id": "String"
+    },
+    "associations": {
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "analysis",
+            "target": "VariantSet",
+            "targetKey": "analysis_ids",
+            "sourceKey": "variantSet_id",
+            "keysIn": "Analysis",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "analysisDbId"
+}

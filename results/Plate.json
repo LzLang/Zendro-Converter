@@ -1,0 +1,95 @@
+{
+    "model": "Plate",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_ids": "[ String ]",
+        "externalReferences_ids": "[ String ]",
+        "plateBarcode": {
+            "type": "String",
+            "description": "A unique identifier physically attached to a `Plate`"
+        },
+        "plateFormat": {
+            "type": "String",
+            "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format"
+        },
+        "plateDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a plate within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
+        },
+        "plateName": {
+            "type": "String",
+            "description": "A human readable name for a `Plate`"
+        },
+        "program_id": "String",
+        "sampleType": {
+            "type": "String",
+            "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc"
+        },
+        "study_id": "String",
+        "trial_id": "String",
+        "samples_ids": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "plate",
+            "target": "AdditionalInfo",
+            "targetKey": "plate_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "plate",
+            "target": "ExternalReference",
+            "targetKey": "plate_id",
+            "sourceKey": "externalReferences_ids",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "plates",
+            "target": "Program",
+            "targetKey": "plates_ids",
+            "sourceKey": "program_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "plates",
+            "target": "Study",
+            "targetKey": "plates_ids",
+            "sourceKey": "study_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "plates",
+            "target": "Trial",
+            "targetKey": "plates_ids",
+            "sourceKey": "trial_id",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "plate",
+            "target": "Sample",
+            "targetKey": "plate_id",
+            "sourceKey": "samples_ids",
+            "keysIn": "Plate",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "plateDbId"
+}

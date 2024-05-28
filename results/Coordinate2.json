@@ -1,0 +1,35 @@
+{
+    "model": "Coordinate2",
+    "storageType": "sql",
+    "attributes": {
+        "geometry_ids": "[ String ]",
+        "type": {
+            "type": "String",
+            "description": "The literal string \"Feature\""
+        },
+        "location_id": "String"
+    },
+    "associations": {
+        "geometry": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "location",
+            "target": "LinearRing",
+            "targetKey": "location_id",
+            "sourceKey": "geometry_ids",
+            "keysIn": "Coordinate2",
+            "targetStorageType": "sql"
+        },
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "coordinates",
+            "target": "Location",
+            "targetKey": "coordinates_ids",
+            "sourceKey": "location_id",
+            "keysIn": "Coordinate2",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "coordinate2DbId"
+}

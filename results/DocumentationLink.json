@@ -1,0 +1,32 @@
+{
+    "model": "DocumentationLink",
+    "storageType": "sql",
+    "attributes": {
+        "documentationLinkDbId": {
+            "type": "String",
+            "description": "the unique identifier for a documentation link"
+        },
+        "URL": {
+            "type": "String",
+            "description": ""
+        },
+        "type": {
+            "type": "String",
+            "description": ""
+        },
+        "ontologyReference_id": "String"
+    },
+    "associations": {
+        "ontologyReference": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "documentationLinks",
+            "target": "OntologyReference",
+            "targetKey": "documentationLinks_ids",
+            "sourceKey": "ontologyReference_id",
+            "keysIn": "DocumentationLink",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "documentationLinkDbId"
+}

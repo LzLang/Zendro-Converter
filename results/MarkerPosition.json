@@ -1,0 +1,54 @@
+{
+    "model": "MarkerPosition",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_ids": "[ String ]",
+        "linkageGroupName": {
+            "type": "String",
+            "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable."
+        },
+        "map_id": "String",
+        "markerPositionDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
+        },
+        "position": {
+            "type": "Int",
+            "description": "The position of a marker or variant within a `LinkageGroup`"
+        },
+        "variant_id": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "markerPosition",
+            "target": "AdditionalInfo",
+            "targetKey": "markerPosition_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "MarkerPosition",
+            "targetStorageType": "sql"
+        },
+        "map": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "markerPositions",
+            "target": "GenomeMap",
+            "targetKey": "markerPositions_ids",
+            "sourceKey": "map_id",
+            "keysIn": "MarkerPosition",
+            "targetStorageType": "sql"
+        },
+        "variant": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "markerPositions",
+            "target": "Variant",
+            "targetKey": "markerPositions_ids",
+            "sourceKey": "variant_id",
+            "keysIn": "MarkerPosition",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "markerPositionDbId"
+}

@@ -1,0 +1,111 @@
+{
+    "model": "Reference",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_ids": "[ String ]",
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop"
+        },
+        "externalReferences_ids": "[ String ]",
+        "isDerived": {
+            "type": "Boolean",
+            "description": "A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases."
+        },
+        "length": {
+            "type": "Int",
+            "description": "The length of this `Reference` sequence."
+        },
+        "md5checksum": {
+            "type": "String",
+            "description": "The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM)."
+        },
+        "referenceDbId": {
+            "type": "String",
+            "description": "The unique identifier for a `Reference`"
+        },
+        "referenceName": {
+            "type": "String",
+            "description": "The human readable name of a `Reference` within a `ReferenceSet`."
+        },
+        "referenceSet_id": "String",
+        "sourceAccessions": {
+            "type": "[ String ]",
+            "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`."
+        },
+        "sourceDivergence": {
+            "type": "Float",
+            "description": "The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from."
+        },
+        "sourceGermplasm_ids": "[ String ]",
+        "sourceURI": {
+            "type": "String",
+            "description": "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI."
+        },
+        "species_id": "String",
+        "variants_ids": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "reference",
+            "target": "AdditionalInfo",
+            "targetKey": "reference_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "reference",
+            "target": "ExternalReference",
+            "targetKey": "reference_id",
+            "sourceKey": "externalReferences_ids",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        },
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "references",
+            "target": "ReferenceSet",
+            "targetKey": "references_ids",
+            "sourceKey": "referenceSet_id",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        },
+        "sourceGermplasm": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "reference",
+            "target": "SourceGermplasm",
+            "targetKey": "reference_id",
+            "sourceKey": "sourceGermplasm_ids",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        },
+        "species": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "reference",
+            "target": "Species",
+            "targetKey": "reference_id",
+            "sourceKey": "species_id",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "reference",
+            "target": "Variant",
+            "targetKey": "reference_id",
+            "sourceKey": "variants_ids",
+            "keysIn": "Reference",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "referenceDbId"
+}

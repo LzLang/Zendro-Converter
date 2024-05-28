@@ -1,0 +1,43 @@
+{
+    "model": "ValidValue",
+    "storageType": "sql",
+    "attributes": {
+        "validValueDbId": {
+            "type": "String",
+            "description": "the unique identifier for a valid value"
+        },
+        "maximumValue": {
+            "type": "String",
+            "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC."
+        },
+        "minimumValue": {
+            "type": "String",
+            "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC."
+        },
+        "categories_id": "String",
+        "scales_ids": "[ String ]"
+    },
+    "associations": {
+        "categories": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "validValues",
+            "target": "Category",
+            "targetKey": "validValues_id",
+            "sourceKey": "categories_id",
+            "keysIn": "ValidValue",
+            "targetStorageType": "sql"
+        },
+        "scales": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "validValues",
+            "target": "Scale",
+            "targetKey": "validValues_id",
+            "sourceKey": "scales_ids",
+            "keysIn": "ValidValue",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "validValueDbId"
+}

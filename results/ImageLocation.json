@@ -1,0 +1,32 @@
+{
+    "model": "ImageLocation",
+    "storageType": "sql",
+    "attributes": {
+        "imageLocationDbId": {
+            "type": "String",
+            "description": "the unique identifier for a image location"
+        },
+        "geometry": {
+            "type": "String",
+            "description": "A free space containing any additional information related to a coordinate."
+        },
+        "type": {
+            "type": "String",
+            "description": "The literal string \"Feature\""
+        },
+        "images_ids": "[ String ]"
+    },
+    "associations": {
+        "images": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "imageLocation",
+            "target": "Image",
+            "targetKey": "imageLocation_id",
+            "sourceKey": "images_ids",
+            "keysIn": "ImageLocation",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "imageLocationDbId"
+}

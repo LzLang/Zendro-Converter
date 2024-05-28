@@ -1,0 +1,28 @@
+{
+    "model": "LinearRing",
+    "storageType": "sql",
+    "attributes": {
+        "coordinateDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies this linear ring"
+        },
+        "type": {
+            "type": "String",
+            "description": "The literal string \"Polygon\""
+        },
+        "location_id": "String"
+    },
+    "associations": {
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "geometry",
+            "target": "Coordinate",
+            "targetKey": "geometry_ids",
+            "sourceKey": "location_id",
+            "keysIn": "LinearRing",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "linearRingDbId"
+}

@@ -1,0 +1,28 @@
+{
+    "model": "Publication",
+    "storageType": "sql",
+    "attributes": {
+        "publicationDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "publicationReference": {
+            "type": "String",
+            "description": ""
+        },
+        "trial_id": "String"
+    },
+    "associations": {
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "publications",
+            "target": "Trial",
+            "targetKey": "publications_ids",
+            "sourceKey": "trial_id",
+            "keysIn": "Publication",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "publicationDbId"
+}

@@ -1,0 +1,35 @@
+{
+    "model": "Sibling",
+    "storageType": "sql",
+    "attributes": {
+        "siblingDbId": {
+            "type": "String",
+            "description": "the unique identifier for a sibling"
+        },
+        "siblingGermplasm_id": "String",
+        "pedigreeNode_id": "String"
+    },
+    "associations": {
+        "siblingGermplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "siblingPedigreeNodes",
+            "target": "Germplasm",
+            "targetKey": "siblingPedigreeNodes_ids",
+            "sourceKey": "siblingGermplasm_id",
+            "keysIn": "Sibling",
+            "targetStorageType": "sql"
+        },
+        "pedigreeNode": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "siblings",
+            "target": "PedigreeNode",
+            "targetKey": "siblings_id",
+            "sourceKey": "pedigreeNode_id",
+            "keysIn": "Sibling",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "siblingDbId"
+}

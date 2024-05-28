@@ -1,0 +1,44 @@
+{
+    "model": "ContentMixture",
+    "storageType": "sql",
+    "attributes": {
+        "contentMixtureDbId": {
+            "type": "String",
+            "description": "the unique identifier for a content mixture"
+        },
+        "crossDbId": {
+            "type": "String",
+            "description": "The unique DbId for a cross contained in this seed lot"
+        },
+        "crossName": {
+            "type": "String",
+            "description": "The human readable name for a cross contained in this seed lot"
+        },
+        "germplasmDbId": {
+            "type": "String",
+            "description": "The unique DbId of the Germplasm contained in this Seed Lot"
+        },
+        "germplasmName": {
+            "type": "String",
+            "description": "The human readable name of the Germplasm contained in this Seed Lot"
+        },
+        "mixturePercentage": {
+            "type": "Int",
+            "description": "The percentage of the given germplasm in the seed lot mixture."
+        },
+        "seedLot_id": "String"
+    },
+    "associations": {
+        "seedLot": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "contentMixture",
+            "target": "SeedLot",
+            "targetKey": "contentMixture_id",
+            "sourceKey": "seedLot_id",
+            "keysIn": "ContentMixture",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "contentMixtureDbId"
+}

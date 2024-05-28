@@ -1,0 +1,84 @@
+{
+    "model": "Parent",
+    "storageType": "sql",
+    "attributes": {
+        "parentDbId": {
+            "type": "String",
+            "description": "the unique identifier for a parent"
+        },
+        "parentGermplasm_id": "String",
+        "germplasmName": {
+            "type": "String",
+            "description": "the human readable name for a germplasm"
+        },
+        "observationUnitID": {
+            "type": "String",
+            "description": "the unique identifier for an observation unit"
+        },
+        "observationUnitName": {
+            "type": "String",
+            "description": "the human readable name for an observation unit"
+        },
+        "parentType": {
+            "type": "String",
+            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc."
+        },
+        "crosses_id": "String",
+        "crossingProjects_id": "String",
+        "pedigreeNode_id": "String",
+        "plannedCrosses_id": "String"
+    },
+    "associations": {
+        "parentGermplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "progenyPedigreeNodes",
+            "target": "Germplasm",
+            "targetKey": "progenyPedigreeNodes_ids",
+            "sourceKey": "parentGermplasm_id",
+            "keysIn": "Parent",
+            "targetStorageType": "sql"
+        },
+        "crosses": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "parents",
+            "target": "Cross",
+            "targetKey": "parents_id",
+            "sourceKey": "crosses_id",
+            "keysIn": "Parent",
+            "targetStorageType": "sql"
+        },
+        "crossingProjects": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "potentialParents",
+            "target": "crossingProjects",
+            "targetKey": "potentialParents_id",
+            "sourceKey": "crossingProjects_id",
+            "keysIn": "Parent",
+            "targetStorageType": "sql"
+        },
+        "pedigreeNode": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "parents",
+            "target": "PedigreeNode",
+            "targetKey": "parents_id",
+            "sourceKey": "pedigreeNode_id",
+            "keysIn": "Parent",
+            "targetStorageType": "sql"
+        },
+        "plannedCrosses": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "parents",
+            "target": "PlannedCross",
+            "targetKey": "parents_id",
+            "sourceKey": "plannedCrosses_id",
+            "keysIn": "Parent",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "parentDbId"
+}

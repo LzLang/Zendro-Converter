@@ -1,0 +1,77 @@
+{
+    "model": "ObservationUnitPosition",
+    "storageType": "sql",
+    "attributes": {
+        "observationUnitPositionDbId": {
+            "type": "String",
+            "description": "the unique identifier for a observation unit position"
+        },
+        "entryType": {
+            "type": "String",
+            "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\""
+        },
+        "positionCoordinateX": {
+            "type": "String",
+            "description": "The X position coordinate for an observation unit. Different systems may use different coordinate systems."
+        },
+        "positionCoordinateXType": {
+            "type": "String",
+            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column "
+        },
+        "positionCoordinateY": {
+            "type": "String",
+            "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems."
+        },
+        "positionCoordinateYType": {
+            "type": "String",
+            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column "
+        },
+        "observationUnit_id": "String",
+        "geoCoordinates_id": "String",
+        "observationLevel_ids": "[ String ]",
+        "observationLevelRelationships_id": "String"
+    },
+    "associations": {
+        "observationUnit": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "observationUnitPosition",
+            "target": "ObservationUnit",
+            "targetKey": "observationUnitPosition_id",
+            "sourceKey": "observationUnit_id",
+            "keysIn": "ObservationUnitPosition",
+            "targetStorageType": "sql"
+        },
+        "geoCoordinates": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "observationUnitPosition",
+            "target": "Coordinate",
+            "targetKey": "observationUnitPosition_ids",
+            "sourceKey": "geoCoordinates_id",
+            "keysIn": "ObservationUnitPosition",
+            "targetStorageType": "sql"
+        },
+        "observationLevel": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "observationUnitPosition",
+            "target": "ObservationLevel",
+            "targetKey": "observationUnitPosition_id",
+            "sourceKey": "observationLevel_ids",
+            "keysIn": "ObservationUnitPosition",
+            "targetStorageType": "sql"
+        },
+        "observationLevelRelationships": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "observationUnitPositions",
+            "target": "ObservationLevelRelationship",
+            "targetKey": "observationUnitPositions_id",
+            "sourceKey": "observationLevelRelationships_id",
+            "keysIn": "ObservationUnitPosition",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "observationUnitPositionDbId"
+}

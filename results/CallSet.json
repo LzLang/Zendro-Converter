@@ -1,0 +1,102 @@
+{
+    "model": "CallSet",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_ids": "[ String ]",
+        "alleleMatrices_id": "String",
+        "calls_ids": "[ String ]",
+        "callSetDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a CallSet within the given database server"
+        },
+        "callSetName": {
+            "type": "String",
+            "description": "The human readable name which identifies a germplasm within the given database server"
+        },
+        "created": {
+            "type": "String",
+            "description": "The date this call set was created"
+        },
+        "externalReferences_ids": "[ String ]",
+        "sample_id": "String",
+        "study_id": "String",
+        "updated": {
+            "type": "String",
+            "description": "The time at which this call set was last updated"
+        },
+        "variantSets_id": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "callSet",
+            "target": "AdditionalInfo",
+            "targetKey": "callSet_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "alleleMatrices": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "callSets",
+            "target": "AlleleMatrix",
+            "targetKey": "callSets_id",
+            "sourceKey": "alleleMatrices_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "calls": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "The ID which uniquely identifies this callSet field",
+            "target": "Call",
+            "targetKey": "The ID which uniquely identifies this callSet field_id",
+            "sourceKey": "calls_ids",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "callset",
+            "target": "ExternalReference",
+            "targetKey": "callset_id",
+            "sourceKey": "externalReferences_ids",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "sample": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "callSets",
+            "target": "Sample",
+            "targetKey": "callSets_ids",
+            "sourceKey": "sample_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "callSets",
+            "target": "Study",
+            "targetKey": "callSets_ids",
+            "sourceKey": "study_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "callSets",
+            "target": "VariantSet",
+            "targetKey": "callSets_id",
+            "sourceKey": "variantSets_id",
+            "keysIn": "CallSet",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "callSetDbId"
+}

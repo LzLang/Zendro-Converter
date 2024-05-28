@@ -1,0 +1,52 @@
+{
+    "model": "Ontology",
+    "storageType": "sql",
+    "attributes": {
+        "ontologyDbId": {
+            "type": "String",
+            "description": "Ontology database unique identifier"
+        },
+        "authors": {
+            "type": "String",
+            "description": "Ontology's list of authors (no specific format)"
+        },
+        "copyright": {
+            "type": "String",
+            "description": "Ontology copyright"
+        },
+        "description": {
+            "type": "String",
+            "description": "Human readable description of Ontology"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "licence": {
+            "type": "String",
+            "description": "Ontology licence"
+        },
+        "ontologyName": {
+            "type": "String",
+            "description": "Ontology name"
+        },
+        "version": {
+            "type": "String",
+            "description": "Ontology version (no specific format)"
+        },
+        "additionalInfo_ids": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontology",
+            "target": "AdditionalInfo",
+            "targetKey": "ontology_id",
+            "sourceKey": "additionalInfo_ids",
+            "keysIn": "Ontology",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "ontologyDbId"
+}

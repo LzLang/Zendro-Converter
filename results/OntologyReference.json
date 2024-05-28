@@ -1,0 +1,87 @@
+{
+    "model": "OntologyReference",
+    "storageType": "sql",
+    "attributes": {
+        "ontologyReferenceDbId": {
+            "type": "String",
+            "description": "Ontology database unique identifier"
+        },
+        "ontologyName": {
+            "type": "String",
+            "description": "Ontology name"
+        },
+        "version": {
+            "type": "String",
+            "description": "Ontology version (no specific format)"
+        },
+        "germplasmAttribute_id": "String",
+        "method_id": "String",
+        "observationVariable_id": "String",
+        "scale_id": "String",
+        "trait_id": "String",
+        "documentationLinks_ids": "[ String ]"
+    },
+    "associations": {
+        "germplasmAttribute": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontologyReference",
+            "target": "GermplasmAttribute",
+            "targetKey": "ontologyReference_id",
+            "sourceKey": "germplasmAttribute_id",
+            "keysIn": "OntologyReference",
+            "targetStorageType": "sql"
+        },
+        "method": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontologyReference",
+            "target": "Method",
+            "targetKey": "ontologyReference_id",
+            "sourceKey": "method_id",
+            "keysIn": "OntologyReference",
+            "targetStorageType": "sql"
+        },
+        "observationVariable": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontologyReference",
+            "target": "ObservationVariable",
+            "targetKey": "ontologyReference_id",
+            "sourceKey": "observationVariable_id",
+            "keysIn": "OntologyReference",
+            "targetStorageType": "sql"
+        },
+        "scale": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontologyReference",
+            "target": "Scale",
+            "targetKey": "ontologyReference_id",
+            "sourceKey": "scale_id",
+            "keysIn": "OntologyReference",
+            "targetStorageType": "sql"
+        },
+        "trait": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontologyReference",
+            "target": "Trait",
+            "targetKey": "ontologyReference_id",
+            "sourceKey": "trait_id",
+            "keysIn": "OntologyReference",
+            "targetStorageType": "sql"
+        },
+        "documentationLinks": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontologyReference",
+            "target": "DocumentationLink",
+            "targetKey": "ontologyReference_id",
+            "sourceKey": "documentationLinks_ids",
+            "keysIn": "OntologyReference",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "ontologyReferenceDbId"
+}
