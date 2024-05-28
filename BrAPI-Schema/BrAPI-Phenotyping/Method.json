@@ -2,15 +2,9 @@
     "$defs": {
         "Method": {
             "properties": {
-                "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                "methodDbId": {
+                    "description": "Method unique identifier",
+                    "type": "string"
                 },
                 "bibliographicalReference": {
                     "description": "Bibliographical reference describing the method.\n<br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.",
@@ -24,33 +18,6 @@
                     "type": [
                         "null",
                         "string"
-                    ]
-                },
-                "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
                     ]
                 },
                 "formula": {
@@ -67,13 +34,6 @@
                         "string"
                     ]
                 },
-                "methodDbId": {
-                    "description": "Method unique identifier",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "methodName": {
                     "description": "Human readable name for the method\n<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation",
                     "type": "string"
@@ -85,67 +45,71 @@
                         "string"
                     ]
                 },
-                "ontologyReference": {
-                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-                    "properties": {
-                        "documentationLinks": {
-                            "description": "links to various ontology documentation",
-                            "items": {
-                                "properties": {
-                                    "URL": {
-                                        "format": "uri",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "type": {
-                                        "enum": [
-                                            "OBO",
-                                            "RDF",
-                                            "WEBPAGE",
-                                            null
-                                        ],
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "type": "object"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "ontologyDbId": {
-                            "description": "Ontology database unique identifier",
-                            "type": "string"
-                        },
-                        "ontologyName": {
-                            "description": "Ontology name",
-                            "type": "string"
-                        },
-                        "version": {
-                            "description": "Ontology version (no specific format)",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                "additionalInfo": {
+                    "title": "additionalInfo",
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
                     },
-                    "required": [
-                        "ontologyName",
-                        "ontologyDbId"
-                    ],
                     "type": [
                         "null",
-                        "object"
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "title": "externalReferences",
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "ontologyReference": {
+                    "$ref": "Ontology.json#/$defs/OntologyReference",
+                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-one"
+                },
+                "germplasmAttributes": {
+                    "title": "germplasmAttributes",
+                    "description": "List of germplasm attributes using this specific method",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                        "description": "Germplasm attributes"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationVariables": {
+                    "title": "observationVariables",
+                    "description": "List of observation variables unsing this method",
+                    "referencedAttribute": "method",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                        "description": "ObservationVariable"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },
             "required": [
+                "methodDbId",
                 "methodName"
             ],
             "title": "Method",

@@ -3,13 +3,17 @@
         "MarkerPosition": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "markerPosition",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "linkageGroupName": {
@@ -25,6 +29,10 @@
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"
                 },
+                "markerPositionDbId": {
+                    "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                    "type": "string"
+                },
                 "position": {
                     "description": "The position of a marker or variant within a `LinkageGroup`",
                     "type": [
@@ -39,6 +47,9 @@
                     "relationshipType": "many-to-one"
                 }
             },
+            "required": [
+                "markerPositionDbId"
+            ],
             "title": "MarkerPosition",
             "type": "object"
         }

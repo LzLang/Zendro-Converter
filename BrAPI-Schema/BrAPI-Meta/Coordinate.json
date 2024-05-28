@@ -1,0 +1,82 @@
+{
+    "$defs": {
+        "Coordinate": {
+            "properties": {
+                "coordinateDbId": {
+                    "description": "the unique identifier for an additional info",
+                    "type": "string"
+                },
+                "geometry": {
+                    "description": "A free space containing any additional information related to a coordinate.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "default": "Feature",
+                    "description": "The literal string \"Feature\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmOrigin": {
+                    "title": "germplasmOrigin",
+                    "description": "Germplasm origins associated",
+                    "referencedAttribute": "coordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Germplasm.json#/$defs/GermplasmOrigin",
+                        "description": "Germplasm"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location.",
+                    "referencedAttribute": "coordinates",
+                    "relationshipType": "one-to-one"
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "List of observations associated to this coordinates",
+                    "referencedAttribute": "geoCoordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observations"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnitPosition": {
+                    "title": "observationUnitPosition",
+                    "description": "the unique identifier of the observation unit positions",
+                    "referencedAttribute": "geoCoordinates",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnitPosition",
+                        "description": "observationUnitPosition"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "coordinateDbId"
+            ],
+            "title": "Coordinate",
+            "type": "object"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/Coordinate.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -3,13 +3,17 @@
         "Reference": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "title": "additionalInfo",
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "commonCropName": {
@@ -20,32 +24,20 @@
                     ]
                 },
                 "externalReferences": {
-                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "title": "externalReferences",
+                    "description": "The ID which uniquely identifies this external reference field",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
+                        "description": "externalReferences"
                     },
-                    "title": "ExternalReferences",
                     "type": [
                         "null",
                         "array"
                     ]
                 },
+                
                 "isDerived": {
                     "description": "A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.",
                     "type": [
@@ -99,31 +91,20 @@
                     ]
                 },
                 "sourceGermplasm": {
-                    "description": "All known corresponding Germplasm",
+                    "title": "sourceGermplasm",
+                    "description": "The ID which uniquely identifies this source germplasm field",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "germplasmDbId": {
-                                "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmName": {
-                                "description": "The human readable name of a `Germplasm`",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "SourceGermplasm.json#/$defs/SourceGermplasm",
+                        "description": "sourceGermplasm"
                     },
                     "type": [
                         "null",
                         "array"
                     ]
                 },
+                
                 "sourceURI": {
                     "description": "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.",
                     "type": [
@@ -132,31 +113,14 @@
                     ]
                 },
                 "species": {
+                    "$ref": "Species.json#/$defs/Species",
                     "description": "An ontology term describing an attribute.",
-                    "properties": {
-                        "term": {
-                            "description": "Ontology term - the label of the ontology term the termId is pointing to.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "termURI": {
-                            "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-one"
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "The ID which uniquely identifies this variant field",
                     "referencedAttribute": "reference",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -176,6 +140,8 @@
             "title": "Reference",
             "type": "object"
         }
+        
+        
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Reference.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

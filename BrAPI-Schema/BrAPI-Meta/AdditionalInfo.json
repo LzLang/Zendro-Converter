@@ -1,0 +1,224 @@
+{
+    "$defs": {
+        "AdditionalInfo": {
+            "properties": {
+                "additionalInfoDbId": {
+                    "description": "the unique identifier for an additional info",
+                    "type": "string"
+                },
+                "additionalProperties": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "call": {
+                    "$ref": "Call.json#/$defs/Call",
+                    "description": "the unique identifier of a call",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "callSet": {
+                    "$ref": "CallSet.json#/$defs/CallSet",
+                    "description": "the unique identifier of a call set",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "cross": {
+                    "$ref": "Cross.json#/$defs/Cross",
+                    "description": "the unique identifier for a cross",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "crossingProject": {
+                    "$ref": "CrossingProject.json#/$defs/CrossingProject",
+                    "description": "the unique identifier for a crossingProject",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "event": {
+                    "$ref": "Event.json#/$defs/Event",
+                    "description": "the unique identifier of an event",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "genomeMap": {
+                    "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "description": "the unique identifier of a genome map",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "the unique identifier for a germplasm",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasmAttribute": {
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
+                    "description": "the unique identifier for a germplasm attribute",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasmAttributeValue": {
+                    "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
+                    "description": "the unique identifier of a germplasm attribute value",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "image": {
+                    "$ref": "Image.json#/$defs/Image",
+                    "description": "the unique identifier of an image",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "list": {
+                    "$ref": "List.json#/$defs/List",
+                    "description": "the unique identifier of a list",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "the unique identifier of a location",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "markerPosition": {
+                    "$ref": "MarkerPosition.json#/$defs/MarkerPosition",
+                    "description": "the unique identifier of a marker position",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "method": {
+                    "$ref": "Method.json#/$defs/Method",
+                    "description": "the unique identifier of a method",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "observation": {
+                    "$ref": "Observation.json#/$defs/Observation",
+                    "description": "the unique identifier of an observation",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "observationUnit": {
+                    "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                    "description": "the unique identifier of an observation unit",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "observationVariable": {
+                    "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                    "description": "the unique identifier of a observation variable",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "ontology": {
+                    "$ref": "Ontology.json#/$defs/Ontology",
+                    "description": "the unique identifier of an ontology",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "pedigreeNode": {
+                    "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                    "description": "the unique identifier of a pedigree node",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "plannedCross": {
+                    "$ref": "PlannedCross.json#/$defs/PlannedCross",
+                    "description": "the unique identifier of a planned cross",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "plate": {
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "the unique identifier of a plate",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "program": {
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "the unique identifier of a program",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "the unique identifier of a reference",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "referenceSet": {
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "the unique identifier of a reference set",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "sample": {
+                    "$ref": "Sample.json#/$defs/Sample",
+                    "description": "the unique identifier of a sample",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "scale": {
+                    "$ref": "Scale.json#/$defs/Scale",
+                    "description": "the unique identifier of a scale",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "seedLot": {
+                    "$ref": "SeedLot.json#/$defs/SeedLot",
+                    "description": "the unique identifier for a seed lot",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "seedLotTransaction": {
+                    "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
+                    "description": "the unique identifier of a seed lot transaction",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "study": {
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "the unique identifier of a study",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "trait": {
+                    "$ref": "Trait.json#/$defs/Trait",
+                    "description": "the unique identifier for a germplasm attribute",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "trial": {
+                    "$ref": "Trail.json#/$defs/Trail",
+                    "description": "the unique identifier of a trial",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "variant": {
+                    "$ref": "Variant.json#/$defs/Variant",
+                    "description": "the unique identifier of a variant",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
+                "variantSet": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "the unique identifier of a variant set",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                }
+            },
+            "required": [
+                "additionalInfoDbId"
+            ],
+            "title": "AdditionalInfo",
+            "type": "object"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Meta/AdditionalInfo.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
