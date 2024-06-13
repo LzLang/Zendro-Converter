@@ -1,9 +1,9 @@
 {
     "model": "ImageLocation",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "imageLocationDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a image location"
         },
         "geometry": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "The literal string \"Feature\""
         },
-        "images_ids": "[ String ]"
+        "images_IDs": "[ String ]"
     },
     "associations": {
         "images": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "imageLocation",
             "target": "Image",
-            "targetKey": "imageLocation_id",
-            "sourceKey": "images_ids",
+            "targetKey": "imageLocation_ID",
+            "sourceKey": "images_IDs",
             "keysIn": "ImageLocation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "imageLocationDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

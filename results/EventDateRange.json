@@ -1,9 +1,9 @@
 {
     "model": "EventDateRange",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "eventDateRangeDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier of a event date range"
         },
         "discreteDates": {
@@ -18,7 +18,7 @@
             "type": "String",
             "description": "The begining of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event."
         },
-        "event_id": "String"
+        "event_ID": "String"
     },
     "associations": {
         "event": {
@@ -26,11 +26,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "eventDateRange",
             "target": "Event",
-            "targetKey": "eventDateRange_id",
-            "sourceKey": "event_id",
+            "targetKey": "eventDateRange_ID",
+            "sourceKey": "event_ID",
             "keysIn": "EventDateRange",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "eventDateRangeDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

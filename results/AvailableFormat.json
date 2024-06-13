@@ -1,9 +1,9 @@
 {
     "model": "AvailableFormat",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "availableFormatDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this format"
         },
         "dataFormat": {
@@ -34,7 +34,7 @@
             "type": "String",
             "description": "The string used as a representation for missing data."
         },
-        "variantset_id": "String"
+        "variantset_ID": "String"
     },
     "associations": {
         "variantset": {
@@ -42,11 +42,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "availableFormats",
             "target": "VariantSet",
-            "targetKey": "availableFormats_ids",
-            "sourceKey": "variantset_id",
+            "targetKey": "availableFormats_IDs",
+            "sourceKey": "variantset_ID",
             "keysIn": "AvailableFormat",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "availableFormatDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

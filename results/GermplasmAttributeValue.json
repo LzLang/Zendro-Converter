@@ -1,23 +1,23 @@
 {
     "model": "GermplasmAttributeValue",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "germplasmAttributeValueDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this attribute value within the given database server"
         },
-        "attribute_id": "String",
+        "attribute_ID": "String",
         "determinedDate": {
             "type": "String",
             "description": "The date the value of this attribute was determined for a given germplasm"
         },
-        "germplasm_id": "String",
+        "germplasm_ID": "String",
         "value": {
             "type": "String",
             "description": "The value of this attribute for a given germplasm"
         },
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]"
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]"
     },
     "associations": {
         "attribute": {
@@ -25,41 +25,44 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValues",
             "target": "Attribute",
-            "targetKey": "germplasmAttributeValues_ids",
-            "sourceKey": "attribute_id",
+            "targetKey": "germplasmAttributeValues_IDs",
+            "sourceKey": "attribute_ID",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasm": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValues",
             "target": "Germplasm",
-            "targetKey": "germplasmAttributeValues_ids",
-            "sourceKey": "germplasm_id",
+            "targetKey": "germplasmAttributeValues_IDs",
+            "sourceKey": "germplasm_ID",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValue",
             "target": "AdditionalInfo",
-            "targetKey": "germplasmAttributeValue_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "germplasmAttributeValue_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValue",
             "target": "ExternalReference",
-            "targetKey": "germplasmAttributeValue_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "germplasmAttributeValue_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "germplasmAttributeValueDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

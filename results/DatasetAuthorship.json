@@ -1,9 +1,9 @@
 {
     "model": "DatasetAuthorship",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "datasetAuthorshipDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The DOI or other permanent unique identifier for this published dataset"
         },
         "license": {
@@ -18,7 +18,7 @@
             "type": "String",
             "description": "MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository."
         },
-        "trial_id": "String"
+        "trial_ID": "String"
     },
     "associations": {
         "trial": {
@@ -26,11 +26,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "datasetAuthorships",
             "target": "Trial",
-            "targetKey": "datasetAuthorships_ids",
-            "sourceKey": "trial_id",
+            "targetKey": "datasetAuthorships_IDs",
+            "sourceKey": "trial_ID",
             "keysIn": "DatasetAuthorship",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "datasetAuthorshipDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

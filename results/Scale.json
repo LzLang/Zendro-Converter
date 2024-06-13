@@ -1,9 +1,9 @@
 {
     "model": "Scale",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "scaleDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID."
         },
         "dataType": {
@@ -26,12 +26,12 @@
             "type": "String",
             "description": "This field can be used to describe the units used for this scale. This should be the abbreviated \nform of the units, intended to be displayed with every value using this scale. Usually this only \napplies when `dataType` is Numeric, but could also be included for other dataTypes when applicable."
         },
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "ontologyReference_id": "String",
-        "germplasmAttribute_id": "String",
-        "observationVariable_ids": "[ String ]",
-        "validValues_id": "String"
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "ontologyReference_ID": "String",
+        "germplasmAttribute_ID": "String",
+        "observationVariable_IDs": "[ String ]",
+        "validValues_ID": "String"
     },
     "associations": {
         "additionalInfo": {
@@ -39,61 +39,64 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "scale",
             "target": "AdditionalInfo",
-            "targetKey": "scale_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "scale_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Scale",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "scale",
             "target": "ExternalReference",
-            "targetKey": "scale_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "scale_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Scale",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "ontologyReference": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "scale",
             "target": "OntologyReference",
-            "targetKey": "scale_id",
-            "sourceKey": "ontologyReference_id",
+            "targetKey": "scale_ID",
+            "sourceKey": "ontologyReference_ID",
             "keysIn": "Scale",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasmAttribute": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "scale",
             "target": "GermplasmAttribute",
-            "targetKey": "scale_id",
-            "sourceKey": "germplasmAttribute_id",
+            "targetKey": "scale_ID",
+            "sourceKey": "germplasmAttribute_ID",
             "keysIn": "Scale",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationVariable": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "scale",
             "target": "ObservationVariable",
-            "targetKey": "scale_id",
-            "sourceKey": "observationVariable_ids",
+            "targetKey": "scale_ID",
+            "sourceKey": "observationVariable_IDs",
             "keysIn": "Scale",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "validValues": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "scales",
             "target": "ValidValue",
-            "targetKey": "scales_ids",
-            "sourceKey": "validValues_id",
+            "targetKey": "scales_IDs",
+            "sourceKey": "validValues_ID",
             "keysIn": "Scale",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "scaleDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

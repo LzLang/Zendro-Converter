@@ -1,9 +1,9 @@
 {
     "model": "Synonym",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "synonymDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a synonym"
         },
         "synonym": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "A descriptive classification for this synonym"
         },
-        "germplasm_id": "String"
+        "germplasm_ID": "String"
     },
     "associations": {
         "germplasm": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "synonyms",
             "target": "Germplasm",
-            "targetKey": "synonyms_ids",
-            "sourceKey": "germplasm_id",
+            "targetKey": "synonyms_IDs",
+            "sourceKey": "germplasm_ID",
             "keysIn": "Synonym",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "synonymDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

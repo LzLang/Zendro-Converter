@@ -1,9 +1,9 @@
 {
     "model": "DataLink",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "dataLinkDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this datalink"
         },
         "dataFormat": {
@@ -38,7 +38,7 @@
             "type": "String",
             "description": "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data)."
         },
-        "study_id": "String"
+        "study_ID": "String"
     },
     "associations": {
         "study": {
@@ -46,11 +46,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "dataLinks",
             "target": "Study",
-            "targetKey": "dataLinks_ids",
-            "sourceKey": "study_id",
+            "targetKey": "dataLinks_IDs",
+            "sourceKey": "study_ID",
             "keysIn": "DataLink",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "dataLinkDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

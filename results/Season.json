@@ -1,9 +1,9 @@
 {
     "model": "Season",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "seasonDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'"
         },
         "seasonName": {
@@ -14,7 +14,7 @@
             "type": "Int",
             "description": "The 4 digit year of the season."
         },
-        "observations_ids": "[ String ]"
+        "observations_IDs": "[ String ]"
     },
     "associations": {
         "observations": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "season",
             "target": "Observation",
-            "targetKey": "season_id",
-            "sourceKey": "observations_ids",
+            "targetKey": "season_ID",
+            "sourceKey": "observations_IDs",
             "keysIn": "Season",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "seasonDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

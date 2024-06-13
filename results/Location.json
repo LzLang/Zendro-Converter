@@ -1,12 +1,12 @@
 {
     "model": "Location",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
         "abbreviation": {
             "type": "String",
             "description": "A shortened version of the human readable name for a Location"
         },
-        "additionalInfo_ids": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
         "coordinateDescription": {
             "type": "String",
             "description": "Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)"
@@ -15,7 +15,7 @@
             "type": "String",
             "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown."
         },
-        "coordinates_id": "String",
+        "coordinates_ID": "String",
         "countryCode": {
             "type": "String",
             "description": "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec\n<br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'"
@@ -36,7 +36,7 @@
             "type": "String",
             "description": "Describes the level of protection/exposure for things like sun light and wind at a particular Location"
         },
-        "externalReferences_ids": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
         "instituteAddress": {
             "type": "String",
             "description": "The street address of the institute at a particular Location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study."
@@ -45,8 +45,8 @@
             "type": "String",
             "description": "The full name of the institute at a particular Location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study."
         },
-        "locationDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The unique identifier for a Location"
         },
         "locationName": {
@@ -57,9 +57,9 @@
             "type": "String",
             "description": "A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)"
         },
-        "parentLocation_id": "String",
-        "childLocations_ids": "[ String ]",
-        "studies_ids": "[ String ]",
+        "parentLocation_ID": "String",
+        "childLocations_IDs": "[ String ]",
+        "studies_IDs": "[ String ]",
         "siteStatus": {
             "type": "String",
             "description": "Description of the accessibility of the location (ex. Public, Private)"
@@ -72,8 +72,8 @@
             "type": "String",
             "description": "Describes the topography of the land at a Location. (ex. Plateau, Cirque, Hill, Valley, etc)"
         },
-        "seedLots_ids": "[ String ]",
-        "observationUnits_ids": "[ String ]"
+        "seedLots_IDs": "[ String ]",
+        "observationUnits_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -81,81 +81,84 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "AdditionalInfo",
-            "targetKey": "location_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "location_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "coordinates": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "Coordinate",
-            "targetKey": "location_id",
-            "sourceKey": "coordinates_id",
+            "targetKey": "location_ID",
+            "sourceKey": "coordinates_ID",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "ExternalReference",
-            "targetKey": "location_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "location_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "parentLocation": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "childLocations",
             "target": "Location",
-            "targetKey": "childLocations_ids",
-            "sourceKey": "parentLocation_id",
+            "targetKey": "childLocations_IDs",
+            "sourceKey": "parentLocation_ID",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "childLocations": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parentLocation",
             "target": "Location",
-            "targetKey": "parentLocation_id",
-            "sourceKey": "childLocations_ids",
+            "targetKey": "parentLocation_ID",
+            "sourceKey": "childLocations_IDs",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "studies": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "Study",
-            "targetKey": "location_id",
-            "sourceKey": "studies_ids",
+            "targetKey": "location_ID",
+            "sourceKey": "studies_IDs",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "seedLots": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "SeedLot",
-            "targetKey": "location_id",
-            "sourceKey": "seedLots_ids",
+            "targetKey": "location_ID",
+            "sourceKey": "seedLots_IDs",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnits": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "location",
             "target": "ObservationUnit",
-            "targetKey": "location_id",
-            "sourceKey": "observationUnits_ids",
+            "targetKey": "location_ID",
+            "sourceKey": "observationUnits_IDs",
             "keysIn": "Location",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "locationDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

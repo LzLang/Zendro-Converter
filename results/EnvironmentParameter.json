@@ -1,9 +1,9 @@
 {
     "model": "EnvironmentParameter",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "environmentParameterDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this parameter"
         },
         "description": {
@@ -34,7 +34,7 @@
             "type": "String",
             "description": "URI pointing to an ontology class for the parameter value"
         },
-        "study_id": "String"
+        "study_ID": "String"
     },
     "associations": {
         "study": {
@@ -42,11 +42,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "environmentParameters",
             "target": "Study",
-            "targetKey": "environmentParameters_ids",
-            "sourceKey": "study_id",
+            "targetKey": "environmentParameters_IDs",
+            "sourceKey": "study_ID",
             "keysIn": "EnvironmentParameter",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "environmentParameterDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

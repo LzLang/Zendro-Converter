@@ -1,9 +1,9 @@
 {
     "model": "Ontology",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "ontologyDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Ontology database unique identifier"
         },
         "authors": {
@@ -34,7 +34,7 @@
             "type": "String",
             "description": "Ontology version (no specific format)"
         },
-        "additionalInfo_ids": "[ String ]"
+        "additionalInfo_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -42,11 +42,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "ontology",
             "target": "AdditionalInfo",
-            "targetKey": "ontology_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "ontology_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Ontology",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "ontologyDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

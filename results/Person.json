@@ -1,8 +1,8 @@
 {
     "model": "Person",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "additionalInfo_ids": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
         "description": {
             "type": "String",
             "description": "description of this person"
@@ -11,7 +11,7 @@
             "type": "String",
             "description": "email address for this person"
         },
-        "externalReferences_ids": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
         "firstName": {
             "type": "String",
             "description": "Persons first name"
@@ -28,8 +28,8 @@
             "type": "String",
             "description": "Persons middle name"
         },
-        "personDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Unique ID for a person"
         },
         "phoneNumber": {
@@ -40,8 +40,8 @@
             "type": "String",
             "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
         },
-        "lists_ids": "[ String ]",
-        "programs_ids": "[ String ]"
+        "lists_IDs": "[ String ]",
+        "programs_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -49,41 +49,44 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "person",
             "target": "AdditionalInfo",
-            "targetKey": "person_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "person_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Person",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "person",
             "target": "ExternalReference",
-            "targetKey": "person_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "person_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Person",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "lists": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "listOwnerPerson",
             "target": "List",
-            "targetKey": "listOwnerPerson_id",
-            "sourceKey": "lists_ids",
+            "targetKey": "listOwnerPerson_ID",
+            "sourceKey": "lists_IDs",
             "keysIn": "Person",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "programs": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "leadPerson",
             "target": "Program",
-            "targetKey": "leadPerson_id",
-            "sourceKey": "programs_ids",
+            "targetKey": "leadPerson_ID",
+            "sourceKey": "programs_IDs",
             "keysIn": "Person",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "personDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

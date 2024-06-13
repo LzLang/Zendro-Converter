@@ -1,9 +1,9 @@
 {
     "model": "Trait",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "traitDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies a trait"
         },
         "alternativeAbbreviations": {
@@ -54,11 +54,11 @@
             "type": "String",
             "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI"
         },
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "Ontology_id": "String",
-        "germplasmAttribute_id": "String",
-        "observationVariables_ids": "[ String ]"
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "Ontology_ID": "String",
+        "germplasmAttribute_ID": "String",
+        "observationVariables_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -66,51 +66,54 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "trait",
             "target": "AdditionalInfo",
-            "targetKey": "trait_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "trait_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Trait",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trait",
             "target": "ExternalReference",
-            "targetKey": "trait_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "trait_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Trait",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "Ontology": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "trait",
             "target": "OntologyReference",
-            "targetKey": "trait_id",
-            "sourceKey": "Ontology_id",
+            "targetKey": "trait_ID",
+            "sourceKey": "Ontology_ID",
             "keysIn": "Trait",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasmAttribute": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "trait",
             "target": "GermplasmAttribute",
-            "targetKey": "trait_id",
-            "sourceKey": "germplasmAttribute_id",
+            "targetKey": "trait_ID",
+            "sourceKey": "germplasmAttribute_ID",
             "keysIn": "Trait",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationVariables": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trait",
             "target": "ObservationVariable",
-            "targetKey": "trait_id",
-            "sourceKey": "observationVariables_ids",
+            "targetKey": "trait_ID",
+            "sourceKey": "observationVariables_IDs",
             "keysIn": "Trait",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "traitDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

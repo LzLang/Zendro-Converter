@@ -1,9 +1,9 @@
 {
     "model": "CrossingProject",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "crossingProjectDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The unique identifier for a crossing project"
         },
         "commonCropName": {
@@ -18,13 +18,13 @@
             "type": "String",
             "description": "The human readable name for a crossing project"
         },
-        "program_id": "String",
-        "crosses_ids": "[ String ]",
-        "plannedCrosses_ids": "[ String ]",
-        "pedigreeNodes_ids": "[ String ]",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "potentialParents_id": "String"
+        "program_ID": "String",
+        "crosses_IDs": "[ String ]",
+        "plannedCrosses_IDs": "[ String ]",
+        "pedigreeNodes_IDs": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "potentialParents_ID": "String"
     },
     "associations": {
         "program": {
@@ -32,71 +32,74 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProjects",
             "target": "Program",
-            "targetKey": "crossingProjects_ids",
-            "sourceKey": "program_id",
+            "targetKey": "crossingProjects_IDs",
+            "sourceKey": "program_ID",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "crosses": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "Cross",
-            "targetKey": "crossingProject_id",
-            "sourceKey": "crosses_ids",
+            "targetKey": "crossingProject_ID",
+            "sourceKey": "crosses_IDs",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "plannedCrosses": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "PlannedCross",
-            "targetKey": "crossingProject_id",
-            "sourceKey": "plannedCrosses_ids",
+            "targetKey": "crossingProject_ID",
+            "sourceKey": "plannedCrosses_IDs",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pedigreeNodes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "PedigreeNode",
-            "targetKey": "crossingProject_id",
-            "sourceKey": "pedigreeNodes_ids",
+            "targetKey": "crossingProject_ID",
+            "sourceKey": "pedigreeNodes_IDs",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "AdditionalInfo",
-            "targetKey": "crossingProject_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "crossingProject_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProject",
             "target": "$defs&ExternalReference",
-            "targetKey": "crossingProject_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "crossingProject_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "potentialParents": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crossingProjects",
             "target": "Parent",
-            "targetKey": "crossingProjects_id",
-            "sourceKey": "potentialParents_id",
+            "targetKey": "crossingProjects_ID",
+            "sourceKey": "potentialParents_ID",
             "keysIn": "CrossingProject",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "crossingProjectDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

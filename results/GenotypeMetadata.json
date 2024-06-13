@@ -1,9 +1,9 @@
 {
     "model": "GenotypeMetadata",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "genotypeMetadataDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this metafield"
         },
         "dataType": {
@@ -22,7 +22,7 @@
             "type": "String",
             "description": "The additional metadata value associated with this genotype call"
         },
-        "call_id": "String"
+        "call_ID": "String"
     },
     "associations": {
         "call": {
@@ -30,11 +30,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "genotypeMetadata",
             "target": "Call",
-            "targetKey": "genotypeMetadata_ids",
-            "sourceKey": "call_id",
+            "targetKey": "genotypeMetadata_IDs",
+            "sourceKey": "call_ID",
             "keysIn": "GenotypeMetadata",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "genotypeMetadataDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

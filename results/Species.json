@@ -1,9 +1,9 @@
 {
     "model": "Species",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "speciesDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this species"
         },
         "term": {
@@ -14,8 +14,8 @@
             "type": "String",
             "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation."
         },
-        "referenceset_id": "String",
-        "reference_id": "String"
+        "referenceset_ID": "String",
+        "reference_ID": "String"
     },
     "associations": {
         "referenceset": {
@@ -23,21 +23,24 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "species",
             "target": "ReferenceSet",
-            "targetKey": "species_id",
-            "sourceKey": "referenceset_id",
+            "targetKey": "species_ID",
+            "sourceKey": "referenceset_ID",
             "keysIn": "Species",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "reference": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "species",
             "target": "Reference",
-            "targetKey": "species_id",
-            "sourceKey": "reference_id",
+            "targetKey": "species_ID",
+            "sourceKey": "reference_ID",
             "keysIn": "Species",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "speciesDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

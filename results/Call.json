@@ -1,14 +1,14 @@
 {
     "model": "Call",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "additionalInfo_ids": "[ String ]",
-        "callDbId": {
-            "type": "String",
+        "additionalInfo_IDs": "[ String ]",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies a call within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
-        "callSet_id": "String",
-        "genotypeMetadata_ids": "[ String ]",
+        "callSet_ID": "String",
+        "genotypeMetadata_IDs": "[ String ]",
         "genotypeValue": {
             "type": "String",
             "description": "The value of this genotype call"
@@ -17,8 +17,8 @@
             "type": "String",
             "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string."
         },
-        "variant_id": "String",
-        "variantSet_id": "String"
+        "variant_ID": "String",
+        "variantSet_ID": "String"
     },
     "associations": {
         "additionalInfo": {
@@ -26,51 +26,54 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "call",
             "target": "AdditionalInfo",
-            "targetKey": "call_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "call_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Call",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "callSet": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "calls",
             "target": "CallSet",
-            "targetKey": "calls_ids",
-            "sourceKey": "callSet_id",
+            "targetKey": "calls_IDs",
+            "sourceKey": "callSet_ID",
             "keysIn": "Call",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "genotypeMetadata": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "call",
             "target": "GenotypeMetadata",
-            "targetKey": "call_id",
-            "sourceKey": "genotypeMetadata_ids",
+            "targetKey": "call_ID",
+            "sourceKey": "genotypeMetadata_IDs",
             "keysIn": "Call",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "variant": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "calls",
             "target": "Variant",
-            "targetKey": "calls_ids",
-            "sourceKey": "variant_id",
+            "targetKey": "calls_IDs",
+            "sourceKey": "variant_ID",
             "keysIn": "Call",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "variantSet": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "calls",
             "target": "VariantSet",
-            "targetKey": "calls_ids",
-            "sourceKey": "variantSet_id",
+            "targetKey": "calls_IDs",
+            "sourceKey": "variantSet_ID",
             "keysIn": "Call",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "callDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

@@ -1,9 +1,9 @@
 {
     "model": "ExternalReference",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "externalReferenceDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a reference"
         },
         "externalID": {
@@ -14,22 +14,22 @@
             "type": "String",
             "description": "An identifier for the source system or database of this reference"
         },
-        "cross_id": "String",
-        "crossingProject_id": "String",
-        "germplasm_id": "String",
-        "germplasmAttribute_id": "String",
-        "germplasmAttributeValue_id": "String",
-        "image_id": "String",
-        "method_id": "String",
-        "observation_id": "String",
-        "observationUnit_id": "String",
-        "observationVariable_id": "String",
-        "pedigreeNode_id": "String",
-        "plannedCross_id": "String",
-        "scale_id": "String",
-        "seedLot_id": "String",
-        "seedLotTransaction_id": "String",
-        "trait_id": "String"
+        "cross_ID": "String",
+        "crossingProject_ID": "String",
+        "germplasm_ID": "String",
+        "germplasmAttribute_ID": "String",
+        "germplasmAttributeValue_ID": "String",
+        "image_ID": "String",
+        "method_ID": "String",
+        "observation_ID": "String",
+        "observationUnit_ID": "String",
+        "observationVariable_ID": "String",
+        "pedigreeNode_ID": "String",
+        "plannedCross_ID": "String",
+        "scale_ID": "String",
+        "seedLot_ID": "String",
+        "seedLotTransaction_ID": "String",
+        "trait_ID": "String"
     },
     "associations": {
         "cross": {
@@ -37,161 +37,164 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Cross",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "cross_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "cross_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "crossingProject": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "CrossingProject",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "crossingProject_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "crossingProject_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasm": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Germplasm",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "germplasm_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "germplasm_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasmAttribute": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "GermplasmAttribute",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "germplasmAttribute_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "germplasmAttribute_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasmAttributeValue": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "GermplasmAttributeValue",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "germplasmAttributeValue_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "germplasmAttributeValue_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "image": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Image",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "image_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "image_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "method": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Method",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "method_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "method_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observation": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Observation",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "observation_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "observation_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnit": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "ObservationUnit",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "observationUnit_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "observationUnit_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationVariable": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "ObservationVariable",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "observationVariable_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "observationVariable_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pedigreeNode": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "PedigreeNode",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "pedigreeNode_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "pedigreeNode_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "plannedCross": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "PlannedCross",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "plannedCross_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "plannedCross_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "scale": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Scale",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "scale_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "scale_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "seedLot": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "seedLot",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "seedLot_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "seedLot_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "seedLotTransaction": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "SeedLotTransaction",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "seedLotTransaction_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "seedLotTransaction_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "trait": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
             "target": "Trait",
-            "targetKey": "externalReferences_ids",
-            "sourceKey": "trait_id",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "trait_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "externalReferenceDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

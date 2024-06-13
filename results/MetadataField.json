@@ -1,9 +1,9 @@
 {
     "model": "MetadataField",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "metadataFieldDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this metafield"
         },
         "dataType": {
@@ -18,7 +18,7 @@
             "type": "String",
             "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\""
         },
-        "variantset_id": "String"
+        "variantset_ID": "String"
     },
     "associations": {
         "variantset": {
@@ -26,11 +26,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "metadataFields",
             "target": "VariantSet",
-            "targetKey": "metadataFields_ids",
-            "sourceKey": "variantset_id",
+            "targetKey": "metadataFields_IDs",
+            "sourceKey": "variantset_ID",
             "keysIn": "MetadataField",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "metadataFieldDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

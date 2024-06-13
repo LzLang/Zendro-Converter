@@ -1,13 +1,13 @@
 {
     "model": "Sibling",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "siblingDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a sibling"
         },
-        "siblingGermplasm_id": "String",
-        "pedigreeNode_id": "String"
+        "siblingGermplasm_ID": "String",
+        "pedigreeNode_ID": "String"
     },
     "associations": {
         "siblingGermplasm": {
@@ -15,21 +15,24 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "siblingPedigreeNodes",
             "target": "Germplasm",
-            "targetKey": "siblingPedigreeNodes_ids",
-            "sourceKey": "siblingGermplasm_id",
+            "targetKey": "siblingPedigreeNodes_IDs",
+            "sourceKey": "siblingGermplasm_ID",
             "keysIn": "Sibling",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pedigreeNode": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "siblings",
             "target": "PedigreeNode",
-            "targetKey": "siblings_id",
-            "sourceKey": "pedigreeNode_id",
+            "targetKey": "siblings_ID",
+            "sourceKey": "pedigreeNode_ID",
             "keysIn": "Sibling",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "siblingDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

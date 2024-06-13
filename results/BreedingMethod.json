@@ -1,9 +1,9 @@
 {
     "model": "BreedingMethod",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "breedingMethodDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for this breeding method"
         },
         "abbreviation": {
@@ -18,8 +18,8 @@
             "type": "String",
             "description": "human readable description of the breeding method"
         },
-        "germplasm_ids": "[ String ]",
-        "pedigreeNodes_ids": "[ String ]"
+        "germplasm_IDs": "[ String ]",
+        "pedigreeNodes_IDs": "[ String ]"
     },
     "associations": {
         "germplasm": {
@@ -27,21 +27,24 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "breedingMethod",
             "target": "Germplasm",
-            "targetKey": "breedingMethod_id",
-            "sourceKey": "germplasm_ids",
+            "targetKey": "breedingMethod_ID",
+            "sourceKey": "germplasm_IDs",
             "keysIn": "BreedingMethod",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pedigreeNodes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "PedigreeNode",
-            "targetKey": "germplasm_id",
-            "sourceKey": "pedigreeNodes_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "pedigreeNodes_IDs",
             "keysIn": "BreedingMethod",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "breedingMethodDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

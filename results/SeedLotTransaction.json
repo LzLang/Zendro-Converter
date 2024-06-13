@@ -1,17 +1,17 @@
 {
     "model": "SeedLotTransaction",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "seedLotTransactionDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Unique DbId for the Seed Lot Transaction"
         },
         "amount": {
             "type": "Float",
             "description": "The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed)."
         },
-        "fromSeedLot_id": "String",
-        "toSeedLot_id": "String",
+        "fromSeedLot_ID": "String",
+        "toSeedLot_ID": "String",
         "transactionDescription": {
             "type": "String",
             "description": "A general description of this Seed Lot Transaction"
@@ -24,8 +24,8 @@
             "type": "String",
             "description": "A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)"
         },
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]"
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]"
     },
     "associations": {
         "fromSeedLot": {
@@ -33,41 +33,44 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "fromSeedLotTransactions",
             "target": "SeedLot",
-            "targetKey": "fromSeedLotTransactions_ids",
-            "sourceKey": "fromSeedLot_id",
+            "targetKey": "fromSeedLotTransactions_IDs",
+            "sourceKey": "fromSeedLot_ID",
             "keysIn": "SeedLotTransaction",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "toSeedLot": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "toSeedLotTransactions",
             "target": "SeedLot",
-            "targetKey": "toSeedLotTransactions_ids",
-            "sourceKey": "toSeedLot_id",
+            "targetKey": "toSeedLotTransactions_IDs",
+            "sourceKey": "toSeedLot_ID",
             "keysIn": "SeedLotTransaction",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLotTransaction",
             "target": "AdditionalInfo",
-            "targetKey": "seedLotTransaction_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "seedLotTransaction_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "SeedLotTransaction",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLotTransaction",
             "target": "ExternalReference",
-            "targetKey": "seedLotTransaction_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "seedLotTransaction_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "SeedLotTransaction",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "seedLotTransactionDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

@@ -1,9 +1,9 @@
 {
     "model": "Germplasm",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "germplasmDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below."
         },
         "accessionNumber": {
@@ -22,8 +22,8 @@
             "type": "String",
             "description": "Supplemental text description for 'biologicalStatusOfAccessionCode'"
         },
-        "breedingMethod_id": "String",
-        "pedigreeNode_id": "String",
+        "breedingMethod_ID": "String",
+        "pedigreeNode_ID": "String",
         "collection": {
             "type": "String",
             "description": "A specific panel/collection/population name this germplasm belongs to."
@@ -96,20 +96,20 @@
             "type": "String",
             "description": "The authority organization responsible for tracking and maintaining the subtaxon information\n\nMCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level."
         },
-        "samples_ids": "[ String ]",
-        "attributeValues_ids": "[ String ]",
-        "progenyPedigreeNodes_ids": "[ String ]",
-        "parentPedigreeNodes_ids": "[ String ]",
-        "siblingPedigreeNodes_ids": "[ String ]",
-        "observations_ids": "[ String ]",
-        "observationUnits_ids": "[ String ]",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "donors_id": "String",
-        "germplasmOrigin_id": "String",
-        "storageTypes_id": "String",
-        "synonyms_ids": "[ String ]",
-        "taxonIds_ids": "[ String ]"
+        "samples_IDs": "[ String ]",
+        "attributeValues_IDs": "[ String ]",
+        "progenyPedigreeNodes_IDs": "[ String ]",
+        "parentPedigreeNodes_IDs": "[ String ]",
+        "siblingPedigreeNodes_IDs": "[ String ]",
+        "observations_IDs": "[ String ]",
+        "observationUnits_IDs": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "donors_ID": "String",
+        "germplasmOrigin_ID": "String",
+        "storageTypes_ID": "String",
+        "synonyms_IDs": "[ String ]",
+        "taxonIds_IDs": "[ String ]"
     },
     "associations": {
         "breedingMethod": {
@@ -117,161 +117,164 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "BreedingMethod",
-            "targetKey": "germplasm_ids",
-            "sourceKey": "breedingMethod_id",
+            "targetKey": "germplasm_IDs",
+            "sourceKey": "breedingMethod_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pedigreeNode": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "PedigreeNode",
-            "targetKey": "germplasm_id",
-            "sourceKey": "pedigreeNode_id",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "pedigreeNode_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "samples": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "Sample",
-            "targetKey": "germplasm_id",
-            "sourceKey": "samples_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "samples_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "attributeValues": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "GermplasmAttributeValue",
-            "targetKey": "germplasm_id",
-            "sourceKey": "attributeValues_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "attributeValues_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "progenyPedigreeNodes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parentGermplasm",
             "target": "Parent",
-            "targetKey": "parentGermplasm_id",
-            "sourceKey": "progenyPedigreeNodes_ids",
+            "targetKey": "parentGermplasm_ID",
+            "sourceKey": "progenyPedigreeNodes_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "parentPedigreeNodes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "progenyGermplasm",
             "target": "Progeny",
-            "targetKey": "progenyGermplasm_id",
-            "sourceKey": "parentPedigreeNodes_ids",
+            "targetKey": "progenyGermplasm_ID",
+            "sourceKey": "parentPedigreeNodes_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "siblingPedigreeNodes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "siblingGermplasm",
             "target": "PedigreeNode",
-            "targetKey": "siblingGermplasm_id",
-            "sourceKey": "siblingPedigreeNodes_ids",
+            "targetKey": "siblingGermplasm_ID",
+            "sourceKey": "siblingPedigreeNodes_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observations": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "Observation",
-            "targetKey": "germplasm_id",
-            "sourceKey": "observations_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "observations_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnits": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "ObservationUnit",
-            "targetKey": "germplasm_id",
-            "sourceKey": "observationUnits_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "observationUnits_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "AdditionalInfo",
-            "targetKey": "germplasm_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "ExternalReference",
-            "targetKey": "germplasm_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "donors": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasms",
             "target": "Donor",
-            "targetKey": "germplasms_id",
-            "sourceKey": "donors_id",
+            "targetKey": "germplasms_ID",
+            "sourceKey": "donors_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasmOrigin": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasms",
             "target": "GermplasmOrigin",
-            "targetKey": "germplasms_ids",
-            "sourceKey": "germplasmOrigin_id",
+            "targetKey": "germplasms_IDs",
+            "sourceKey": "germplasmOrigin_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "storageTypes": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasms",
             "target": "StorageType",
-            "targetKey": "germplasms_ids",
-            "sourceKey": "storageTypes_id",
+            "targetKey": "germplasms_IDs",
+            "sourceKey": "storageTypes_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "synonyms": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "Synonym",
-            "targetKey": "germplasm_id",
-            "sourceKey": "synonyms_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "synonyms_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "taxonIds": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasm",
             "target": "TaxonId",
-            "targetKey": "germplasm_id",
-            "sourceKey": "taxonIds_ids",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "taxonIds_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "germplasmDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

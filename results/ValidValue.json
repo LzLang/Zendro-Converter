@@ -1,9 +1,9 @@
 {
     "model": "ValidValue",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "validValueDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a valid value"
         },
         "maximumValue": {
@@ -14,8 +14,8 @@
             "type": "String",
             "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC."
         },
-        "categories_id": "String",
-        "scales_ids": "[ String ]"
+        "categories_ID": "String",
+        "scales_IDs": "[ String ]"
     },
     "associations": {
         "categories": {
@@ -23,21 +23,24 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "validValues",
             "target": "Category",
-            "targetKey": "validValues_id",
-            "sourceKey": "categories_id",
+            "targetKey": "validValues_ID",
+            "sourceKey": "categories_ID",
             "keysIn": "ValidValue",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "scales": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "validValues",
             "target": "Scale",
-            "targetKey": "validValues_id",
-            "sourceKey": "scales_ids",
+            "targetKey": "validValues_ID",
+            "sourceKey": "scales_IDs",
             "keysIn": "ValidValue",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "validValueDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

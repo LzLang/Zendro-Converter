@@ -1,9 +1,9 @@
 {
     "model": "Taxon",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "taxonDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a taxon"
         },
         "sourceName": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider"
         },
-        "germplasm_id": "String"
+        "germplasm_ID": "String"
     },
     "associations": {
         "germplasm": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "taxonIds",
             "target": "Germplasm",
-            "targetKey": "taxonIds_id",
-            "sourceKey": "germplasm_id",
+            "targetKey": "taxonIds_ID",
+            "sourceKey": "germplasm_ID",
             "keysIn": "Taxon",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "taxonDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

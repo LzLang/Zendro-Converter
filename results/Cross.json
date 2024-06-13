@@ -1,9 +1,9 @@
 {
     "model": "Cross",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "crossDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a cross"
         },
         "crossName": {
@@ -14,14 +14,14 @@
             "type": "String",
             "description": "the type of cross"
         },
-        "crossingProject_id": "String",
-        "plannedCross_id": "String",
-        "observationUnits_ids": "[ String ]",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "crossAttributes_ids": "[ String ]",
-        "parents_id": "String",
-        "pollinationEvents_ids": "[ String ]"
+        "crossingProject_ID": "String",
+        "plannedCross_ID": "String",
+        "observationUnits_IDs": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "crossAttributes_IDs": "[ String ]",
+        "parents_ID": "String",
+        "pollinationEvents_IDs": "[ String ]"
     },
     "associations": {
         "crossingProject": {
@@ -29,81 +29,84 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "crosses",
             "target": "CrossingProject",
-            "targetKey": "crosses_ids",
-            "sourceKey": "crossingProject_id",
+            "targetKey": "crosses_IDs",
+            "sourceKey": "crossingProject_ID",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "plannedCross": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "crosss",
             "target": "PlannedCross",
-            "targetKey": "crosss_ids",
-            "sourceKey": "plannedCross_id",
+            "targetKey": "crosss_IDs",
+            "sourceKey": "plannedCross_ID",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnits": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "cross",
             "target": "ObservationUnit",
-            "targetKey": "cross_id",
-            "sourceKey": "observationUnits_ids",
+            "targetKey": "cross_ID",
+            "sourceKey": "observationUnits_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "cross",
             "target": "AdditionalInfo",
-            "targetKey": "cross_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "cross_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "cross",
             "target": "ExternalReference",
-            "targetKey": "cross_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "cross_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "crossAttributes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "cross",
             "target": "CrossAttribute",
-            "targetKey": "cross_id",
-            "sourceKey": "crossAttributes_ids",
+            "targetKey": "cross_ID",
+            "sourceKey": "crossAttributes_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "parents": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crosses",
             "target": "Parent",
-            "targetKey": "crosses_id",
-            "sourceKey": "parents_id",
+            "targetKey": "crosses_ID",
+            "sourceKey": "parents_ID",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pollinationEvents": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "cross",
             "target": "PollinationEvent",
-            "targetKey": "cross_id",
-            "sourceKey": "pollinationEvents_ids",
+            "targetKey": "cross_ID",
+            "sourceKey": "pollinationEvents_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "crossDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

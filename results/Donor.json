@@ -1,9 +1,9 @@
 {
     "model": "Donor",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "donorDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a donor"
         },
         "donorAccessionNumber": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard."
         },
-        "germplasms_id": "String"
+        "germplasms_ID": "String"
     },
     "associations": {
         "germplasms": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "donors",
             "target": "Germplasm",
-            "targetKey": "donors_id",
-            "sourceKey": "germplasms_id",
+            "targetKey": "donors_ID",
+            "sourceKey": "germplasms_ID",
             "keysIn": "Donor",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "donorDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

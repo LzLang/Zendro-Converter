@@ -1,16 +1,16 @@
 {
     "model": "PlannedCross",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "plannedCrossDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a planned cross"
         },
         "crossType": {
             "type": "String",
             "description": "the type of cross"
         },
-        "crossingProject_id": "String",
+        "crossingProject_ID": "String",
         "plannedCrossName": {
             "type": "String",
             "description": "the human readable name for a planned cross"
@@ -19,10 +19,10 @@
             "type": "String",
             "description": "The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED')."
         },
-        "crosses_ids": "[ String ]",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "parents_id": "String"
+        "crosses_IDs": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "parents_ID": "String"
     },
     "associations": {
         "crossingProject": {
@@ -30,51 +30,54 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "plannedCrosses",
             "target": "CrossingProject",
-            "targetKey": "plannedCrosses_ids",
-            "sourceKey": "crossingProject_id",
+            "targetKey": "plannedCrosses_IDs",
+            "sourceKey": "crossingProject_ID",
             "keysIn": "PlannedCross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "crosses": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "plannedCross",
             "target": "Cross",
-            "targetKey": "plannedCross_id",
-            "sourceKey": "crosses_ids",
+            "targetKey": "plannedCross_ID",
+            "sourceKey": "crosses_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "plannedCross",
             "target": "AdditionalInfo",
-            "targetKey": "plannedCross_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "plannedCross_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "plannedCross",
             "target": "externalReferences",
-            "targetKey": "plannedCross_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "plannedCross_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "parents": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "plannedCrosses",
             "target": "Parent",
-            "targetKey": "plannedCrosses_id",
-            "sourceKey": "parents_id",
+            "targetKey": "plannedCrosses_ID",
+            "sourceKey": "parents_ID",
             "keysIn": "PlannedCross",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "plannedCrossDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

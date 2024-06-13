@@ -1,9 +1,9 @@
 {
     "model": "EventParameter",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "eventParameterDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a event parameter"
         },
         "code": {
@@ -34,7 +34,7 @@
             "type": "[ String ]",
             "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated."
         },
-        "event_id": "String"
+        "event_ID": "String"
     },
     "associations": {
         "event": {
@@ -42,11 +42,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "eventParameters",
             "target": "Event",
-            "targetKey": "eventParameters_ids",
-            "sourceKey": "event_id",
+            "targetKey": "eventParameters_IDs",
+            "sourceKey": "event_ID",
             "keysIn": "EventParameter",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "eventParameterDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

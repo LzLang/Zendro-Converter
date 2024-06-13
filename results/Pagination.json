@@ -1,9 +1,9 @@
 {
     "model": "Pagination",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "paginationDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this pagination"
         },
         "dimension": {
@@ -26,7 +26,7 @@
             "type": "Int",
             "description": "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br/>totalPages = CEILING( totalCount / requested_page_size)"
         },
-        "alleleMatrices_id": "String"
+        "alleleMatrices_ID": "String"
     },
     "associations": {
         "alleleMatrices": {
@@ -34,11 +34,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "pagination",
             "target": "AlleleMatrix",
-            "targetKey": "pagination_ids",
-            "sourceKey": "alleleMatrices_id",
+            "targetKey": "pagination_IDs",
+            "sourceKey": "alleleMatrices_ID",
             "keysIn": "Pagination",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "paginationDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

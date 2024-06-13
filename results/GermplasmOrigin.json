@@ -1,17 +1,17 @@
 {
     "model": "GermplasmOrigin",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "germplasmOriginDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": ""
         },
         "coordinateUncertainty": {
             "type": "String",
             "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown."
         },
-        "coordinates_ids": "[ String ]",
-        "germplasms_ids": "[ String ]"
+        "coordinates_IDs": "[ String ]",
+        "germplasms_IDs": "[ String ]"
     },
     "associations": {
         "coordinates": {
@@ -19,21 +19,24 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmOrigin",
             "target": "Coordinate",
-            "targetKey": "germplasmOrigin_id",
-            "sourceKey": "coordinates_ids",
+            "targetKey": "germplasmOrigin_ID",
+            "sourceKey": "coordinates_IDs",
             "keysIn": "GermplasmOrigin",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasms": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmOrigin",
             "target": "Germplasm",
-            "targetKey": "germplasmOrigin_id",
-            "sourceKey": "germplasms_ids",
+            "targetKey": "germplasmOrigin_ID",
+            "sourceKey": "germplasms_IDs",
             "keysIn": "GermplasmOrigin",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "germplasmOriginDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

@@ -1,8 +1,8 @@
 {
     "model": "ReferenceSet",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "additionalInfo_ids": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
         "assemblyPUI": {
             "type": "String",
             "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`."
@@ -15,7 +15,7 @@
             "type": "String",
             "description": "Optional free text description of this reference set."
         },
-        "externalReferences_ids": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
         "isDerived": {
             "type": "Boolean",
             "description": "A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`)."
@@ -24,8 +24,8 @@
             "type": "String",
             "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string."
         },
-        "referenceSetDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The unique identifier for a ReferenceSet"
         },
         "referenceSetName": {
@@ -36,15 +36,15 @@
             "type": "[ String ]",
             "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`."
         },
-        "sourceGermplasm_ids": "[ String ]",
+        "sourceGermplasm_IDs": "[ String ]",
         "sourceURI": {
             "type": "String",
             "description": "Specifies a FASTA format file/string."
         },
-        "species_id": "String",
-        "references_ids": "[ String ]",
-        "variants_ids": "[ String ]",
-        "variantSets_ids": "[ String ]"
+        "species_ID": "String",
+        "references_IDs": "[ String ]",
+        "variants_IDs": "[ String ]",
+        "variantSets_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -52,71 +52,74 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "AdditionalInfo",
-            "targetKey": "referenceSet_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceset",
             "target": "ExternalReference",
-            "targetKey": "referenceset_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "referenceset_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "sourceGermplasm": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceset",
             "target": "SourceGermplasm",
-            "targetKey": "referenceset_id",
-            "sourceKey": "sourceGermplasm_ids",
+            "targetKey": "referenceset_ID",
+            "sourceKey": "sourceGermplasm_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "species": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceset",
             "target": "Species",
-            "targetKey": "referenceset_id",
-            "sourceKey": "species_id",
+            "targetKey": "referenceset_ID",
+            "sourceKey": "species_ID",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "references": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "Reference",
-            "targetKey": "referenceSet_id",
-            "sourceKey": "references_ids",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "references_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "variants": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "Variant",
-            "targetKey": "referenceSet_id",
-            "sourceKey": "variants_ids",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "variants_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "variantSets": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "referenceSet",
             "target": "VariantSet",
-            "targetKey": "referenceSet_id",
-            "sourceKey": "variantSets_ids",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "variantSets_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "referenceSetDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

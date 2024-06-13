@@ -1,12 +1,12 @@
 {
     "model": "Parent",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "parentDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a parent"
         },
-        "parentGermplasm_id": "String",
+        "parentGermplasm_ID": "String",
         "germplasmName": {
             "type": "String",
             "description": "the human readable name for a germplasm"
@@ -23,10 +23,10 @@
             "type": "String",
             "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc."
         },
-        "crosses_id": "String",
-        "crossingProjects_id": "String",
-        "pedigreeNode_id": "String",
-        "plannedCrosses_id": "String"
+        "crosses_ID": "String",
+        "crossingProjects_ID": "String",
+        "pedigreeNode_ID": "String",
+        "plannedCrosses_ID": "String"
     },
     "associations": {
         "parentGermplasm": {
@@ -34,51 +34,54 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "progenyPedigreeNodes",
             "target": "Germplasm",
-            "targetKey": "progenyPedigreeNodes_ids",
-            "sourceKey": "parentGermplasm_id",
+            "targetKey": "progenyPedigreeNodes_IDs",
+            "sourceKey": "parentGermplasm_ID",
             "keysIn": "Parent",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "crosses": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parents",
             "target": "Cross",
-            "targetKey": "parents_id",
-            "sourceKey": "crosses_id",
+            "targetKey": "parents_ID",
+            "sourceKey": "crosses_ID",
             "keysIn": "Parent",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "crossingProjects": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "potentialParents",
             "target": "crossingProjects",
-            "targetKey": "potentialParents_id",
-            "sourceKey": "crossingProjects_id",
+            "targetKey": "potentialParents_ID",
+            "sourceKey": "crossingProjects_ID",
             "keysIn": "Parent",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "pedigreeNode": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parents",
             "target": "PedigreeNode",
-            "targetKey": "parents_id",
-            "sourceKey": "pedigreeNode_id",
+            "targetKey": "parents_ID",
+            "sourceKey": "pedigreeNode_ID",
             "keysIn": "Parent",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "plannedCrosses": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parents",
             "target": "PlannedCross",
-            "targetKey": "parents_id",
-            "sourceKey": "plannedCrosses_id",
+            "targetKey": "parents_ID",
+            "sourceKey": "plannedCrosses_ID",
             "keysIn": "Parent",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "parentDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

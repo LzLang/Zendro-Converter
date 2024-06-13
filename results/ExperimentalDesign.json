@@ -1,9 +1,9 @@
 {
     "model": "ExperimentalDesign",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "experimentalDesignDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this experimental design"
         },
         "PUI": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'."
         },
-        "study_id": "String"
+        "study_ID": "String"
     },
     "associations": {
         "study": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "experimentalDesign",
             "target": "Study",
-            "targetKey": "experimentalDesign_id",
-            "sourceKey": "study_id",
+            "targetKey": "experimentalDesign_ID",
+            "sourceKey": "study_ID",
             "keysIn": "ExperimentalDesign",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "experimentalDesignDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

@@ -1,9 +1,9 @@
 {
     "model": "GenomeMap",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "additionalInfo_ids": "[ String ]",
-        "markerPositions_ids": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "markerPositions_IDs": "[ String ]",
         "comments": {
             "type": "String",
             "description": "Additional comments about a `GenomeMap`"
@@ -20,8 +20,8 @@
             "type": "Int",
             "description": "The number of linkage groups present in a `GenomeMap`"
         },
-        "genomeMapDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The unique identifier for a `GenomeMap`"
         },
         "mapName": {
@@ -59,21 +59,24 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "genomeMap",
             "target": "AdditionalInfo",
-            "targetKey": "genomeMap_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "genomeMap_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "GenomeMap",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "markerPositions": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "map",
             "target": "MarkerPosition",
-            "targetKey": "map_id",
-            "sourceKey": "markerPositions_ids",
+            "targetKey": "map_ID",
+            "sourceKey": "markerPositions_IDs",
             "keysIn": "GenomeMap",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "genomeMapDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

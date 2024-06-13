@@ -1,9 +1,9 @@
 {
     "model": "StorageType",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "storageTypeDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a germplasm storage type"
         },
         "code": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "A supplemental text description of the storage type"
         },
-        "germplasms_ids": "[ String ]"
+        "germplasms_IDs": "[ String ]"
     },
     "associations": {
         "germplasms": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "storageTypes",
             "target": "Germplasm",
-            "targetKey": "storageTypes_id",
-            "sourceKey": "germplasms_ids",
+            "targetKey": "storageTypes_ID",
+            "sourceKey": "germplasms_IDs",
             "keysIn": "StorageType",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "storageTypeDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

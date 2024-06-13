@@ -1,18 +1,18 @@
 {
     "model": "Trial",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
         "active": {
             "type": "Boolean",
             "description": "A flag to indicate if a Trial is currently active and ongoing"
         },
-        "additionalInfo_ids": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
         "commonCropName": {
             "type": "String",
             "description": "Common name for the crop associated with this trial"
         },
-        "contacts_ids": "[ String ]",
-        "datasetAuthorships_ids": "[ String ]",
+        "contacts_IDs": "[ String ]",
+        "datasetAuthorships_IDs": "[ String ]",
         "documentationURL": {
             "type": "String",
             "description": "A URL to the human readable documentation of an object"
@@ -21,16 +21,16 @@
             "type": "String",
             "description": "The date this trial ends"
         },
-        "externalReferences_ids": "[ String ]",
-        "program_id": "String",
-        "studies_ids": "[ String ]",
-        "publications_ids": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "program_ID": "String",
+        "studies_IDs": "[ String ]",
+        "publications_IDs": "[ String ]",
         "startDate": {
             "type": "String",
             "description": "The date this trial started"
         },
-        "trialDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies a trial\n\nMIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution."
         },
         "trialDescription": {
@@ -45,9 +45,9 @@
             "type": "String",
             "description": "A permanent identifier for a trial. Could be DOI or other URI formatted identifier."
         },
-        "plates_ids": "[ String ]",
-        "samples_ids": "[ String ]",
-        "observationUnits_ids": "[ String ]"
+        "plates_IDs": "[ String ]",
+        "samples_IDs": "[ String ]",
+        "observationUnits_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -55,101 +55,104 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "AdditionalInfo",
-            "targetKey": "trial_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "contacts": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Contact",
-            "targetKey": "trial_id",
-            "sourceKey": "contacts_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "contacts_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "datasetAuthorships": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "DatasetAuthorship",
-            "targetKey": "trial_id",
-            "sourceKey": "datasetAuthorships_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "datasetAuthorships_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "ExternalReference",
-            "targetKey": "trial_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "program": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "trials",
             "target": "Program",
-            "targetKey": "trials_ids",
-            "sourceKey": "program_id",
+            "targetKey": "trials_IDs",
+            "sourceKey": "program_ID",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "studies": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Study",
-            "targetKey": "trial_id",
-            "sourceKey": "studies_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "studies_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "publications": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Publication",
-            "targetKey": "trial_id",
-            "sourceKey": "publications_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "publications_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "plates": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Plate",
-            "targetKey": "trial_id",
-            "sourceKey": "plates_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "plates_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "samples": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "Sample",
-            "targetKey": "trial_id",
-            "sourceKey": "samples_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "samples_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnits": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "trial",
             "target": "ObservationUnit",
-            "targetKey": "trial_id",
-            "sourceKey": "observationUnits_ids",
+            "targetKey": "trial_ID",
+            "sourceKey": "observationUnits_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "trialDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

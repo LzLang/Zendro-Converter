@@ -1,9 +1,9 @@
 {
     "model": "ObservationLevelRelationship",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "observationLevelRelationshipDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier of an observation level relationship"
         },
         "levelCode": {
@@ -22,7 +22,7 @@
             "type": "String",
             "description": "The ID which uniquely identifies an observation unit\n<br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. \n<br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response."
         },
-        "observationUnitPositions_id": "String"
+        "observationUnitPositions_ID": "String"
     },
     "associations": {
         "observationUnitPositions": {
@@ -30,11 +30,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "observationLevelRelationships",
             "target": "ObservationUnitPosition",
-            "targetKey": "observationLevelRelationships_id",
-            "sourceKey": "observationUnitPositions_id",
+            "targetKey": "observationLevelRelationships_ID",
+            "sourceKey": "observationUnitPositions_ID",
             "keysIn": "ObservationLevelRelationship",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "observationLevelRelationshipDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

@@ -1,9 +1,9 @@
 {
     "model": "LastUpdate",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "lastUpdateDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this update"
         },
         "timestamp": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": ""
         },
-        "study_id": "String"
+        "study_ID": "String"
     },
     "associations": {
         "study": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "lastUpdate",
             "target": "Study",
-            "targetKey": "lastUpdate_id",
-            "sourceKey": "study_id",
+            "targetKey": "lastUpdate_ID",
+            "sourceKey": "study_ID",
             "keysIn": "LastUpdate",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "lastUpdateDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

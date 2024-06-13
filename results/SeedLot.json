@@ -1,9 +1,9 @@
 {
     "model": "SeedLot",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "seedLotDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Unique DbId for the Seed Lot"
         },
         "amount": {
@@ -18,8 +18,8 @@
             "type": "String",
             "description": "The timestamp for the last update to this Seed Lot (including transactions)"
         },
-        "location_id": "String",
-        "program_id": "String",
+        "location_ID": "String",
+        "program_ID": "String",
         "seedLotDescription": {
             "type": "String",
             "description": "A general description of this Seed Lot"
@@ -40,12 +40,12 @@
             "type": "String",
             "description": "A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)"
         },
-        "fromSeedLotTransactions_ids": "[ String ]",
-        "toSeedLotTransactions_ids": "[ String ]",
-        "observationUnits_ids": "[ String ]",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "contentMixture_id": "String"
+        "fromSeedLotTransactions_IDs": "[ String ]",
+        "toSeedLotTransactions_IDs": "[ String ]",
+        "observationUnits_IDs": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "contentMixture_ID": "String"
     },
     "associations": {
         "location": {
@@ -53,81 +53,84 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLots",
             "target": "Location",
-            "targetKey": "seedLots_ids",
-            "sourceKey": "location_id",
+            "targetKey": "seedLots_IDs",
+            "sourceKey": "location_ID",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "program": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLots",
             "target": "Program",
-            "targetKey": "seedLots_ids",
-            "sourceKey": "program_id",
+            "targetKey": "seedLots_IDs",
+            "sourceKey": "program_ID",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "fromSeedLotTransactions": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "fromSeedLot",
             "target": "SeedLotTransaction",
-            "targetKey": "fromSeedLot_id",
-            "sourceKey": "fromSeedLotTransactions_ids",
+            "targetKey": "fromSeedLot_ID",
+            "sourceKey": "fromSeedLotTransactions_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "toSeedLotTransactions": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "toSeedLot",
             "target": "SeedLotTransaction",
-            "targetKey": "toSeedLot_id",
-            "sourceKey": "toSeedLotTransactions_ids",
+            "targetKey": "toSeedLot_ID",
+            "sourceKey": "toSeedLotTransactions_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnits": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLot",
             "target": "ObservationUnit",
-            "targetKey": "seedLot_id",
-            "sourceKey": "observationUnits_ids",
+            "targetKey": "seedLot_ID",
+            "sourceKey": "observationUnits_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLot",
             "target": "AdditionalInfo",
-            "targetKey": "seedLot_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "seedLot_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLot",
             "target": "ExternalReference",
-            "targetKey": "seedLot_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "seedLot_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "contentMixture": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLot",
             "target": "ContentMixture",
-            "targetKey": "seedLot_id",
-            "sourceKey": "contentMixture_id",
+            "targetKey": "seedLot_ID",
+            "sourceKey": "contentMixture_ID",
             "keysIn": "SeedLot",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "seedLotDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

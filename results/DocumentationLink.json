@@ -1,9 +1,9 @@
 {
     "model": "DocumentationLink",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "documentationLinkDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a documentation link"
         },
         "URL": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": ""
         },
-        "ontologyReference_id": "String"
+        "ontologyReference_ID": "String"
     },
     "associations": {
         "ontologyReference": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "documentationLinks",
             "target": "OntologyReference",
-            "targetKey": "documentationLinks_ids",
-            "sourceKey": "ontologyReference_id",
+            "targetKey": "documentationLinks_IDs",
+            "sourceKey": "ontologyReference_ID",
             "keysIn": "DocumentationLink",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "documentationLinkDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

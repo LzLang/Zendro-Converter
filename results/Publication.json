@@ -1,16 +1,16 @@
 {
     "model": "Publication",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "publicationDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": ""
         },
         "publicationReference": {
             "type": "String",
             "description": ""
         },
-        "trial_id": "String"
+        "trial_ID": "String"
     },
     "associations": {
         "trial": {
@@ -18,11 +18,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "publications",
             "target": "Trial",
-            "targetKey": "publications_ids",
-            "sourceKey": "trial_id",
+            "targetKey": "publications_IDs",
+            "sourceKey": "trial_ID",
             "keysIn": "Publication",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "publicationDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

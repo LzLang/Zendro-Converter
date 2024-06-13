@@ -1,23 +1,23 @@
 {
     "model": "Observation",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "observationDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies an observation"
         },
         "collector": {
             "type": "String",
             "description": "The name or identifier of the entity which collected the observation"
         },
-        "germplasm_id": "String",
+        "germplasm_ID": "String",
         "observationTimeStamp": {
             "type": "String",
             "description": "The date and time when this observation was made"
         },
-        "observationUnit_id": "String",
-        "observationVariable_id": "String",
-        "study_id": "String",
+        "observationUnit_ID": "String",
+        "observationVariable_ID": "String",
+        "study_ID": "String",
         "uploadedBy": {
             "type": "String",
             "description": "The name or id of the user who uploaded the observation to the database system"
@@ -26,11 +26,11 @@
             "type": "String",
             "description": "The value of the data collected as an observation"
         },
-        "images_id": "String",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "geoCoordinates_id": "String",
-        "season_id": "String"
+        "images_ID": "String",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "geoCoordinates_ID": "String",
+        "season_ID": "String"
     },
     "associations": {
         "germplasm": {
@@ -38,91 +38,94 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Germplasm",
-            "targetKey": "observations_ids",
-            "sourceKey": "germplasm_id",
+            "targetKey": "observations_IDs",
+            "sourceKey": "germplasm_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationUnit": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "ObservationUnit",
-            "targetKey": "observations_ids",
-            "sourceKey": "observationUnit_id",
+            "targetKey": "observations_IDs",
+            "sourceKey": "observationUnit_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationVariable": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "ObservationVariable",
-            "targetKey": "observations_ids",
-            "sourceKey": "observationVariable_id",
+            "targetKey": "observations_IDs",
+            "sourceKey": "observationVariable_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "study": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Study",
-            "targetKey": "observations_ids",
-            "sourceKey": "study_id",
+            "targetKey": "observations_IDs",
+            "sourceKey": "study_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "images": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Image",
-            "targetKey": "observations_id",
-            "sourceKey": "images_id",
+            "targetKey": "observations_ID",
+            "sourceKey": "images_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observation",
             "target": "AdditionalInfo",
-            "targetKey": "observation_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "observation_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observation",
             "target": "ExternalReference",
-            "targetKey": "observation_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "observation_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "geoCoordinates": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Coordinate",
-            "targetKey": "observations_ids",
-            "sourceKey": "geoCoordinates_id",
+            "targetKey": "observations_IDs",
+            "sourceKey": "geoCoordinates_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "season": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Season",
-            "targetKey": "observations_ids",
-            "sourceKey": "season_id",
+            "targetKey": "observations_IDs",
+            "sourceKey": "season_ID",
             "keysIn": "Observation",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "observationDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

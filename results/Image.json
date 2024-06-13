@@ -1,9 +1,9 @@
 {
     "model": "Image",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "imageDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The unique identifier of an image"
         },
         "copyright": {
@@ -50,11 +50,11 @@
             "type": "String",
             "description": "The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc"
         },
-        "observationUnit_id": "String",
-        "observations_id": "String",
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "imageLocation_id": "String"
+        "observationUnit_ID": "String",
+        "observations_ID": "String",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "imageLocation_ID": "String"
     },
     "associations": {
         "observationUnit": {
@@ -62,51 +62,54 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "images",
             "target": "ObservationUnit",
-            "targetKey": "images_ids",
-            "sourceKey": "observationUnit_id",
+            "targetKey": "images_IDs",
+            "sourceKey": "observationUnit_ID",
             "keysIn": "Image",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observations": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "images",
             "target": "Observation",
-            "targetKey": "images_id",
-            "sourceKey": "observations_id",
+            "targetKey": "images_ID",
+            "sourceKey": "observations_ID",
             "keysIn": "Image",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "additionalInfo": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "image",
             "target": "AdditionalInfo",
-            "targetKey": "image_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "image_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Image",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "image",
             "target": "ExternalReference",
-            "targetKey": "image_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "image_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Image",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "imageLocation": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "images",
             "target": "ImageLocation",
-            "targetKey": "images_ids",
-            "sourceKey": "imageLocation_id",
+            "targetKey": "images_IDs",
+            "sourceKey": "imageLocation_ID",
             "keysIn": "Image",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "imageDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

@@ -1,9 +1,9 @@
 {
     "model": "DataMatrix",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "dataMatrixDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The ID which uniquely identifies this data matrix"
         },
         "dataMatrix": {
@@ -22,7 +22,7 @@
             "type": "String",
             "description": "The type of field represented in this data matrix. This is intended to help parse the data out of JSON."
         },
-        "alleleMatrices_id": "String"
+        "alleleMatrices_ID": "String"
     },
     "associations": {
         "alleleMatrices": {
@@ -30,11 +30,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "dataMatrices",
             "target": "AlleleMatrix",
-            "targetKey": "dataMatrices_ids",
-            "sourceKey": "alleleMatrices_id",
+            "targetKey": "dataMatrices_IDs",
+            "sourceKey": "alleleMatrices_ID",
             "keysIn": "DataMatrix",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "dataMatrixDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

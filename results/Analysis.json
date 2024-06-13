@@ -1,9 +1,9 @@
 {
     "model": "Analysis",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "analysisDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Unique identifier for this analysis description"
         },
         "analysisName": {
@@ -30,7 +30,7 @@
             "type": "String",
             "description": "The time at which this record was last updated, in ISO 8601 format."
         },
-        "variantSet_id": "String"
+        "variantSet_ID": "String"
     },
     "associations": {
         "variantSet": {
@@ -38,11 +38,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "analysis",
             "target": "VariantSet",
-            "targetKey": "analysis_ids",
-            "sourceKey": "variantSet_id",
+            "targetKey": "analysis_IDs",
+            "sourceKey": "variantSet_ID",
             "keysIn": "Analysis",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "analysisDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

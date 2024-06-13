@@ -1,9 +1,9 @@
 {
     "model": "PollinationEvent",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "pollinationEventDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "The unique identifier for this pollination event"
         },
         "pollinationSuccessful": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "The timestamp when the pollination took place"
         },
-        "cross_id": "String"
+        "cross_ID": "String"
     },
     "associations": {
         "cross": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "pollinationEvents",
             "target": "Cross",
-            "targetKey": "pollinationEvents_ids",
-            "sourceKey": "cross_id",
+            "targetKey": "pollinationEvents_IDs",
+            "sourceKey": "cross_ID",
             "keysIn": "PollinationEvent",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "pollinationEventDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

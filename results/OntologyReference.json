@@ -1,9 +1,9 @@
 {
     "model": "OntologyReference",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "ontologyReferenceDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Ontology database unique identifier"
         },
         "ontologyName": {
@@ -14,12 +14,12 @@
             "type": "String",
             "description": "Ontology version (no specific format)"
         },
-        "germplasmAttribute_id": "String",
-        "method_id": "String",
-        "observationVariable_id": "String",
-        "scale_id": "String",
-        "trait_id": "String",
-        "documentationLinks_ids": "[ String ]"
+        "germplasmAttribute_ID": "String",
+        "method_ID": "String",
+        "observationVariable_ID": "String",
+        "scale_ID": "String",
+        "trait_ID": "String",
+        "documentationLinks_IDs": "[ String ]"
     },
     "associations": {
         "germplasmAttribute": {
@@ -27,61 +27,64 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "ontologyReference",
             "target": "GermplasmAttribute",
-            "targetKey": "ontologyReference_id",
-            "sourceKey": "germplasmAttribute_id",
+            "targetKey": "ontologyReference_ID",
+            "sourceKey": "germplasmAttribute_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "method": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "ontologyReference",
             "target": "Method",
-            "targetKey": "ontologyReference_id",
-            "sourceKey": "method_id",
+            "targetKey": "ontologyReference_ID",
+            "sourceKey": "method_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationVariable": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "ontologyReference",
             "target": "ObservationVariable",
-            "targetKey": "ontologyReference_id",
-            "sourceKey": "observationVariable_id",
+            "targetKey": "ontologyReference_ID",
+            "sourceKey": "observationVariable_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "scale": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "ontologyReference",
             "target": "Scale",
-            "targetKey": "ontologyReference_id",
-            "sourceKey": "scale_id",
+            "targetKey": "ontologyReference_ID",
+            "sourceKey": "scale_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "trait": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "ontologyReference",
             "target": "Trait",
-            "targetKey": "ontologyReference_id",
-            "sourceKey": "trait_id",
+            "targetKey": "ontologyReference_ID",
+            "sourceKey": "trait_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "documentationLinks": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "ontologyReference",
             "target": "DocumentationLink",
-            "targetKey": "ontologyReference_id",
-            "sourceKey": "documentationLinks_ids",
+            "targetKey": "ontologyReference_ID",
+            "sourceKey": "documentationLinks_IDs",
             "keysIn": "OntologyReference",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "ontologyReferenceDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

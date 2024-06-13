@@ -1,9 +1,9 @@
 {
     "model": "Category",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "categoryDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "the unique identifier for a category"
         },
         "label": {
@@ -14,7 +14,7 @@
             "type": "String",
             "description": "The actual value for a category"
         },
-        "validValues_id": "String"
+        "validValues_ID": "String"
     },
     "associations": {
         "validValues": {
@@ -22,11 +22,14 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "categories",
             "target": "ValidValue",
-            "targetKey": "categories_id",
-            "sourceKey": "validValues_id",
+            "targetKey": "categories_ID",
+            "sourceKey": "validValues_ID",
             "keysIn": "Category",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "categoryDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }

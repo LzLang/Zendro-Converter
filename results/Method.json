@@ -1,9 +1,9 @@
 {
     "model": "Method",
-    "storageType": "sql",
+    "storageType": "generic",
     "attributes": {
-        "methodDbId": {
-            "type": "String",
+        "Blub": {
+            "type": "[ Int ]",
             "description": "Method unique identifier"
         },
         "bibliographicalReference": {
@@ -30,11 +30,11 @@
             "type": "String",
             "description": "The Permanent Unique Identifier of a Method, usually in the form of a URI"
         },
-        "additionalInfo_ids": "[ String ]",
-        "externalReferences_ids": "[ String ]",
-        "ontologyReference_id": "String",
-        "germplasmAttributes_ids": "[ String ]",
-        "observationVariables_ids": "[ String ]"
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "ontologyReference_ID": "String",
+        "germplasmAttributes_IDs": "[ String ]",
+        "observationVariables_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -42,51 +42,54 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "method",
             "target": "AdditionalInfo",
-            "targetKey": "method_id",
-            "sourceKey": "additionalInfo_ids",
+            "targetKey": "method_ID",
+            "sourceKey": "additionalInfo_IDs",
             "keysIn": "Method",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "externalReferences": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "method",
             "target": "ExternalReference",
-            "targetKey": "method_id",
-            "sourceKey": "externalReferences_ids",
+            "targetKey": "method_ID",
+            "sourceKey": "externalReferences_IDs",
             "keysIn": "Method",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "ontologyReference": {
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "method",
             "target": "OntologyReference",
-            "targetKey": "method_id",
-            "sourceKey": "ontologyReference_id",
+            "targetKey": "method_ID",
+            "sourceKey": "ontologyReference_ID",
             "keysIn": "Method",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "germplasmAttributes": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "method",
             "target": "GermplasmAttribute",
-            "targetKey": "method_id",
-            "sourceKey": "germplasmAttributes_ids",
+            "targetKey": "method_ID",
+            "sourceKey": "germplasmAttributes_IDs",
             "keysIn": "Method",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         },
         "observationVariables": {
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "method",
             "target": "ObservationVariable",
-            "targetKey": "method_id",
-            "sourceKey": "observationVariables_ids",
+            "targetKey": "method_ID",
+            "sourceKey": "observationVariables_IDs",
             "keysIn": "Method",
-            "targetStorageType": "sql"
+            "targetStorageType": "generic"
         }
     },
-    "internalId": "methodDbId"
+    "internalId": {
+        "Name": "Blub",
+        "Type": "[ Int ]"
+    }
 }
