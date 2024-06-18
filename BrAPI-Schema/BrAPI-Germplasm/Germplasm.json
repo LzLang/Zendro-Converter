@@ -571,7 +571,7 @@
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "Germplasm associated to this taxon",
                     "referencedAttribute": "taxonIds",
-                    "relationshipType": "many-to-ome"
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [
