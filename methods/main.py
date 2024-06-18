@@ -187,14 +187,17 @@ def get_properties(input_model_properties, current_model):
                     target_key = f"{current_property["referencedAttribute"]}_ID"
                     source_key = f"{model_property}_IDs"
                     foreign_keys[source_key] = "[ String ]"
-                case "many-to-many":
+                case "many_to_many":
                     target_key = f"{current_property["referencedAttribute"]}_IDs"
                     source_key = f"{model_property}_IDs"
                     foreign_keys[source_key] = "[ String ]"
-                case _:
+                case "one_to_one":
                     target_key = f"{current_property["referencedAttribute"]}_ID"
                     source_key = f"{model_property}_ID"
                     foreign_keys[source_key] = "String"
+                case _:
+                    log(f"Model: {current_model}\tProperty: {model_property}\t !Wrong association type!")
+                    continue
 
             model_properties["associations"][model_property] = {
                 "type": association_relationship_type,
