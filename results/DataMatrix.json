@@ -2,7 +2,7 @@
     "model": "DataMatrix",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "dataMatrixDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies this data matrix"
         },
@@ -36,8 +36,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "dataMatrixDbId"
 }

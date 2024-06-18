@@ -2,7 +2,7 @@
     "model": "ValidValue",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "validValueDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a valid value"
         },
@@ -39,8 +39,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "validValueDbId"
 }

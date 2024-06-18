@@ -2,7 +2,7 @@
     "model": "Coordinate",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "coordinateDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for an additional info"
         },
@@ -61,8 +61,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "coordinateDbId"
 }

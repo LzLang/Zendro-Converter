@@ -2,7 +2,7 @@
     "model": "Method",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "methodDbId": {
             "type": "[ Int ]",
             "description": "Method unique identifier"
         },
@@ -88,8 +88,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "methodDbId"
 }

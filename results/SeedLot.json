@@ -2,7 +2,7 @@
     "model": "SeedLot",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "seedLotDbId": {
             "type": "[ Int ]",
             "description": "Unique DbId for the Seed Lot"
         },
@@ -129,8 +129,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "seedLotDbId"
 }

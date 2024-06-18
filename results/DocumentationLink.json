@@ -2,7 +2,7 @@
     "model": "DocumentationLink",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "documentationLinkDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a documentation link"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "documentationLinkDbId"
 }

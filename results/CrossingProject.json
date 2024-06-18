@@ -2,7 +2,7 @@
     "model": "CrossingProject",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "crossingProjectDbId": {
             "type": "[ Int ]",
             "description": "The unique identifier for a crossing project"
         },
@@ -98,8 +98,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "crossingProjectDbId"
 }

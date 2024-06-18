@@ -2,7 +2,7 @@
     "model": "MetadataField",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "metadataFieldDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies this metafield"
         },
@@ -32,8 +32,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "metadataFieldDbId"
 }

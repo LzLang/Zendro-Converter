@@ -2,7 +2,7 @@
     "model": "StorageType",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "storageTypeDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a germplasm storage type"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "storageTypeDbId"
 }

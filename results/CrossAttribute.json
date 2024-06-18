@@ -2,7 +2,7 @@
     "model": "CrossAttribute",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "crossAttributeDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a custom attributes associated with a cross"
         },
@@ -16,8 +16,5 @@
         }
     },
     "associations": {},
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "crossAttributeDbId"
 }

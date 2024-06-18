@@ -2,7 +2,7 @@
     "model": "ExternalReference",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "externalReferenceDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a reference"
         },
@@ -193,8 +193,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "externalReferenceDbId"
 }

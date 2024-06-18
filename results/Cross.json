@@ -2,7 +2,7 @@
     "model": "Cross",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "crossDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a cross"
         },
@@ -105,8 +105,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "crossDbId"
 }

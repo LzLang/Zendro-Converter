@@ -2,7 +2,7 @@
     "model": "Observation",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "observationDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies an observation"
         },
@@ -124,8 +124,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "observationDbId"
 }

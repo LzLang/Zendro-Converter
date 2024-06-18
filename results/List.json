@@ -16,7 +16,7 @@
             "description": "Timestamp when the entity was last updated"
         },
         "externalReferences_IDs": "[ String ]",
-        "Blub": {
+        "listDbId": {
             "type": "[ Int ]",
             "description": "The unique identifier for a List"
         },
@@ -78,8 +78,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "listDbId"
 }

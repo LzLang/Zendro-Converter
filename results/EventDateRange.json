@@ -2,7 +2,7 @@
     "model": "EventDateRange",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "eventDateRangeDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier of a event date range"
         },
@@ -32,8 +32,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "eventDateRangeDbId"
 }

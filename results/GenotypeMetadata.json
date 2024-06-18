@@ -2,7 +2,7 @@
     "model": "GenotypeMetadata",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "genotypeMetadataDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies this metafield"
         },
@@ -36,8 +36,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "genotypeMetadataDbId"
 }

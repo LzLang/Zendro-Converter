@@ -2,7 +2,7 @@
     "model": "BreedingMethod",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "breedingMethodDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for this breeding method"
         },
@@ -43,8 +43,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "breedingMethodDbId"
 }

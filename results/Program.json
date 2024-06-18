@@ -25,7 +25,7 @@
             "type": "String",
             "description": "The primary objective of the program"
         },
-        "Blub": {
+        "programDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies the program"
         },
@@ -136,8 +136,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "programDbId"
 }

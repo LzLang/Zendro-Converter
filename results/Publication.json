@@ -2,7 +2,7 @@
     "model": "Publication",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "publicationDbId": {
             "type": "[ Int ]",
             "description": ""
         },
@@ -24,8 +24,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "publicationDbId"
 }

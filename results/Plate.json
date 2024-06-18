@@ -12,7 +12,7 @@
             "type": "String",
             "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format"
         },
-        "Blub": {
+        "plateDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies a plate within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
@@ -91,8 +91,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "plateDbId"
 }

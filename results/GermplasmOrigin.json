@@ -2,7 +2,7 @@
     "model": "GermplasmOrigin",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "germplasmOriginDbId": {
             "type": "[ Int ]",
             "description": ""
         },
@@ -35,8 +35,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "germplasmOriginDbId"
 }

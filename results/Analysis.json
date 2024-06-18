@@ -2,7 +2,7 @@
     "model": "Analysis",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "analysisDbId": {
             "type": "[ Int ]",
             "description": "Unique identifier for this analysis description"
         },
@@ -44,8 +44,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "analysisDbId"
 }

@@ -2,7 +2,7 @@
     "model": "ObservationVariable",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "observationVariableDbId": {
             "type": "[ Int ]",
             "description": "Variable unique identifier\n\nMIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation."
         },
@@ -149,8 +149,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "observationVariableDbId"
 }

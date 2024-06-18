@@ -2,7 +2,7 @@
     "model": "PedigreeNode",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "pedigreeNodeDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a pedigree node"
         },
@@ -117,8 +117,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "pedigreeNodeDbId"
 }

@@ -2,7 +2,7 @@
     "model": "Trait",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "traitDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies a trait"
         },
@@ -112,8 +112,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "traitDbId"
 }

@@ -2,7 +2,7 @@
     "model": "ObservationUnit",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "observationUnitDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. "
         },
@@ -182,8 +182,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "observationUnitDbId"
 }

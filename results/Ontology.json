@@ -2,7 +2,7 @@
     "model": "Ontology",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "ontologyDbId": {
             "type": "[ Int ]",
             "description": "Ontology database unique identifier"
         },
@@ -48,8 +48,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "ontologyDbId"
 }

@@ -2,7 +2,7 @@
     "model": "Progeny",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "progenyDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a progeny"
         },
@@ -35,8 +35,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "progenyDbId"
 }

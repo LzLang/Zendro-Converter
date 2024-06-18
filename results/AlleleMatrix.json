@@ -2,7 +2,7 @@
     "model": "AlleleMatrix",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "alleleMatrixDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies a allele matrix within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
@@ -80,8 +80,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "alleleMatrixDbId"
 }

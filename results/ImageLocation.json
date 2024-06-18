@@ -2,7 +2,7 @@
     "model": "ImageLocation",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "imageLocationDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a image location"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "imageLocationDbId"
 }

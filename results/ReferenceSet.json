@@ -24,7 +24,7 @@
             "type": "String",
             "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string."
         },
-        "Blub": {
+        "referenceSetDbId": {
             "type": "[ Int ]",
             "description": "The unique identifier for a ReferenceSet"
         },
@@ -118,8 +118,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "referenceSetDbId"
 }

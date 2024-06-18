@@ -2,7 +2,7 @@
     "model": "EventParameter",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "eventParameterDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a event parameter"
         },
@@ -48,8 +48,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "eventParameterDbId"
 }

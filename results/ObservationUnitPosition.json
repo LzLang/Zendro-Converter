@@ -2,7 +2,7 @@
     "model": "ObservationUnitPosition",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "observationUnitPositionDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a observation unit position"
         },
@@ -73,8 +73,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "observationUnitPositionDbId"
 }

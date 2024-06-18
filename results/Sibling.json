@@ -2,7 +2,7 @@
     "model": "Sibling",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "siblingDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a sibling"
         },
@@ -31,8 +31,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "siblingDbId"
 }

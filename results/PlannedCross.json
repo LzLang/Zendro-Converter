@@ -2,7 +2,7 @@
     "model": "PlannedCross",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "plannedCrossDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a planned cross"
         },
@@ -76,8 +76,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "plannedCrossDbId"
 }

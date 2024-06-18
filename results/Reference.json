@@ -20,7 +20,7 @@
             "type": "String",
             "description": "The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM)."
         },
-        "Blub": {
+        "referenceDbId": {
             "type": "[ Int ]",
             "description": "The unique identifier for a `Reference`"
         },
@@ -107,8 +107,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "referenceDbId"
 }

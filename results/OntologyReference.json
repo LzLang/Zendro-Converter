@@ -2,7 +2,7 @@
     "model": "OntologyReference",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "ontologyReferenceDbId": {
             "type": "[ Int ]",
             "description": "Ontology database unique identifier"
         },
@@ -83,8 +83,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "ontologyReferenceDbId"
 }

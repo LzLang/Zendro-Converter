@@ -2,7 +2,7 @@
     "model": "ObservationLevelRelationship",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "observationLevelRelationshipDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier of an observation level relationship"
         },
@@ -36,8 +36,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "observationLevelRelationshipDbId"
 }

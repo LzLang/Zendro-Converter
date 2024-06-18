@@ -2,7 +2,7 @@
     "model": "Season",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "seasonDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "seasonDbId"
 }

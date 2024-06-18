@@ -2,7 +2,7 @@
     "model": "AvailableFormat",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "availableFormatDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies this format"
         },
@@ -48,8 +48,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "availableFormatDbId"
 }

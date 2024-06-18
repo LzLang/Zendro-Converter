@@ -2,7 +2,7 @@
     "model": "Category",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "categoryDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a category"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "categoryDbId"
 }

@@ -28,7 +28,7 @@
             "type": "String",
             "description": "Persons middle name"
         },
-        "Blub": {
+        "personDbId": {
             "type": "[ Int ]",
             "description": "Unique ID for a person"
         },
@@ -85,8 +85,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "personDbId"
 }

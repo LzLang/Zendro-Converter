@@ -5,7 +5,7 @@
         "additionalInfo_IDs": "[ String ]",
         "alleleMatrices_ID": "String",
         "calls_IDs": "[ String ]",
-        "Blub": {
+        "callSetDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies a CallSet within the given database server"
         },
@@ -98,8 +98,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "callSetDbId"
 }

@@ -2,7 +2,7 @@
     "model": "ContentMixture",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "contentMixtureDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a content mixture"
         },
@@ -40,8 +40,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "contentMixtureDbId"
 }

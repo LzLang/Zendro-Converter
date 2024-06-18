@@ -2,7 +2,7 @@
     "model": "Taxon",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "taxonDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a taxon"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "taxonDbId"
 }

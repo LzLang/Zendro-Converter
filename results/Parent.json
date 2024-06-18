@@ -2,7 +2,7 @@
     "model": "Parent",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "parentDbId": {
             "type": "[ Int ]",
             "description": "the unique identifier for a parent"
         },
@@ -80,8 +80,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "parentDbId"
 }

@@ -2,7 +2,7 @@
     "model": "DatasetAuthorship",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "datasetAuthorshipDbId": {
             "type": "[ Int ]",
             "description": "The DOI or other permanent unique identifier for this published dataset"
         },
@@ -32,8 +32,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "datasetAuthorshipDbId"
 }

@@ -20,7 +20,7 @@
             "type": "Int",
             "description": "The number of linkage groups present in a `GenomeMap`"
         },
-        "Blub": {
+        "genomeMapDbId": {
             "type": "[ Int ]",
             "description": "The unique identifier for a `GenomeMap`"
         },
@@ -75,8 +75,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "genomeMapDbId"
 }

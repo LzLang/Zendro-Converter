@@ -2,7 +2,7 @@
     "model": "PollinationEvent",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "pollinationEventDbId": {
             "type": "[ Int ]",
             "description": "The unique identifier for this pollination event"
         },
@@ -28,8 +28,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "pollinationEventDbId"
 }

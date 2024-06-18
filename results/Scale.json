@@ -2,7 +2,7 @@
     "model": "Scale",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "scaleDbId": {
             "type": "[ Int ]",
             "description": "Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID."
         },
@@ -95,8 +95,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "scaleDbId"
 }

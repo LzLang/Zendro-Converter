@@ -2,7 +2,7 @@
     "model": "Contact",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "contactDbId": {
             "type": "[ Int ]",
             "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended."
         },
@@ -51,8 +51,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "contactDbId"
 }

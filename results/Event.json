@@ -2,7 +2,7 @@
     "model": "Event",
     "storageType": "generic",
     "attributes": {
-        "Blub": {
+        "eventDbId": {
             "type": "[ Int ]",
             "description": "Internal database identifier"
         },
@@ -76,8 +76,5 @@
             "targetStorageType": "generic"
         }
     },
-    "internalId": {
-        "Name": "Blub",
-        "Type": "[ Int ]"
-    }
+    "internalId": "eventDbId"
 }
