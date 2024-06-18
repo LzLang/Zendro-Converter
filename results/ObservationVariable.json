@@ -139,7 +139,7 @@
             "targetStorageType": "generic"
         },
         "trait": {
-            "type": "mnay_to_one",
+            "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observationVariables",
             "target": "Trait",
