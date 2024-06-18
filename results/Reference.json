@@ -1,6 +1,6 @@
 {
     "model": "Reference",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "commonCropName": {
@@ -21,7 +21,7 @@
             "description": "The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM)."
         },
         "referenceDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for a `Reference`"
         },
         "referenceName": {
@@ -54,7 +54,7 @@
             "targetKey": "reference_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Reference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -64,7 +64,7 @@
             "targetKey": "reference_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Reference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "referenceSet": {
             "type": "many_to_one",
@@ -74,7 +74,7 @@
             "targetKey": "references_IDs",
             "sourceKey": "referenceSet_ID",
             "keysIn": "Reference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "sourceGermplasm": {
             "type": "one_to_many",
@@ -84,7 +84,7 @@
             "targetKey": "reference_ID",
             "sourceKey": "sourceGermplasm_IDs",
             "keysIn": "Reference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "species": {
             "type": "one_to_one",
@@ -94,7 +94,7 @@
             "targetKey": "reference_ID",
             "sourceKey": "species_ID",
             "keysIn": "Reference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variants": {
             "type": "one_to_many",
@@ -104,7 +104,7 @@
             "targetKey": "reference_ID",
             "sourceKey": "variants_IDs",
             "keysIn": "Reference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "referenceDbId"

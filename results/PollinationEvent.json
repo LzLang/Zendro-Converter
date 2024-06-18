@@ -1,9 +1,9 @@
 {
     "model": "PollinationEvent",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "pollinationEventDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for this pollination event"
         },
         "pollinationSuccessful": {
@@ -25,7 +25,7 @@
             "targetKey": "pollinationEvents_IDs",
             "sourceKey": "cross_ID",
             "keysIn": "PollinationEvent",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "pollinationEventDbId"

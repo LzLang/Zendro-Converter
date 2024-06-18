@@ -1,9 +1,9 @@
 {
     "model": "OntologyReference",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "ontologyReferenceDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Ontology database unique identifier"
         },
         "ontologyName": {
@@ -30,7 +30,7 @@
             "targetKey": "ontologyReference_ID",
             "sourceKey": "germplasmAttribute_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "method": {
             "type": "one_to_one",
@@ -40,7 +40,7 @@
             "targetKey": "ontologyReference_ID",
             "sourceKey": "method_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariable": {
             "type": "one_to_one",
@@ -50,7 +50,7 @@
             "targetKey": "ontologyReference_ID",
             "sourceKey": "observationVariable_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "scale": {
             "type": "one_to_one",
@@ -60,7 +60,7 @@
             "targetKey": "ontologyReference_ID",
             "sourceKey": "scale_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trait": {
             "type": "one_to_one",
@@ -70,7 +70,7 @@
             "targetKey": "ontologyReference_ID",
             "sourceKey": "trait_ID",
             "keysIn": "OntologyReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "documentationLinks": {
             "type": "one_to_many",
@@ -80,7 +80,7 @@
             "targetKey": "ontologyReference_ID",
             "sourceKey": "documentationLinks_IDs",
             "keysIn": "OntologyReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "ontologyReferenceDbId"

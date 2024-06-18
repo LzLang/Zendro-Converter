@@ -1,9 +1,9 @@
 {
     "model": "Synonym",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "synonymDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a synonym"
         },
         "synonym": {
@@ -25,7 +25,7 @@
             "targetKey": "synonyms_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "Synonym",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "synonymDbId"

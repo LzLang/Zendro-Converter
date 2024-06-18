@@ -1,6 +1,6 @@
 {
     "model": "Study",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "active": {
             "type": "Boolean",
@@ -40,7 +40,7 @@
             "type": "String",
             "description": "MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study."
         },
-        "observationVariables_ID": "String",
+        "observationVariables_IDs": "[ String ]",
         "seasons": {
             "type": "[ String ]",
             "description": "List of seasons over which this study was performed."
@@ -54,7 +54,7 @@
             "description": "A short human readable code for a study"
         },
         "studyDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
         "studyDescription": {
@@ -78,7 +78,7 @@
         "plates_IDs": "[ String ]",
         "samples_IDs": "[ String ]",
         "variantSets_IDs": "[ String ]",
-        "events_ID": "String",
+        "events_IDs": "[ String ]",
         "observations_IDs": "[ String ]",
         "observationUnits_IDs": "[ String ]"
     },
@@ -91,7 +91,7 @@
             "targetKey": "study_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "contacts": {
             "type": "one_to_many",
@@ -101,7 +101,7 @@
             "targetKey": "study_ID",
             "sourceKey": "contacts_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "dataLinks": {
             "type": "one_to_many",
@@ -111,7 +111,7 @@
             "targetKey": "study_ID",
             "sourceKey": "dataLinks_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "environmentParameters": {
             "type": "one_to_many",
@@ -121,7 +121,7 @@
             "targetKey": "study_ID",
             "sourceKey": "environmentParameters_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "experimentalDesign": {
             "type": "one_to_one",
@@ -131,7 +131,7 @@
             "targetKey": "study_ID",
             "sourceKey": "experimentalDesign_ID",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -141,7 +141,7 @@
             "targetKey": "study_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "growthFacility": {
             "type": "one_to_one",
@@ -151,7 +151,7 @@
             "targetKey": "study_ID",
             "sourceKey": "growthFacility_ID",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "lastUpdate": {
             "type": "one_to_one",
@@ -161,7 +161,7 @@
             "targetKey": "study_ID",
             "sourceKey": "lastUpdate_ID",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "location": {
             "type": "many_to_one",
@@ -171,7 +171,7 @@
             "targetKey": "studies_IDs",
             "sourceKey": "location_ID",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationLevels": {
             "type": "one_to_many",
@@ -181,17 +181,17 @@
             "targetKey": "study_ID",
             "sourceKey": "observationLevels_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariables": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "studies",
             "target": "ObservationVariable",
-            "targetKey": "studies_ID",
-            "sourceKey": "observationVariables_ID",
+            "targetKey": "studies_IDs",
+            "sourceKey": "observationVariables_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trial": {
             "type": "many_to_one",
@@ -201,7 +201,7 @@
             "targetKey": "studies_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "callSets": {
             "type": "one_to_many",
@@ -211,7 +211,7 @@
             "targetKey": "study_ID",
             "sourceKey": "callSets_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plates": {
             "type": "one_to_many",
@@ -221,7 +221,7 @@
             "targetKey": "study_ID",
             "sourceKey": "plates_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "samples": {
             "type": "one_to_many",
@@ -231,7 +231,7 @@
             "targetKey": "study_ID",
             "sourceKey": "samples_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variantSets": {
             "type": "one_to_many",
@@ -241,17 +241,17 @@
             "targetKey": "study_ID",
             "sourceKey": "variantSets_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "events": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "study",
             "target": "Event",
-            "targetKey": "study_ID",
-            "sourceKey": "events_ID",
+            "targetKey": "study_IDs",
+            "sourceKey": "events_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observations": {
             "type": "one_to_many",
@@ -261,7 +261,7 @@
             "targetKey": "study_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -271,7 +271,7 @@
             "targetKey": "study_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Study",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "studyDbId"

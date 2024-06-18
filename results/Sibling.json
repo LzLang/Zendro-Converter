@@ -1,13 +1,13 @@
 {
     "model": "Sibling",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "siblingDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a sibling"
         },
         "siblingGermplasm_ID": "String",
-        "pedigreeNode_ID": "String"
+        "pedigreeNode_IDs": "[ String ]"
     },
     "associations": {
         "siblingGermplasm": {
@@ -18,17 +18,17 @@
             "targetKey": "siblingPedigreeNodes_IDs",
             "sourceKey": "siblingGermplasm_ID",
             "keysIn": "Sibling",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNode": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "siblings",
             "target": "PedigreeNode",
-            "targetKey": "siblings_ID",
-            "sourceKey": "pedigreeNode_ID",
+            "targetKey": "siblings_IDs",
+            "sourceKey": "pedigreeNode_IDs",
             "keysIn": "Sibling",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "siblingDbId"

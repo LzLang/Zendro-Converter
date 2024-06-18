@@ -1,11 +1,11 @@
 {
     "model": "VariantSet",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
-        "alleleMatrices_ID": "String",
+        "alleleMatrices_IDs": "[ String ]",
         "calls_IDs": "[ String ]",
-        "callSets_ID": "String",
+        "callSets_IDs": "[ String ]",
         "analysis_IDs": "[ String ]",
         "availableFormats_IDs": "[ String ]",
         "callSetCount": {
@@ -21,7 +21,7 @@
             "description": "The number of Variants included in this VariantSet"
         },
         "variantSetDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for a VariantSet"
         },
         "variantSetName": {
@@ -39,17 +39,17 @@
             "targetKey": "variantSet_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "alleleMatrices": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "variantSets",
             "target": "AlleleMatrix",
-            "targetKey": "variantSets_ID",
-            "sourceKey": "alleleMatrices_ID",
+            "targetKey": "variantSets_IDs",
+            "sourceKey": "alleleMatrices_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "calls": {
             "type": "one_to_many",
@@ -59,17 +59,17 @@
             "targetKey": "variantSet_ID",
             "sourceKey": "calls_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "callSets": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "variantSets",
             "target": "CallSet",
-            "targetKey": "variantSets_ID",
-            "sourceKey": "callSets_ID",
+            "targetKey": "variantSets_IDs",
+            "sourceKey": "callSets_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "analysis": {
             "type": "one_to_many",
@@ -79,7 +79,7 @@
             "targetKey": "variantset_ID",
             "sourceKey": "analysis_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "availableFormats": {
             "type": "one_to_many",
@@ -89,7 +89,7 @@
             "targetKey": "variantset_ID",
             "sourceKey": "availableFormats_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -99,7 +99,7 @@
             "targetKey": "variantset_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "metadataFields": {
             "type": "one_to_many",
@@ -109,7 +109,7 @@
             "targetKey": "variantset_ID",
             "sourceKey": "metadataFields_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "referenceSet": {
             "type": "many_to_one",
@@ -119,7 +119,7 @@
             "targetKey": "variantSets_IDs",
             "sourceKey": "referenceSet_ID",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -129,7 +129,7 @@
             "targetKey": "variantSets_IDs",
             "sourceKey": "study_ID",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variants": {
             "type": "one_to_many",
@@ -139,7 +139,7 @@
             "targetKey": "variantSet_ID",
             "sourceKey": "variants_IDs",
             "keysIn": "VariantSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "variantSetDbId"

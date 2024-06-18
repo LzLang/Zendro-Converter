@@ -1,9 +1,9 @@
 {
     "model": "Progeny",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "progenyDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a progeny"
         },
         "progenyGermplasm_ID": "String",
@@ -22,7 +22,7 @@
             "targetKey": "parentPedigreeNodes_IDs",
             "sourceKey": "progenyGermplasm_ID",
             "keysIn": "Progeny",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNode": {
             "type": "many_to_one",
@@ -32,7 +32,7 @@
             "targetKey": "progeny_IDs",
             "sourceKey": "pedigreeNode_ID",
             "keysIn": "Progeny",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "progenyDbId"

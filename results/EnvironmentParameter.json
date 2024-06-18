@@ -1,9 +1,9 @@
 {
     "model": "EnvironmentParameter",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "environmentParameterDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this parameter"
         },
         "description": {
@@ -45,7 +45,7 @@
             "targetKey": "environmentParameters_IDs",
             "sourceKey": "study_ID",
             "keysIn": "EnvironmentParameter",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "environmentParameterDbId"

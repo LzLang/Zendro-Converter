@@ -1,9 +1,9 @@
 {
     "model": "GenotypeMetadata",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "genotypeMetadataDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this metafield"
         },
         "dataType": {
@@ -33,7 +33,7 @@
             "targetKey": "genotypeMetadata_IDs",
             "sourceKey": "call_ID",
             "keysIn": "GenotypeMetadata",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "genotypeMetadataDbId"

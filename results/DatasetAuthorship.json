@@ -1,9 +1,9 @@
 {
     "model": "DatasetAuthorship",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "datasetAuthorshipDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The DOI or other permanent unique identifier for this published dataset"
         },
         "license": {
@@ -29,7 +29,7 @@
             "targetKey": "datasetAuthorships_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "DatasetAuthorship",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "datasetAuthorshipDbId"

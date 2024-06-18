@@ -1,9 +1,9 @@
 {
     "model": "Coordinate",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "coordinateDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for an additional info"
         },
         "geometry": {
@@ -28,7 +28,7 @@
             "targetKey": "coordinates_ID",
             "sourceKey": "germplasmOrigin_IDs",
             "keysIn": "Coordinate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "location": {
             "type": "one_to_one",
@@ -38,7 +38,7 @@
             "targetKey": "coordinates_ID",
             "sourceKey": "location_ID",
             "keysIn": "Coordinate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observations": {
             "type": "one_to_many",
@@ -48,7 +48,7 @@
             "targetKey": "geoCoordinates_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "Coordinate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnitPosition": {
             "type": "one_to_many",
@@ -58,7 +58,7 @@
             "targetKey": "geoCoordinates_ID",
             "sourceKey": "observationUnitPosition_IDs",
             "keysIn": "Coordinate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "coordinateDbId"

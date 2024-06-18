@@ -1,9 +1,9 @@
 {
     "model": "ObservationUnit",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "observationUnitDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. "
         },
         "cross_ID": "String",
@@ -22,13 +22,13 @@
         "study_ID": "String",
         "trial_ID": "String",
         "samples_IDs": "[ String ]",
-        "events_ID": "String",
+        "events_IDs": "[ String ]",
         "images_IDs": "[ String ]",
         "observations_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
         "observationUnitPosition_ID": "String",
-        "treatments_ID": "String"
+        "treatments_IDs": "[ String ]"
     },
     "associations": {
         "cross": {
@@ -39,7 +39,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "cross_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "many_to_one",
@@ -49,7 +49,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "location": {
             "type": "many_to_one",
@@ -59,7 +59,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "location_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "program": {
             "type": "many_to_one",
@@ -69,7 +69,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "program_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLot": {
             "type": "many_to_one",
@@ -79,7 +79,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "seedLot_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -89,7 +89,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "study_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trial": {
             "type": "many_to_one",
@@ -99,7 +99,7 @@
             "targetKey": "observationUnits_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "samples": {
             "type": "one_to_many",
@@ -109,17 +109,17 @@
             "targetKey": "observationUnit_ID",
             "sourceKey": "samples_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "events": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Event",
-            "targetKey": "observationUnits_ID",
-            "sourceKey": "events_ID",
+            "targetKey": "observationUnits_IDs",
+            "sourceKey": "events_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "images": {
             "type": "one_to_many",
@@ -129,7 +129,7 @@
             "targetKey": "observationUnit_ID",
             "sourceKey": "images_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observations": {
             "type": "one_to_many",
@@ -139,7 +139,7 @@
             "targetKey": "observationUnit_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -149,7 +149,7 @@
             "targetKey": "observationUnit_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -159,7 +159,7 @@
             "targetKey": "observationUnit_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnitPosition": {
             "type": "one_to_one",
@@ -169,17 +169,17 @@
             "targetKey": "observationUnit_ID",
             "sourceKey": "observationUnitPosition_ID",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "treatments": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observationUnits",
             "target": "Treatment",
-            "targetKey": "observationUnits_ID",
-            "sourceKey": "treatments_ID",
+            "targetKey": "observationUnits_IDs",
+            "sourceKey": "treatments_IDs",
             "keysIn": "ObservationUnit",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "observationUnitDbId"

@@ -1,9 +1,9 @@
 {
     "model": "Trait",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "traitDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a trait"
         },
         "alternativeAbbreviations": {
@@ -69,7 +69,7 @@
             "targetKey": "trait_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Trait",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -79,7 +79,7 @@
             "targetKey": "trait_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Trait",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "Ontology": {
             "type": "one_to_one",
@@ -89,7 +89,7 @@
             "targetKey": "trait_ID",
             "sourceKey": "Ontology_ID",
             "keysIn": "Trait",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttribute": {
             "type": "one_to_one",
@@ -99,7 +99,7 @@
             "targetKey": "trait_ID",
             "sourceKey": "germplasmAttribute_ID",
             "keysIn": "Trait",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariables": {
             "type": "one_to_many",
@@ -109,7 +109,7 @@
             "targetKey": "trait_ID",
             "sourceKey": "observationVariables_IDs",
             "keysIn": "Trait",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "traitDbId"

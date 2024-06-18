@@ -1,10 +1,10 @@
 {
     "model": "Call",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "callDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a call within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
         "callSet_ID": "String",
@@ -29,7 +29,7 @@
             "targetKey": "call_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Call",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "callSet": {
             "type": "many_to_one",
@@ -39,7 +39,7 @@
             "targetKey": "calls_IDs",
             "sourceKey": "callSet_ID",
             "keysIn": "Call",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "genotypeMetadata": {
             "type": "one_to_many",
@@ -49,7 +49,7 @@
             "targetKey": "call_ID",
             "sourceKey": "genotypeMetadata_IDs",
             "keysIn": "Call",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variant": {
             "type": "many_to_one",
@@ -59,7 +59,7 @@
             "targetKey": "calls_IDs",
             "sourceKey": "variant_ID",
             "keysIn": "Call",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variantSet": {
             "type": "many_to_one",
@@ -69,7 +69,7 @@
             "targetKey": "calls_IDs",
             "sourceKey": "variantSet_ID",
             "keysIn": "Call",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "callDbId"

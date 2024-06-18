@@ -1,9 +1,9 @@
 {
     "model": "PlannedCross",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "plannedCrossDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a planned cross"
         },
         "crossType": {
@@ -22,7 +22,7 @@
         "crosses_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
-        "parents_ID": "String"
+        "parents_IDs": "[ String ]"
     },
     "associations": {
         "crossingProject": {
@@ -33,7 +33,7 @@
             "targetKey": "plannedCrosses_IDs",
             "sourceKey": "crossingProject_ID",
             "keysIn": "PlannedCross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crosses": {
             "type": "one_to_many",
@@ -43,7 +43,7 @@
             "targetKey": "plannedCross_ID",
             "sourceKey": "crosses_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -53,7 +53,7 @@
             "targetKey": "plannedCross_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -63,17 +63,17 @@
             "targetKey": "plannedCross_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "parents": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "plannedCrosses",
             "target": "Parent",
-            "targetKey": "plannedCrosses_ID",
-            "sourceKey": "parents_ID",
+            "targetKey": "plannedCrosses_IDs",
+            "sourceKey": "parents_IDs",
             "keysIn": "PlannedCross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "plannedCrossDbId"

@@ -1,9 +1,9 @@
 {
     "model": "ImageLocation",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "imageLocationDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a image location"
         },
         "geometry": {
@@ -25,7 +25,7 @@
             "targetKey": "imageLocation_ID",
             "sourceKey": "images_IDs",
             "keysIn": "ImageLocation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "imageLocationDbId"

@@ -1,9 +1,9 @@
 {
     "model": "CrossAttribute",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "crossAttributeDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a custom attributes associated with a cross"
         },
         "crossAttributeName": {

@@ -1,9 +1,9 @@
 {
     "model": "AvailableFormat",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "availableFormatDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this format"
         },
         "dataFormat": {
@@ -45,7 +45,7 @@
             "targetKey": "availableFormats_IDs",
             "sourceKey": "variantset_ID",
             "keysIn": "AvailableFormat",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "availableFormatDbId"

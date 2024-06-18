@@ -1,9 +1,9 @@
 {
     "model": "DataLink",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "dataLinkDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this datalink"
         },
         "dataFormat": {
@@ -49,7 +49,7 @@
             "targetKey": "dataLinks_IDs",
             "sourceKey": "study_ID",
             "keysIn": "DataLink",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "dataLinkDbId"

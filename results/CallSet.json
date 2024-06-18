@@ -1,12 +1,12 @@
 {
     "model": "CallSet",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
-        "alleleMatrices_ID": "String",
+        "alleleMatrices_IDs": "[ String ]",
         "calls_IDs": "[ String ]",
         "callSetDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a CallSet within the given database server"
         },
         "callSetName": {
@@ -24,7 +24,7 @@
             "type": "String",
             "description": "The time at which this call set was last updated"
         },
-        "variantSets_ID": "String"
+        "variantSets_IDs": "[ String ]"
     },
     "associations": {
         "additionalInfo": {
@@ -35,17 +35,17 @@
             "targetKey": "callSet_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "alleleMatrices": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "callSets",
             "target": "AlleleMatrix",
-            "targetKey": "callSets_ID",
-            "sourceKey": "alleleMatrices_ID",
+            "targetKey": "callSets_IDs",
+            "sourceKey": "alleleMatrices_IDs",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "calls": {
             "type": "one_to_many",
@@ -55,7 +55,7 @@
             "targetKey": "The ID which uniquely identifies this callSet field_ID",
             "sourceKey": "calls_IDs",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -65,7 +65,7 @@
             "targetKey": "callset_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "sample": {
             "type": "many_to_one",
@@ -75,7 +75,7 @@
             "targetKey": "callSets_IDs",
             "sourceKey": "sample_ID",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -85,17 +85,17 @@
             "targetKey": "callSets_IDs",
             "sourceKey": "study_ID",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variantSets": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "callSets",
             "target": "VariantSet",
-            "targetKey": "callSets_ID",
-            "sourceKey": "variantSets_ID",
+            "targetKey": "callSets_IDs",
+            "sourceKey": "variantSets_IDs",
             "keysIn": "CallSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "callSetDbId"

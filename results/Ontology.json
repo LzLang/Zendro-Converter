@@ -1,9 +1,9 @@
 {
     "model": "Ontology",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "ontologyDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Ontology database unique identifier"
         },
         "authors": {
@@ -45,7 +45,7 @@
             "targetKey": "ontology_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Ontology",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "ontologyDbId"

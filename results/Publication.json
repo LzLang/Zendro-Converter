@@ -1,9 +1,9 @@
 {
     "model": "Publication",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "publicationDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": ""
         },
         "publicationReference": {
@@ -21,7 +21,7 @@
             "targetKey": "publications_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "Publication",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "publicationDbId"

@@ -1,9 +1,9 @@
 {
     "model": "GermplasmAttribute",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "germplasmAttributeDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this attribute within the given database server"
         },
         "attributeName": {
@@ -83,7 +83,7 @@
             "targetKey": "attribute_ID",
             "sourceKey": "attributeValues_IDs",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -93,7 +93,7 @@
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -103,7 +103,7 @@
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "method": {
             "type": "many_to_one",
@@ -113,7 +113,7 @@
             "targetKey": "germplasmAttributes_IDs",
             "sourceKey": "method_ID",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "ontologyReference": {
             "type": "one_to_one",
@@ -123,7 +123,7 @@
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "ontologyReference_ID",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "scale": {
             "type": "one_to_one",
@@ -133,7 +133,7 @@
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "scale_ID",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trait": {
             "type": "one_to_one",
@@ -143,7 +143,7 @@
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "trait_ID",
             "keysIn": "GermplasmAttribute",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "germplasmAttributeDbId"

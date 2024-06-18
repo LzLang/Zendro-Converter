@@ -1,9 +1,9 @@
 {
     "model": "EventParameter",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "eventParameterDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a event parameter"
         },
         "code": {
@@ -45,7 +45,7 @@
             "targetKey": "eventParameters_IDs",
             "sourceKey": "event_ID",
             "keysIn": "EventParameter",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "eventParameterDbId"

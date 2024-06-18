@@ -1,6 +1,6 @@
 {
     "model": "Location",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "abbreviation": {
             "type": "String",
@@ -46,7 +46,7 @@
             "description": "The full name of the institute at a particular Location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study."
         },
         "locationDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for a Location"
         },
         "locationName": {
@@ -84,7 +84,7 @@
             "targetKey": "location_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "coordinates": {
             "type": "one_to_one",
@@ -94,7 +94,7 @@
             "targetKey": "location_ID",
             "sourceKey": "coordinates_ID",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -104,7 +104,7 @@
             "targetKey": "location_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "parentLocation": {
             "type": "many_to_one",
@@ -114,7 +114,7 @@
             "targetKey": "childLocations_IDs",
             "sourceKey": "parentLocation_ID",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "childLocations": {
             "type": "one_to_many",
@@ -124,7 +124,7 @@
             "targetKey": "parentLocation_ID",
             "sourceKey": "childLocations_IDs",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "studies": {
             "type": "one_to_many",
@@ -134,7 +134,7 @@
             "targetKey": "location_ID",
             "sourceKey": "studies_IDs",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLots": {
             "type": "one_to_many",
@@ -144,7 +144,7 @@
             "targetKey": "location_ID",
             "sourceKey": "seedLots_IDs",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -154,7 +154,7 @@
             "targetKey": "location_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Location",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "locationDbId"

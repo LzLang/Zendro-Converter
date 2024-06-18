@@ -1,9 +1,9 @@
 {
     "model": "Parent",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "parentDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a parent"
         },
         "parentGermplasm_ID": "String",
@@ -23,10 +23,10 @@
             "type": "String",
             "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc."
         },
-        "crosses_ID": "String",
-        "crossingProjects_ID": "String",
-        "pedigreeNode_ID": "String",
-        "plannedCrosses_ID": "String"
+        "crosses_IDs": "[ String ]",
+        "crossingProjects_IDs": "[ String ]",
+        "pedigreeNode_IDs": "[ String ]",
+        "plannedCrosses_IDs": "[ String ]"
     },
     "associations": {
         "parentGermplasm": {
@@ -37,47 +37,47 @@
             "targetKey": "progenyPedigreeNodes_IDs",
             "sourceKey": "parentGermplasm_ID",
             "keysIn": "Parent",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crosses": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parents",
             "target": "Cross",
-            "targetKey": "parents_ID",
-            "sourceKey": "crosses_ID",
+            "targetKey": "parents_IDs",
+            "sourceKey": "crosses_IDs",
             "keysIn": "Parent",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crossingProjects": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "potentialParents",
             "target": "crossingProjects",
-            "targetKey": "potentialParents_ID",
-            "sourceKey": "crossingProjects_ID",
+            "targetKey": "potentialParents_IDs",
+            "sourceKey": "crossingProjects_IDs",
             "keysIn": "Parent",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNode": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parents",
             "target": "PedigreeNode",
-            "targetKey": "parents_ID",
-            "sourceKey": "pedigreeNode_ID",
+            "targetKey": "parents_IDs",
+            "sourceKey": "pedigreeNode_IDs",
             "keysIn": "Parent",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plannedCrosses": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "parents",
             "target": "PlannedCross",
-            "targetKey": "parents_ID",
-            "sourceKey": "plannedCrosses_ID",
+            "targetKey": "parents_IDs",
+            "sourceKey": "plannedCrosses_IDs",
             "keysIn": "Parent",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "parentDbId"

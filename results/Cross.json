@@ -1,9 +1,9 @@
 {
     "model": "Cross",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "crossDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a cross"
         },
         "crossName": {
@@ -20,7 +20,7 @@
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
         "crossAttributes_IDs": "[ String ]",
-        "parents_ID": "String",
+        "parents_IDs": "[ String ]",
         "pollinationEvents_IDs": "[ String ]"
     },
     "associations": {
@@ -32,7 +32,7 @@
             "targetKey": "crosses_IDs",
             "sourceKey": "crossingProject_ID",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plannedCross": {
             "type": "many_to_one",
@@ -42,7 +42,7 @@
             "targetKey": "crosss_IDs",
             "sourceKey": "plannedCross_ID",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -52,7 +52,7 @@
             "targetKey": "cross_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -62,7 +62,7 @@
             "targetKey": "cross_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -72,7 +72,7 @@
             "targetKey": "cross_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crossAttributes": {
             "type": "one_to_many",
@@ -82,17 +82,17 @@
             "targetKey": "cross_ID",
             "sourceKey": "crossAttributes_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "parents": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "crosses",
             "target": "Parent",
-            "targetKey": "crosses_ID",
-            "sourceKey": "parents_ID",
+            "targetKey": "crosses_IDs",
+            "sourceKey": "parents_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pollinationEvents": {
             "type": "one_to_many",
@@ -102,7 +102,7 @@
             "targetKey": "cross_ID",
             "sourceKey": "pollinationEvents_IDs",
             "keysIn": "Cross",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "crossDbId"

@@ -1,9 +1,9 @@
 {
     "model": "DataMatrix",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "dataMatrixDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this data matrix"
         },
         "dataMatrix": {
@@ -33,7 +33,7 @@
             "targetKey": "dataMatrices_IDs",
             "sourceKey": "alleleMatrices_ID",
             "keysIn": "DataMatrix",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "dataMatrixDbId"

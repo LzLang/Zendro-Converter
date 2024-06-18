@@ -1,9 +1,9 @@
 {
     "model": "Pagination",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "paginationDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this pagination"
         },
         "dimension": {
@@ -37,7 +37,7 @@
             "targetKey": "pagination_IDs",
             "sourceKey": "alleleMatrices_ID",
             "keysIn": "Pagination",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "paginationDbId"

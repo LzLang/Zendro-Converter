@@ -1,9 +1,9 @@
 {
     "model": "Scale",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "scaleDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID."
         },
         "dataType": {
@@ -42,7 +42,7 @@
             "targetKey": "scale_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Scale",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -52,7 +52,7 @@
             "targetKey": "scale_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Scale",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "ontologyReference": {
             "type": "one_to_one",
@@ -62,7 +62,7 @@
             "targetKey": "scale_ID",
             "sourceKey": "ontologyReference_ID",
             "keysIn": "Scale",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttribute": {
             "type": "one_to_one",
@@ -72,7 +72,7 @@
             "targetKey": "scale_ID",
             "sourceKey": "germplasmAttribute_ID",
             "keysIn": "Scale",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariable": {
             "type": "one_to_many",
@@ -82,7 +82,7 @@
             "targetKey": "scale_ID",
             "sourceKey": "observationVariable_IDs",
             "keysIn": "Scale",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "validValues": {
             "type": "many_to_one",
@@ -92,7 +92,7 @@
             "targetKey": "scales_IDs",
             "sourceKey": "validValues_ID",
             "keysIn": "Scale",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "scaleDbId"

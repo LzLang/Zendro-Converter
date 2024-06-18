@@ -1,9 +1,9 @@
 {
     "model": "Season",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "seasonDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'"
         },
         "seasonName": {
@@ -25,7 +25,7 @@
             "targetKey": "season_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "Season",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "seasonDbId"

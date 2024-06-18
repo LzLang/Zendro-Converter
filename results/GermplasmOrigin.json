@@ -1,9 +1,9 @@
 {
     "model": "GermplasmOrigin",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "germplasmOriginDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": ""
         },
         "coordinateUncertainty": {
@@ -22,7 +22,7 @@
             "targetKey": "germplasmOrigin_ID",
             "sourceKey": "coordinates_IDs",
             "keysIn": "GermplasmOrigin",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasms": {
             "type": "one_to_many",
@@ -32,7 +32,7 @@
             "targetKey": "germplasmOrigin_ID",
             "sourceKey": "germplasms_IDs",
             "keysIn": "GermplasmOrigin",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "germplasmOriginDbId"

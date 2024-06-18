@@ -1,9 +1,9 @@
 {
     "model": "ExperimentalDesign",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "experimentalDesignDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this experimental design"
         },
         "PUI": {
@@ -25,7 +25,7 @@
             "targetKey": "experimentalDesign_ID",
             "sourceKey": "study_ID",
             "keysIn": "ExperimentalDesign",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "experimentalDesignDbId"

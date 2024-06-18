@@ -1,9 +1,9 @@
 {
     "model": "Image",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "imageDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier of an image"
         },
         "copyright": {
@@ -51,7 +51,7 @@
             "description": "The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc"
         },
         "observationUnit_ID": "String",
-        "observations_ID": "String",
+        "observations_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
         "imageLocation_ID": "String"
@@ -65,17 +65,17 @@
             "targetKey": "images_IDs",
             "sourceKey": "observationUnit_ID",
             "keysIn": "Image",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observations": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "images",
             "target": "Observation",
-            "targetKey": "images_ID",
-            "sourceKey": "observations_ID",
+            "targetKey": "images_IDs",
+            "sourceKey": "observations_IDs",
             "keysIn": "Image",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -85,7 +85,7 @@
             "targetKey": "image_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Image",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -95,7 +95,7 @@
             "targetKey": "image_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Image",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "imageLocation": {
             "type": "many_to_one",
@@ -105,7 +105,7 @@
             "targetKey": "images_IDs",
             "sourceKey": "imageLocation_ID",
             "keysIn": "Image",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "imageDbId"

@@ -1,9 +1,9 @@
 {
     "model": "Contact",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "contactDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended."
         },
         "email": {
@@ -38,7 +38,7 @@
             "targetKey": "contacts_IDs",
             "sourceKey": "study_ID",
             "keysIn": "Contact",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trial": {
             "type": "many_to_one",
@@ -48,7 +48,7 @@
             "targetKey": "contacts_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "Contact",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "contactDbId"

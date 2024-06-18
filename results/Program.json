@@ -1,6 +1,6 @@
 {
     "model": "Program",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "abbreviation": {
             "type": "String",
@@ -26,7 +26,7 @@
             "description": "The primary objective of the program"
         },
         "programDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies the program"
         },
         "programName": {
@@ -53,7 +53,7 @@
             "targetKey": "program_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -63,7 +63,7 @@
             "targetKey": "program_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "leadPerson": {
             "type": "many_to_one",
@@ -73,7 +73,7 @@
             "targetKey": "programs_IDs",
             "sourceKey": "leadPerson_ID",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trials": {
             "type": "one_to_many",
@@ -83,7 +83,7 @@
             "targetKey": "program_ID",
             "sourceKey": "trials_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plates": {
             "type": "one_to_many",
@@ -93,7 +93,7 @@
             "targetKey": "program_ID",
             "sourceKey": "plates_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "samples": {
             "type": "one_to_many",
@@ -103,7 +103,7 @@
             "targetKey": "program_ID",
             "sourceKey": "samples_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crossingProjects": {
             "type": "one_to_many",
@@ -113,7 +113,7 @@
             "targetKey": "program_ID",
             "sourceKey": "crossingProjects_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLots": {
             "type": "one_to_many",
@@ -123,7 +123,7 @@
             "targetKey": "program_ID",
             "sourceKey": "seedLots_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -133,7 +133,7 @@
             "targetKey": "program_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Program",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "programDbId"

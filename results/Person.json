@@ -1,6 +1,6 @@
 {
     "model": "Person",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "description": {
@@ -29,7 +29,7 @@
             "description": "Persons middle name"
         },
         "personDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Unique ID for a person"
         },
         "phoneNumber": {
@@ -52,7 +52,7 @@
             "targetKey": "person_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Person",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -62,7 +62,7 @@
             "targetKey": "person_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Person",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "lists": {
             "type": "one_to_many",
@@ -72,7 +72,7 @@
             "targetKey": "listOwnerPerson_ID",
             "sourceKey": "lists_IDs",
             "keysIn": "Person",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "programs": {
             "type": "one_to_many",
@@ -82,7 +82,7 @@
             "targetKey": "leadPerson_ID",
             "sourceKey": "programs_IDs",
             "keysIn": "Person",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "personDbId"

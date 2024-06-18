@@ -1,9 +1,9 @@
 {
     "model": "Analysis",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "analysisDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Unique identifier for this analysis description"
         },
         "analysisName": {
@@ -41,7 +41,7 @@
             "targetKey": "analysis_IDs",
             "sourceKey": "variantSet_ID",
             "keysIn": "Analysis",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "analysisDbId"

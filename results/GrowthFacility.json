@@ -1,9 +1,9 @@
 {
     "model": "GrowthFacility",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "growthFacilityDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this growth facility"
         },
         "PUI": {
@@ -25,7 +25,7 @@
             "targetKey": "growthFacility_ID",
             "sourceKey": "study_ID",
             "keysIn": "GrowthFacility",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "growthFacilityDbId"

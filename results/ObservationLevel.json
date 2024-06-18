@@ -1,9 +1,9 @@
 {
     "model": "ObservationLevel",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "observationLevelDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for an observation level"
         },
         "levelCode": {
@@ -30,7 +30,7 @@
             "targetKey": "observationLevel_IDs",
             "sourceKey": "observationUnitPosition_ID",
             "keysIn": "ObservationLevel",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -40,7 +40,7 @@
             "targetKey": "observationLevels_IDs",
             "sourceKey": "study_ID",
             "keysIn": "ObservationLevel",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "observationLevelDbId"

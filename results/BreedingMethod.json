@@ -1,9 +1,9 @@
 {
     "model": "BreedingMethod",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "breedingMethodDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for this breeding method"
         },
         "abbreviation": {
@@ -30,7 +30,7 @@
             "targetKey": "breedingMethod_ID",
             "sourceKey": "germplasm_IDs",
             "keysIn": "BreedingMethod",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNodes": {
             "type": "one_to_many",
@@ -40,7 +40,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "pedigreeNodes_IDs",
             "keysIn": "BreedingMethod",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "breedingMethodDbId"

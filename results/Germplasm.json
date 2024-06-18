@@ -1,9 +1,9 @@
 {
     "model": "Germplasm",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "germplasmDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below."
         },
         "accessionNumber": {
@@ -105,7 +105,7 @@
         "observationUnits_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
-        "donors_ID": "String",
+        "donors_IDs": "[ String ]",
         "germplasmOrigin_ID": "String",
         "storageTypes_ID": "String",
         "synonyms_IDs": "[ String ]",
@@ -120,7 +120,7 @@
             "targetKey": "germplasm_IDs",
             "sourceKey": "breedingMethod_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNode": {
             "type": "one_to_one",
@@ -130,7 +130,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "pedigreeNode_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "samples": {
             "type": "one_to_many",
@@ -140,7 +140,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "samples_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "attributeValues": {
             "type": "one_to_many",
@@ -150,7 +150,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "attributeValues_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "progenyPedigreeNodes": {
             "type": "one_to_many",
@@ -160,7 +160,7 @@
             "targetKey": "parentGermplasm_ID",
             "sourceKey": "progenyPedigreeNodes_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "parentPedigreeNodes": {
             "type": "one_to_many",
@@ -170,7 +170,7 @@
             "targetKey": "progenyGermplasm_ID",
             "sourceKey": "parentPedigreeNodes_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "siblingPedigreeNodes": {
             "type": "one_to_many",
@@ -180,7 +180,7 @@
             "targetKey": "siblingGermplasm_ID",
             "sourceKey": "siblingPedigreeNodes_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observations": {
             "type": "one_to_many",
@@ -190,7 +190,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -200,7 +200,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -210,7 +210,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -220,17 +220,17 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "donors": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasms",
             "target": "Donor",
-            "targetKey": "germplasms_ID",
-            "sourceKey": "donors_ID",
+            "targetKey": "germplasms_IDs",
+            "sourceKey": "donors_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmOrigin": {
             "type": "many_to_one",
@@ -240,7 +240,7 @@
             "targetKey": "germplasms_IDs",
             "sourceKey": "germplasmOrigin_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "storageTypes": {
             "type": "many_to_one",
@@ -250,7 +250,7 @@
             "targetKey": "germplasms_IDs",
             "sourceKey": "storageTypes_ID",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "synonyms": {
             "type": "one_to_many",
@@ -260,7 +260,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "synonyms_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "taxonIds": {
             "type": "one_to_many",
@@ -270,7 +270,7 @@
             "targetKey": "germplasm_ID",
             "sourceKey": "taxonIds_IDs",
             "keysIn": "Germplasm",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "germplasmDbId"

@@ -1,9 +1,9 @@
 {
     "model": "ObservationVariable",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "observationVariableDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Variable unique identifier\n\nMIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation."
         },
         "commonCropName": {
@@ -58,7 +58,7 @@
             "type": "[ String ]",
             "description": "Other variable names"
         },
-        "studies_ID": "String",
+        "studies_IDs": "[ String ]",
         "observations_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
@@ -73,10 +73,10 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "observationVariables",
             "target": "Study",
-            "targetKey": "observationVariables_ID",
-            "sourceKey": "studies_ID",
+            "targetKey": "observationVariables_IDs",
+            "sourceKey": "studies_IDs",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observations": {
             "type": "one_to_many",
@@ -86,7 +86,7 @@
             "targetKey": "observationVariable_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -96,7 +96,7 @@
             "targetKey": "observationVariable_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -106,7 +106,7 @@
             "targetKey": "observationVariable_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "method": {
             "type": "many_to_one",
@@ -116,7 +116,7 @@
             "targetKey": "observationVariables_IDs",
             "sourceKey": "method_ID",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "ontologyReference": {
             "type": "one_to_one",
@@ -126,7 +126,7 @@
             "targetKey": "observationVariable_ID",
             "sourceKey": "ontologyReference_ID",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "scale": {
             "type": "many_to_one",
@@ -136,17 +136,17 @@
             "targetKey": "observationVariable_IDs",
             "sourceKey": "scale_ID",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trait": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "observationVariables",
             "target": "Trait",
-            "targetKey": "observationVariables_ID",
+            "targetKey": "observationVariables_IDs",
             "sourceKey": "trait_ID",
             "keysIn": "ObservationVariable",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "observationVariableDbId"

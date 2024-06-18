@@ -1,9 +1,9 @@
 {
     "model": "ExternalReference",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "externalReferenceDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a reference"
         },
         "externalID": {
@@ -40,7 +40,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "cross_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crossingProject": {
             "type": "many_to_one",
@@ -50,7 +50,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "crossingProject_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "many_to_one",
@@ -60,7 +60,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttribute": {
             "type": "many_to_one",
@@ -70,7 +70,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "germplasmAttribute_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttributeValue": {
             "type": "many_to_one",
@@ -80,7 +80,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "germplasmAttributeValue_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "image": {
             "type": "many_to_one",
@@ -90,7 +90,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "image_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "method": {
             "type": "many_to_one",
@@ -100,7 +100,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "method_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observation": {
             "type": "many_to_one",
@@ -110,7 +110,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "observation_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnit": {
             "type": "many_to_one",
@@ -120,7 +120,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "observationUnit_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariable": {
             "type": "many_to_one",
@@ -130,7 +130,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "observationVariable_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNode": {
             "type": "many_to_one",
@@ -140,7 +140,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "pedigreeNode_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plannedCross": {
             "type": "many_to_one",
@@ -150,7 +150,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "plannedCross_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "scale": {
             "type": "many_to_one",
@@ -160,7 +160,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "scale_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLot": {
             "type": "many_to_one",
@@ -170,7 +170,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "seedLot_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLotTransaction": {
             "type": "many_to_one",
@@ -180,7 +180,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "seedLotTransaction_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trait": {
             "type": "many_to_one",
@@ -190,7 +190,7 @@
             "targetKey": "externalReferences_IDs",
             "sourceKey": "trait_ID",
             "keysIn": "ExternalReference",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "externalReferenceDbId"

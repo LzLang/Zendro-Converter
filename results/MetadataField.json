@@ -1,9 +1,9 @@
 {
     "model": "MetadataField",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "metadataFieldDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this metafield"
         },
         "dataType": {
@@ -29,7 +29,7 @@
             "targetKey": "metadataFields_IDs",
             "sourceKey": "variantset_ID",
             "keysIn": "MetadataField",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "metadataFieldDbId"

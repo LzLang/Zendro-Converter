@@ -1,9 +1,9 @@
 {
     "model": "DocumentationLink",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "documentationLinkDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a documentation link"
         },
         "URL": {
@@ -25,7 +25,7 @@
             "targetKey": "documentationLinks_IDs",
             "sourceKey": "ontologyReference_ID",
             "keysIn": "DocumentationLink",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "documentationLinkDbId"

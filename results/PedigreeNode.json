@@ -1,9 +1,9 @@
 {
     "model": "PedigreeNode",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "pedigreeNodeDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a pedigree node"
         },
         "breedingMethod_ID": "String",
@@ -31,9 +31,9 @@
         },
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
-        "parents_ID": "String",
+        "parents_IDs": "[ String ]",
         "progeny_IDs": "[ String ]",
-        "siblings_ID": "String"
+        "siblings_IDs": "[ String ]"
     },
     "associations": {
         "breedingMethod": {
@@ -44,7 +44,7 @@
             "targetKey": "pedigreeNodes_IDs",
             "sourceKey": "breedingMethod_ID",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crossingProject": {
             "type": "many_to_one",
@@ -54,7 +54,7 @@
             "targetKey": "pedigreeNodes_IDs",
             "sourceKey": "crossingProject_ID",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "one_to_one",
@@ -64,7 +64,7 @@
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "germplasm_ID",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -74,7 +74,7 @@
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -84,17 +84,17 @@
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "parents": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "pedigreeNode",
             "target": "Parent",
-            "targetKey": "pedigreeNode_ID",
-            "sourceKey": "parents_ID",
+            "targetKey": "pedigreeNode_IDs",
+            "sourceKey": "parents_IDs",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "progeny": {
             "type": "one_to_many",
@@ -104,17 +104,17 @@
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "progeny_IDs",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "siblings": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "pedigreeNode",
             "target": "Sibling",
-            "targetKey": "pedigreeNode_ID",
-            "sourceKey": "siblings_ID",
+            "targetKey": "pedigreeNode_IDs",
+            "sourceKey": "siblings_IDs",
             "keysIn": "PedigreeNode",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "pedigreeNodeDbId"

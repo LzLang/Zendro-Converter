@@ -1,6 +1,6 @@
 {
     "model": "Plate",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
@@ -13,7 +13,7 @@
             "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format"
         },
         "plateDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a plate within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
         "plateName": {
@@ -38,7 +38,7 @@
             "targetKey": "plate_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Plate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -48,7 +48,7 @@
             "targetKey": "plate_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Plate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "program": {
             "type": "many_to_one",
@@ -58,7 +58,7 @@
             "targetKey": "plates_IDs",
             "sourceKey": "program_ID",
             "keysIn": "Plate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -68,7 +68,7 @@
             "targetKey": "plates_IDs",
             "sourceKey": "study_ID",
             "keysIn": "Plate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trial": {
             "type": "many_to_one",
@@ -78,7 +78,7 @@
             "targetKey": "plates_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "Plate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "samples": {
             "type": "one_to_many",
@@ -88,7 +88,7 @@
             "targetKey": "plate_ID",
             "sourceKey": "samples_IDs",
             "keysIn": "Plate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "plateDbId"

@@ -1,9 +1,9 @@
 {
     "model": "ContentMixture",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "contentMixtureDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a content mixture"
         },
         "crossDbId": {
@@ -26,7 +26,7 @@
             "type": "Int",
             "description": "The percentage of the given germplasm in the seed lot mixture."
         },
-        "seedLot_ID": "String"
+        "seedLot_IDs": "[ String ]"
     },
     "associations": {
         "seedLot": {
@@ -34,10 +34,10 @@
             "implementation": "foreignkeys",
             "reverseAssociation": "contentMixture",
             "target": "SeedLot",
-            "targetKey": "contentMixture_ID",
-            "sourceKey": "seedLot_ID",
+            "targetKey": "contentMixture_IDs",
+            "sourceKey": "seedLot_IDs",
             "keysIn": "ContentMixture",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "contentMixtureDbId"

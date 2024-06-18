@@ -1,6 +1,6 @@
 {
     "model": "List",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "data": {
@@ -17,7 +17,7 @@
         },
         "externalReferences_IDs": "[ String ]",
         "listDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for a List"
         },
         "listDescription": {
@@ -55,7 +55,7 @@
             "targetKey": "list_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "List",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -65,7 +65,7 @@
             "targetKey": "list_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "List",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "listOwnerPerson": {
             "type": "many_to_one",
@@ -75,7 +75,7 @@
             "targetKey": "lists_IDs",
             "sourceKey": "listOwnerPerson_ID",
             "keysIn": "List",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "listDbId"

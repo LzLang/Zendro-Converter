@@ -1,9 +1,9 @@
 {
     "model": "SeedLot",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "seedLotDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Unique DbId for the Seed Lot"
         },
         "amount": {
@@ -45,7 +45,7 @@
         "observationUnits_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
-        "contentMixture_ID": "String"
+        "contentMixture_IDs": "[ String ]"
     },
     "associations": {
         "location": {
@@ -56,7 +56,7 @@
             "targetKey": "seedLots_IDs",
             "sourceKey": "location_ID",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "program": {
             "type": "many_to_one",
@@ -66,7 +66,7 @@
             "targetKey": "seedLots_IDs",
             "sourceKey": "program_ID",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "fromSeedLotTransactions": {
             "type": "one_to_many",
@@ -76,7 +76,7 @@
             "targetKey": "fromSeedLot_ID",
             "sourceKey": "fromSeedLotTransactions_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "toSeedLotTransactions": {
             "type": "one_to_many",
@@ -86,7 +86,7 @@
             "targetKey": "toSeedLot_ID",
             "sourceKey": "toSeedLotTransactions_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -96,7 +96,7 @@
             "targetKey": "seedLot_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -106,7 +106,7 @@
             "targetKey": "seedLot_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -116,17 +116,17 @@
             "targetKey": "seedLot_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "contentMixture": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "seedLot",
             "target": "ContentMixture",
-            "targetKey": "seedLot_ID",
-            "sourceKey": "contentMixture_ID",
+            "targetKey": "seedLot_IDs",
+            "sourceKey": "contentMixture_IDs",
             "keysIn": "SeedLot",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "seedLotDbId"

@@ -1,9 +1,9 @@
 {
     "model": "StorageType",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "storageTypeDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a germplasm storage type"
         },
         "code": {
@@ -25,7 +25,7 @@
             "targetKey": "storageTypes_ID",
             "sourceKey": "germplasms_IDs",
             "keysIn": "StorageType",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "storageTypeDbId"

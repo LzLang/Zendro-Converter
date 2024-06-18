@@ -1,9 +1,9 @@
 {
     "model": "Method",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "methodDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "Method unique identifier"
         },
         "bibliographicalReference": {
@@ -45,7 +45,7 @@
             "targetKey": "method_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Method",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -55,7 +55,7 @@
             "targetKey": "method_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Method",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "ontologyReference": {
             "type": "one_to_one",
@@ -65,7 +65,7 @@
             "targetKey": "method_ID",
             "sourceKey": "ontologyReference_ID",
             "keysIn": "Method",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttributes": {
             "type": "one_to_many",
@@ -75,7 +75,7 @@
             "targetKey": "method_ID",
             "sourceKey": "germplasmAttributes_IDs",
             "keysIn": "Method",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariables": {
             "type": "one_to_many",
@@ -85,7 +85,7 @@
             "targetKey": "method_ID",
             "sourceKey": "observationVariables_IDs",
             "keysIn": "Method",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "methodDbId"

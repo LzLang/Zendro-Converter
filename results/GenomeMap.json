@@ -1,6 +1,6 @@
 {
     "model": "GenomeMap",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "markerPositions_IDs": "[ String ]",
@@ -21,7 +21,7 @@
             "description": "The number of linkage groups present in a `GenomeMap`"
         },
         "genomeMapDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for a `GenomeMap`"
         },
         "mapName": {
@@ -62,7 +62,7 @@
             "targetKey": "genomeMap_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "GenomeMap",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "markerPositions": {
             "type": "one_to_many",
@@ -72,7 +72,7 @@
             "targetKey": "map_ID",
             "sourceKey": "markerPositions_IDs",
             "keysIn": "GenomeMap",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "genomeMapDbId"

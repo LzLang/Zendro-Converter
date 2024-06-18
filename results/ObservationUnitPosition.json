@@ -1,9 +1,9 @@
 {
     "model": "ObservationUnitPosition",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "observationUnitPositionDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a observation unit position"
         },
         "entryType": {
@@ -29,7 +29,7 @@
         "observationUnit_ID": "String",
         "geoCoordinates_ID": "String",
         "observationLevel_IDs": "[ String ]",
-        "observationLevelRelationships_ID": "String"
+        "observationLevelRelationships_IDs": "[ String ]"
     },
     "associations": {
         "observationUnit": {
@@ -40,7 +40,7 @@
             "targetKey": "observationUnitPosition_ID",
             "sourceKey": "observationUnit_ID",
             "keysIn": "ObservationUnitPosition",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "geoCoordinates": {
             "type": "many_to_one",
@@ -50,7 +50,7 @@
             "targetKey": "observationUnitPosition_IDs",
             "sourceKey": "geoCoordinates_ID",
             "keysIn": "ObservationUnitPosition",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationLevel": {
             "type": "one_to_many",
@@ -60,17 +60,17 @@
             "targetKey": "observationUnitPosition_ID",
             "sourceKey": "observationLevel_IDs",
             "keysIn": "ObservationUnitPosition",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationLevelRelationships": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observationUnitPositions",
             "target": "ObservationLevelRelationship",
-            "targetKey": "observationUnitPositions_ID",
-            "sourceKey": "observationLevelRelationships_ID",
+            "targetKey": "observationUnitPositions_IDs",
+            "sourceKey": "observationLevelRelationships_IDs",
             "keysIn": "ObservationUnitPosition",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "observationUnitPositionDbId"

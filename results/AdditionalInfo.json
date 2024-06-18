@@ -1,9 +1,9 @@
 {
     "model": "AdditionalInfo",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfoDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for an additional info"
         },
         "additionalProperties": {
@@ -53,7 +53,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "call_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "callSet": {
             "type": "many_to_one",
@@ -63,7 +63,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "callSet_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "cross": {
             "type": "many_to_one",
@@ -73,7 +73,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "cross_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "crossingProject": {
             "type": "many_to_one",
@@ -83,7 +83,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "crossingProject_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "event": {
             "type": "many_to_one",
@@ -93,7 +93,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "event_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "genomeMap": {
             "type": "many_to_one",
@@ -103,7 +103,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "genomeMap_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "many_to_one",
@@ -113,7 +113,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttribute": {
             "type": "many_to_one",
@@ -123,7 +123,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "germplasmAttribute_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasmAttributeValue": {
             "type": "many_to_one",
@@ -133,7 +133,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "germplasmAttributeValue_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "image": {
             "type": "many_to_one",
@@ -143,7 +143,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "image_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "list": {
             "type": "many_to_one",
@@ -153,7 +153,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "list_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "location": {
             "type": "many_to_one",
@@ -163,7 +163,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "location_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "markerPosition": {
             "type": "many_to_one",
@@ -173,7 +173,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "markerPosition_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "method": {
             "type": "many_to_one",
@@ -183,7 +183,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "method_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observation": {
             "type": "many_to_one",
@@ -193,7 +193,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "observation_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnit": {
             "type": "many_to_one",
@@ -203,7 +203,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "observationUnit_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariable": {
             "type": "many_to_one",
@@ -213,7 +213,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "observationVariable_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "ontology": {
             "type": "many_to_one",
@@ -223,7 +223,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "ontology_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "pedigreeNode": {
             "type": "many_to_one",
@@ -233,7 +233,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "pedigreeNode_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plannedCross": {
             "type": "many_to_one",
@@ -243,7 +243,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "plannedCross_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plate": {
             "type": "many_to_one",
@@ -253,7 +253,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "plate_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "program": {
             "type": "many_to_one",
@@ -263,7 +263,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "program_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "reference": {
             "type": "many_to_one",
@@ -273,7 +273,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "reference_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "referenceSet": {
             "type": "many_to_one",
@@ -283,7 +283,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "referenceSet_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "sample": {
             "type": "many_to_one",
@@ -293,7 +293,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "sample_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "scale": {
             "type": "many_to_one",
@@ -303,7 +303,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "scale_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLot": {
             "type": "many_to_one",
@@ -313,7 +313,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "seedLot_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "seedLotTransaction": {
             "type": "many_to_one",
@@ -323,7 +323,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "seedLotTransaction_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -333,7 +333,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "study_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trait": {
             "type": "many_to_one",
@@ -343,7 +343,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "trait_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trial": {
             "type": "many_to_one",
@@ -353,7 +353,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variant": {
             "type": "many_to_one",
@@ -363,7 +363,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "variant_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variantSet": {
             "type": "many_to_one",
@@ -373,7 +373,7 @@
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "variantSet_ID",
             "keysIn": "AdditionalInfo",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "additionalInfoDbId"

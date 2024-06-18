@@ -1,9 +1,9 @@
 {
     "model": "GermplasmAttributeValue",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "germplasmAttributeValueDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this attribute value within the given database server"
         },
         "attribute_ID": "String",
@@ -28,7 +28,7 @@
             "targetKey": "germplasmAttributeValues_IDs",
             "sourceKey": "attribute_ID",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "many_to_one",
@@ -38,7 +38,7 @@
             "targetKey": "germplasmAttributeValues_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -48,7 +48,7 @@
             "targetKey": "germplasmAttributeValue_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -58,7 +58,7 @@
             "targetKey": "germplasmAttributeValue_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "GermplasmAttributeValue",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "germplasmAttributeValueDbId"

@@ -1,9 +1,9 @@
 {
     "model": "LastUpdate",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "lastUpdateDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies this update"
         },
         "timestamp": {
@@ -25,7 +25,7 @@
             "targetKey": "lastUpdate_ID",
             "sourceKey": "study_ID",
             "keysIn": "LastUpdate",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "lastUpdateDbId"

@@ -1,9 +1,9 @@
 {
     "model": "Taxon",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "taxonDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "the unique identifier for a taxon"
         },
         "sourceName": {
@@ -18,14 +18,14 @@
     },
     "associations": {
         "germplasm": {
-            "type": "many_to_ome",
+            "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "taxonIds",
             "target": "Germplasm",
-            "targetKey": "taxonIds_ID",
+            "targetKey": "taxonIds_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "Taxon",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "taxonDbId"

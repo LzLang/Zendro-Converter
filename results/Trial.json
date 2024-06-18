@@ -1,6 +1,6 @@
 {
     "model": "Trial",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "active": {
             "type": "Boolean",
@@ -30,7 +30,7 @@
             "description": "The date this trial started"
         },
         "trialDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a trial\n\nMIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution."
         },
         "trialDescription": {
@@ -58,7 +58,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "contacts": {
             "type": "one_to_many",
@@ -68,7 +68,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "contacts_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "datasetAuthorships": {
             "type": "one_to_many",
@@ -78,7 +78,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "datasetAuthorships_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -88,7 +88,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "program": {
             "type": "many_to_one",
@@ -98,7 +98,7 @@
             "targetKey": "trials_IDs",
             "sourceKey": "program_ID",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "studies": {
             "type": "one_to_many",
@@ -108,7 +108,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "studies_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "publications": {
             "type": "one_to_many",
@@ -118,7 +118,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "publications_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plates": {
             "type": "one_to_many",
@@ -128,7 +128,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "plates_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "samples": {
             "type": "one_to_many",
@@ -138,7 +138,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "samples_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnits": {
             "type": "one_to_many",
@@ -148,7 +148,7 @@
             "targetKey": "trial_ID",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Trial",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "trialDbId"

@@ -1,9 +1,9 @@
 {
     "model": "Observation",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "observationDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies an observation"
         },
         "collector": {
@@ -26,7 +26,7 @@
             "type": "String",
             "description": "The value of the data collected as an observation"
         },
-        "images_ID": "String",
+        "images_IDs": "[ String ]",
         "additionalInfo_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
         "geoCoordinates_ID": "String",
@@ -41,7 +41,7 @@
             "targetKey": "observations_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnit": {
             "type": "many_to_one",
@@ -51,7 +51,7 @@
             "targetKey": "observations_IDs",
             "sourceKey": "observationUnit_ID",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationVariable": {
             "type": "many_to_one",
@@ -61,7 +61,7 @@
             "targetKey": "observations_IDs",
             "sourceKey": "observationVariable_ID",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -71,17 +71,17 @@
             "targetKey": "observations_IDs",
             "sourceKey": "study_ID",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "images": {
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observations",
             "target": "Image",
-            "targetKey": "observations_ID",
-            "sourceKey": "images_ID",
+            "targetKey": "observations_IDs",
+            "sourceKey": "images_IDs",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "additionalInfo": {
             "type": "one_to_many",
@@ -91,7 +91,7 @@
             "targetKey": "observation_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -101,7 +101,7 @@
             "targetKey": "observation_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "geoCoordinates": {
             "type": "many_to_one",
@@ -111,7 +111,7 @@
             "targetKey": "observations_IDs",
             "sourceKey": "geoCoordinates_ID",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "season": {
             "type": "many_to_one",
@@ -121,7 +121,7 @@
             "targetKey": "observations_IDs",
             "sourceKey": "season_ID",
             "keysIn": "Observation",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "observationDbId"

@@ -1,6 +1,6 @@
 {
     "model": "Sample",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "callSets_IDs": "[ String ]",
@@ -26,7 +26,7 @@
             "description": "Description of a `Sample`\n<br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing."
         },
         "sampleDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The ID which uniquely identifies a sample within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
         },
         "sampleGroupId": {
@@ -73,7 +73,7 @@
             "targetKey": "sample_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "callSets": {
             "type": "one_to_many",
@@ -83,7 +83,7 @@
             "targetKey": "sample_ID",
             "sourceKey": "callSets_IDs",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -93,7 +93,7 @@
             "targetKey": "sample_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "many_to_one",
@@ -103,7 +103,7 @@
             "targetKey": "samples_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "observationUnit": {
             "type": "many_to_one",
@@ -113,7 +113,7 @@
             "targetKey": "samples_IDs",
             "sourceKey": "observationUnit_ID",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "plate": {
             "type": "many_to_one",
@@ -123,7 +123,7 @@
             "targetKey": "samples_IDs",
             "sourceKey": "plate_ID",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "program": {
             "type": "many_to_one",
@@ -133,7 +133,7 @@
             "targetKey": "samples_IDs",
             "sourceKey": "program_ID",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "study": {
             "type": "many_to_one",
@@ -143,7 +143,7 @@
             "targetKey": "samples_IDs",
             "sourceKey": "study_ID",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "trial": {
             "type": "many_to_one",
@@ -153,7 +153,7 @@
             "targetKey": "samples_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "Sample",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "sampleDbId"

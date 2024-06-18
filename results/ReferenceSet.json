@@ -1,6 +1,6 @@
 {
     "model": "ReferenceSet",
-    "storageType": "generic",
+    "storageType": "sql",
     "attributes": {
         "additionalInfo_IDs": "[ String ]",
         "assemblyPUI": {
@@ -25,7 +25,7 @@
             "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string."
         },
         "referenceSetDbId": {
-            "type": "[ Int ]",
+            "type": "[ String ]",
             "description": "The unique identifier for a ReferenceSet"
         },
         "referenceSetName": {
@@ -55,7 +55,7 @@
             "targetKey": "referenceSet_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "externalReferences": {
             "type": "one_to_many",
@@ -65,7 +65,7 @@
             "targetKey": "referenceset_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "sourceGermplasm": {
             "type": "one_to_many",
@@ -75,7 +75,7 @@
             "targetKey": "referenceset_ID",
             "sourceKey": "sourceGermplasm_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "species": {
             "type": "one_to_one",
@@ -85,7 +85,7 @@
             "targetKey": "referenceset_ID",
             "sourceKey": "species_ID",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "references": {
             "type": "one_to_many",
@@ -95,7 +95,7 @@
             "targetKey": "referenceSet_ID",
             "sourceKey": "references_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variants": {
             "type": "one_to_many",
@@ -105,7 +105,7 @@
             "targetKey": "referenceSet_ID",
             "sourceKey": "variants_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         },
         "variantSets": {
             "type": "one_to_many",
@@ -115,7 +115,7 @@
             "targetKey": "referenceSet_ID",
             "sourceKey": "variantSets_IDs",
             "keysIn": "ReferenceSet",
-            "targetStorageType": "generic"
+            "targetStorageType": "sql"
         }
     },
     "internalId": "referenceSetDbId"
