@@ -250,7 +250,7 @@ def write_json(output_models):
     try:
         for model in output_models:
             json_file = {
-                "model": model,
+                "model": model.lower(),
                 "storageType": args.storage_type,
                 "attributes": output_models[model]["attributes"],
                 "associations": output_models[model]["associations"],
@@ -259,7 +259,7 @@ def write_json(output_models):
 
             json_object = json.dumps(json_file, indent=4)
             Path(args.output_path).mkdir(parents=True, exist_ok=True)
-            with open(os.path.join(args.output_path, f"{model}.json"), "w") as file:
+            with open(os.path.join(args.output_path, f"{model.lower()}.json"), "w") as file:
                 file.write(json_object)
     except OSError as file_error:
         log(f"Couldn't write to file test: {file_error}")
