@@ -203,7 +203,7 @@ def get_properties(input_model_properties, current_model):
                 "type": association_relationship_type,
                 "implementation": "foreignkeys",
                 "reverseAssociation": current_property["referencedAttribute"],
-                "target": association_target,
+                "target": association_target.lower(),
                 "targetKey": target_key,
                 "sourceKey": source_key,
                 "keysIn": current_model,
