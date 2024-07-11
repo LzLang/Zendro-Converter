@@ -21,7 +21,7 @@
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "experimentalDesign",
-            "target": "Study",
+            "target": "study",
             "targetKey": "experimentalDesign_ID",
             "sourceKey": "study_ID",
             "keysIn": "ExperimentalDesign",

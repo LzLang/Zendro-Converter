@@ -21,7 +21,7 @@
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "treatments",
-            "target": "ObservationUnit",
+            "target": "observationunit",
             "targetKey": "treatments_IDs",
             "sourceKey": "observationUnits_IDs",
             "keysIn": "Treatment",

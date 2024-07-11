@@ -21,7 +21,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "synonyms",
-            "target": "Germplasm",
+            "target": "germplasm",
             "targetKey": "synonyms_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "Synonym",

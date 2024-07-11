@@ -25,7 +25,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "datasetAuthorships",
-            "target": "Trial",
+            "target": "trial",
             "targetKey": "datasetAuthorships_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "DatasetAuthorship",

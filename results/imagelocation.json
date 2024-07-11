@@ -21,7 +21,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "imageLocation",
-            "target": "Image",
+            "target": "image",
             "targetKey": "imageLocation_ID",
             "sourceKey": "images_IDs",
             "keysIn": "ImageLocation",

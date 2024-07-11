@@ -37,7 +37,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "analysis",
-            "target": "VariantSet",
+            "target": "variantset",
             "targetKey": "analysis_IDs",
             "sourceKey": "variantSet_ID",
             "keysIn": "Analysis",
