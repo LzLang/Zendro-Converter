@@ -1,0 +1,146 @@
+{
+    "model": "variantset",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_IDs": "[ String ]",
+        "alleleMatrices_IDs": "[ String ]",
+        "calls_IDs": "[ String ]",
+        "callSets_IDs": "[ String ]",
+        "analysis_IDs": "[ String ]",
+        "availableFormats_IDs": "[ String ]",
+        "callSetCount": {
+            "type": "Int",
+            "description": "The number of CallSets included in this VariantSet"
+        },
+        "externalReferences_IDs": "[ String ]",
+        "metadataFields_IDs": "[ String ]",
+        "referenceSet_ID": "String",
+        "study_ID": "String",
+        "variantCount": {
+            "type": "Int",
+            "description": "The number of Variants included in this VariantSet"
+        },
+        "variantSetDbId": {
+            "type": "[ String ]",
+            "description": "The unique identifier for a VariantSet"
+        },
+        "variantSetName": {
+            "type": "String",
+            "description": "The human readable name for a VariantSet"
+        },
+        "variants_IDs": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSet",
+            "target": "AdditionalInfo",
+            "targetKey": "variantSet_ID",
+            "sourceKey": "additionalInfo_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "alleleMatrices": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSets",
+            "target": "AlleleMatrix",
+            "targetKey": "variantSets_IDs",
+            "sourceKey": "alleleMatrices_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "calls": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSet",
+            "target": "Call",
+            "targetKey": "variantSet_ID",
+            "sourceKey": "calls_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "callSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSets",
+            "target": "CallSet",
+            "targetKey": "variantSets_IDs",
+            "sourceKey": "callSets_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "analysis": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantset",
+            "target": "Analysis",
+            "targetKey": "variantset_ID",
+            "sourceKey": "analysis_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "availableFormats": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantset",
+            "target": "AvailableFormat",
+            "targetKey": "variantset_ID",
+            "sourceKey": "availableFormats_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantset",
+            "target": "ExternalReference",
+            "targetKey": "variantset_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "metadataFields": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantset",
+            "target": "MetadataField",
+            "targetKey": "variantset_ID",
+            "sourceKey": "metadataFields_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSets",
+            "target": "ReferenceSet",
+            "targetKey": "variantSets_IDs",
+            "sourceKey": "referenceSet_ID",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSets",
+            "target": "Study",
+            "targetKey": "variantSets_IDs",
+            "sourceKey": "study_ID",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variantSet",
+            "target": "Variant",
+            "targetKey": "variantSet_ID",
+            "sourceKey": "variants_IDs",
+            "keysIn": "VariantSet",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "variantSetDbId"
+}

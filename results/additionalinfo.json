@@ -1,0 +1,380 @@
+{
+    "model": "additionalinfo",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfoDbId": {
+            "type": "[ String ]",
+            "description": "the unique identifier for an additional info"
+        },
+        "additionalProperties": {
+            "type": "String",
+            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
+        },
+        "call_ID": "String",
+        "callSet_ID": "String",
+        "cross_ID": "String",
+        "crossingProject_ID": "String",
+        "event_ID": "String",
+        "genomeMap_ID": "String",
+        "germplasm_ID": "String",
+        "germplasmAttribute_ID": "String",
+        "germplasmAttributeValue_ID": "String",
+        "image_ID": "String",
+        "list_ID": "String",
+        "location_ID": "String",
+        "markerPosition_ID": "String",
+        "method_ID": "String",
+        "observation_ID": "String",
+        "observationUnit_ID": "String",
+        "observationVariable_ID": "String",
+        "ontology_ID": "String",
+        "pedigreeNode_ID": "String",
+        "plannedCross_ID": "String",
+        "plate_ID": "String",
+        "program_ID": "String",
+        "reference_ID": "String",
+        "referenceSet_ID": "String",
+        "sample_ID": "String",
+        "scale_ID": "String",
+        "seedLot_ID": "String",
+        "seedLotTransaction_ID": "String",
+        "study_ID": "String",
+        "trait_ID": "String",
+        "trial_ID": "String",
+        "variant_ID": "String",
+        "variantSet_ID": "String"
+    },
+    "associations": {
+        "call": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Call",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "call_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "callSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "CallSet",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "callSet_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "cross": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Cross",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "cross_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "crossingProject": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "CrossingProject",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "crossingProject_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "event": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Event",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "event_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "genomeMap": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "AdditionalInfo",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "genomeMap_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Germplasm",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "germplasm_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "germplasmAttribute": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "GermplasmAttribute",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "germplasmAttribute_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "germplasmAttributeValue": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "GermplasmAttributeValue",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "germplasmAttributeValue_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "image": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Image",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "image_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "list": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "List",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "list_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Location",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "location_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "markerPosition": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "MarkerPosition",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "markerPosition_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "method": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Method",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "method_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "observation": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Observation",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "observation_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "ObservationUnit",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "observationUnit_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "observationVariable": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "ObservationVariable",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "observationVariable_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "ontology": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Ontology",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "ontology_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "pedigreeNode": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "PedigreeNode",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "pedigreeNode_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "plannedCross": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "PlannedCross",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "plannedCross_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "plate": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Plate",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "plate_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "program": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Program",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "program_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "reference": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Reference",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "reference_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "ReferenceSet",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "referenceSet_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "sample": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Sample",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "sample_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "scale": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Scale",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "scale_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "seedLot": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "SeedLot",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "seedLot_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "seedLotTransaction": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "SeedLotTransaction",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "seedLotTransaction_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Study",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "study_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "trait": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Trait",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "trait_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Trail",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "trial_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "variant": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "Variant",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "variant_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        },
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "additionalInfo",
+            "target": "VariantSet",
+            "targetKey": "additionalInfo_IDs",
+            "sourceKey": "variantSet_ID",
+            "keysIn": "AdditionalInfo",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "additionalInfoDbId"
+}

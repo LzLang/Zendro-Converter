@@ -1,0 +1,122 @@
+{
+    "model": "referenceset",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_IDs": "[ String ]",
+        "assemblyPUI": {
+            "type": "String",
+            "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`."
+        },
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop"
+        },
+        "description": {
+            "type": "String",
+            "description": "Optional free text description of this reference set."
+        },
+        "externalReferences_IDs": "[ String ]",
+        "isDerived": {
+            "type": "Boolean",
+            "description": "A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`)."
+        },
+        "md5checksum": {
+            "type": "String",
+            "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string."
+        },
+        "referenceSetDbId": {
+            "type": "[ String ]",
+            "description": "The unique identifier for a ReferenceSet"
+        },
+        "referenceSetName": {
+            "type": "String",
+            "description": "The human readable name of a ReferenceSet"
+        },
+        "sourceAccessions": {
+            "type": "[ String ]",
+            "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`."
+        },
+        "sourceGermplasm_IDs": "[ String ]",
+        "sourceURI": {
+            "type": "String",
+            "description": "Specifies a FASTA format file/string."
+        },
+        "species_ID": "String",
+        "references_IDs": "[ String ]",
+        "variants_IDs": "[ String ]",
+        "variantSets_IDs": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceSet",
+            "target": "AdditionalInfo",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "additionalInfo_IDs",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceset",
+            "target": "ExternalReference",
+            "targetKey": "referenceset_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "sourceGermplasm": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceset",
+            "target": "SourceGermplasm",
+            "targetKey": "referenceset_ID",
+            "sourceKey": "sourceGermplasm_IDs",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "species": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceset",
+            "target": "Species",
+            "targetKey": "referenceset_ID",
+            "sourceKey": "species_ID",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "references": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceSet",
+            "target": "Reference",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "references_IDs",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceSet",
+            "target": "Variant",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "variants_IDs",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "referenceSet",
+            "target": "VariantSet",
+            "targetKey": "referenceSet_ID",
+            "sourceKey": "variantSets_IDs",
+            "keysIn": "ReferenceSet",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "referenceSetDbId"
+}

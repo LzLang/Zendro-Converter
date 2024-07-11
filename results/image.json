@@ -1,0 +1,112 @@
+{
+    "model": "image",
+    "storageType": "sql",
+    "attributes": {
+        "imageDbId": {
+            "type": "[ String ]",
+            "description": "The unique identifier of an image"
+        },
+        "copyright": {
+            "type": "String",
+            "description": "The copyright information of this image. Example 'Copyright 2018 Bob Robertson'"
+        },
+        "description": {
+            "type": "String",
+            "description": "The human readable description of an image."
+        },
+        "descriptiveOntologyTerms": {
+            "type": "[ String ]",
+            "description": "A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL."
+        },
+        "imageFileName": {
+            "type": "String",
+            "description": "The name of the image file. Might be the same as 'imageName', but could be different."
+        },
+        "imageFileSize": {
+            "type": "Int",
+            "description": "The size of the image in Bytes."
+        },
+        "imageHeight": {
+            "type": "Int",
+            "description": "The height of the image in Pixels."
+        },
+        "imageName": {
+            "type": "String",
+            "description": "The human readable name of an image. Might be the same as 'imageFileName', but could be different."
+        },
+        "imageTimeStamp": {
+            "type": "String",
+            "description": "The date and time the image was taken"
+        },
+        "imageURL": {
+            "type": "String",
+            "description": "The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server."
+        },
+        "imageWidth": {
+            "type": "Int",
+            "description": "The width of the image in Pixels."
+        },
+        "mimeType": {
+            "type": "String",
+            "description": "The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc"
+        },
+        "observationUnit_ID": "String",
+        "observations_IDs": "[ String ]",
+        "additionalInfo_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "imageLocation_ID": "String"
+    },
+    "associations": {
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "images",
+            "target": "ObservationUnit",
+            "targetKey": "images_IDs",
+            "sourceKey": "observationUnit_ID",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "images",
+            "target": "Observation",
+            "targetKey": "images_IDs",
+            "sourceKey": "observations_IDs",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        },
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "image",
+            "target": "AdditionalInfo",
+            "targetKey": "image_ID",
+            "sourceKey": "additionalInfo_IDs",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "image",
+            "target": "ExternalReference",
+            "targetKey": "image_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        },
+        "imageLocation": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "images",
+            "target": "ImageLocation",
+            "targetKey": "images_IDs",
+            "sourceKey": "imageLocation_ID",
+            "keysIn": "Image",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "imageDbId"
+}

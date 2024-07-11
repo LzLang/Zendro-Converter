@@ -1,0 +1,32 @@
+{
+    "model": "season",
+    "storageType": "sql",
+    "attributes": {
+        "seasonDbId": {
+            "type": "[ String ]",
+            "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'"
+        },
+        "seasonName": {
+            "type": "String",
+            "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc."
+        },
+        "year": {
+            "type": "Int",
+            "description": "The 4 digit year of the season."
+        },
+        "observations_IDs": "[ String ]"
+    },
+    "associations": {
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "season",
+            "target": "Observation",
+            "targetKey": "season_ID",
+            "sourceKey": "observations_IDs",
+            "keysIn": "Season",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "seasonDbId"
+}

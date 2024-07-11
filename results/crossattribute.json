@@ -1,0 +1,20 @@
+{
+    "model": "crossattribute",
+    "storageType": "sql",
+    "attributes": {
+        "crossAttributeDbId": {
+            "type": "[ String ]",
+            "description": "the unique identifier for a custom attributes associated with a cross"
+        },
+        "crossAttributeName": {
+            "type": "String",
+            "description": "the human readable name of a cross attribute"
+        },
+        "crossAttributeValue": {
+            "type": "String",
+            "description": "the value of a cross attribute"
+        }
+    },
+    "associations": {},
+    "internalId": "crossAttributeDbId"
+}

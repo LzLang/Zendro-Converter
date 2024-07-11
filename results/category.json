@@ -1,0 +1,32 @@
+{
+    "model": "category",
+    "storageType": "sql",
+    "attributes": {
+        "categoryDbId": {
+            "type": "[ String ]",
+            "description": "the unique identifier for a category"
+        },
+        "label": {
+            "type": "String",
+            "description": "A text label for a category"
+        },
+        "value": {
+            "type": "String",
+            "description": "The actual value for a category"
+        },
+        "validValues_IDs": "[ String ]"
+    },
+    "associations": {
+        "validValues": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "categories",
+            "target": "ValidValue",
+            "targetKey": "categories_IDs",
+            "sourceKey": "validValues_IDs",
+            "keysIn": "Category",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "categoryDbId"
+}

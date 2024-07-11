@@ -1,0 +1,82 @@
+{
+    "model": "list",
+    "storageType": "sql",
+    "attributes": {
+        "additionalInfo_IDs": "[ String ]",
+        "data": {
+            "type": "[ String ]",
+            "description": "The array of DbIds of the BrAPI objects contained in a List"
+        },
+        "dateCreated": {
+            "type": "String",
+            "description": "Timestamp when the entity was first created"
+        },
+        "dateModified": {
+            "type": "String",
+            "description": "Timestamp when the entity was last updated"
+        },
+        "externalReferences_IDs": "[ String ]",
+        "listDbId": {
+            "type": "[ String ]",
+            "description": "The unique identifier for a List"
+        },
+        "listDescription": {
+            "type": "String",
+            "description": "Description of a List"
+        },
+        "listName": {
+            "type": "String",
+            "description": "Human readable name of a List"
+        },
+        "listOwnerName": {
+            "type": "String",
+            "description": "Human readable name of a List Owner. (usually a user or person)"
+        },
+        "listOwnerPerson_ID": "String",
+        "listSize": {
+            "type": "Int",
+            "description": "The number of elements in a List"
+        },
+        "listSource": {
+            "type": "String",
+            "description": "The description of where a List originated from"
+        },
+        "listType": {
+            "type": "String",
+            "description": "A flag to indicate the type of objects that are referenced in a List"
+        }
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "list",
+            "target": "AdditionalInfo",
+            "targetKey": "list_ID",
+            "sourceKey": "additionalInfo_IDs",
+            "keysIn": "List",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "list",
+            "target": "ExternalReference",
+            "targetKey": "list_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "List",
+            "targetStorageType": "sql"
+        },
+        "listOwnerPerson": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "lists",
+            "target": "Person",
+            "targetKey": "lists_IDs",
+            "sourceKey": "listOwnerPerson_ID",
+            "keysIn": "List",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "listDbId"
+}
