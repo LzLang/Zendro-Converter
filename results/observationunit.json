@@ -38,7 +38,7 @@
             "target": "cross",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "cross_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "germplasm": {
@@ -48,7 +48,7 @@
             "target": "germplasm",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "germplasm_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "location": {
@@ -58,7 +58,7 @@
             "target": "location",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "location_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "program": {
@@ -68,7 +68,7 @@
             "target": "program",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "seedLot": {
@@ -78,7 +78,7 @@
             "target": "seedlot",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "seedLot_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "study": {
@@ -88,7 +88,7 @@
             "target": "study",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "trial": {
@@ -98,7 +98,7 @@
             "target": "trial",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "samples": {
@@ -108,7 +108,7 @@
             "target": "sample",
             "targetKey": "observationUnit_ID",
             "sourceKey": "samples_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "events": {
@@ -118,7 +118,7 @@
             "target": "event",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "events_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "images": {
@@ -128,7 +128,7 @@
             "target": "image",
             "targetKey": "observationUnit_ID",
             "sourceKey": "images_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "observations": {
@@ -138,7 +138,7 @@
             "target": "observation",
             "targetKey": "observationUnit_ID",
             "sourceKey": "observations_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -148,7 +148,7 @@
             "target": "additionalinfo",
             "targetKey": "observationUnit_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -158,7 +158,7 @@
             "target": "externalreference",
             "targetKey": "observationUnit_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "observationUnitPosition": {
@@ -168,7 +168,7 @@
             "target": "observationunitposition",
             "targetKey": "observationUnit_ID",
             "sourceKey": "observationUnitPosition_ID",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         },
         "treatments": {
@@ -178,7 +178,7 @@
             "target": "treatment",
             "targetKey": "observationUnits_IDs",
             "sourceKey": "treatments_IDs",
-            "keysIn": "ObservationUnit",
+            "keysIn": "observationunit",
             "targetStorageType": "sql"
         }
     },

@@ -20,7 +20,7 @@
             "target": "trial",
             "targetKey": "publications_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "Publication",
+            "keysIn": "publication",
             "targetStorageType": "sql"
         }
     },

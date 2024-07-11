@@ -39,7 +39,7 @@
             "target": "observationunit",
             "targetKey": "observationUnitPosition_ID",
             "sourceKey": "observationUnit_ID",
-            "keysIn": "ObservationUnitPosition",
+            "keysIn": "observationunitposition",
             "targetStorageType": "sql"
         },
         "geoCoordinates": {
@@ -49,7 +49,7 @@
             "target": "coordinate",
             "targetKey": "observationUnitPosition_IDs",
             "sourceKey": "geoCoordinates_ID",
-            "keysIn": "ObservationUnitPosition",
+            "keysIn": "observationunitposition",
             "targetStorageType": "sql"
         },
         "observationLevel": {
@@ -59,7 +59,7 @@
             "target": "observationlevel",
             "targetKey": "observationUnitPosition_ID",
             "sourceKey": "observationLevel_IDs",
-            "keysIn": "ObservationUnitPosition",
+            "keysIn": "observationunitposition",
             "targetStorageType": "sql"
         },
         "observationLevelRelationships": {
@@ -69,7 +69,7 @@
             "target": "observationlevelrelationship",
             "targetKey": "observationUnitPositions_IDs",
             "sourceKey": "observationLevelRelationships_IDs",
-            "keysIn": "ObservationUnitPosition",
+            "keysIn": "observationunitposition",
             "targetStorageType": "sql"
         }
     },

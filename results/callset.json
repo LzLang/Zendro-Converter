@@ -34,7 +34,7 @@
             "target": "additionalinfo",
             "targetKey": "callSet_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         },
         "alleleMatrices": {
@@ -44,7 +44,7 @@
             "target": "allelematrix",
             "targetKey": "callSets_IDs",
             "sourceKey": "alleleMatrices_IDs",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         },
         "calls": {
@@ -54,7 +54,7 @@
             "target": "call",
             "targetKey": "callSet_ID",
             "sourceKey": "calls_IDs",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -64,7 +64,7 @@
             "target": "externalreference",
             "targetKey": "callset_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         },
         "sample": {
@@ -74,7 +74,7 @@
             "target": "sample",
             "targetKey": "callSets_IDs",
             "sourceKey": "sample_ID",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         },
         "study": {
@@ -84,7 +84,7 @@
             "target": "study",
             "targetKey": "callSets_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         },
         "variantSets": {
@@ -94,7 +94,7 @@
             "target": "variantset",
             "targetKey": "callSets_IDs",
             "sourceKey": "variantSets_IDs",
-            "keysIn": "CallSet",
+            "keysIn": "callset",
             "targetStorageType": "sql"
         }
     },

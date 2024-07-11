@@ -32,7 +32,7 @@
             "target": "call",
             "targetKey": "genotypeMetadata_IDs",
             "sourceKey": "call_ID",
-            "keysIn": "GenotypeMetadata",
+            "keysIn": "genotypemetadata",
             "targetStorageType": "sql"
         }
     },

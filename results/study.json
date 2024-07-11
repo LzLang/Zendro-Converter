@@ -90,7 +90,7 @@
             "target": "additionalinfo",
             "targetKey": "study_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "contacts": {
@@ -100,7 +100,7 @@
             "target": "contact",
             "targetKey": "study_ID",
             "sourceKey": "contacts_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "dataLinks": {
@@ -110,7 +110,7 @@
             "target": "datalink",
             "targetKey": "study_ID",
             "sourceKey": "dataLinks_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "environmentParameters": {
@@ -120,7 +120,7 @@
             "target": "environmentparameter",
             "targetKey": "study_ID",
             "sourceKey": "environmentParameters_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "experimentalDesign": {
@@ -130,7 +130,7 @@
             "target": "experimentaldesign",
             "targetKey": "study_ID",
             "sourceKey": "experimentalDesign_ID",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -140,7 +140,7 @@
             "target": "externalreference",
             "targetKey": "study_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "growthFacility": {
@@ -150,7 +150,7 @@
             "target": "growthfacility",
             "targetKey": "study_ID",
             "sourceKey": "growthFacility_ID",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "lastUpdate": {
@@ -160,7 +160,7 @@
             "target": "lastupdate",
             "targetKey": "study_ID",
             "sourceKey": "lastUpdate_ID",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "location": {
@@ -170,7 +170,7 @@
             "target": "location",
             "targetKey": "studies_IDs",
             "sourceKey": "location_ID",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "observationLevels": {
@@ -180,7 +180,7 @@
             "target": "observationlevel",
             "targetKey": "study_ID",
             "sourceKey": "observationLevels_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "observationVariables": {
@@ -190,7 +190,7 @@
             "target": "observationvariable",
             "targetKey": "studies_IDs",
             "sourceKey": "observationVariables_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "trial": {
@@ -200,7 +200,7 @@
             "target": "trial",
             "targetKey": "studies_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "callSets": {
@@ -210,7 +210,7 @@
             "target": "callset",
             "targetKey": "study_ID",
             "sourceKey": "callSets_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "plates": {
@@ -220,7 +220,7 @@
             "target": "plate",
             "targetKey": "study_ID",
             "sourceKey": "plates_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "samples": {
@@ -230,7 +230,7 @@
             "target": "sample",
             "targetKey": "study_ID",
             "sourceKey": "samples_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "variantSets": {
@@ -240,7 +240,7 @@
             "target": "variantset",
             "targetKey": "study_ID",
             "sourceKey": "variantSets_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "events": {
@@ -250,7 +250,7 @@
             "target": "event",
             "targetKey": "study_IDs",
             "sourceKey": "events_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "observations": {
@@ -260,7 +260,7 @@
             "target": "observation",
             "targetKey": "study_ID",
             "sourceKey": "observations_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -270,7 +270,7 @@
             "target": "observationunit",
             "targetKey": "study_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Study",
+            "keysIn": "study",
             "targetStorageType": "sql"
         }
     },

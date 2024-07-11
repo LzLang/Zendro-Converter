@@ -27,7 +27,7 @@
             "target": "attribute",
             "targetKey": "germplasmAttributeValues_IDs",
             "sourceKey": "attribute_ID",
-            "keysIn": "GermplasmAttributeValue",
+            "keysIn": "germplasmattributevalue",
             "targetStorageType": "sql"
         },
         "germplasm": {
@@ -37,7 +37,7 @@
             "target": "germplasm",
             "targetKey": "germplasmAttributeValues_IDs",
             "sourceKey": "germplasm_ID",
-            "keysIn": "GermplasmAttributeValue",
+            "keysIn": "germplasmattributevalue",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -47,7 +47,7 @@
             "target": "additionalinfo",
             "targetKey": "germplasmAttributeValue_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "GermplasmAttributeValue",
+            "keysIn": "germplasmattributevalue",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -57,7 +57,7 @@
             "target": "externalreference",
             "targetKey": "germplasmAttributeValue_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "GermplasmAttributeValue",
+            "keysIn": "germplasmattributevalue",
             "targetStorageType": "sql"
         }
     },

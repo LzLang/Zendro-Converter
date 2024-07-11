@@ -29,7 +29,7 @@
             "target": "germplasm",
             "targetKey": "breedingMethod_ID",
             "sourceKey": "germplasm_IDs",
-            "keysIn": "BreedingMethod",
+            "keysIn": "breedingmethod",
             "targetStorageType": "sql"
         },
         "pedigreeNodes": {
@@ -39,7 +39,7 @@
             "target": "pedigreenode",
             "targetKey": "germplasm_ID",
             "sourceKey": "pedigreeNodes_IDs",
-            "keysIn": "BreedingMethod",
+            "keysIn": "breedingmethod",
             "targetStorageType": "sql"
         }
     },

@@ -32,7 +32,7 @@
             "target": "allelematrix",
             "targetKey": "dataMatrices_IDs",
             "sourceKey": "alleleMatrices_ID",
-            "keysIn": "DataMatrix",
+            "keysIn": "datamatrix",
             "targetStorageType": "sql"
         }
     },

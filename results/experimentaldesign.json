@@ -24,7 +24,7 @@
             "target": "study",
             "targetKey": "experimentalDesign_ID",
             "sourceKey": "study_ID",
-            "keysIn": "ExperimentalDesign",
+            "keysIn": "experimentaldesign",
             "targetStorageType": "sql"
         }
     },

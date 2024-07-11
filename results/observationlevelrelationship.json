@@ -32,7 +32,7 @@
             "target": "observationunitposition",
             "targetKey": "observationLevelRelationships_IDs",
             "sourceKey": "observationUnitPositions_IDs",
-            "keysIn": "ObservationLevelRelationship",
+            "keysIn": "observationlevelrelationship",
             "targetStorageType": "sql"
         }
     },

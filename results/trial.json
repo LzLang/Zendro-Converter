@@ -57,7 +57,7 @@
             "target": "additionalinfo",
             "targetKey": "trial_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "contacts": {
@@ -67,7 +67,7 @@
             "target": "contact",
             "targetKey": "trial_ID",
             "sourceKey": "contacts_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "datasetAuthorships": {
@@ -77,7 +77,7 @@
             "target": "datasetauthorship",
             "targetKey": "trial_ID",
             "sourceKey": "datasetAuthorships_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -87,7 +87,7 @@
             "target": "externalreference",
             "targetKey": "trial_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "program": {
@@ -97,7 +97,7 @@
             "target": "program",
             "targetKey": "trials_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "studies": {
@@ -107,7 +107,7 @@
             "target": "study",
             "targetKey": "trial_ID",
             "sourceKey": "studies_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "publications": {
@@ -117,7 +117,7 @@
             "target": "publication",
             "targetKey": "trial_ID",
             "sourceKey": "publications_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "plates": {
@@ -127,7 +127,7 @@
             "target": "plate",
             "targetKey": "trial_ID",
             "sourceKey": "plates_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "samples": {
@@ -137,7 +137,7 @@
             "target": "sample",
             "targetKey": "trial_ID",
             "sourceKey": "samples_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -147,7 +147,7 @@
             "target": "observationunit",
             "targetKey": "trial_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Trial",
+            "keysIn": "trial",
             "targetStorageType": "sql"
         }
     },

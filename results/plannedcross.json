@@ -32,7 +32,7 @@
             "target": "crossingproject",
             "targetKey": "plannedCrosses_IDs",
             "sourceKey": "crossingProject_ID",
-            "keysIn": "PlannedCross",
+            "keysIn": "plannedcross",
             "targetStorageType": "sql"
         },
         "crosses": {
@@ -42,7 +42,7 @@
             "target": "cross",
             "targetKey": "plannedCross_ID",
             "sourceKey": "crosses_IDs",
-            "keysIn": "PlannedCross",
+            "keysIn": "plannedcross",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -52,7 +52,7 @@
             "target": "additionalinfo",
             "targetKey": "plannedCross_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "PlannedCross",
+            "keysIn": "plannedcross",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -62,7 +62,7 @@
             "target": "externalreferences",
             "targetKey": "plannedCross_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "PlannedCross",
+            "keysIn": "plannedcross",
             "targetStorageType": "sql"
         },
         "parents": {
@@ -72,7 +72,7 @@
             "target": "parent",
             "targetKey": "plannedCrosses_IDs",
             "sourceKey": "parents_IDs",
-            "keysIn": "PlannedCross",
+            "keysIn": "plannedcross",
             "targetStorageType": "sql"
         }
     },

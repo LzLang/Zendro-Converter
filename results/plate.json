@@ -37,7 +37,7 @@
             "target": "additionalinfo",
             "targetKey": "plate_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Plate",
+            "keysIn": "plate",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -47,7 +47,7 @@
             "target": "externalreference",
             "targetKey": "plate_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Plate",
+            "keysIn": "plate",
             "targetStorageType": "sql"
         },
         "program": {
@@ -57,7 +57,7 @@
             "target": "program",
             "targetKey": "plates_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "Plate",
+            "keysIn": "plate",
             "targetStorageType": "sql"
         },
         "study": {
@@ -67,7 +67,7 @@
             "target": "study",
             "targetKey": "plates_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "Plate",
+            "keysIn": "plate",
             "targetStorageType": "sql"
         },
         "trial": {
@@ -77,7 +77,7 @@
             "target": "trial",
             "targetKey": "plates_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "Plate",
+            "keysIn": "plate",
             "targetStorageType": "sql"
         },
         "samples": {
@@ -87,7 +87,7 @@
             "target": "sample",
             "targetKey": "plate_ID",
             "sourceKey": "samples_IDs",
-            "keysIn": "Plate",
+            "keysIn": "plate",
             "targetStorageType": "sql"
         }
     },

@@ -27,7 +27,7 @@
             "target": "germplasmorigin",
             "targetKey": "coordinates_ID",
             "sourceKey": "germplasmOrigin_IDs",
-            "keysIn": "Coordinate",
+            "keysIn": "coordinate",
             "targetStorageType": "sql"
         },
         "location": {
@@ -37,7 +37,7 @@
             "target": "location",
             "targetKey": "coordinates_ID",
             "sourceKey": "location_ID",
-            "keysIn": "Coordinate",
+            "keysIn": "coordinate",
             "targetStorageType": "sql"
         },
         "observations": {
@@ -47,7 +47,7 @@
             "target": "observation",
             "targetKey": "geoCoordinates_ID",
             "sourceKey": "observations_IDs",
-            "keysIn": "Coordinate",
+            "keysIn": "coordinate",
             "targetStorageType": "sql"
         },
         "observationUnitPosition": {
@@ -57,7 +57,7 @@
             "target": "observationunitposition",
             "targetKey": "geoCoordinates_ID",
             "sourceKey": "observationUnitPosition_IDs",
-            "keysIn": "Coordinate",
+            "keysIn": "coordinate",
             "targetStorageType": "sql"
         }
     },

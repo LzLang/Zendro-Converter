@@ -83,7 +83,7 @@
             "target": "additionalinfo",
             "targetKey": "location_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "coordinates": {
@@ -93,7 +93,7 @@
             "target": "coordinate",
             "targetKey": "location_ID",
             "sourceKey": "coordinates_ID",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -103,7 +103,7 @@
             "target": "externalreference",
             "targetKey": "location_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "parentLocation": {
@@ -113,7 +113,7 @@
             "target": "location",
             "targetKey": "childLocations_IDs",
             "sourceKey": "parentLocation_ID",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "childLocations": {
@@ -123,7 +123,7 @@
             "target": "location",
             "targetKey": "parentLocation_ID",
             "sourceKey": "childLocations_IDs",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "studies": {
@@ -133,7 +133,7 @@
             "target": "study",
             "targetKey": "location_ID",
             "sourceKey": "studies_IDs",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "seedLots": {
@@ -143,7 +143,7 @@
             "target": "seedlot",
             "targetKey": "location_ID",
             "sourceKey": "seedLots_IDs",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -153,7 +153,7 @@
             "target": "observationunit",
             "targetKey": "location_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Location",
+            "keysIn": "location",
             "targetStorageType": "sql"
         }
     },

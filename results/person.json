@@ -51,7 +51,7 @@
             "target": "additionalinfo",
             "targetKey": "person_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Person",
+            "keysIn": "person",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -61,7 +61,7 @@
             "target": "externalreference",
             "targetKey": "person_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Person",
+            "keysIn": "person",
             "targetStorageType": "sql"
         },
         "lists": {
@@ -71,7 +71,7 @@
             "target": "list",
             "targetKey": "listOwnerPerson_ID",
             "sourceKey": "lists_IDs",
-            "keysIn": "Person",
+            "keysIn": "person",
             "targetStorageType": "sql"
         },
         "programs": {
@@ -81,7 +81,7 @@
             "target": "program",
             "targetKey": "leadPerson_ID",
             "sourceKey": "programs_IDs",
-            "keysIn": "Person",
+            "keysIn": "person",
             "targetStorageType": "sql"
         }
     },

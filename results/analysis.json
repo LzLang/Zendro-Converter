@@ -40,7 +40,7 @@
             "target": "variantset",
             "targetKey": "analysis_IDs",
             "sourceKey": "variantSet_ID",
-            "keysIn": "Analysis",
+            "keysIn": "analysis",
             "targetStorageType": "sql"
         }
     },

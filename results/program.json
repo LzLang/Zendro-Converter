@@ -52,7 +52,7 @@
             "target": "additionalinfo",
             "targetKey": "program_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -62,7 +62,7 @@
             "target": "externalreference",
             "targetKey": "program_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "leadPerson": {
@@ -72,7 +72,7 @@
             "target": "person",
             "targetKey": "programs_IDs",
             "sourceKey": "leadPerson_ID",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "trials": {
@@ -82,7 +82,7 @@
             "target": "trial",
             "targetKey": "program_ID",
             "sourceKey": "trials_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "plates": {
@@ -92,7 +92,7 @@
             "target": "plate",
             "targetKey": "program_ID",
             "sourceKey": "plates_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "samples": {
@@ -102,7 +102,7 @@
             "target": "sample",
             "targetKey": "program_ID",
             "sourceKey": "samples_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "crossingProjects": {
@@ -112,7 +112,7 @@
             "target": "crossingproject",
             "targetKey": "program_ID",
             "sourceKey": "crossingProjects_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "seedLots": {
@@ -122,7 +122,7 @@
             "target": "seedlot",
             "targetKey": "program_ID",
             "sourceKey": "seedLots_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -132,7 +132,7 @@
             "target": "observationunit",
             "targetKey": "program_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Program",
+            "keysIn": "program",
             "targetStorageType": "sql"
         }
     },

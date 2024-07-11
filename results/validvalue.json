@@ -25,7 +25,7 @@
             "target": "category",
             "targetKey": "validValues_IDs",
             "sourceKey": "categories_IDs",
-            "keysIn": "ValidValue",
+            "keysIn": "validvalue",
             "targetStorageType": "sql"
         },
         "scales": {
@@ -35,7 +35,7 @@
             "target": "scale",
             "targetKey": "validValues_ID",
             "sourceKey": "scales_IDs",
-            "keysIn": "ValidValue",
+            "keysIn": "validvalue",
             "targetStorageType": "sql"
         }
     },

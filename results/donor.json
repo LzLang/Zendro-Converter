@@ -24,7 +24,7 @@
             "target": "germplasm",
             "targetKey": "donors_IDs",
             "sourceKey": "germplasms_IDs",
-            "keysIn": "Donor",
+            "keysIn": "donor",
             "targetStorageType": "sql"
         }
     },

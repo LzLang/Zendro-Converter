@@ -82,7 +82,7 @@
             "target": "germplasmattributevalue",
             "targetKey": "attribute_ID",
             "sourceKey": "attributeValues_IDs",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -92,7 +92,7 @@
             "target": "additionalinfo",
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -102,7 +102,7 @@
             "target": "externalreference",
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         },
         "method": {
@@ -112,7 +112,7 @@
             "target": "method",
             "targetKey": "germplasmAttributes_IDs",
             "sourceKey": "method_ID",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         },
         "ontologyReference": {
@@ -122,7 +122,7 @@
             "target": "ontologyreference",
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "ontologyReference_ID",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         },
         "scale": {
@@ -132,7 +132,7 @@
             "target": "scale",
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "scale_ID",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         },
         "trait": {
@@ -142,7 +142,7 @@
             "target": "trait",
             "targetKey": "germplasmAttribute_ID",
             "sourceKey": "trait_ID",
-            "keysIn": "GermplasmAttribute",
+            "keysIn": "germplasmattribute",
             "targetStorageType": "sql"
         }
     },

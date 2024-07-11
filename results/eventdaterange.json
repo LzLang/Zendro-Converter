@@ -28,7 +28,7 @@
             "target": "event",
             "targetKey": "eventDateRange_ID",
             "sourceKey": "event_ID",
-            "keysIn": "EventDateRange",
+            "keysIn": "eventdaterange",
             "targetStorageType": "sql"
         }
     },

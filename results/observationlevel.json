@@ -29,7 +29,7 @@
             "target": "observationunitposition",
             "targetKey": "observationLevel_IDs",
             "sourceKey": "observationUnitPosition_ID",
-            "keysIn": "ObservationLevel",
+            "keysIn": "observationlevel",
             "targetStorageType": "sql"
         },
         "study": {
@@ -39,7 +39,7 @@
             "target": "study",
             "targetKey": "observationLevels_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "ObservationLevel",
+            "keysIn": "observationlevel",
             "targetStorageType": "sql"
         }
     },

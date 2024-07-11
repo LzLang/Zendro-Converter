@@ -24,7 +24,7 @@
             "target": "image",
             "targetKey": "imageLocation_ID",
             "sourceKey": "images_IDs",
-            "keysIn": "ImageLocation",
+            "keysIn": "imagelocation",
             "targetStorageType": "sql"
         }
     },

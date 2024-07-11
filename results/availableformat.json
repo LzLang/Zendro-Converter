@@ -44,7 +44,7 @@
             "target": "variantset",
             "targetKey": "availableFormats_IDs",
             "sourceKey": "variantset_ID",
-            "keysIn": "AvailableFormat",
+            "keysIn": "availableformat",
             "targetStorageType": "sql"
         }
     },

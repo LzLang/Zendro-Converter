@@ -28,7 +28,7 @@
             "target": "trial",
             "targetKey": "datasetAuthorships_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "DatasetAuthorship",
+            "keysIn": "datasetauthorship",
             "targetStorageType": "sql"
         }
     },

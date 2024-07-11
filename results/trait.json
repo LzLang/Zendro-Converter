@@ -68,7 +68,7 @@
             "target": "additionalinfo",
             "targetKey": "trait_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Trait",
+            "keysIn": "trait",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -78,7 +78,7 @@
             "target": "externalreference",
             "targetKey": "trait_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Trait",
+            "keysIn": "trait",
             "targetStorageType": "sql"
         },
         "Ontology": {
@@ -88,7 +88,7 @@
             "target": "ontologyreference",
             "targetKey": "trait_ID",
             "sourceKey": "Ontology_ID",
-            "keysIn": "Trait",
+            "keysIn": "trait",
             "targetStorageType": "sql"
         },
         "germplasmAttribute": {
@@ -98,7 +98,7 @@
             "target": "germplasmattribute",
             "targetKey": "trait_ID",
             "sourceKey": "germplasmAttribute_ID",
-            "keysIn": "Trait",
+            "keysIn": "trait",
             "targetStorageType": "sql"
         },
         "observationVariables": {
@@ -108,7 +108,7 @@
             "target": "observationvariable",
             "targetKey": "trait_ID",
             "sourceKey": "observationVariables_IDs",
-            "keysIn": "Trait",
+            "keysIn": "trait",
             "targetStorageType": "sql"
         }
     },

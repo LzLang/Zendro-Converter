@@ -41,7 +41,7 @@
             "target": "additionalinfo",
             "targetKey": "scale_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Scale",
+            "keysIn": "scale",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -51,7 +51,7 @@
             "target": "externalreference",
             "targetKey": "scale_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Scale",
+            "keysIn": "scale",
             "targetStorageType": "sql"
         },
         "ontologyReference": {
@@ -61,7 +61,7 @@
             "target": "ontologyreference",
             "targetKey": "scale_ID",
             "sourceKey": "ontologyReference_ID",
-            "keysIn": "Scale",
+            "keysIn": "scale",
             "targetStorageType": "sql"
         },
         "germplasmAttribute": {
@@ -71,7 +71,7 @@
             "target": "germplasmattribute",
             "targetKey": "scale_ID",
             "sourceKey": "germplasmAttribute_ID",
-            "keysIn": "Scale",
+            "keysIn": "scale",
             "targetStorageType": "sql"
         },
         "observationVariable": {
@@ -81,7 +81,7 @@
             "target": "observationvariable",
             "targetKey": "scale_ID",
             "sourceKey": "observationVariable_IDs",
-            "keysIn": "Scale",
+            "keysIn": "scale",
             "targetStorageType": "sql"
         },
         "validValues": {
@@ -91,7 +91,7 @@
             "target": "validvalue",
             "targetKey": "scales_IDs",
             "sourceKey": "validValues_ID",
-            "keysIn": "Scale",
+            "keysIn": "scale",
             "targetStorageType": "sql"
         }
     },

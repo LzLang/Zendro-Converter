@@ -119,7 +119,7 @@
             "target": "breedingmethod",
             "targetKey": "germplasm_IDs",
             "sourceKey": "breedingMethod_ID",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "pedigreeNode": {
@@ -129,7 +129,7 @@
             "target": "pedigreenode",
             "targetKey": "germplasm_ID",
             "sourceKey": "pedigreeNode_ID",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "samples": {
@@ -139,7 +139,7 @@
             "target": "sample",
             "targetKey": "germplasm_ID",
             "sourceKey": "samples_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "attributeValues": {
@@ -149,7 +149,7 @@
             "target": "germplasmattributevalue",
             "targetKey": "germplasm_ID",
             "sourceKey": "attributeValues_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "progenyPedigreeNodes": {
@@ -159,7 +159,7 @@
             "target": "parent",
             "targetKey": "parentGermplasm_ID",
             "sourceKey": "progenyPedigreeNodes_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "parentPedigreeNodes": {
@@ -169,7 +169,7 @@
             "target": "progeny",
             "targetKey": "progenyGermplasm_ID",
             "sourceKey": "parentPedigreeNodes_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "siblingPedigreeNodes": {
@@ -179,7 +179,7 @@
             "target": "pedigreenode",
             "targetKey": "siblingGermplasm_ID",
             "sourceKey": "siblingPedigreeNodes_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "observations": {
@@ -189,7 +189,7 @@
             "target": "observation",
             "targetKey": "germplasm_ID",
             "sourceKey": "observations_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -199,7 +199,7 @@
             "target": "observationunit",
             "targetKey": "germplasm_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -209,7 +209,7 @@
             "target": "additionalinfo",
             "targetKey": "germplasm_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -219,7 +219,7 @@
             "target": "externalreference",
             "targetKey": "germplasm_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "donors": {
@@ -229,7 +229,7 @@
             "target": "donor",
             "targetKey": "germplasms_IDs",
             "sourceKey": "donors_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "germplasmOrigin": {
@@ -239,7 +239,7 @@
             "target": "germplasmorigin",
             "targetKey": "germplasms_IDs",
             "sourceKey": "germplasmOrigin_ID",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "storageTypes": {
@@ -249,7 +249,7 @@
             "target": "storagetype",
             "targetKey": "germplasms_IDs",
             "sourceKey": "storageTypes_ID",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "synonyms": {
@@ -259,7 +259,7 @@
             "target": "synonym",
             "targetKey": "germplasm_ID",
             "sourceKey": "synonyms_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
         "taxonIds": {
@@ -269,7 +269,7 @@
             "target": "taxonid",
             "targetKey": "germplasm_ID",
             "sourceKey": "taxonIds_IDs",
-            "keysIn": "Germplasm",
+            "keysIn": "germplasm",
             "targetStorageType": "sql"
         }
     },

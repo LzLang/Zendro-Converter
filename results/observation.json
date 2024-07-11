@@ -40,7 +40,7 @@
             "target": "germplasm",
             "targetKey": "observations_IDs",
             "sourceKey": "germplasm_ID",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "observationUnit": {
@@ -50,7 +50,7 @@
             "target": "observationunit",
             "targetKey": "observations_IDs",
             "sourceKey": "observationUnit_ID",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "observationVariable": {
@@ -60,7 +60,7 @@
             "target": "observationvariable",
             "targetKey": "observations_IDs",
             "sourceKey": "observationVariable_ID",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "study": {
@@ -70,7 +70,7 @@
             "target": "study",
             "targetKey": "observations_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "images": {
@@ -80,7 +80,7 @@
             "target": "image",
             "targetKey": "observations_IDs",
             "sourceKey": "images_IDs",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -90,7 +90,7 @@
             "target": "additionalinfo",
             "targetKey": "observation_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -100,7 +100,7 @@
             "target": "externalreference",
             "targetKey": "observation_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "geoCoordinates": {
@@ -110,7 +110,7 @@
             "target": "coordinate",
             "targetKey": "observations_IDs",
             "sourceKey": "geoCoordinates_ID",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         },
         "season": {
@@ -120,7 +120,7 @@
             "target": "season",
             "targetKey": "observations_IDs",
             "sourceKey": "season_ID",
-            "keysIn": "Observation",
+            "keysIn": "observation",
             "targetStorageType": "sql"
         }
     },

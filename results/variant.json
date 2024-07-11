@@ -79,7 +79,7 @@
             "target": "additionalinfo",
             "targetKey": "variant_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "markerPositions": {
@@ -89,7 +89,7 @@
             "target": "markerposition",
             "targetKey": "variant_ID",
             "sourceKey": "markerPositions_IDs",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "alleleMatrices": {
@@ -99,7 +99,7 @@
             "target": "allelematrix",
             "targetKey": "variants_IDs",
             "sourceKey": "alleleMatrices_IDs",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "calls": {
@@ -109,7 +109,7 @@
             "target": "call",
             "targetKey": "variant_ID",
             "sourceKey": "calls_IDs",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -119,7 +119,7 @@
             "target": "externalreference",
             "targetKey": "variant_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "reference": {
@@ -129,7 +129,7 @@
             "target": "reference",
             "targetKey": "variants_IDs",
             "sourceKey": "reference_ID",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "referenceSet": {
@@ -139,7 +139,7 @@
             "target": "referenceset",
             "targetKey": "variants_IDs",
             "sourceKey": "referenceSet_ID",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         },
         "variantSet": {
@@ -149,7 +149,7 @@
             "target": "variantset",
             "targetKey": "variants_IDs",
             "sourceKey": "variantSet_ID",
-            "keysIn": "Variant",
+            "keysIn": "variant",
             "targetStorageType": "sql"
         }
     },

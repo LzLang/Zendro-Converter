@@ -35,7 +35,7 @@
             "target": "seedlot",
             "targetKey": "fromSeedLotTransactions_IDs",
             "sourceKey": "fromSeedLot_ID",
-            "keysIn": "SeedLotTransaction",
+            "keysIn": "seedlottransaction",
             "targetStorageType": "sql"
         },
         "toSeedLot": {
@@ -45,7 +45,7 @@
             "target": "seedlot",
             "targetKey": "toSeedLotTransactions_IDs",
             "sourceKey": "toSeedLot_ID",
-            "keysIn": "SeedLotTransaction",
+            "keysIn": "seedlottransaction",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -55,7 +55,7 @@
             "target": "additionalinfo",
             "targetKey": "seedLotTransaction_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "SeedLotTransaction",
+            "keysIn": "seedlottransaction",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -65,7 +65,7 @@
             "target": "externalreference",
             "targetKey": "seedLotTransaction_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "SeedLotTransaction",
+            "keysIn": "seedlottransaction",
             "targetStorageType": "sql"
         }
     },

@@ -48,7 +48,7 @@
             "target": "study",
             "targetKey": "dataLinks_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "DataLink",
+            "keysIn": "datalink",
             "targetStorageType": "sql"
         }
     },

@@ -21,7 +21,7 @@
             "target": "coordinate",
             "targetKey": "germplasmOrigin_ID",
             "sourceKey": "coordinates_IDs",
-            "keysIn": "GermplasmOrigin",
+            "keysIn": "germplasmorigin",
             "targetStorageType": "sql"
         },
         "germplasms": {
@@ -31,7 +31,7 @@
             "target": "germplasm",
             "targetKey": "germplasmOrigin_ID",
             "sourceKey": "germplasms_IDs",
-            "keysIn": "GermplasmOrigin",
+            "keysIn": "germplasmorigin",
             "targetStorageType": "sql"
         }
     },

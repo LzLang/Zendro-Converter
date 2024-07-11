@@ -36,7 +36,7 @@
             "target": "callset",
             "targetKey": "alleleMatrices_IDs",
             "sourceKey": "callSets_IDs",
-            "keysIn": "AlleleMatrix",
+            "keysIn": "allelematrix",
             "targetStorageType": "sql"
         },
         "dataMatrices": {
@@ -46,7 +46,7 @@
             "target": "datamatrix",
             "targetKey": "alleleMatrices_ID",
             "sourceKey": "dataMatrices_IDs",
-            "keysIn": "AlleleMatrix",
+            "keysIn": "allelematrix",
             "targetStorageType": "sql"
         },
         "pagination": {
@@ -56,7 +56,7 @@
             "target": "pagination",
             "targetKey": "alleleMatrices_ID",
             "sourceKey": "pagination_IDs",
-            "keysIn": "AlleleMatrix",
+            "keysIn": "allelematrix",
             "targetStorageType": "sql"
         },
         "variantSets": {
@@ -66,7 +66,7 @@
             "target": "variantset",
             "targetKey": "alleleMatrices_IDs",
             "sourceKey": "variantSets_IDs",
-            "keysIn": "AlleleMatrix",
+            "keysIn": "allelematrix",
             "targetStorageType": "sql"
         },
         "variants": {
@@ -76,7 +76,7 @@
             "target": "variant",
             "targetKey": "alleleMatrices_IDs",
             "sourceKey": "variants_IDs",
-            "keysIn": "AlleleMatrix",
+            "keysIn": "allelematrix",
             "targetStorageType": "sql"
         }
     },

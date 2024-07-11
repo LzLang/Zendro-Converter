@@ -55,7 +55,7 @@
             "target": "location",
             "targetKey": "seedLots_IDs",
             "sourceKey": "location_ID",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "program": {
@@ -65,7 +65,7 @@
             "target": "program",
             "targetKey": "seedLots_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "fromSeedLotTransactions": {
@@ -75,7 +75,7 @@
             "target": "seedlottransaction",
             "targetKey": "fromSeedLot_ID",
             "sourceKey": "fromSeedLotTransactions_IDs",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "toSeedLotTransactions": {
@@ -85,7 +85,7 @@
             "target": "seedlottransaction",
             "targetKey": "toSeedLot_ID",
             "sourceKey": "toSeedLotTransactions_IDs",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -95,7 +95,7 @@
             "target": "observationunit",
             "targetKey": "seedLot_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -105,7 +105,7 @@
             "target": "additionalinfo",
             "targetKey": "seedLot_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -115,7 +115,7 @@
             "target": "externalreference",
             "targetKey": "seedLot_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         },
         "contentMixture": {
@@ -125,7 +125,7 @@
             "target": "contentmixture",
             "targetKey": "seedLot_IDs",
             "sourceKey": "contentMixture_IDs",
-            "keysIn": "SeedLot",
+            "keysIn": "seedlot",
             "targetStorageType": "sql"
         }
     },

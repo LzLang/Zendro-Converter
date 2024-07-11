@@ -44,7 +44,7 @@
             "target": "additionalinfo",
             "targetKey": "ontology_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Ontology",
+            "keysIn": "ontology",
             "targetStorageType": "sql"
         }
     },

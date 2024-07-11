@@ -17,7 +17,7 @@
             "target": "germplasm",
             "targetKey": "siblingPedigreeNodes_IDs",
             "sourceKey": "siblingGermplasm_ID",
-            "keysIn": "Sibling",
+            "keysIn": "sibling",
             "targetStorageType": "sql"
         },
         "pedigreeNode": {
@@ -27,7 +27,7 @@
             "target": "pedigreenode",
             "targetKey": "siblings_IDs",
             "sourceKey": "pedigreeNode_IDs",
-            "keysIn": "Sibling",
+            "keysIn": "sibling",
             "targetStorageType": "sql"
         }
     },

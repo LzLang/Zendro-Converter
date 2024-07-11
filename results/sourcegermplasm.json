@@ -25,7 +25,7 @@
             "target": "referenceset",
             "targetKey": "sourceGermplasm_IDs",
             "sourceKey": "referenceset_ID",
-            "keysIn": "SourceGermplasm",
+            "keysIn": "sourcegermplasm",
             "targetStorageType": "sql"
         },
         "reference": {
@@ -35,7 +35,7 @@
             "target": "reference",
             "targetKey": "sourceGermplasm_IDs",
             "sourceKey": "reference_ID",
-            "keysIn": "SourceGermplasm",
+            "keysIn": "sourcegermplasm",
             "targetStorageType": "sql"
         }
     },

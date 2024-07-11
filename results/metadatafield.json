@@ -28,7 +28,7 @@
             "target": "variantset",
             "targetKey": "metadataFields_IDs",
             "sourceKey": "variantset_ID",
-            "keysIn": "MetadataField",
+            "keysIn": "metadatafield",
             "targetStorageType": "sql"
         }
     },

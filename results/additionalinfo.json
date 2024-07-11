@@ -52,7 +52,7 @@
             "target": "call",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "call_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "callSet": {
@@ -62,7 +62,7 @@
             "target": "callset",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "callSet_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "cross": {
@@ -72,7 +72,7 @@
             "target": "cross",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "cross_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "crossingProject": {
@@ -82,7 +82,7 @@
             "target": "crossingproject",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "crossingProject_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "event": {
@@ -92,7 +92,7 @@
             "target": "event",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "event_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "genomeMap": {
@@ -102,7 +102,7 @@
             "target": "additionalinfo",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "genomeMap_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "germplasm": {
@@ -112,7 +112,7 @@
             "target": "germplasm",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "germplasm_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "germplasmAttribute": {
@@ -122,7 +122,7 @@
             "target": "germplasmattribute",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "germplasmAttribute_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "germplasmAttributeValue": {
@@ -132,7 +132,7 @@
             "target": "germplasmattributevalue",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "germplasmAttributeValue_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "image": {
@@ -142,7 +142,7 @@
             "target": "image",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "image_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "list": {
@@ -152,7 +152,7 @@
             "target": "list",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "list_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "location": {
@@ -162,7 +162,7 @@
             "target": "location",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "location_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "markerPosition": {
@@ -172,7 +172,7 @@
             "target": "markerposition",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "markerPosition_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "method": {
@@ -182,7 +182,7 @@
             "target": "method",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "method_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "observation": {
@@ -192,7 +192,7 @@
             "target": "observation",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "observation_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "observationUnit": {
@@ -202,7 +202,7 @@
             "target": "observationunit",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "observationUnit_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "observationVariable": {
@@ -212,7 +212,7 @@
             "target": "observationvariable",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "observationVariable_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "ontology": {
@@ -222,7 +222,7 @@
             "target": "ontology",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "ontology_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "pedigreeNode": {
@@ -232,7 +232,7 @@
             "target": "pedigreenode",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "pedigreeNode_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "plannedCross": {
@@ -242,7 +242,7 @@
             "target": "plannedcross",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "plannedCross_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "plate": {
@@ -252,7 +252,7 @@
             "target": "plate",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "plate_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "program": {
@@ -262,7 +262,7 @@
             "target": "program",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "reference": {
@@ -272,7 +272,7 @@
             "target": "reference",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "reference_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "referenceSet": {
@@ -282,7 +282,7 @@
             "target": "referenceset",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "referenceSet_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "sample": {
@@ -292,7 +292,7 @@
             "target": "sample",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "sample_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "scale": {
@@ -302,7 +302,7 @@
             "target": "scale",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "scale_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "seedLot": {
@@ -312,7 +312,7 @@
             "target": "seedlot",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "seedLot_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "seedLotTransaction": {
@@ -322,7 +322,7 @@
             "target": "seedlottransaction",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "seedLotTransaction_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "study": {
@@ -332,7 +332,7 @@
             "target": "study",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "trait": {
@@ -342,7 +342,7 @@
             "target": "trait",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "trait_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "trial": {
@@ -352,7 +352,7 @@
             "target": "trail",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "variant": {
@@ -362,7 +362,7 @@
             "target": "variant",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "variant_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         },
         "variantSet": {
@@ -372,7 +372,7 @@
             "target": "variantset",
             "targetKey": "additionalInfo_IDs",
             "sourceKey": "variantSet_ID",
-            "keysIn": "AdditionalInfo",
+            "keysIn": "additionalinfo",
             "targetStorageType": "sql"
         }
     },

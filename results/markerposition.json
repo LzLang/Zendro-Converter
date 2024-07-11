@@ -26,7 +26,7 @@
             "target": "additionalinfo",
             "targetKey": "markerPosition_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "MarkerPosition",
+            "keysIn": "markerposition",
             "targetStorageType": "sql"
         },
         "map": {
@@ -36,7 +36,7 @@
             "target": "genomemap",
             "targetKey": "markerPositions_IDs",
             "sourceKey": "map_ID",
-            "keysIn": "MarkerPosition",
+            "keysIn": "markerposition",
             "targetStorageType": "sql"
         },
         "variant": {
@@ -46,7 +46,7 @@
             "target": "variant",
             "targetKey": "markerPositions_IDs",
             "sourceKey": "variant_ID",
-            "keysIn": "MarkerPosition",
+            "keysIn": "markerposition",
             "targetStorageType": "sql"
         }
     },

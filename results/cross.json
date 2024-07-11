@@ -31,7 +31,7 @@
             "target": "crossingproject",
             "targetKey": "crosses_IDs",
             "sourceKey": "crossingProject_ID",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "plannedCross": {
@@ -41,7 +41,7 @@
             "target": "plannedcross",
             "targetKey": "crosss_IDs",
             "sourceKey": "plannedCross_ID",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "observationUnits": {
@@ -51,7 +51,7 @@
             "target": "observationunit",
             "targetKey": "cross_ID",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -61,7 +61,7 @@
             "target": "additionalinfo",
             "targetKey": "cross_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -71,7 +71,7 @@
             "target": "externalreference",
             "targetKey": "cross_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "crossAttributes": {
@@ -81,7 +81,7 @@
             "target": "crossattribute",
             "targetKey": "cross_ID",
             "sourceKey": "crossAttributes_IDs",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "parents": {
@@ -91,7 +91,7 @@
             "target": "parent",
             "targetKey": "crosses_IDs",
             "sourceKey": "parents_IDs",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         },
         "pollinationEvents": {
@@ -101,7 +101,7 @@
             "target": "pollinationevent",
             "targetKey": "cross_ID",
             "sourceKey": "pollinationEvents_IDs",
-            "keysIn": "Cross",
+            "keysIn": "cross",
             "targetStorageType": "sql"
         }
     },

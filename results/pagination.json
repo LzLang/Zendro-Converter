@@ -36,7 +36,7 @@
             "target": "allelematrix",
             "targetKey": "pagination_IDs",
             "sourceKey": "alleleMatrices_ID",
-            "keysIn": "Pagination",
+            "keysIn": "pagination",
             "targetStorageType": "sql"
         }
     },

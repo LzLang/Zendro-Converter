@@ -54,7 +54,7 @@
             "target": "additionalinfo",
             "targetKey": "referenceSet_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -64,7 +64,7 @@
             "target": "externalreference",
             "targetKey": "referenceset_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         },
         "sourceGermplasm": {
@@ -74,7 +74,7 @@
             "target": "sourcegermplasm",
             "targetKey": "referenceset_ID",
             "sourceKey": "sourceGermplasm_IDs",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         },
         "species": {
@@ -84,7 +84,7 @@
             "target": "species",
             "targetKey": "referenceset_ID",
             "sourceKey": "species_ID",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         },
         "references": {
@@ -94,7 +94,7 @@
             "target": "reference",
             "targetKey": "referenceSet_ID",
             "sourceKey": "references_IDs",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         },
         "variants": {
@@ -104,7 +104,7 @@
             "target": "variant",
             "targetKey": "referenceSet_ID",
             "sourceKey": "variants_IDs",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         },
         "variantSets": {
@@ -114,7 +114,7 @@
             "target": "variantset",
             "targetKey": "referenceSet_ID",
             "sourceKey": "variantSets_IDs",
-            "keysIn": "ReferenceSet",
+            "keysIn": "referenceset",
             "targetStorageType": "sql"
         }
     },

@@ -53,7 +53,7 @@
             "target": "additionalinfo",
             "targetKey": "reference_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Reference",
+            "keysIn": "reference",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -63,7 +63,7 @@
             "target": "externalreference",
             "targetKey": "reference_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Reference",
+            "keysIn": "reference",
             "targetStorageType": "sql"
         },
         "referenceSet": {
@@ -73,7 +73,7 @@
             "target": "referenceset",
             "targetKey": "references_IDs",
             "sourceKey": "referenceSet_ID",
-            "keysIn": "Reference",
+            "keysIn": "reference",
             "targetStorageType": "sql"
         },
         "sourceGermplasm": {
@@ -83,7 +83,7 @@
             "target": "sourcegermplasm",
             "targetKey": "reference_ID",
             "sourceKey": "sourceGermplasm_IDs",
-            "keysIn": "Reference",
+            "keysIn": "reference",
             "targetStorageType": "sql"
         },
         "species": {
@@ -93,7 +93,7 @@
             "target": "species",
             "targetKey": "reference_ID",
             "sourceKey": "species_ID",
-            "keysIn": "Reference",
+            "keysIn": "reference",
             "targetStorageType": "sql"
         },
         "variants": {
@@ -103,7 +103,7 @@
             "target": "variant",
             "targetKey": "reference_ID",
             "sourceKey": "variants_IDs",
-            "keysIn": "Reference",
+            "keysIn": "reference",
             "targetStorageType": "sql"
         }
     },

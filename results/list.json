@@ -54,7 +54,7 @@
             "target": "additionalinfo",
             "targetKey": "list_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "List",
+            "keysIn": "list",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -64,7 +64,7 @@
             "target": "externalreference",
             "targetKey": "list_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "List",
+            "keysIn": "list",
             "targetStorageType": "sql"
         },
         "listOwnerPerson": {
@@ -74,7 +74,7 @@
             "target": "person",
             "targetKey": "lists_IDs",
             "sourceKey": "listOwnerPerson_ID",
-            "keysIn": "List",
+            "keysIn": "list",
             "targetStorageType": "sql"
         }
     },

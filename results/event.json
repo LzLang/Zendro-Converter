@@ -32,7 +32,7 @@
             "target": "observationunit",
             "targetKey": "events_IDs",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Event",
+            "keysIn": "event",
             "targetStorageType": "sql"
         },
         "study": {
@@ -42,7 +42,7 @@
             "target": "study",
             "targetKey": "events_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "Event",
+            "keysIn": "event",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -52,7 +52,7 @@
             "target": "additionalinfo",
             "targetKey": "event_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Event",
+            "keysIn": "event",
             "targetStorageType": "sql"
         },
         "eventDateRange": {
@@ -62,7 +62,7 @@
             "target": "eventdaterange",
             "targetKey": "event_ID",
             "sourceKey": "eventDateRange_ID",
-            "keysIn": "Event",
+            "keysIn": "event",
             "targetStorageType": "sql"
         },
         "eventParameters": {
@@ -72,7 +72,7 @@
             "target": "eventparameter",
             "targetKey": "event_ID",
             "sourceKey": "eventParameters_IDs",
-            "keysIn": "Event",
+            "keysIn": "event",
             "targetStorageType": "sql"
         }
     },

@@ -25,7 +25,7 @@
             "target": "referenceset",
             "targetKey": "species_ID",
             "sourceKey": "referenceset_ID",
-            "keysIn": "Species",
+            "keysIn": "species",
             "targetStorageType": "sql"
         },
         "reference": {
@@ -35,7 +35,7 @@
             "target": "reference",
             "targetKey": "species_ID",
             "sourceKey": "reference_ID",
-            "keysIn": "Species",
+            "keysIn": "species",
             "targetStorageType": "sql"
         }
     },

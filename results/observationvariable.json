@@ -75,7 +75,7 @@
             "target": "study",
             "targetKey": "observationVariables_IDs",
             "sourceKey": "studies_IDs",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "observations": {
@@ -85,7 +85,7 @@
             "target": "observation",
             "targetKey": "observationVariable_ID",
             "sourceKey": "observations_IDs",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -95,7 +95,7 @@
             "target": "additionalinfo",
             "targetKey": "observationVariable_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -105,7 +105,7 @@
             "target": "externalreference",
             "targetKey": "observationVariable_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "method": {
@@ -115,7 +115,7 @@
             "target": "method",
             "targetKey": "observationVariables_IDs",
             "sourceKey": "method_ID",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "ontologyReference": {
@@ -125,7 +125,7 @@
             "target": "ontologyreference",
             "targetKey": "observationVariable_ID",
             "sourceKey": "ontologyReference_ID",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "scale": {
@@ -135,7 +135,7 @@
             "target": "scale",
             "targetKey": "observationVariable_IDs",
             "sourceKey": "scale_ID",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         },
         "trait": {
@@ -145,7 +145,7 @@
             "target": "trait",
             "targetKey": "observationVariables_IDs",
             "sourceKey": "trait_ID",
-            "keysIn": "ObservationVariable",
+            "keysIn": "observationvariable",
             "targetStorageType": "sql"
         }
     },

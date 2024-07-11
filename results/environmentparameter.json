@@ -44,7 +44,7 @@
             "target": "study",
             "targetKey": "environmentParameters_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "EnvironmentParameter",
+            "keysIn": "environmentparameter",
             "targetStorageType": "sql"
         }
     },

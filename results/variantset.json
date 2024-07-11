@@ -38,7 +38,7 @@
             "target": "additionalinfo",
             "targetKey": "variantSet_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "alleleMatrices": {
@@ -48,7 +48,7 @@
             "target": "allelematrix",
             "targetKey": "variantSets_IDs",
             "sourceKey": "alleleMatrices_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "calls": {
@@ -58,7 +58,7 @@
             "target": "call",
             "targetKey": "variantSet_ID",
             "sourceKey": "calls_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "callSets": {
@@ -68,7 +68,7 @@
             "target": "callset",
             "targetKey": "variantSets_IDs",
             "sourceKey": "callSets_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "analysis": {
@@ -78,7 +78,7 @@
             "target": "analysis",
             "targetKey": "variantset_ID",
             "sourceKey": "analysis_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "availableFormats": {
@@ -88,7 +88,7 @@
             "target": "availableformat",
             "targetKey": "variantset_ID",
             "sourceKey": "availableFormats_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -98,7 +98,7 @@
             "target": "externalreference",
             "targetKey": "variantset_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "metadataFields": {
@@ -108,7 +108,7 @@
             "target": "metadatafield",
             "targetKey": "variantset_ID",
             "sourceKey": "metadataFields_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "referenceSet": {
@@ -118,7 +118,7 @@
             "target": "referenceset",
             "targetKey": "variantSets_IDs",
             "sourceKey": "referenceSet_ID",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "study": {
@@ -128,7 +128,7 @@
             "target": "study",
             "targetKey": "variantSets_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         },
         "variants": {
@@ -138,7 +138,7 @@
             "target": "variant",
             "targetKey": "variantSet_ID",
             "sourceKey": "variants_IDs",
-            "keysIn": "VariantSet",
+            "keysIn": "variantset",
             "targetStorageType": "sql"
         }
     },

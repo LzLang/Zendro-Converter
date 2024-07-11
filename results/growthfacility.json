@@ -24,7 +24,7 @@
             "target": "study",
             "targetKey": "growthFacility_ID",
             "sourceKey": "study_ID",
-            "keysIn": "GrowthFacility",
+            "keysIn": "growthfacility",
             "targetStorageType": "sql"
         }
     },

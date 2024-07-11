@@ -72,7 +72,7 @@
             "target": "additionalinfo",
             "targetKey": "sample_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "callSets": {
@@ -82,7 +82,7 @@
             "target": "callset",
             "targetKey": "sample_ID",
             "sourceKey": "callSets_IDs",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -92,7 +92,7 @@
             "target": "externalreference",
             "targetKey": "sample_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "germplasm": {
@@ -102,7 +102,7 @@
             "target": "germplasm",
             "targetKey": "samples_IDs",
             "sourceKey": "germplasm_ID",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "observationUnit": {
@@ -112,7 +112,7 @@
             "target": "observationunit",
             "targetKey": "samples_IDs",
             "sourceKey": "observationUnit_ID",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "plate": {
@@ -122,7 +122,7 @@
             "target": "plate",
             "targetKey": "samples_IDs",
             "sourceKey": "plate_ID",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "program": {
@@ -132,7 +132,7 @@
             "target": "program",
             "targetKey": "samples_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "study": {
@@ -142,7 +142,7 @@
             "target": "study",
             "targetKey": "samples_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         },
         "trial": {
@@ -152,7 +152,7 @@
             "target": "trial",
             "targetKey": "samples_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "Sample",
+            "keysIn": "sample",
             "targetStorageType": "sql"
         }
     },

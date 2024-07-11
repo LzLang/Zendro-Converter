@@ -34,7 +34,7 @@
             "target": "program",
             "targetKey": "crossingProjects_IDs",
             "sourceKey": "program_ID",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         },
         "crosses": {
@@ -44,7 +44,7 @@
             "target": "cross",
             "targetKey": "crossingProject_ID",
             "sourceKey": "crosses_IDs",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         },
         "plannedCrosses": {
@@ -54,7 +54,7 @@
             "target": "plannedcross",
             "targetKey": "crossingProject_ID",
             "sourceKey": "plannedCrosses_IDs",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         },
         "pedigreeNodes": {
@@ -64,7 +64,7 @@
             "target": "pedigreenode",
             "targetKey": "crossingProject_ID",
             "sourceKey": "pedigreeNodes_IDs",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -74,7 +74,7 @@
             "target": "additionalinfo",
             "targetKey": "crossingProject_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -84,7 +84,7 @@
             "target": "$defs&externalreference",
             "targetKey": "crossingProject_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         },
         "potentialParents": {
@@ -94,7 +94,7 @@
             "target": "parent",
             "targetKey": "crossingProjects_IDs",
             "sourceKey": "potentialParents_IDs",
-            "keysIn": "CrossingProject",
+            "keysIn": "crossingproject",
             "targetStorageType": "sql"
         }
     },

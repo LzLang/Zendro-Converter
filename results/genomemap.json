@@ -61,7 +61,7 @@
             "target": "additionalinfo",
             "targetKey": "genomeMap_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "GenomeMap",
+            "keysIn": "genomemap",
             "targetStorageType": "sql"
         },
         "markerPositions": {
@@ -71,7 +71,7 @@
             "target": "markerposition",
             "targetKey": "map_ID",
             "sourceKey": "markerPositions_IDs",
-            "keysIn": "GenomeMap",
+            "keysIn": "genomemap",
             "targetStorageType": "sql"
         }
     },

@@ -44,7 +44,7 @@
             "target": "additionalinfo",
             "targetKey": "method_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Method",
+            "keysIn": "method",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -54,7 +54,7 @@
             "target": "externalreference",
             "targetKey": "method_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Method",
+            "keysIn": "method",
             "targetStorageType": "sql"
         },
         "ontologyReference": {
@@ -64,7 +64,7 @@
             "target": "ontologyreference",
             "targetKey": "method_ID",
             "sourceKey": "ontologyReference_ID",
-            "keysIn": "Method",
+            "keysIn": "method",
             "targetStorageType": "sql"
         },
         "germplasmAttributes": {
@@ -74,7 +74,7 @@
             "target": "germplasmattribute",
             "targetKey": "method_ID",
             "sourceKey": "germplasmAttributes_IDs",
-            "keysIn": "Method",
+            "keysIn": "method",
             "targetStorageType": "sql"
         },
         "observationVariables": {
@@ -84,7 +84,7 @@
             "target": "observationvariable",
             "targetKey": "method_ID",
             "sourceKey": "observationVariables_IDs",
-            "keysIn": "Method",
+            "keysIn": "method",
             "targetStorageType": "sql"
         }
     },

@@ -28,7 +28,7 @@
             "target": "additionalinfo",
             "targetKey": "call_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Call",
+            "keysIn": "call",
             "targetStorageType": "sql"
         },
         "callSet": {
@@ -38,7 +38,7 @@
             "target": "callset",
             "targetKey": "calls_IDs",
             "sourceKey": "callSet_ID",
-            "keysIn": "Call",
+            "keysIn": "call",
             "targetStorageType": "sql"
         },
         "genotypeMetadata": {
@@ -48,7 +48,7 @@
             "target": "genotypemetadata",
             "targetKey": "call_ID",
             "sourceKey": "genotypeMetadata_IDs",
-            "keysIn": "Call",
+            "keysIn": "call",
             "targetStorageType": "sql"
         },
         "variant": {
@@ -58,7 +58,7 @@
             "target": "variant",
             "targetKey": "calls_IDs",
             "sourceKey": "variant_ID",
-            "keysIn": "Call",
+            "keysIn": "call",
             "targetStorageType": "sql"
         },
         "variantSet": {
@@ -68,7 +68,7 @@
             "target": "variantset",
             "targetKey": "calls_IDs",
             "sourceKey": "variantSet_ID",
-            "keysIn": "Call",
+            "keysIn": "call",
             "targetStorageType": "sql"
         }
     },

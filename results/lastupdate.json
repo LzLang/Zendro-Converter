@@ -24,7 +24,7 @@
             "target": "study",
             "targetKey": "lastUpdate_ID",
             "sourceKey": "study_ID",
-            "keysIn": "LastUpdate",
+            "keysIn": "lastupdate",
             "targetStorageType": "sql"
         }
     },

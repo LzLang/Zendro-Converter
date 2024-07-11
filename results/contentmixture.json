@@ -36,7 +36,7 @@
             "target": "seedlot",
             "targetKey": "contentMixture_IDs",
             "sourceKey": "seedLot_IDs",
-            "keysIn": "ContentMixture",
+            "keysIn": "contentmixture",
             "targetStorageType": "sql"
         }
     },

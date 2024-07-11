@@ -44,7 +44,7 @@
             "target": "event",
             "targetKey": "eventParameters_IDs",
             "sourceKey": "event_ID",
-            "keysIn": "EventParameter",
+            "keysIn": "eventparameter",
             "targetStorageType": "sql"
         }
     },

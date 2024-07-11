@@ -24,7 +24,7 @@
             "target": "observationunit",
             "targetKey": "treatments_IDs",
             "sourceKey": "observationUnits_IDs",
-            "keysIn": "Treatment",
+            "keysIn": "treatment",
             "targetStorageType": "sql"
         }
     },

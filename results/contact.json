@@ -37,7 +37,7 @@
             "target": "study",
             "targetKey": "contacts_IDs",
             "sourceKey": "study_ID",
-            "keysIn": "Contact",
+            "keysIn": "contact",
             "targetStorageType": "sql"
         },
         "trial": {
@@ -47,7 +47,7 @@
             "target": "trial",
             "targetKey": "contacts_IDs",
             "sourceKey": "trial_ID",
-            "keysIn": "Contact",
+            "keysIn": "contact",
             "targetStorageType": "sql"
         }
     },

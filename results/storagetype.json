@@ -24,7 +24,7 @@
             "target": "germplasm",
             "targetKey": "storageTypes_ID",
             "sourceKey": "germplasms_IDs",
-            "keysIn": "StorageType",
+            "keysIn": "storagetype",
             "targetStorageType": "sql"
         }
     },

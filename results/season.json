@@ -24,7 +24,7 @@
             "target": "observation",
             "targetKey": "season_ID",
             "sourceKey": "observations_IDs",
-            "keysIn": "Season",
+            "keysIn": "season",
             "targetStorageType": "sql"
         }
     },

@@ -29,7 +29,7 @@
             "target": "germplasmattribute",
             "targetKey": "ontologyReference_ID",
             "sourceKey": "germplasmAttribute_ID",
-            "keysIn": "OntologyReference",
+            "keysIn": "ontologyreference",
             "targetStorageType": "sql"
         },
         "method": {
@@ -39,7 +39,7 @@
             "target": "method",
             "targetKey": "ontologyReference_ID",
             "sourceKey": "method_ID",
-            "keysIn": "OntologyReference",
+            "keysIn": "ontologyreference",
             "targetStorageType": "sql"
         },
         "observationVariable": {
@@ -49,7 +49,7 @@
             "target": "observationvariable",
             "targetKey": "ontologyReference_ID",
             "sourceKey": "observationVariable_ID",
-            "keysIn": "OntologyReference",
+            "keysIn": "ontologyreference",
             "targetStorageType": "sql"
         },
         "scale": {
@@ -59,7 +59,7 @@
             "target": "scale",
             "targetKey": "ontologyReference_ID",
             "sourceKey": "scale_ID",
-            "keysIn": "OntologyReference",
+            "keysIn": "ontologyreference",
             "targetStorageType": "sql"
         },
         "trait": {
@@ -69,7 +69,7 @@
             "target": "trait",
             "targetKey": "ontologyReference_ID",
             "sourceKey": "trait_ID",
-            "keysIn": "OntologyReference",
+            "keysIn": "ontologyreference",
             "targetStorageType": "sql"
         },
         "documentationLinks": {
@@ -79,7 +79,7 @@
             "target": "documentationlink",
             "targetKey": "ontologyReference_ID",
             "sourceKey": "documentationLinks_IDs",
-            "keysIn": "OntologyReference",
+            "keysIn": "ontologyreference",
             "targetStorageType": "sql"
         }
     },

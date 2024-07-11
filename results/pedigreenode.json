@@ -43,7 +43,7 @@
             "target": "breedingmethod",
             "targetKey": "pedigreeNodes_IDs",
             "sourceKey": "breedingMethod_ID",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "crossingProject": {
@@ -53,7 +53,7 @@
             "target": "crossingproject",
             "targetKey": "pedigreeNodes_IDs",
             "sourceKey": "crossingProject_ID",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "germplasm": {
@@ -63,7 +63,7 @@
             "target": "germplasm",
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "germplasm_ID",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -73,7 +73,7 @@
             "target": "additionalinfo",
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -83,7 +83,7 @@
             "target": "externalreference",
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "parents": {
@@ -93,7 +93,7 @@
             "target": "parent",
             "targetKey": "pedigreeNode_IDs",
             "sourceKey": "parents_IDs",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "progeny": {
@@ -103,7 +103,7 @@
             "target": "progeny",
             "targetKey": "pedigreeNode_ID",
             "sourceKey": "progeny_IDs",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         },
         "siblings": {
@@ -113,7 +113,7 @@
             "target": "sibling",
             "targetKey": "pedigreeNode_IDs",
             "sourceKey": "siblings_IDs",
-            "keysIn": "PedigreeNode",
+            "keysIn": "pedigreenode",
             "targetStorageType": "sql"
         }
     },

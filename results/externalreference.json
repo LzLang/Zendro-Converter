@@ -39,7 +39,7 @@
             "target": "cross",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "cross_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "crossingProject": {
@@ -49,7 +49,7 @@
             "target": "crossingproject",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "crossingProject_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "germplasm": {
@@ -59,7 +59,7 @@
             "target": "germplasm",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "germplasm_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "germplasmAttribute": {
@@ -69,7 +69,7 @@
             "target": "germplasmattribute",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "germplasmAttribute_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "germplasmAttributeValue": {
@@ -79,7 +79,7 @@
             "target": "germplasmattributevalue",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "germplasmAttributeValue_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "image": {
@@ -89,7 +89,7 @@
             "target": "image",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "image_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "method": {
@@ -99,7 +99,7 @@
             "target": "method",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "method_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "observation": {
@@ -109,7 +109,7 @@
             "target": "observation",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "observation_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "observationUnit": {
@@ -119,7 +119,7 @@
             "target": "observationunit",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "observationUnit_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "observationVariable": {
@@ -129,7 +129,7 @@
             "target": "observationvariable",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "observationVariable_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "pedigreeNode": {
@@ -139,7 +139,7 @@
             "target": "pedigreenode",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "pedigreeNode_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "plannedCross": {
@@ -149,7 +149,7 @@
             "target": "plannedcross",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "plannedCross_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "scale": {
@@ -159,7 +159,7 @@
             "target": "scale",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "scale_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "seedLot": {
@@ -169,7 +169,7 @@
             "target": "seedlot",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "seedLot_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "seedLotTransaction": {
@@ -179,7 +179,7 @@
             "target": "seedlottransaction",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "seedLotTransaction_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         },
         "trait": {
@@ -189,7 +189,7 @@
             "target": "trait",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "trait_ID",
-            "keysIn": "ExternalReference",
+            "keysIn": "externalreference",
             "targetStorageType": "sql"
         }
     },

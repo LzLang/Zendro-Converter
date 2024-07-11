@@ -64,7 +64,7 @@
             "target": "observationunit",
             "targetKey": "images_IDs",
             "sourceKey": "observationUnit_ID",
-            "keysIn": "Image",
+            "keysIn": "image",
             "targetStorageType": "sql"
         },
         "observations": {
@@ -74,7 +74,7 @@
             "target": "observation",
             "targetKey": "images_IDs",
             "sourceKey": "observations_IDs",
-            "keysIn": "Image",
+            "keysIn": "image",
             "targetStorageType": "sql"
         },
         "additionalInfo": {
@@ -84,7 +84,7 @@
             "target": "additionalinfo",
             "targetKey": "image_ID",
             "sourceKey": "additionalInfo_IDs",
-            "keysIn": "Image",
+            "keysIn": "image",
             "targetStorageType": "sql"
         },
         "externalReferences": {
@@ -94,7 +94,7 @@
             "target": "externalreference",
             "targetKey": "image_ID",
             "sourceKey": "externalReferences_IDs",
-            "keysIn": "Image",
+            "keysIn": "image",
             "targetStorageType": "sql"
         },
         "imageLocation": {
@@ -104,7 +104,7 @@
             "target": "imagelocation",
             "targetKey": "images_IDs",
             "sourceKey": "imageLocation_ID",
-            "keysIn": "Image",
+            "keysIn": "image",
             "targetStorageType": "sql"
         }
     },
