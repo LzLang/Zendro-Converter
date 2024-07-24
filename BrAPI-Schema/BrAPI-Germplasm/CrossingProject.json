@@ -92,7 +92,7 @@
                     "referencedAttribute": "crossingProject",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ExternalReference.json#/$defs&ExternalReference",
+                        "$ref": "ExternalReference.json#/ExternalReference",
                         "description": "ExternalReference"
                     },
                     "type": [

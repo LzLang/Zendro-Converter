@@ -7,10 +7,10 @@
                     "type": "string"
                 },
                 "attribute": {
-                    "$ref": "Attribute.json#/$defs/Attribute",
+                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
                     "description": "The ID which uniquely identifies this attribute within the given database server",
                     "referencedAttribute": "germplasmAttributeValues",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-many"
                 },
                 "determinedDate": {
                     "description": "The date the value of this attribute was determined for a given germplasm",
@@ -23,7 +23,7 @@
                 "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm within the given database server",
-                    "referencedAttribute": "germplasmAttributeValues",
+                    "referencedAttribute": "attributeValues",
                     "relationshipType": "many-to-one"
                 },
                 "value": {

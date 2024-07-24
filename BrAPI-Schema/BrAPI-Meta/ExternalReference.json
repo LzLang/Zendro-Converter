@@ -21,6 +21,12 @@
                         "string"
                     ]
                 },
+                "callset": {
+                    "$ref": "CallSet.json#/$defs/CallSet",
+                    "description": "the unique identifier for a call set",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
                 "cross": {
                     "$ref": "Cross.json#/$defs/Cross",
                     "description": "the unique identifier for a cross",
@@ -63,6 +69,18 @@
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one"
                 },
+				"list": {
+					"$ref": "List.json#/$defs/List",
+                    "description": "the unique identifier of a list",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+				},
+                "location": {
+					"$ref": "Location.json#/$defs/Location",
+                    "description": "the unique identifier of a location",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+				},
                 "observation": {
                     "$ref": "Observation.json#/$defs/Observation",
                     "description": "the unique identifier of an observation",
@@ -81,6 +99,18 @@
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one"
                 },
+                "plate": {
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "the unique identifier of a plate",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "person": {
+                    "$ref": "Person.json#/$defs/Person",
+                    "description": "the unique identifier of a person",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
                 "pedigreeNode": {
                     "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
                     "description": "the unique identifier of a pedigree node",
@@ -92,7 +122,31 @@
                     "description": "the unique identifier of a planned cross",
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one"
-                }, 
+                },
+                "program": {
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "the unique identifier of a program",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "the unique identifier of a reference",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "referenceset": {
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "the unique identifier of a reference set",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "sample": {
+                    "$ref": "Sample.json#/$defs/Sample",
+                    "description": "the unique identifier of a sample",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
                 "scale": {
                     "$ref": "Scale.json#/$defs/Scale",
                     "description": "the unique identifier of a seed lot transaction",
@@ -100,7 +154,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "seedLot": {
-                    "$ref": "SeedLot.json#/$defs/seedLot",
+                    "$ref": "SeedLot.json#/$defs/SeedLot",
                     "description": "the unique identifier for a seed lot",
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one"
@@ -111,9 +165,33 @@
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one"
                 },
+                "study": {
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "the unique identifier of a study",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
                 "trait": {
                     "$ref": "Trait.json#/$defs/Trait",
                     "description": "the unique identifier of a seed lot transaction",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "trial": {
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "the unique identifier of a trial",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "variant": {
+                    "$ref": "Variant.json#/$defs/Variant",
+                    "description": "the unique identifier of a variant",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
+                },
+                "variantset": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "the unique identifier of a variant set",
                     "referencedAttribute": "externalReferences",
                     "relationshipType": "many-to-one"
                 }

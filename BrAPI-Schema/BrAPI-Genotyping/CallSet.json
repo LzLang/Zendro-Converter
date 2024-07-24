@@ -32,8 +32,8 @@
                 },
                 "calls": {
                     "title": "Calls",
-                    "description": "",
-                    "referencedAttribute": "The ID which uniquely identifies this callSet field",
+                    "description": "The ID which uniquely identifies this callSet field",
+                    "referencedAttribute": "callSet",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "Call.json#/$defs/Call",
