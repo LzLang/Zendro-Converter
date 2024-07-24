@@ -119,19 +119,11 @@
                         "array"
                     ]
                 },
-                "attributeValues": {
-                    "title": "attributeValues",
-                    "description": "attributeValues",
+                "germplasmAttributeValues": {
+                    "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
+                    "description": "the unique identifier of a germplasm attribute value",
                     "referencedAttribute": "attribute",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
-                        "description": "GermplasmAttributeValue"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "many-to-many"
                 },
                 "additionalInfo": {
                     "title": "additionalInfo",
@@ -153,7 +145,7 @@
                     "referencedAttribute": "germplasmAttribute",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ExternalReference.json#/$defs/externalReference",
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
                         "description": "externalReference"
                     },
                     "type": [

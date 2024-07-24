@@ -40,7 +40,7 @@
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The study in which the event occurred",
                     "referencedAttribute": "events",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-many"
                 },
                 "additionalInfo": {
                     "title": "additionalInfo",

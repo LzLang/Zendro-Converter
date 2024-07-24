@@ -83,8 +83,8 @@
                     "referencedAttribute": "plannedCross",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ExternalReference.json#/$defs/externalReferences",
-                        "description": "ExternalReferences"
+                        "$ref": "ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReference"
                     },
                     "type": [
                         "null",

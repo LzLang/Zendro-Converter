@@ -44,7 +44,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "genomeMap": {
-                    "$ref": "AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "$ref": "GenomeMap.json#/$defs/GenomeMap",
                     "description": "the unique identifier of a genome map",
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
@@ -121,6 +121,12 @@
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"
                 },
+                "person": {
+                    "$ref": "Person.json#/$defs/Person",
+                    "description": "the unique identifier of a person",
+                    "referencedAttribute": "additionalInfo",
+                    "relationshipType": "many-to-one"
+                },
                 "pedigreeNode": {
                     "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
                     "description": "the unique identifier of a pedigree node",
@@ -194,7 +200,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "trial": {
-                    "$ref": "Trail.json#/$defs/Trail",
+                    "$ref": "Trial.json#/$defs/Trial",
                     "description": "the unique identifier of a trial",
                     "referencedAttribute": "additionalInfo",
                     "relationshipType": "many-to-one"

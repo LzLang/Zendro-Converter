@@ -39,7 +39,7 @@
                 "plannedCross": {
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
                     "description": "the unique identifier for a planned cross",
-                    "referencedAttribute": "crosss",
+                    "referencedAttribute": "crosses",
                     "relationshipType": "many-to-one"
                 },
                 "observationUnits": {
@@ -152,6 +152,12 @@
                         "null",
                         "string"
                     ]
+                },
+                "cross": {
+                    "$ref": "Cross.json#/$defs/Cross",
+                    "description": "the unique identifier of a trial",
+                    "referencedAttribute": "externalReferences",
+                    "relationshipType": "many-to-one"
                 }
             },
             "required": [

@@ -184,7 +184,7 @@
                 },
                 "siblingGermplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
-                    "description": "The ID which uniquely identifies a parent germplasm",
+                    "description": "The ID which uniquely identifies a sibling germplasm",
                     "referencedAttribute": "siblingPedigreeNodes",
                     "relationshipType": "many-to-one"
                 },

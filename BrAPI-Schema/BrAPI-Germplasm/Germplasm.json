@@ -250,7 +250,7 @@
                     "referencedAttribute": "siblingGermplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "$ref": "PedigreeNode.json#/$defs/Sibling",
                         "description": "PedigreeNode"
                     },
                     "type": [
@@ -360,7 +360,7 @@
                     "referencedAttribute": "germplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Germplasm.json#/$defs/TaxonId",
+                        "$ref": "Germplasm.json#/$defs/Taxon",
                         "description": "TaxonId"
                     },
                     "type": [
@@ -436,7 +436,7 @@
                     "title": "coordinates",
                     "description": "List of observations associated to this coordinates",
                     "referencedAttribute": "germplasmOrigin",
-                    "relationshipType": "one-to-many",
+                    "relationshipType": "many-to-one",
                     "items": {
                         "$ref": "Coordinate.json#/$defs/Coordinate",
                         "description": "coordinates"
