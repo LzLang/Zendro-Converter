@@ -120,10 +120,10 @@ def get_models(input_files):
         return files_data if files_data else None
 
     except OSError as file_error:
-        log(f"Couldn't open files: {file_error}")
+        log(f'Couldn\'t open files: {file_error}')
     except Exception as model_exception:
         print(model_exception)
-        log(f"An error occurred: {model_exception}")
+        log(f'An error occurred: {model_exception}')
         sys.exit(1)
 
 
@@ -150,15 +150,15 @@ def get_properties(input_model_properties, current_model):
         if "relationshipType" not in current_property:
             property_type = get_property_type(current_property)
 
-            if model_property == f"{current_model[0].lower() + current_model[1:]}DbId":
+            if model_property == f'{current_model[0].lower() + current_model[1:]}DbId':
                 model_property = args.primary_key_name if args.primary_key_name else model_property
 
                 model_properties["primary_key"] = {
                     "Name": model_property,
-                    "Type": f"[ {args.primary_key_type} ]"
+                    "Type": f'[ {args.primary_key_type} ]'
                 }
 
-                property_type = f"[ {args.primary_key_type} ]"
+                property_type = f'[ {args.primary_key_type} ]'
 
             if property_type:
                 description = ""
@@ -181,23 +181,23 @@ def get_properties(input_model_properties, current_model):
 
             match association_relationship_type:
                 case "many_to_one":
-                    target_key = f"{current_property["referencedAttribute"]}_IDs"
-                    source_key = f"{model_property}_ID"
+                    target_key = f'{current_property["referencedAttribute"]}_IDs'
+                    source_key = f'{model_property}_ID'
                     foreign_keys[source_key] = "String"
                 case "one_to_many":
-                    target_key = f"{current_property["referencedAttribute"]}_ID"
-                    source_key = f"{model_property}_IDs"
+                    target_key = f'{current_property["referencedAttribute"]}_ID'
+                    source_key = f'{model_property}_IDs'
                     foreign_keys[source_key] = "[ String ]"
                 case "many_to_many":
-                    target_key = f"{current_property["referencedAttribute"]}_IDs"
-                    source_key = f"{model_property}_IDs"
+                    target_key = f'{current_property["referencedAttribute"]}_IDs'
+                    source_key = f'{model_property}_IDs'
                     foreign_keys[source_key] = "[ String ]"
                 case "one_to_one":
-                    target_key = f"{current_property["referencedAttribute"]}_ID"
-                    source_key = f"{model_property}_ID"
+                    target_key = f'{current_property["referencedAttribute"]}_ID'
+                    source_key = f'{model_property}_ID'
                     foreign_keys[source_key] = "String"
                 case _:
-                    log(f"Model: {current_model}\tProperty: {model_property}\t !Wrong association type!")
+                    log(f'Model: {current_model}\tProperty: {model_property}\t !Wrong association type!')
                     continue
 
             model_properties["associations"][model_property] = {
@@ -229,9 +229,9 @@ def get_property_type(input_property):
             for item_type in input_property['type']:
                 if item_type == "array":
                     if input_property["items"]["type"] == "array":
-                        property_type = f"[ {ZENDRO_TYPES[input_property["items"]["items"]["type"]]} ]"
+                        property_type = f'[ {ZENDRO_TYPES[input_property["items"]["items"]["type"]]} ]'
                     else:
-                        property_type = f"[ {ZENDRO_TYPES[input_property["items"]["type"]]} ]"
+                        property_type = f'[ {ZENDRO_TYPES[input_property["items"]["type"]]} ]'
                 if item_type in BrAPI_TYPES:
                     property_type = ZENDRO_TYPES[item_type]
         else:
@@ -252,26 +252,26 @@ def test_models(output_models):
 
 
             try:
-                Output_Error = f"Model: {model} \t Association: {association}\t\n"
+                Output_Error = f'Model: {model} \t Association: {association}\t\n'
                 flag = False
                 if target_model not in output_models:
                     flag = True
-                    Output_Error += f"Model: {model}\tTarget: {target_model}\t Not existing\n"
+                    Output_Error += f'Model: {model}\tTarget: {target_model}\t Not existing\n'
                 if target_key not in output_models[target_model]["attributes"]:
                     flag = True
-                    Output_Error += f"Model: {model}\tTargetkey: {target_key}\t Not in: {target_model}\n"
+                    Output_Error += f'Model: {model}\tTargetkey: {target_key}\t Not in: {target_model}\n'
                 if source_key not in output_models[model]["attributes"]:
                     flag = True
-                    Output_Error += f"Model: {model}\tSourceKey: {source_key}\t Not in: {model}\n"
+                    Output_Error += f'Model: {model}\tSourceKey: {source_key}\t Not in: {model}\n'
                 if reverse_association not in output_models[target_model]["associations"]:
                     flag = True
-                    Output_Error += f"Model: {model}\tReverseAssociation: {reverse_association}\t Not in: {target_model}\n"
-                Output_Error += f"~~~~~ \n"
+                    Output_Error += f'Model: {model}\tReverseAssociation: {reverse_association}\t Not in: {target_model}\n'
+                Output_Error += f'~~~~~ \n'
 
                 if flag:
                     log(Output_Error)
             except Exception as modelexception:
-                log(f"Model: {model} /t {modelexception}")
+                log(f'Model: {model} /t {modelexception}')
 
 def write_json(output_models):
     """
@@ -292,13 +292,13 @@ def write_json(output_models):
 
             json_object = json.dumps(json_file, indent=4)
             Path(args.output_path).mkdir(parents=True, exist_ok=True)
-            with open(os.path.join(args.output_path, f"{model.lower()}.json"), "w") as file:
+            with open(os.path.join(args.output_path, f'{model.lower()}.json'), "w") as file:
                 file.write(json_object)
     except OSError as file_error:
-        log(f"Couldn't write to file test: {file_error}")
+        log(f'Couldn\'t write to file test: {file_error}')
     except Exception as model_exception:
         print(model_exception)
-        log(f"An error occurred: {model_exception}")
+        log(f'An error occurred: {model_exception}')
         sys.exit(1)
 
 
@@ -314,11 +314,11 @@ def log(msg):
         # Get current date and time and write this with the message to the log file
         with open("Log.txt", "a") as file:
             current_time = datetime.now().strftime("%H:%M:%S")
-            file.write(f"{str(date.today())} - {current_time}:\t{msg}\n")
-            print(f"An error occurred, please view the log file for details!")
+            file.write(f'{str(date.today())} - {current_time}:\t{msg}\n')
+            print(f'An error occurred, please view the log file for details!')
     except OSError as log_error:
         # Prints the occurred error
-        print(f"An error occurred while writing the log file: {log_error}")
+        print(f'An error occurred while writing the log file: {log_error}')
 
 
 ##############################
