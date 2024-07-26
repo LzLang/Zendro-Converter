@@ -70,6 +70,7 @@ def main():
     for model in input_models:
         output_models[model] = get_properties(input_models[model]["properties"], model)
 
+    test_models(output_models)
     # Write the Zendro data model definitions
     write_json(output_models)
 
@@ -203,10 +204,10 @@ def get_properties(input_model_properties, current_model):
                 "type": association_relationship_type,
                 "implementation": "foreignkeys",
                 "reverseAssociation": current_property["referencedAttribute"],
-                "target": association_target.lower(),
+                "target": association_target, #.lower()
                 "targetKey": target_key,
                 "sourceKey": source_key,
-                "keysIn": current_model,
+                "keysIn": current_model.lower(),
                 "targetStorageType": args.storage_type
             }
 
@@ -239,6 +240,38 @@ def get_property_type(input_property):
 
     return property_type
 
+
+def test_models(output_models):
+    for model in output_models:
+        for association in output_models[model]["associations"]:
+
+            target_model = output_models[model]["associations"][association]["target"]
+            target_key = output_models[model]["associations"][association]["targetKey"]
+            source_key = output_models[model]["associations"][association]["sourceKey"]
+            reverse_association = output_models[model]["associations"][association]["reverseAssociation"]
+
+
+            try:
+                Output_Error = f"Model: {model} \t Association: {association}\t\n"
+                flag = False
+                if target_model not in output_models:
+                    flag = True
+                    Output_Error += f"Model: {model}\tTarget: {target_model}\t Not existing\n"
+                if target_key not in output_models[target_model]["attributes"]:
+                    flag = True
+                    Output_Error += f"Model: {model}\tTargetkey: {target_key}\t Not in: {target_model}\n"
+                if source_key not in output_models[model]["attributes"]:
+                    flag = True
+                    Output_Error += f"Model: {model}\tSourceKey: {source_key}\t Not in: {model}\n"
+                if reverse_association not in output_models[target_model]["associations"]:
+                    flag = True
+                    Output_Error += f"Model: {model}\tReverseAssociation: {reverse_association}\t Not in: {target_model}\n"
+                Output_Error += f"~~~~~ \n"
+
+                if flag:
+                    log(Output_Error)
+            except Exception as modelexception:
+                log(f"Model: {model} /t {modelexception}")
 
 def write_json(output_models):
     """
