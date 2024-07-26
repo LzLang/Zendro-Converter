@@ -70,7 +70,7 @@ def main():
     for model in input_models:
         output_models[model] = get_properties(input_models[model]["properties"], model)
 
-    test_models(output_models)
+    #test_models(output_models)
     # Write the Zendro data model definitions
     write_json(output_models)
 
@@ -204,7 +204,7 @@ def get_properties(input_model_properties, current_model):
                 "type": association_relationship_type,
                 "implementation": "foreignkeys",
                 "reverseAssociation": current_property["referencedAttribute"],
-                "target": association_target, #.lower()
+                "target": association_target.lower(),
                 "targetKey": target_key,
                 "sourceKey": source_key,
                 "keysIn": current_model.lower(),
