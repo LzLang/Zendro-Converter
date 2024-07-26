@@ -41,7 +41,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "eventParameters",
-            "target": "Event",
+            "target": "event",
             "targetKey": "eventParameters_IDs",
             "sourceKey": "event_ID",
             "keysIn": "eventparameter",

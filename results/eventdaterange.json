@@ -25,7 +25,7 @@
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "eventDateRange",
-            "target": "Event",
+            "target": "event",
             "targetKey": "eventDateRange_ID",
             "sourceKey": "event_ID",
             "keysIn": "eventdaterange",

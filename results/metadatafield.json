@@ -25,7 +25,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "metadataFields",
-            "target": "VariantSet",
+            "target": "variantset",
             "targetKey": "metadataFields_IDs",
             "sourceKey": "variantset_ID",
             "keysIn": "metadatafield",

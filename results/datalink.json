@@ -45,7 +45,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "dataLinks",
-            "target": "Study",
+            "target": "study",
             "targetKey": "dataLinks_IDs",
             "sourceKey": "study_ID",
             "keysIn": "datalink",

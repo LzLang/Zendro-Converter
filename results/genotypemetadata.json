@@ -29,7 +29,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "genotypeMetadata",
-            "target": "Call",
+            "target": "call",
             "targetKey": "genotypeMetadata_IDs",
             "sourceKey": "call_ID",
             "keysIn": "genotypemetadata",

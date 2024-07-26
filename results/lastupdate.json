@@ -21,7 +21,7 @@
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "lastUpdate",
-            "target": "Study",
+            "target": "study",
             "targetKey": "lastUpdate_ID",
             "sourceKey": "study_ID",
             "keysIn": "lastupdate",

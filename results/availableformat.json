@@ -41,7 +41,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "availableFormats",
-            "target": "VariantSet",
+            "target": "variantset",
             "targetKey": "availableFormats_IDs",
             "sourceKey": "variantset_ID",
             "keysIn": "availableformat",

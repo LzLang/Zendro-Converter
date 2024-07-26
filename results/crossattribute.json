@@ -21,7 +21,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "externalReferences",
-            "target": "Cross",
+            "target": "cross",
             "targetKey": "externalReferences_IDs",
             "sourceKey": "cross_ID",
             "keysIn": "crossattribute",

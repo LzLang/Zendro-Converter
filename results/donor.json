@@ -21,7 +21,7 @@
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "donors",
-            "target": "Germplasm",
+            "target": "germplasm",
             "targetKey": "donors_IDs",
             "sourceKey": "germplasms_IDs",
             "keysIn": "donor",
