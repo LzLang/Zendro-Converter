@@ -29,7 +29,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "dataMatrices",
-            "target": "allelematrix",
+            "target": "AlleleMatrix",
             "targetKey": "dataMatrices_IDs",
             "sourceKey": "alleleMatrices_ID",
             "keysIn": "datamatrix",

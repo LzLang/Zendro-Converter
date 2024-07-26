@@ -6,7 +6,7 @@
             "type": "[ String ]",
             "description": "The ID which uniquely identifies this attribute value within the given database server"
         },
-        "attribute_ID": "String",
+        "attribute_IDs": "[ String ]",
         "determinedDate": {
             "type": "String",
             "description": "The date the value of this attribute was determined for a given germplasm"
@@ -21,21 +21,21 @@
     },
     "associations": {
         "attribute": {
-            "type": "many_to_one",
+            "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValues",
-            "target": "attribute",
+            "target": "GermplasmAttribute",
             "targetKey": "germplasmAttributeValues_IDs",
-            "sourceKey": "attribute_ID",
+            "sourceKey": "attribute_IDs",
             "keysIn": "germplasmattributevalue",
             "targetStorageType": "sql"
         },
         "germplasm": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
-            "reverseAssociation": "germplasmAttributeValues",
-            "target": "germplasm",
-            "targetKey": "germplasmAttributeValues_IDs",
+            "reverseAssociation": "attributeValues",
+            "target": "Germplasm",
+            "targetKey": "attributeValues_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "germplasmattributevalue",
             "targetStorageType": "sql"
@@ -44,7 +44,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValue",
-            "target": "additionalinfo",
+            "target": "AdditionalInfo",
             "targetKey": "germplasmAttributeValue_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "germplasmattributevalue",
@@ -54,7 +54,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmAttributeValue",
-            "target": "externalreference",
+            "target": "ExternalReference",
             "targetKey": "germplasmAttributeValue_ID",
             "sourceKey": "externalReferences_IDs",
             "keysIn": "germplasmattributevalue",

@@ -21,7 +21,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "storageTypes",
-            "target": "germplasm",
+            "target": "Germplasm",
             "targetKey": "storageTypes_ID",
             "sourceKey": "germplasms_IDs",
             "keysIn": "storagetype",

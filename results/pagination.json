@@ -33,7 +33,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "pagination",
-            "target": "allelematrix",
+            "target": "AlleleMatrix",
             "targetKey": "pagination_IDs",
             "sourceKey": "alleleMatrices_ID",
             "keysIn": "pagination",

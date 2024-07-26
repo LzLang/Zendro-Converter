@@ -41,7 +41,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "ontology",
-            "target": "additionalinfo",
+            "target": "AdditionalInfo",
             "targetKey": "ontology_ID",
             "sourceKey": "additionalInfo_IDs",
             "keysIn": "ontology",

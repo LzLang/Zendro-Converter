@@ -33,7 +33,7 @@
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "contentMixture",
-            "target": "seedlot",
+            "target": "SeedLot",
             "targetKey": "contentMixture_IDs",
             "sourceKey": "seedLot_IDs",
             "keysIn": "contentmixture",

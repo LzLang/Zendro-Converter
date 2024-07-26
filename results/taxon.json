@@ -21,7 +21,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "taxonIds",
-            "target": "germplasm",
+            "target": "Germplasm",
             "targetKey": "taxonIds_IDs",
             "sourceKey": "germplasm_ID",
             "keysIn": "taxon",

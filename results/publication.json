@@ -17,7 +17,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "publications",
-            "target": "trial",
+            "target": "Trial",
             "targetKey": "publications_IDs",
             "sourceKey": "trial_ID",
             "keysIn": "publication",

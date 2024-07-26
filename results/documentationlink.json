@@ -21,7 +21,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "documentationLinks",
-            "target": "ontologyreference",
+            "target": "OntologyReference",
             "targetKey": "documentationLinks_IDs",
             "sourceKey": "ontologyReference_ID",
             "keysIn": "documentationlink",

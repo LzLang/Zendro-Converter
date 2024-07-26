@@ -10,17 +10,17 @@
             "type": "String",
             "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown."
         },
-        "coordinates_IDs": "[ String ]",
+        "coordinates_ID": "String",
         "germplasms_IDs": "[ String ]"
     },
     "associations": {
         "coordinates": {
-            "type": "one_to_many",
+            "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmOrigin",
-            "target": "coordinate",
-            "targetKey": "germplasmOrigin_ID",
-            "sourceKey": "coordinates_IDs",
+            "target": "Coordinate",
+            "targetKey": "germplasmOrigin_IDs",
+            "sourceKey": "coordinates_ID",
             "keysIn": "germplasmorigin",
             "targetStorageType": "sql"
         },
@@ -28,7 +28,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "germplasmOrigin",
-            "target": "germplasm",
+            "target": "Germplasm",
             "targetKey": "germplasmOrigin_ID",
             "sourceKey": "germplasms_IDs",
             "keysIn": "germplasmorigin",

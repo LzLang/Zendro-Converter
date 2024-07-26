@@ -21,7 +21,7 @@
             "type": "one_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "growthFacility",
-            "target": "study",
+            "target": "Study",
             "targetKey": "growthFacility_ID",
             "sourceKey": "study_ID",
             "keysIn": "growthfacility",

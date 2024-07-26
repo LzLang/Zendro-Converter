@@ -21,7 +21,7 @@
             "type": "one_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "season",
-            "target": "observation",
+            "target": "Observation",
             "targetKey": "season_ID",
             "sourceKey": "observations_IDs",
             "keysIn": "season",

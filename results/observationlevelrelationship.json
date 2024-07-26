@@ -29,7 +29,7 @@
             "type": "many_to_many",
             "implementation": "foreignkeys",
             "reverseAssociation": "observationLevelRelationships",
-            "target": "observationunitposition",
+            "target": "ObservationUnitPosition",
             "targetKey": "observationLevelRelationships_IDs",
             "sourceKey": "observationUnitPositions_IDs",
             "keysIn": "observationlevelrelationship",

@@ -30,16 +30,16 @@
             "type": "String",
             "description": "The time at which this record was last updated, in ISO 8601 format."
         },
-        "variantSet_ID": "String"
+        "variantset_ID": "String"
     },
     "associations": {
-        "variantSet": {
+        "variantset": {
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "analysis",
-            "target": "variantset",
+            "target": "VariantSet",
             "targetKey": "analysis_IDs",
-            "sourceKey": "variantSet_ID",
+            "sourceKey": "variantset_ID",
             "keysIn": "analysis",
             "targetStorageType": "sql"
         }

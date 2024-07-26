@@ -21,7 +21,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "pollinationEvents",
-            "target": "cross",
+            "target": "Cross",
             "targetKey": "pollinationEvents_IDs",
             "sourceKey": "cross_ID",
             "keysIn": "pollinationevent",

@@ -41,7 +41,7 @@
             "type": "many_to_one",
             "implementation": "foreignkeys",
             "reverseAssociation": "environmentParameters",
-            "target": "study",
+            "target": "Study",
             "targetKey": "environmentParameters_IDs",
             "sourceKey": "study_ID",
             "keysIn": "environmentparameter",

@@ -13,8 +13,20 @@
         "crossAttributeValue": {
             "type": "String",
             "description": "the value of a cross attribute"
+        },
+        "cross_ID": "String"
+    },
+    "associations": {
+        "cross": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "externalReferences",
+            "target": "Cross",
+            "targetKey": "externalReferences_IDs",
+            "sourceKey": "cross_ID",
+            "keysIn": "crossattribute",
+            "targetStorageType": "sql"
         }
     },
-    "associations": {},
     "internalId": "crossAttributeDbId"
 }
