@@ -78,51 +78,16 @@
                     ]
                 },
                 "validValues": {
-                    "properties": {
-                        "categories": {
-                            "description": "List of possible values with optional labels",
-                            "items": {
-                                "properties": {
-                                    "label": {
-                                        "description": "A text label for a category",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "value": {
-                                        "description": "The actual value for a category",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "type": "object"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "maximumValue": {
-                            "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "minimumValue": {
-                            "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                    "relationshipType": "one-to-many",
+					"referencedAttribute": "scale",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
+                        "description": "ValidValues"
                     },
+                    "title": "ValidValues",
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 }
             },
@@ -134,6 +99,92 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "ValidValues": {
+            "properties": {
+                "validValuesDbId": {
+                    "description": "the unique identifier of a valid value",
+                    "type": "string"
+                },
+                "categories": {
+                    "description": "List of possible values with optional labels",
+                    "relationshipType": "one-to-many",
+					"referencedAttribute": "validValues",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Categories",
+                        "description": "Categories"
+                    },
+                    "title": "Categories",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "maximumValue": {
+                    "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "minimumValue": {
+                    "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "scale": {
+                    "description": "associated scale",
+                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "validValues"
+                }
+            },
+            "required": [
+                "validValuesDbId"
+            ],
+            "title": "ValidValues",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "Categories": {
+            "properties": {
+                "categoriesDbId": {
+                   "description": "the unique identifier of a category",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "A text label for a category",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "value": {
+                    "description": "The actual value for a category",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "validValues": {
+                    "description": "associated valid values",
+                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "categories"
+                }
+            },
+            "required": [
+                "categoriesDbId"
+            ],
+            "title": "Categories",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },
