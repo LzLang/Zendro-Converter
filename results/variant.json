@@ -1,0 +1,157 @@
+{
+    "model": "variant",
+    "storageType": "sql",
+    "attributes": {
+        "analysis": {
+            "type": "String",
+            "description": "Set of Analysis descriptors for this VariantSet"
+        },
+        "ciend": {
+            "type": "String",
+            "description": "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen)."
+        },
+        "cipos": {
+            "type": "String",
+            "description": "In the case of structural variants, start and end of the variant may not\nbe known with an exact base position. \"cipos\" provides an interval with\nhigh confidence for the start position. The interval is provided by 0 or\n2 signed integers which are added to the start position.\nBased on the use in VCF v4.2"
+        },
+        "created": {
+            "type": "String",
+            "description": "The timestamp when this variant was created."
+        },
+        "end": {
+            "type": "String",
+            "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`."
+        },
+        "filtersApplied": {
+            "type": "String",
+            "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value."
+        },
+        "filtersFailed": {
+            "type": "String",
+            "description": "Zero or more filters that failed for this variant. VCF column 7 \"FILTER\" shared across all alleles in the same VCF record."
+        },
+        "filtersPassed": {
+            "type": "String",
+            "description": "True if all filters for this variant passed. VCF column 7 \"FILTER\" value PASS."
+        },
+        "referenceBases": {
+            "type": "String",
+            "description": "The reference bases for this variant. They start at the given start position."
+        },
+        "start": {
+            "type": "String",
+            "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0)."
+        },
+        "svlen": {
+            "type": "String",
+            "description": "Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2"
+        },
+        "updated": {
+            "type": "String",
+            "description": "The time at which this variant was last updated."
+        },
+        "variantDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a `Variant`"
+        },
+        "variantNames": {
+            "type": "String",
+            "description": "A human readable name associated with a `Variant`"
+        },
+        "variantType": {
+            "type": "String",
+            "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\""
+        },
+        "additionalInfo_ID": "String",
+        "markerPositions_IDs": "[ String ]",
+        "alleleMatrices_IDs": "[ String ]",
+        "calls_IDs": "[ String ]",
+        "externalReferences_IDs": "[ String ]",
+        "reference_ID": "String",
+        "referenceSet_ID": "String",
+        "variantSet_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variant",
+            "target": "additionalinfo",
+            "targetKey": "variant_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "markerPositions": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variant",
+            "target": "markerposition",
+            "targetKey": "variant_ID",
+            "sourceKey": "markerPositions_IDs",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "alleleMatrices": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variants",
+            "target": "allelematrix",
+            "targetKey": "variants_IDs",
+            "sourceKey": "alleleMatrices_IDs",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "calls": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variant",
+            "target": "call",
+            "targetKey": "variant_ID",
+            "sourceKey": "calls_IDs",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variant",
+            "target": "externalreference",
+            "targetKey": "variant_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "reference": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variants",
+            "target": "reference",
+            "targetKey": "variants_IDs",
+            "sourceKey": "reference_ID",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "referenceSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variants",
+            "target": "referenceset",
+            "targetKey": "variants_IDs",
+            "sourceKey": "referenceSet_ID",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        },
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variants",
+            "target": "variantset",
+            "targetKey": "variants_IDs",
+            "sourceKey": "variantSet_ID",
+            "keysIn": "variant",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "variantDbId"
+}

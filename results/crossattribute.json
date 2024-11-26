@@ -1,0 +1,32 @@
+{
+    "model": "crossattribute",
+    "storageType": "sql",
+    "attributes": {
+        "crossAttributeName": {
+            "type": "String",
+            "description": "the human readable name of a cross attribute"
+        },
+        "crossAttributeValue": {
+            "type": "String",
+            "description": "the value of a cross attribute"
+        },
+        "crossAttributeDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "cross_ID": "String"
+    },
+    "associations": {
+        "cross": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "crossAttributes",
+            "target": "cross",
+            "targetKey": "crossAttributes_IDs",
+            "sourceKey": "cross_ID",
+            "keysIn": "crossattribute",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "crossAttributeDbId"
+}

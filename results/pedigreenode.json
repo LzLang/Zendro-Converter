@@ -1,0 +1,106 @@
+{
+    "model": "pedigreenode",
+    "storageType": "sql",
+    "attributes": {
+        "crossingYear": {
+            "type": "String",
+            "description": "The year the parents were originally crossed"
+        },
+        "defaultDisplayName": {
+            "type": "String",
+            "description": "Human readable name used for display purposes"
+        },
+        "familyCode": {
+            "type": "String",
+            "description": "The code representing the family of this germplasm"
+        },
+        "pedigreeNodeDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a pedigree node"
+        },
+        "pedigreeString": {
+            "type": "String",
+            "description": "The string representation of the pedigree for this germplasm in PURDY notation"
+        },
+        "additionalInfo_ID": "String",
+        "breedingMethod_ID": "String",
+        "crossingProject_ID": "String",
+        "externalReferences_IDs": "[ String ]",
+        "germplasm_ID": "String",
+        "parents_IDs": "[ String ]",
+        "progeny_IDs": "[ String ]"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "additionalinfo",
+            "targetKey": "pedigreeNode_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        },
+        "breedingMethod": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNodes",
+            "target": "breedingmethod",
+            "targetKey": "pedigreeNodes_IDs",
+            "sourceKey": "breedingMethod_ID",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        },
+        "crossingProject": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNodes",
+            "target": "crossingproject",
+            "targetKey": "pedigreeNodes_IDs",
+            "sourceKey": "crossingProject_ID",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "externalreference",
+            "targetKey": "pedigreeNode_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "germplasm",
+            "targetKey": "pedigreeNode_ID",
+            "sourceKey": "germplasm_ID",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        },
+        "parents": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "germplasmparent",
+            "targetKey": "pedigreeNode_ID",
+            "sourceKey": "parents_IDs",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        },
+        "progeny": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pedigreeNode",
+            "target": "germplasmchild",
+            "targetKey": "pedigreeNode_ID",
+            "sourceKey": "progeny_IDs",
+            "keysIn": "pedigreenode",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "pedigreeNodeDbId"
+}

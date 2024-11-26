@@ -1,0 +1,84 @@
+{
+    "model": "allelematrix",
+    "storageType": "sql",
+    "attributes": {
+        "expandHomozygotes": {
+            "type": "String",
+            "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
+        },
+        "sepPhased": {
+            "type": "String",
+            "description": "The string used as a separator for phased allele calls."
+        },
+        "sepUnphased": {
+            "type": "String",
+            "description": "The string used as a separator for unphased allele calls."
+        },
+        "unknownString": {
+            "type": "String",
+            "description": "The string used as a representation for missing data."
+        },
+        "alleleMatrixDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "callSets_IDs": "[ String ]",
+        "dataMatrices_IDs": "[ String ]",
+        "pagination_IDs": "[ String ]",
+        "variantSets_IDs": "[ String ]",
+        "variants_IDs": "[ String ]"
+    },
+    "associations": {
+        "callSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "alleleMatrices",
+            "target": "callset",
+            "targetKey": "alleleMatrices_IDs",
+            "sourceKey": "callSets_IDs",
+            "keysIn": "allelematrix",
+            "targetStorageType": "sql"
+        },
+        "dataMatrices": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "alleleMatrix",
+            "target": "datamatrix",
+            "targetKey": "alleleMatrix_ID",
+            "sourceKey": "dataMatrices_IDs",
+            "keysIn": "allelematrix",
+            "targetStorageType": "sql"
+        },
+        "pagination": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "alleleMatrix",
+            "target": "pagination",
+            "targetKey": "alleleMatrix_ID",
+            "sourceKey": "pagination_IDs",
+            "keysIn": "allelematrix",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "alleleMatrices",
+            "target": "variantset",
+            "targetKey": "alleleMatrices_IDs",
+            "sourceKey": "variantSets_IDs",
+            "keysIn": "allelematrix",
+            "targetStorageType": "sql"
+        },
+        "variants": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "alleleMatrices",
+            "target": "variant",
+            "targetKey": "alleleMatrices_IDs",
+            "sourceKey": "variants_IDs",
+            "keysIn": "allelematrix",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "alleleMatrixDbId"
+}

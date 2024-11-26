@@ -1,0 +1,40 @@
+{
+    "model": "genotypemetadata",
+    "storageType": "sql",
+    "attributes": {
+        "dataType": {
+            "type": "String",
+            "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON."
+        },
+        "fieldAbbreviation": {
+            "type": "String",
+            "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard."
+        },
+        "fieldName": {
+            "type": "String",
+            "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard."
+        },
+        "fieldValue": {
+            "type": "String",
+            "description": "The additional metadata value associated with this genotype call"
+        },
+        "genotypeMetadataDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "call_ID": "String"
+    },
+    "associations": {
+        "call": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "genotypeMetadata",
+            "target": "call",
+            "targetKey": "genotypeMetadata_IDs",
+            "sourceKey": "call_ID",
+            "keysIn": "genotypemetadata",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "genotypeMetadataDbId"
+}

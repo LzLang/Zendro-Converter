@@ -1,0 +1,80 @@
+{
+    "model": "event",
+    "storageType": "sql",
+    "attributes": {
+        "eventDbId": {
+            "type": "String",
+            "description": "Internal database identifier"
+        },
+        "eventDescription": {
+            "type": "String",
+            "description": "A detailed, human-readable description of this event\n<br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. "
+        },
+        "eventType": {
+            "type": "String",
+            "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
+        },
+        "eventTypeDbId": {
+            "type": "String",
+            "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
+        },
+        "additionalInfo_ID": "String",
+        "eventDateRange_IDs": "[ String ]",
+        "eventParameters_IDs": "[ String ]",
+        "observationUnits_IDs": "[ String ]",
+        "study_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "event",
+            "target": "additionalinfo",
+            "targetKey": "event_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "event",
+            "targetStorageType": "sql"
+        },
+        "eventDateRange": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "event",
+            "target": "eventdaterange",
+            "targetKey": "event_ID",
+            "sourceKey": "eventDateRange_IDs",
+            "keysIn": "event",
+            "targetStorageType": "sql"
+        },
+        "eventParameters": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "event",
+            "target": "eventparameter",
+            "targetKey": "event_ID",
+            "sourceKey": "eventParameters_IDs",
+            "keysIn": "event",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "events",
+            "target": "observationunit",
+            "targetKey": "events_IDs",
+            "sourceKey": "observationUnits_IDs",
+            "keysIn": "event",
+            "targetStorageType": "sql"
+        },
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "events",
+            "target": "study",
+            "targetKey": "events_IDs",
+            "sourceKey": "study_ID",
+            "keysIn": "event",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "eventDbId"
+}

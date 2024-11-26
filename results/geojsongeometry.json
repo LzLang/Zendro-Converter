@@ -1,0 +1,20 @@
+{
+    "model": "geojsongeometry",
+    "storageType": "sql",
+    "attributes": {
+        "coordinates": {
+            "type": "String",
+            "description": "A single position"
+        },
+        "type": {
+            "type": "String",
+            "description": "The literal string \"Point\""
+        },
+        "geoJSONGeometryDbId": {
+            "type": "String",
+            "description": ""
+        }
+    },
+    "associations": {},
+    "internalId": "geoJSONGeometryDbId"
+}
