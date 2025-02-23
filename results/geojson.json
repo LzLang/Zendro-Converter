@@ -1,0 +1,72 @@
+{
+    "model": "geojson",
+    "storageType": "sql",
+    "attributes": {
+        "type": {
+            "type": "String",
+            "description": "The literal string \"Feature\""
+        },
+        "geoJSONDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "image_ID": "String",
+        "observation_ID": "String",
+        "observationUnit_ID": "String",
+        "germplasmOrigin_ID": "String",
+        "location_ID": "String"
+    },
+    "associations": {
+        "image": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "imageLocation",
+            "target": "image",
+            "targetKey": "imageLocation_IDs",
+            "sourceKey": "image_ID",
+            "keysIn": "geojson",
+            "targetStorageType": "sql"
+        },
+        "observation": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "geoCoordinates",
+            "target": "observation",
+            "targetKey": "geoCoordinates_IDs",
+            "sourceKey": "observation_ID",
+            "keysIn": "geojson",
+            "targetStorageType": "sql"
+        },
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "geoCoordinates",
+            "target": "observationunitposition",
+            "targetKey": "geoCoordinates_IDs",
+            "sourceKey": "observationUnit_ID",
+            "keysIn": "geojson",
+            "targetStorageType": "sql"
+        },
+        "germplasmOrigin": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "coordinates",
+            "target": "germplasmorigin",
+            "targetKey": "coordinates_IDs",
+            "sourceKey": "germplasmOrigin_ID",
+            "keysIn": "geojson",
+            "targetStorageType": "sql"
+        },
+        "location": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "coordinates",
+            "target": "location",
+            "targetKey": "coordinates_ID",
+            "sourceKey": "location_ID",
+            "keysIn": "geojson",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "geoJSONDbId"
+}

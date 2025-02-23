@@ -3,37 +3,19 @@
         "Cross": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "crossAttributes": {
                     "description": "Set of custom attributes associated with a cross",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "cross",
                     "items": {
-                        "description": "a custom attributes associated with a cross",
-                        "properties": {
-                            "crossAttributeName": {
-                                "description": "the human readable name of a cross attribute",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "crossAttributeValue": {
-                                "description": "the value of a cross attribute",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/CrossAttribute",
+                        "description": "CrossAttributes"
                     },
+                    "title": "CrossAttributes",
                     "type": [
                         "null",
                         "array"
@@ -52,20 +34,7 @@
                 },
                 "crossType": {
                     "description": "the type of cross",
-                    "enum": [
-                        "BIPARENTAL",
-                        "SELF",
-                        "OPEN_POLLINATED",
-                        "BULK",
-                        "BULK_SELFED",
-                        "BULK_OPEN_POLLINATED",
-                        "DOUBLE_HAPLOID",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "$ref": "CrossType.json#/$defs/CrossType"
                 },
                 "crossingProject": {
                     "$ref": "CrossingProject.json#/$defs/CrossingProject",
@@ -75,24 +44,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -101,104 +56,12 @@
                     ]
                 },
                 "parent1": {
-                    "properties": {
-                        "germplasmDbId": {
-                            "description": "the unique identifier for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "germplasmName": {
-                            "description": "the human readable name for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitDbId": {
-                            "description": "the unique identifier for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitName": {
-                            "description": "the human readable name for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "parentType": {
-                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                            "enum": [
-                                "MALE",
-                                "FEMALE",
-                                "SELF",
-                                "POPULATION",
-                                null
-                            ],
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the first parent used in the cross"
                 },
                 "parent2": {
-                    "properties": {
-                        "germplasmDbId": {
-                            "description": "the unique identifier for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "germplasmName": {
-                            "description": "the human readable name for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitDbId": {
-                            "description": "the unique identifier for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitName": {
-                            "description": "the human readable name for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "parentType": {
-                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                            "enum": [
-                                "MALE",
-                                "FEMALE",
-                                "SELF",
-                                "POPULATION",
-                                null
-                            ],
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the second parent used in the cross"
                 },
                 "plannedCross": {
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
@@ -208,33 +71,13 @@
                 },
                 "pollinationEvents": {
                     "description": "The list of pollination events that occurred for this cross",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "cross",
                     "items": {
-                        "properties": {
-                            "pollinationNumber": {
-                                "description": "The unique identifier for this pollination event",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "pollinationSuccessful": {
-                                "description": "True if the pollination was successful",
-                                "type": [
-                                    "null",
-                                    "boolean"
-                                ]
-                            },
-                            "pollinationTimeStamp": {
-                                "description": "The timestamp when the pollination took place",
-                                "format": "date-time",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/PollinationEvent",
+                        "description": "PollinationEvent"
                     },
+                    "title": "PollinationEvents",
                     "type": [
                         "null",
                         "array"
@@ -246,7 +89,7 @@
                     "referencedAttribute": "cross",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                         "description": "ObservationUnit"
                     },
                     "type": [
@@ -259,7 +102,76 @@
                 "crossDbId"
             ],
             "title": "Cross",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        },
+        "CrossAttribute": {
+            "properties": {
+                "crossAttributeName": {
+                    "description": "the human readable name of a cross attribute",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "crossAttributeValue": {
+                    "description": "the value of a cross attribute",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "cross": {
+                    "description": "a custom attributes associated with a cross",
+                    "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "crossAttributes"
+                }
+            },
+            "title": "CrossAttribute",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        },
+        "PollinationEvent": {
+            "properties": {
+                "pollinationNumber": {
+                    "description": "The unique identifier for this pollination event",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "pollinationSuccessful": {
+                    "description": "True if the pollination was successful",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "pollinationTimeStamp": {
+                    "description": "The timestamp when the pollination took place",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "cross": {
+                    "description": "Pollination events associated with a cross",
+                    "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "pollinationEvents"
+                }
+            },
+            "title": "PollinationEvent",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Cross.json",

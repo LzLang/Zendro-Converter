@@ -3,14 +3,9 @@
         "Observation": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "collector": {
                     "description": "The name or identifier of the entity which collected the observation",
@@ -21,24 +16,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -48,89 +29,12 @@
                 },
                 "geoCoordinates": {
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                    "properties": {
-                        "geometry": {
-                            "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                            "oneOf": [
-                                {
-                                    "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                    "properties": {
-                                        "coordinates": {
-                                            "description": "A single position",
-                                            "items": {
-                                                "type": "number"
-                                            },
-                                            "minItems": 2,
-                                            "type": "array"
-                                        },
-                                        "type": {
-                                            "default": "Point",
-                                            "description": "The literal string \"Point\"",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "type",
-                                        "coordinates"
-                                    ],
-                                    "type": "object"
-                                },
-                                {
-                                    "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                    "properties": {
-                                        "coordinates": {
-                                            "description": "An array of linear rings",
-                                            "items": {
-                                                "description": "An array of at least four positions where the first equals the last",
-                                                "items": {
-                                                    "description": "A single position",
-                                                    "items": {
-                                                        "type": "number"
-                                                    },
-                                                    "minItems": 2,
-                                                    "type": "array"
-                                                },
-                                                "minItems": 4,
-                                                "type": "array"
-                                            },
-                                            "type": "array"
-                                        },
-                                        "type": {
-                                            "default": "Polygon",
-                                            "description": "The literal string \"Polygon\"",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "type",
-                                        "coordinates"
-                                    ],
-                                    "type": "object"
-                                }
-                            ],
-                            "title": "GeoJSON Geometry",
-                            "type": [
-                                "null",
-                                "object"
-                            ]
-                        },
-                        "type": {
-                            "default": "Feature",
-                            "description": "The literal string \"Feature\"",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "title": "GeoJSON",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "relationshipType": "one-to-one",
+                    "referencedAttribute": "observation",
+					"$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
                 },
                 "germplasm": {
-                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm",
                     "referencedAttribute": "observations",
                     "relationshipType": "many-to-one"
@@ -160,36 +64,11 @@
                     "relationshipType": "many-to-one"
                 },
                 "season": {
-                    "properties": {
-                        "seasonDbId": {
-                            "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
-                            "type": "string"
-                        },
-                        "seasonName": {
-                            "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "year": {
-                            "description": "The 4 digit year of the season.",
-                            "type": [
-                                "null",
-                                "integer"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "seasonDbId"
-                    ],
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Core/Season.json#/$defs/Season",
+                    "relationshipType": "many-to-one"
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "observations",
                     "relationshipType": "many-to-one"
@@ -227,7 +106,10 @@
                 "observationDbId"
             ],
             "title": "Observation",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Observation.json",

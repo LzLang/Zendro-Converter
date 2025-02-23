@@ -1,0 +1,52 @@
+{
+    "model": "availableformat",
+    "storageType": "sql",
+    "attributes": {
+        "dataFormat": {
+            "type": "String",
+            "description": "dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)"
+        },
+        "expandHomozygotes": {
+            "type": "String",
+            "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
+        },
+        "fileFormat": {
+            "type": "String",
+            "description": "fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response."
+        },
+        "fileURL": {
+            "type": "String",
+            "description": "A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file."
+        },
+        "sepPhased": {
+            "type": "String",
+            "description": "The string used as a separator for phased allele calls."
+        },
+        "sepUnphased": {
+            "type": "String",
+            "description": "The string used as a separator for unphased allele calls."
+        },
+        "unknownString": {
+            "type": "String",
+            "description": "The string used as a representation for missing data."
+        },
+        "availableFormatDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "variantSet_ID": "String"
+    },
+    "associations": {
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "availableFormats",
+            "target": "variantset",
+            "targetKey": "availableFormats_IDs",
+            "sourceKey": "variantSet_ID",
+            "keysIn": "availableformat",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "availableFormatDbId"
+}

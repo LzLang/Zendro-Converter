@@ -3,14 +3,9 @@
         "Variant": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "markerPositions": {
                     "title": "markerPositions",
@@ -101,24 +96,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -223,7 +204,10 @@
                 "variantDbId"
             ],
             "title": "Variant",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Variant.json",

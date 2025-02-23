@@ -1,0 +1,39 @@
+{
+    "model": "germplasmorigin",
+    "storageType": "sql",
+    "attributes": {
+        "coordinateUncertainty": {
+            "type": "String",
+            "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown."
+        },
+        "germplasmOriginDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "coordinates_IDs": "[ String ]",
+        "germplasm_ID": "String"
+    },
+    "associations": {
+        "coordinates": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmOrigin",
+            "target": "geojson",
+            "targetKey": "germplasmOrigin_ID",
+            "sourceKey": "coordinates_IDs",
+            "keysIn": "germplasmorigin",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmOrigin",
+            "target": "germplasm",
+            "targetKey": "germplasmOrigin_IDs",
+            "sourceKey": "germplasm_ID",
+            "keysIn": "germplasmorigin",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "germplasmOriginDbId"
+}

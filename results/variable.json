@@ -1,0 +1,123 @@
+{
+    "model": "variable",
+    "storageType": "sql",
+    "attributes": {
+        "commonCropName": {
+            "type": "String",
+            "description": "Crop name (examples: \"Maize\", \"Wheat\")"
+        },
+        "contextOfUse": {
+            "type": "String",
+            "description": "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+        },
+        "defaultValue": {
+            "type": "String",
+            "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "growthStage": {
+            "type": "String",
+            "description": "Growth stage at which measurement is made (examples: \"flowering\")"
+        },
+        "institution": {
+            "type": "String",
+            "description": "Name of institution submitting the variable"
+        },
+        "language": {
+            "type": "String",
+            "description": "2 letter ISO 639-1 code for the language of submission of the variable."
+        },
+        "scientist": {
+            "type": "String",
+            "description": "Name of scientist submitting the variable."
+        },
+        "status": {
+            "type": "String",
+            "description": "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
+        },
+        "submissionTimestamp": {
+            "type": "String",
+            "description": "Timestamp when the Variable was added (ISO 8601)"
+        },
+        "synonyms": {
+            "type": "String",
+            "description": "Other variable names"
+        },
+        "variableDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "additionalInfo_ID": "String",
+        "externalReferences_IDs": "[ String ]",
+        "method_ID": "String",
+        "ontologyReference_ID": "String",
+        "scale_ID": "String",
+        "trait_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variable",
+            "target": "additionalinfo",
+            "targetKey": "variable_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "variable",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variable",
+            "target": "externalreference",
+            "targetKey": "variable_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "variable",
+            "targetStorageType": "sql"
+        },
+        "method": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variable",
+            "target": "method",
+            "targetKey": "variable_ID",
+            "sourceKey": "method_ID",
+            "keysIn": "variable",
+            "targetStorageType": "sql"
+        },
+        "ontologyReference": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variable",
+            "target": "ontologyreference",
+            "targetKey": "variable_ID",
+            "sourceKey": "ontologyReference_ID",
+            "keysIn": "variable",
+            "targetStorageType": "sql"
+        },
+        "scale": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variable",
+            "target": "scale",
+            "targetKey": "variable_ID",
+            "sourceKey": "scale_ID",
+            "keysIn": "variable",
+            "targetStorageType": "sql"
+        },
+        "trait": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "variable",
+            "target": "trait",
+            "targetKey": "variable_ID",
+            "sourceKey": "trait_ID",
+            "keysIn": "variable",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "variableDbId"
+}

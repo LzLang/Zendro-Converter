@@ -1,0 +1,262 @@
+{
+    "model": "Study",
+    "storageType": "sql",
+    "attributes": {
+        "active": {
+            "type": "Boolean",
+            "description": "A flag to indicate if a Study is currently active and ongoing"
+        },
+        "commonCropName": {
+            "type": "String",
+            "description": "Common name for the crop associated with this study"
+        },
+        "contacts_ids": "[ String ]",
+        "culturalPractices": {
+            "type": "String",
+            "description": "MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study."
+        },
+        "dataLinks_ids": "[ String ]",
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "endDate": {
+            "type": "String",
+            "description": "The date the study ends\n\nMIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended"
+        },
+        "environmentParameters_ids": "[ String ]",
+        "experimentalDesign_id": "String",
+        "externalReferences_ids": "[ String ]",
+        "growthFacility_id": "String",
+        "lastUpdate_id": "String",
+        "license": {
+            "type": "String",
+            "description": "The usage license associated with the study data"
+        },
+        "location_id": "String",
+        "observationLevels_ids": "[ String ]",
+        "observationUnitsDescription": {
+            "type": "String",
+            "description": "MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study."
+        },
+        "observationVariables_id": "String",
+        "startDate": {
+            "type": "String",
+            "description": "The date this study started\n\nMIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started"
+        },
+        "studyCode": {
+            "type": "String",
+            "description": "A short human readable code for a study"
+        },
+        "studyDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution."
+        },
+        "studyDescription": {
+            "type": "String",
+            "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study"
+        },
+        "studyName": {
+            "type": "String",
+            "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study"
+        },
+        "studyPUI": {
+            "type": "String",
+            "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI"
+        },
+        "studyType": {
+            "type": "String",
+            "description": "The type of study being performed. ex. \"Yield Trial\", etc"
+        },
+        "trial_id": "String",
+        "callSets_ids": "[ String ]",
+        "plates_ids": "[ String ]",
+        "samples_ids": "[ String ]",
+        "variantSets_ids": "[ String ]",
+        "events_id": "String",
+        "observations_ids": "[ String ]",
+        "observationUnits_ids": "[ String ]"
+    },
+    "associations": {
+        "contacts": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "Contact",
+            "targetKey": "study_id",
+            "sourceKey": "contacts_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "dataLinks": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "DataLink",
+            "targetKey": "study_id",
+            "sourceKey": "dataLinks_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "environmentParameters": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "EnvironmentParameter",
+            "targetKey": "study_id",
+            "sourceKey": "environmentParameters_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "experimentalDesign": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "ExperimentalDesign",
+            "targetKey": "study_id",
+            "sourceKey": "experimentalDesign_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "ExternalReference",
+            "targetKey": "study_id",
+            "sourceKey": "externalReferences_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "growthFacility": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "GrowthFacility",
+            "targetKey": "study_id",
+            "sourceKey": "growthFacility_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "lastUpdate": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "LastUpdate",
+            "targetKey": "study_id",
+            "sourceKey": "lastUpdate_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "location": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "studies",
+            "target": "Location",
+            "targetKey": "studies_ids",
+            "sourceKey": "location_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observationLevels": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "ObservationLevel",
+            "targetKey": "study_id",
+            "sourceKey": "observationLevels_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observationVariables": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "studies",
+            "target": "ObservationVariable",
+            "targetKey": "studies_id",
+            "sourceKey": "observationVariables_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "trial": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "studies",
+            "target": "Trial",
+            "targetKey": "studies_ids",
+            "sourceKey": "trial_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "callSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "CallSet",
+            "targetKey": "study_id",
+            "sourceKey": "callSets_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "plates": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "Plate",
+            "targetKey": "study_id",
+            "sourceKey": "plates_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "samples": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "Sample",
+            "targetKey": "study_id",
+            "sourceKey": "samples_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "variantSets": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "VariantSet",
+            "targetKey": "study_id",
+            "sourceKey": "variantSets_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "events": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "Event",
+            "targetKey": "study_id",
+            "sourceKey": "events_id",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observations": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "Observation",
+            "targetKey": "study_id",
+            "sourceKey": "observations_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        },
+        "observationUnits": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "study",
+            "target": "ObservationUnit",
+            "targetKey": "study_id",
+            "sourceKey": "observationUnits_ids",
+            "keysIn": "Study",
+            "targetStorageType": "sql"
+        }
+    }
+}

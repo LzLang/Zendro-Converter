@@ -1,0 +1,63 @@
+{
+    "model": "ontology",
+    "storageType": "sql",
+    "attributes": {
+        "authors": {
+            "type": "String",
+            "description": "Ontology's list of authors (no specific format)"
+        },
+        "copyright": {
+            "type": "String",
+            "description": "Ontology copyright"
+        },
+        "description": {
+            "type": "String",
+            "description": "Human readable description of Ontology"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "licence": {
+            "type": "String",
+            "description": "Ontology licence"
+        },
+        "ontologyDbId": {
+            "type": "String",
+            "description": "Ontology database unique identifier"
+        },
+        "ontologyName": {
+            "type": "String",
+            "description": "Ontology name"
+        },
+        "version": {
+            "type": "String",
+            "description": "Ontology version (no specific format)"
+        },
+        "additionalInfo_ID": "String",
+        "ontologyReference_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontology",
+            "target": "additionalinfo",
+            "targetKey": "ontology_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "ontology",
+            "targetStorageType": "sql"
+        },
+        "ontologyReference": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "ontology",
+            "target": "ontologyreference",
+            "targetKey": "ontology_ID",
+            "sourceKey": "ontologyReference_ID",
+            "keysIn": "ontology",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "ontologyDbId"
+}

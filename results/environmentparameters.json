@@ -1,0 +1,52 @@
+{
+    "model": "environmentparameters",
+    "storageType": "sql",
+    "attributes": {
+        "description": {
+            "type": "String",
+            "description": "Human-readable value of the environment parameter (defined above) constant within the experiment"
+        },
+        "environmentParametersDbId": {
+            "type": "String",
+            "description": "Human-readable value of the environment parameter (defined above) constant within the experiment"
+        },
+        "parameterName": {
+            "type": "String",
+            "description": "Name of the environment parameter constant within the experiment\n\nMIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. "
+        },
+        "parameterPUI": {
+            "type": "String",
+            "description": "URI pointing to an ontology class for the parameter"
+        },
+        "unit": {
+            "type": "String",
+            "description": "Unit of the value for this parameter"
+        },
+        "unitPUI": {
+            "type": "String",
+            "description": "URI pointing to an ontology class for the unit"
+        },
+        "value": {
+            "type": "String",
+            "description": "Numerical or categorical value\n\nMIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment."
+        },
+        "valuePUI": {
+            "type": "String",
+            "description": "URI pointing to an ontology class for the parameter value"
+        },
+        "study_ID": "String"
+    },
+    "associations": {
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "environmentParameters",
+            "target": "study",
+            "targetKey": "environmentParameters_IDs",
+            "sourceKey": "study_ID",
+            "keysIn": "environmentparameters",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "environmentParametersDbId"
+}

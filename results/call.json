@@ -1,0 +1,76 @@
+{
+    "model": "call",
+    "storageType": "sql",
+    "attributes": {
+        "genotypeValue": {
+            "type": "String",
+            "description": "The value of this genotype call"
+        },
+        "phaseSet": {
+            "type": "String",
+            "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string."
+        },
+        "callDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "additionalInfo_ID": "String",
+        "callSet_ID": "String",
+        "genotypeMetadata_IDs": "[ String ]",
+        "variant_ID": "String",
+        "variantSet_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "call",
+            "target": "additionalinfo",
+            "targetKey": "call_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "call",
+            "targetStorageType": "sql"
+        },
+        "callSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "calls",
+            "target": "callset",
+            "targetKey": "calls_IDs",
+            "sourceKey": "callSet_ID",
+            "keysIn": "call",
+            "targetStorageType": "sql"
+        },
+        "genotypeMetadata": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "call",
+            "target": "genotypemetadata",
+            "targetKey": "call_ID",
+            "sourceKey": "genotypeMetadata_IDs",
+            "keysIn": "call",
+            "targetStorageType": "sql"
+        },
+        "variant": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "calls",
+            "target": "variant",
+            "targetKey": "calls_IDs",
+            "sourceKey": "variant_ID",
+            "keysIn": "call",
+            "targetStorageType": "sql"
+        },
+        "variantSet": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "calls",
+            "target": "variantset",
+            "targetKey": "calls_IDs",
+            "sourceKey": "variantSet_ID",
+            "keysIn": "call",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "callDbId"
+}

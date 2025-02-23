@@ -1,0 +1,36 @@
+{
+    "model": "pollinationevent",
+    "storageType": "sql",
+    "attributes": {
+        "pollinationNumber": {
+            "type": "String",
+            "description": "The unique identifier for this pollination event"
+        },
+        "pollinationSuccessful": {
+            "type": "String",
+            "description": "True if the pollination was successful"
+        },
+        "pollinationTimeStamp": {
+            "type": "String",
+            "description": "The timestamp when the pollination took place"
+        },
+        "pollinationEventDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "cross_ID": "String"
+    },
+    "associations": {
+        "cross": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pollinationEvents",
+            "target": "cross",
+            "targetKey": "pollinationEvents_IDs",
+            "sourceKey": "cross_ID",
+            "keysIn": "pollinationevent",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "pollinationEventDbId"
+}
