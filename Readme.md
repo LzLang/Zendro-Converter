@@ -66,12 +66,12 @@ The Python script is located in the main folder (`converter.py`).
 
 The script is executed via the command line with required and optional arguments:
 
-### Required Arguments
+#### Required Arguments
 
 - `-i`, `--input-path`: Path to the directory containing BrAPI JSON schemas.
 - `-o`, `--output-path`: Path to the directory where the converted Zendro models will be saved.
 
-### Optional Arguments
+#### Optional Arguments
 
 - `-s`, `--storage-type`: Specifies the storage type for the model.<br />Default: `sql`. Options include:
   - `sql`, `generic`, `zendro-server`, `cassandra`, `mongodb`, `neo4j`, `presto/trino`, `amazon-s3`
@@ -893,20 +893,20 @@ All associations/relationships are defined after Zendro's [paired-end foreign ke
 
 ## Program Workflow
 
-### Main Execution (`main()`)
+#### Main Execution (`main()`)
 
 This is the main function of the script.<br />
 Calls functions to locate JSON schema files, extract models, process their properties, and generate output files.
 
 ---
 
-### File Handling (`get_files(input_path)`)
+#### File Handling (`get_files(input_path)`)
 
 Recursively searches the input directory for .json files and returns a list of valid file paths.
 
 ---
 
-### Model Extraction (`get_models(input_files)`)
+#### Model Extraction (`get_models(input_files)`)
 
 - Reads JSON files and extracts models from the `$defs` section.
 - Filters out incompatible models, such as `enum` types.
@@ -914,7 +914,7 @@ Recursively searches the input directory for .json files and returns a list of v
 
 ---
 
-### Property Conversion (`get_properties(models)`)
+#### Property Conversion (`get_properties(models)`)
 
 - Converts BrAPI properties into Zendro-compatible attributes and associations.
 - Determines primary key settings based on user input or schema patterns (´DbId´).
@@ -922,28 +922,28 @@ Recursively searches the input directory for .json files and returns a list of v
 
 ---
 
-### Association Handling (`get_reverse_association(association)`)
+#### Association Handling (`get_reverse_association(association)`)
 
 - Maps BrAPI relationship types (´one-to-many´, ´many-to-one´, etc.) to Zendro format (´one_to_many´, ´many_to_one´, etc).
 - Ensures, that bidirectional associations are properly defined.
 
 ---
 
-### Property Type Conversion (`get_property_type(input_property)`)
+#### Property Type Conversion (`get_property_type(input_property)`)
 
 - Matches BrAPI types (´string´, ´integer´, ´boolean´, ´number´) with Zendro-compatible types (´String´, ´Int´, ´Boolean´, ´Float´).
 - Supports array definitions (and nested properties).
 
 ---
 
-### Output Generation (`write_json(output_models)`)
+#### Output Generation (`write_json(output_models)`)
 
 - Formats converted models into JSON files with a standard Zendro structure.
 - Saves the files in the specified output directory.
 
 ---
 
-### Logging (`log(msg)`)
+#### Logging (`log(msg)`)
 
 Logs errors and warnings in ´Log.txt´, recording timestamps.
 
