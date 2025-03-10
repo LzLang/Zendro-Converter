@@ -1,0 +1,43 @@
+{
+    "model": "testallof",
+    "storageType": "sql",
+    "attributes": {
+        "relationshipTest_IDs": "[ String ]",
+        "description": {
+            "type": "String",
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        "testAllOfDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "normalSchemaDbId": {
+            "type": "String",
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        "TestRelationship_ID": "String"
+    },
+    "associations": {
+        "relationshipTest": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "relationshipManyToMany",
+            "target": "relationshiptest",
+            "targetKey": "relationshipManyToMany_IDs",
+            "sourceKey": "relationshipTest_IDs",
+            "keysIn": "testallof",
+            "targetStorageType": "sql"
+        },
+        "TestRelationship": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "relationshipWithTypeAndReference",
+            "target": "relationshiptest",
+            "targetKey": "relationshipWithTypeAndReference_ID",
+            "sourceKey": "TestRelationship_ID",
+            "keysIn": "testallof",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "testAllOfDbId"
+}

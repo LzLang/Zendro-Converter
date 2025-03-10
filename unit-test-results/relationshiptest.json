@@ -1,0 +1,50 @@
+{
+    "model": "relationshiptest",
+    "storageType": "sql",
+    "attributes": {
+        "description": {
+            "type": "String",
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        "TestDbId": {
+            "type": "String",
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        "relationshipWithType_ID": "String",
+        "relationshipWithTypeAndReference_ID": "String",
+        "relationshipManyToMany_IDs": "[ String ]"
+    },
+    "associations": {
+        "relationshipWithType": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "relationshipTest",
+            "target": "normalschema",
+            "targetKey": "relationshipTest_ID",
+            "sourceKey": "relationshipWithType_ID",
+            "keysIn": "relationshiptest",
+            "targetStorageType": "sql"
+        },
+        "relationshipWithTypeAndReference": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "TestRelationship",
+            "target": "normalschema",
+            "targetKey": "TestRelationship_ID",
+            "sourceKey": "relationshipWithTypeAndReference_ID",
+            "keysIn": "relationshiptest",
+            "targetStorageType": "sql"
+        },
+        "relationshipManyToMany": {
+            "type": "many_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "relationshipTest",
+            "target": "testallof",
+            "targetKey": "relationshipTest_IDs",
+            "sourceKey": "relationshipManyToMany_IDs",
+            "keysIn": "relationshiptest",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "TestDbId"
+}
