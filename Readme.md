@@ -14,6 +14,7 @@ Chapters:
   - [Regular example](#regular-example)
   - [Custom primary key and type](#custom-primary-key-and-type)
   - [Associations](#associations)
+  - [JSON-Schema Requirements](#json-schema-requirements)
 - [Program Workflow](#program-workflow)
   - [Main Execution (`main()`)](#main-execution-main)
   - [File Handling (`get_files(input_path)`)](#file-handling-get_filesinput_path)
@@ -57,10 +58,11 @@ Install the project with git
 ```bash
   git clone https://github.com/LzLang/Zendro-Converter.git
 ```
-The Python script is located in the main folder (`converter.py`).
+The Python script is located in the main folder (`converter.py`).<br />The entire conversion process is handled by the `converter.py` script. No additional scripts or tools are required. <br /><br />
+**Latest JSON Schemas**: The latest BrAPI schemas can be found in the official repository: [BrAPI JSON Schemas](https://github.com/plantbreeding/BrAPI/tree/data-model-separation/Specification/BrAPI-Schema) <br />
+(BrAPI-Common, BrAPI-Core, BrAPI-Genotyping, BrAPI-Germplasm, BrAPI-Phenotyping) <br /><br />Brapi-GitHub Page: [BrAPI](https://github.com/plantbreeding/BrAPI/tree/brapi-V2.1)
 
 ---
-
  
 ## Usage/Examples
 
@@ -891,6 +893,22 @@ All associations/relationships are defined after Zendro's [paired-end foreign ke
 
 ---
 
+#### JSON-Schema Requirements
+
+- **Relationship Type Specification**<br />The schema must explicitly define the `relationshipType` for all entity relationships.<br />This ensures proper linking and translation into the Zendro-compatible format. <br />If you don't define a `relationshipType`, you'll receive the following output: <br />`[Model]:	[Attribute] - No relationshipType!`.<br />E.g. `relationshipWithoutAnything` from [RelationshipTest.json](unit-test/RelationshipTest.json) will be ignored while conversion, see [relationshiptest.json](unit-test-results/relationshiptest.json).
+- **Flattened Structure**<br />Since Zendro does not support deeply nested objects, all complex structures should be flattened, with associations maintaining the relationships between entities.
+- **Enum Limitations**<br />The converter currently does not support for certain enums (e.g. LINK). <br />If you'll use a enum regardless, you'll receive the following output:<br /> `[Model]	-	Is an enum and is not supported!`
+- **Primary key**<br />The converter will handle the primary key if you define a custom one in the schemas or forgott it at all.
+	- Custom<br />Input: [RelationshipTest.json](unit-test/RelationshipTest.json)<br />Output: [relationshiptest.json](unit-test-results/relationshiptest.json)
+ 	- Forgotten<br />Input: [testAllOf.json](unit-test/TestAllOf.json) Test<br />Output: [testallof.json](unit-test-results/testallof.json)
+- **Consistent Naming Conventions** (Not required)<br />Field names should follow a consistent naming pattern to avoid conflicts and ensure a smooth transformation process.
+
+Test files for a better overview: [Unit-test](unit-test)
+
+Output after using the converter: [Unit-test-results](unit-test-results)
+
+---
+
 ## Program Workflow
 
 #### Main Execution (`main()`)
@@ -917,21 +935,21 @@ Recursively searches the input directory for .json files and returns a list of v
 #### Property Conversion (`get_properties(models)`)
 
 - Converts BrAPI properties into Zendro-compatible attributes and associations.
-- Determines primary key settings based on user input or schema patterns (´DbId´).
-- Handles ´oneOf´ and ´allOf´ definitions by integrating properties from referenced models.
+- Determines primary key settings based on user input or schema patterns (`DbId`).
+- Handles `oneOf` and `allOf` definitions by integrating properties from referenced models.<br />Example `allOf`:<br />&nbsp;&nbsp;Input: [TestAllOf.json](unit-test/TestAllOf.json)<br />&nbsp;&nbsp;Output: [testallof.json](unit-test-results/testallof.json)
 
 ---
 
 #### Association Handling (`get_reverse_association(association)`)
 
-- Maps BrAPI relationship types (´one-to-many´, ´many-to-one´, etc.) to Zendro format (´one_to_many´, ´many_to_one´, etc).
+- Maps BrAPI relationship types (`one-to-many`, `many-to-one`, etc.) to Zendro format (`one_to_many`, `many_to_one`, etc).
 - Ensures, that bidirectional associations are properly defined.
 
 ---
 
 #### Property Type Conversion (`get_property_type(input_property)`)
 
-- Matches BrAPI types (´string´, ´integer´, ´boolean´, ´number´) with Zendro-compatible types (´String´, ´Int´, ´Boolean´, ´Float´).
+- Matches BrAPI types (`string`, `integer`, `boolean`, `number`) with Zendro-compatible types (`String`, `Int`, `Boolean`, `Float`).
 - Supports array definitions (and nested properties).
 
 ---
@@ -945,27 +963,27 @@ Recursively searches the input directory for .json files and returns a list of v
 
 #### Logging (`log(msg)`)
 
-Logs errors and warnings in ´Log.txt´, recording timestamps.
+Logs errors and warnings in `Log.txt`, recording timestamps.
 
 ---
 
 ## Error Handling
 
-- Uses ´try-except´ blocks to catch file access errors (´OSError´), JSON parsing errors, and unexpected exceptions.
-- Logs relevant information to ´Log.txt´ for debugging (including timestamp)
-- Exits program in case of critical failures using ´sys.exit(1)´.
+- Uses `try-except` blocks to catch file access errors (`OSError`), JSON parsing errors, and unexpected exceptions.
+- Logs relevant information to `Log.txt` for debugging (including timestamp)
+- Exits program in case of critical failures using `sys.exit(1)`.
 
 ---
 
 ## Notes
 
 - Excludes models with unsopported types (e.g. enum).
-- Handles ´oneOf´ properties interactively, prompting user input.
+- Handles `oneOf` properties interactively, prompting user input.
 - Supports multiple storage backends with configurable options.
 
 ---
 
 ## Possible Improvements
 
-- Automatic handling of ´oneOf´ properties without user input. <br /> This can be implemented, for example, by using command line arguments to decide in advance whether the program should select automatically or whether user input should be required.
+- Automatic handling of `oneOf` properties without user input. <br /> This can be implemented, for example, by using command line arguments to decide in advance whether the program should select automatically or whether user input should be required.
 - Enhanced error reporting with detailed exception tracking.
