@@ -900,7 +900,7 @@ All associations/relationships are defined after Zendro's [paired-end foreign ke
 - **Enum Limitations**<br />The converter currently does not support for certain enums (e.g. LINK). <br />If you'll use a enum regardless, you'll receive the following output:<br /> `[Model]	-	Is an enum and is not supported!`
 - **Primary key**<br />The converter will handle the primary key if you define a custom one in the schemas or forgott it at all.
 	- Custom<br />Input: [RelationshipTest.json](unit-test/RelationshipTest.json)<br />Output: [relationshiptest.json](unit-test-results/relationshiptest.json)
- 	- Forgotten<br />Input: [testAllOf.json](unit-test/TestAllOf.json) Test<br />Output: [testallof.json](unit-test-results/testallof.json)
+ 	- Forgotten<br />Input: [TestAllOf.json](unit-test/TestAllOf.json) Test<br />Output: [testallof.json](unit-test-results/testallof.json)
 - **Consistent Naming Conventions** (Not required)<br />Field names should follow a consistent naming pattern to avoid conflicts and ensure a smooth transformation process.
 
 Test files for a better overview: [Unit-test](unit-test)
