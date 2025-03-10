@@ -27,6 +27,8 @@ Chapters:
 - [Error Handling](#error-handling)
 - [Notes](#notes)
 - [Possible Improvements](#possible-improvements)
+- [BrAPI](#brapi)
+- [Zendro](#zendro)
 
 ---
 
@@ -987,3 +989,19 @@ Logs errors and warnings in `Log.txt`, recording timestamps.
 
 - Automatic handling of `oneOf` properties without user input. <br /> This can be implemented, for example, by using command line arguments to decide in advance whether the program should select automatically or whether user input should be required.
 - Enhanced error reporting with detailed exception tracking.
+
+---
+
+## BrAPI
+
+BrAPI (Breeding API) is a standardized programming interface designed to facilitate data exchange in plant breeding and genetic research. It provides standardized endpoints to efficiently retrieve and share data such as genetic markers, phenotypes, genotypes, and metadata. <br />
+[BrAPI](https://brapi.org/)<br />
+[GitHub](https://github.com/plantbreeding/BrAPI)
+
+---
+
+## Zendro
+
+Zendro is a software tool for building data warehouses based on custom data models. It automatically generates an intuitive user interface and a powerful GraphQL API, enabling CRUD operations (Create, Read, Update, and Delete) across distributed databases. <br />
+[Zendro](https://zendro-dev.github.io/)<br />
+[GitHub](https://github.com/Zendro-dev/zendro)
