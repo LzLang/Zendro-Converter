@@ -1,0 +1,23 @@
+{
+    "$defs": {
+        "TestAllOf": {
+            "allOf": [
+                {
+                    "$ref": "NormalSchema"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+							"description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+							"type": [
+								"null",
+								"string"
+							]
+						}
+                    }
+                }
+            ]
+        }
+    }
+}
