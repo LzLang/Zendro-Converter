@@ -1,0 +1,50 @@
+{
+    "$defs": {
+        "RelationshipTest": {
+            "properties": {
+                "description": {
+                    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "relationshipWithoutAnything": {
+                    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                    "$ref": "NormalSchema"
+                },
+				"relationshipWithType": {
+                    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                    "$ref": "NormalSchema",
+					"relationshipType": "one-to-one"
+                },
+				"relationshipWithTypeAndReference": {
+                    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                    "$ref": "NormalSchema",
+					"referencedAttribute": "TestRelationship",
+					"relationshipType": "one-to-one"
+                },
+				"relationshipManyToMany": {
+                    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "TestAllOf"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "TestId": {
+                    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TestId"
+            ],
+            "title": "RelationshipTest",
+            "type": "object"
+        }
+    }
+}
