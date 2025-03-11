@@ -1,0 +1,44 @@
+{
+    "model": "pagination",
+    "storageType": "sql",
+    "attributes": {
+        "dimension": {
+            "type": "String",
+            "description": "The dimension of the matrix being paginated"
+        },
+        "page": {
+            "type": "String",
+            "description": "the requested page number (zero indexed)"
+        },
+        "pageSize": {
+            "type": "String",
+            "description": "the maximum number of elements per page in this dimension of the matrix"
+        },
+        "totalCount": {
+            "type": "String",
+            "description": "The total number of elements that are available on the server and match the requested query parameters."
+        },
+        "totalPages": {
+            "type": "String",
+            "description": "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br/>totalPages = CEILING( totalCount / requested_page_size)"
+        },
+        "paginationDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "alleleMatrix_ID": "String"
+    },
+    "associations": {
+        "alleleMatrix": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "pagination",
+            "target": "allelematrix",
+            "targetKey": "pagination_IDs",
+            "sourceKey": "alleleMatrix_ID",
+            "keysIn": "pagination",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "paginationDbId"
+}

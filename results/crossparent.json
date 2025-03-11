@@ -1,0 +1,35 @@
+{
+    "model": "crossparent",
+    "storageType": "sql",
+    "attributes": {
+        "crossParentDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "germplasm_ID": "String",
+        "observationUnit_ID": "String"
+    },
+    "associations": {
+        "germplasm": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "crossParent",
+            "target": "germplasm",
+            "targetKey": "crossParent_ID",
+            "sourceKey": "germplasm_ID",
+            "keysIn": "crossparent",
+            "targetStorageType": "sql"
+        },
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "crossParent",
+            "target": "observationunit",
+            "targetKey": "crossParent_IDs",
+            "sourceKey": "observationUnit_ID",
+            "keysIn": "crossparent",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "crossParentDbId"
+}

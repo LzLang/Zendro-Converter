@@ -1,0 +1,32 @@
+{
+    "model": "synonym",
+    "storageType": "sql",
+    "attributes": {
+        "synonym": {
+            "type": "String",
+            "description": "Alternative name or ID used to reference this germplasm"
+        },
+        "type": {
+            "type": "String",
+            "description": "A descriptive classification for this synonym"
+        },
+        "synonymDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "germplasm_ID": "String"
+    },
+    "associations": {
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "synonyms",
+            "target": "germplasm",
+            "targetKey": "synonyms_IDs",
+            "sourceKey": "germplasm_ID",
+            "keysIn": "synonym",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "synonymDbId"
+}

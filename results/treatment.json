@@ -1,0 +1,32 @@
+{
+    "model": "treatment",
+    "storageType": "sql",
+    "attributes": {
+        "factor": {
+            "type": "String",
+            "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
+        },
+        "modality": {
+            "type": "String",
+            "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. "
+        },
+        "treatmentDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "observationUnit_ID": "String"
+    },
+    "associations": {
+        "observationUnit": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "treatments",
+            "target": "observationunit",
+            "targetKey": "treatments_IDs",
+            "sourceKey": "observationUnit_ID",
+            "keysIn": "treatment",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "treatmentDbId"
+}

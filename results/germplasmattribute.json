@@ -1,0 +1,154 @@
+{
+    "model": "germplasmattribute",
+    "storageType": "sql",
+    "attributes": {
+        "germplasmAttributeDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "attributeCategory": {
+            "type": "String",
+            "description": "General category for the attribute. very similar to Trait class."
+        },
+        "attributeDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies this attribute within the given database server"
+        },
+        "attributeName": {
+            "type": "String",
+            "description": "A human readable name for this attribute"
+        },
+        "attributePUI": {
+            "type": "String",
+            "description": "The Permanent Unique Identifier of an Attribute, usually in the form of a URI"
+        },
+        "attributeDescription": {
+            "type": "String",
+            "description": "A human readable description of this attribute"
+        },
+        "commonCropName": {
+            "type": "String",
+            "description": "Crop name (examples: \"Maize\", \"Wheat\")"
+        },
+        "contextOfUse": {
+            "type": "String",
+            "description": "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+        },
+        "defaultValue": {
+            "type": "String",
+            "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)"
+        },
+        "documentationURL": {
+            "type": "String",
+            "description": "A URL to the human readable documentation of an object"
+        },
+        "growthStage": {
+            "type": "String",
+            "description": "Growth stage at which measurement is made (examples: \"flowering\")"
+        },
+        "institution": {
+            "type": "String",
+            "description": "Name of institution submitting the variable"
+        },
+        "language": {
+            "type": "String",
+            "description": "2 letter ISO 639-1 code for the language of submission of the variable."
+        },
+        "scientist": {
+            "type": "String",
+            "description": "Name of scientist submitting the variable."
+        },
+        "status": {
+            "type": "String",
+            "description": "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
+        },
+        "submissionTimestamp": {
+            "type": "String",
+            "description": "Timestamp when the Variable was added (ISO 8601)"
+        },
+        "synonyms": {
+            "type": "String",
+            "description": "Other variable names"
+        },
+        "attributeValues_IDs": "[ String ]",
+        "additionalInfo_ID": "String",
+        "externalReferences_IDs": "[ String ]",
+        "method_ID": "String",
+        "ontologyReference_ID": "String",
+        "scale_ID": "String",
+        "trait_ID": "String"
+    },
+    "associations": {
+        "attributeValues": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "attribute",
+            "target": "germplasmattributevalue",
+            "targetKey": "attribute_ID",
+            "sourceKey": "attributeValues_IDs",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        },
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttribute",
+            "target": "additionalinfo",
+            "targetKey": "germplasmAttribute_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttribute",
+            "target": "externalreference",
+            "targetKey": "germplasmAttribute_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        },
+        "method": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttribute",
+            "target": "method",
+            "targetKey": "germplasmAttribute_ID",
+            "sourceKey": "method_ID",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        },
+        "ontologyReference": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttribute",
+            "target": "ontologyreference",
+            "targetKey": "germplasmAttribute_ID",
+            "sourceKey": "ontologyReference_ID",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        },
+        "scale": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttribute",
+            "target": "scale",
+            "targetKey": "germplasmAttribute_ID",
+            "sourceKey": "scale_ID",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        },
+        "trait": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttribute",
+            "target": "trait",
+            "targetKey": "germplasmAttribute_ID",
+            "sourceKey": "trait_ID",
+            "keysIn": "germplasmattribute",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "germplasmAttributeDbId"
+}

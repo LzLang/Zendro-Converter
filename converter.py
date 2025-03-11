@@ -197,9 +197,7 @@ def get_properties(models):
     # For loop over all models
     for current_model in models:
         # Check if there is a custom primary key defined
-        if args.primary_key_name:
-            primary_key = args.primary_key_name
-        elif f'{current_model[0].lower() + current_model[1:]}DbId' not in models[current_model]["properties"]:
+        if f'{current_model[0].lower() + current_model[1:]}DbId' not in models[current_model]["properties"]:
             # Re expression to search for DbId
             if any(re.search("DbId$", re_property) for re_property in models[current_model]["properties"]):
                 primary_key = next((key for key in models[current_model]["properties"] if re.search(r"DbId\b", key)), None)
@@ -218,10 +216,20 @@ def get_properties(models):
         else:
             primary_key = f"{current_model[0].lower() + current_model[1:]}DbId"
 
+        if args.primary_key_name:
+            models[current_model]["properties"][args.primary_key_name] \
+                = models[current_model]["properties"].pop(primary_key)
+            primary_key = args.primary_key_name
+
+        if args.primary_key_type:
+            primary_key_type = args.primary_key_type
+        else:
+            primary_key_type = models[current_model]["properties"][primary_key]["Type"]
+
         # Save primary key information about the model
         models[current_model]["primary_key"] = {
             "Name": primary_key,
-            "Type": args.primary_key_type
+            "Type": primary_key_type
         }
 
         # allOf -> include properties of referenced model

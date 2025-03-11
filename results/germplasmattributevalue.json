@@ -1,0 +1,65 @@
+{
+    "model": "germplasmattributevalue",
+    "storageType": "sql",
+    "attributes": {
+        "attributeValueDbId": {
+            "type": "String",
+            "description": "The ID which uniquely identifies this attribute value within the given database server"
+        },
+        "determinedDate": {
+            "type": "String",
+            "description": "The date the value of this attribute was determined for a given germplasm"
+        },
+        "value": {
+            "type": "String",
+            "description": "The value of this attribute for a given germplasm"
+        },
+        "additionalInfo_ID": "String",
+        "attribute_ID": "String",
+        "externalReferences_IDs": "[ String ]",
+        "germplasm_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttributeValue",
+            "target": "additionalinfo",
+            "targetKey": "germplasmAttributeValue_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "germplasmattributevalue",
+            "targetStorageType": "sql"
+        },
+        "attribute": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "attributeValues",
+            "target": "germplasmattribute",
+            "targetKey": "attributeValues_IDs",
+            "sourceKey": "attribute_ID",
+            "keysIn": "germplasmattributevalue",
+            "targetStorageType": "sql"
+        },
+        "externalReferences": {
+            "type": "one_to_many",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasmAttributeValue",
+            "target": "externalreference",
+            "targetKey": "germplasmAttributeValue_ID",
+            "sourceKey": "externalReferences_IDs",
+            "keysIn": "germplasmattributevalue",
+            "targetStorageType": "sql"
+        },
+        "germplasm": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "attributeValues",
+            "target": "germplasm",
+            "targetKey": "attributeValues_IDs",
+            "sourceKey": "germplasm_ID",
+            "keysIn": "germplasmattributevalue",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "attributeValueDbId"
+}

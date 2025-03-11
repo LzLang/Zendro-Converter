@@ -1,0 +1,32 @@
+{
+    "model": "lastupdate",
+    "storageType": "sql",
+    "attributes": {
+        "lastUpdateDbId": {
+            "type": "String",
+            "description": "The date and time when this study was last modified"
+        },
+        "timestamp": {
+            "type": "String",
+            "description": ""
+        },
+        "version": {
+            "type": "String",
+            "description": ""
+        },
+        "study_ID": "String"
+    },
+    "associations": {
+        "study": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "lastUpdate",
+            "target": "study",
+            "targetKey": "lastUpdate_IDs",
+            "sourceKey": "study_ID",
+            "keysIn": "lastupdate",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "lastUpdateDbId"
+}

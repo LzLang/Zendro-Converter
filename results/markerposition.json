@@ -1,0 +1,54 @@
+{
+    "model": "markerposition",
+    "storageType": "sql",
+    "attributes": {
+        "linkageGroupName": {
+            "type": "String",
+            "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable."
+        },
+        "position": {
+            "type": "String",
+            "description": "The position of a marker or variant within a `LinkageGroup`"
+        },
+        "markerPositionDbId": {
+            "type": "String",
+            "description": ""
+        },
+        "additionalInfo_ID": "String",
+        "map_ID": "String",
+        "variant_ID": "String"
+    },
+    "associations": {
+        "additionalInfo": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "markerPosition",
+            "target": "additionalinfo",
+            "targetKey": "markerPosition_ID",
+            "sourceKey": "additionalInfo_ID",
+            "keysIn": "markerposition",
+            "targetStorageType": "sql"
+        },
+        "map": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "markerPositions",
+            "target": "genomemap",
+            "targetKey": "markerPositions_IDs",
+            "sourceKey": "map_ID",
+            "keysIn": "markerposition",
+            "targetStorageType": "sql"
+        },
+        "variant": {
+            "type": "many_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "markerPositions",
+            "target": "variant",
+            "targetKey": "markerPositions_IDs",
+            "sourceKey": "variant_ID",
+            "keysIn": "markerposition",
+            "targetStorageType": "sql"
+        }
+    },
+    "internalId": "markerPositionDbId"
+}
