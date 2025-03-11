@@ -97,7 +97,6 @@
         },
         "additionalInfo_ID": "String",
         "breedingMethod_ID": "String",
-        "pedigreeNode_ID": "String",
         "donors_IDs": "[ String ]",
         "externalReferences_IDs": "[ String ]",
         "germplasmOrigin_IDs": "[ String ]",
@@ -113,6 +112,7 @@
         "observationUnits_IDs": "[ String ]",
         "reference_ID": "String",
         "referenceSet_ID": "String",
+        "pedigreeNode_ID": "String",
         "contentMixture_IDs": "[ String ]"
     },
     "associations": {
@@ -143,16 +143,6 @@
             "target": "breedingmethod",
             "targetKey": "germplasm_IDs",
             "sourceKey": "breedingMethod_ID",
-            "keysIn": "germplasm",
-            "targetStorageType": "sql"
-        },
-        "pedigreeNode": {
-            "type": "one_to_one",
-            "implementation": "foreignkeys",
-            "reverseAssociation": "germplasm",
-            "target": "pedigreenode",
-            "targetKey": "germplasm_ID",
-            "sourceKey": "pedigreeNode_ID",
             "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
@@ -303,6 +293,16 @@
             "target": "referenceset",
             "targetKey": "sourceGermplasm_IDs",
             "sourceKey": "referenceSet_ID",
+            "keysIn": "germplasm",
+            "targetStorageType": "sql"
+        },
+        "pedigreeNode": {
+            "type": "one_to_one",
+            "implementation": "foreignkeys",
+            "reverseAssociation": "germplasm",
+            "target": "pedigreenode",
+            "targetKey": "germplasm_ID",
+            "sourceKey": "pedigreeNode_ID",
             "keysIn": "germplasm",
             "targetStorageType": "sql"
         },
