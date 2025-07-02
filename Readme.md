@@ -2,6 +2,8 @@
   <img src="TH_Logo.png" alt="Mein Bild" width="400"/>
 </p>
 
+---
+
 # Zendro model converter
 
 This project was developed by a student at the Technical University of Bingen.<br />
